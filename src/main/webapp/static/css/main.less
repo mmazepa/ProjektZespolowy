@@ -1,0 +1,80 @@
+// out: main.css
+
+@width: 500px;
+@editorBorder: 2px inset green;
+@editorBorderRadius: 25px;
+@headFootLine: 50px;
+
+body {
+  background-color: red;
+}
+
+header, footer {
+  background-color: black;
+  color: white;
+  height: @headFootLine;
+  line-height: @headFootLine;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+header, main, footer {
+  .center;
+}
+
+header {
+  top: @headFootLine / 2;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  margin-top: @headFootLine;
+  width: @width;
+}
+
+footer {
+  bottom: -@headFootLine / 2;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#underRow {
+  width: @width;
+  .center;
+  transform: translateX(-15px);
+}
+
+.mainEditor {
+  clear: left;
+  .min-size(@width - 25, @width / 2);
+  .max-size(@width - 25, @width / 2);
+  border: @editorBorder;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bold {
+  font-weight: bold;
+}
+.size(@width, @height){
+  width: @width;
+  height: @height;
+}
+
+.min-size(@width, @height){
+  min-width: @width;
+  min-height: @height;
+}
+
+.max-size(@width, @height){
+  max-width: @width;
+  max-height: @height;
+}

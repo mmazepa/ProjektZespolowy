@@ -1,0 +1,57 @@
+body {
+  background-color: red;
+}
+header,
+footer {
+  background-color: black;
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
+header,
+main,
+footer {
+  margin-left: auto;
+  margin-right: auto;
+}
+header {
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main {
+  margin-top: 50px;
+  width: 500px;
+}
+footer {
+  bottom: -25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#underRow {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-15px);
+}
+.mainEditor {
+  clear: left;
+  min-width: 475px;
+  min-height: 250px;
+  max-width: 475px;
+  max-height: 250px;
+  border: 2px inset green;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.bold {
+  font-weight: bold;
+}
