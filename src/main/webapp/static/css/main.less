@@ -4,6 +4,11 @@
 @editorBorder: 2px inset green;
 @editorBorderRadius: 25px;
 @headFootLine: 50px;
+@editorAndChatHeight: 350px;
+
+body {
+  width: 100vh;
+}
 
 header, footer {
   background-color: black;
@@ -25,9 +30,54 @@ header {
   transform: translate(-50%, -50%);
 }
 
+#helloUser {
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 5px;
+  .centeredText;
+}
+
 main {
-  margin-top: @headFootLine;
-  width: @width;
+  position: fixed;
+  top: @headFootLine;
+  left: 25px;
+  right: 25px;
+  bottom: @headFootLine;
+}
+
+#indexMain {
+  width: 500px;
+}
+
+.authorization {
+  padding: 25px;
+  background-color: papayawhip;
+  width: 250px;
+  .center;
+  border-radius: 200px;
+  border-top: 2px solid goldenrod;
+  border-bottom: 5px solid darkgoldenrod;
+}
+
+.credentials {
+  margin-bottom: 15px;
+  .size(150px, 30px);
+  border: none;
+  background-color: whitesmoke;
+  text-indent: 10px;
+  border-top: 1px solid silver;
+  border-bottom: 3px solid black;
+  border-radius: 10px;
+}
+
+.credentials:hover {
+  background-color: lighten(silver, 15%);
+  border-top: 1px solid gray;
+  border-bottom: 3px solid lighten(black, 25%);
+}
+
+sup {
+  color: red;
 }
 
 footer {
@@ -51,18 +101,78 @@ footer {
 }
 
 .mainEditor {
-  clear: left;
-  .min-size(@width - 25, @width / 2);
-  .max-size(@width - 25, @width / 2);
+  .min-size(100%, @editorAndChatHeight);
+  .max-size(100%, @editorAndChatHeight);
   border: @editorBorder;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+.chat {
+  background-color: wheat;
+  padding: 10px;
+  border: 1px solid darken(wheat, 50%);
+  border-radius: 10px;
+  .size(100%, @editorAndChatHeight);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#messages {
+  overflow-y: scroll;
+  height: 285px;
+}
+
+#message {
+  width: 110px;
+}
+
+#chatTyping {
+  position: fixed;
+  top: 425px;
+  border-top: 1px dotted red;
+  padding-top: 5px;
+  width: 200px;
+}
+
+#sendMessage {
+  .size(40px, 35px);
+  background-color: brown;
+}
+
+#sendMessage:hover {
+  background-color: lighten(brown, 15%);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:first-child {
+  background-color: whitesmoke;
+  color: darken(darkgray, 25%);
+}
+
+tr:not(:first-child):hover {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.centeredText {
+  text-align: center;
 }
 
 .bold {
