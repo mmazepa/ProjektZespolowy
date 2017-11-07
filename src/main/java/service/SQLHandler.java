@@ -1,4 +1,4 @@
-package com.di.maven.service;
+package service;
 
 import java.sql.*;
 import java.util.Properties;

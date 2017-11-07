@@ -2,21 +2,21 @@ package domain;
 
 public class Account {
 	private int id = 0;
-	private Role role = new Role();
+	private int role = 0;
 	private String nickname = "";
 	private String email = "";
 	private String pass = "";
-	private String registrationdate = "";
+	private String registrationdate = "1970-01-01";
 	private String description = "";
 	private String firstname = "";
 	private String lastname = "";
-	private String dateofbirth = "";
+	private String dateofbirth = "1970-01-01";
 	
 	public Account() {
 		super();
 	}
 	
-	public Account(int id, Role role, String nickname, String email,
+	public Account(int id, int role, String nickname, String email,
 			String pass, String registrationdate, String description,
 			String firstname, String lastname, String dateofbirth) {
 		super();
@@ -40,11 +40,11 @@ public class Account {
 		this.id = id;
 	}
 
-	public Role getRole() {
+	public int getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(int role) {
 		this.role = role;
 	}
 
@@ -88,27 +88,27 @@ public class Account {
 		this.description = description;
 	}
 
-	public String getFirstname() {
+	public String getFirstName() {
 		return firstname;
 	}
 
-	public void setFirstname(String firstname) {
+	public void setFirstName(String firstname) {
 		this.firstname = firstname;
 	}
 
-	public String getLastname() {
+	public String getLastName() {
 		return lastname;
 	}
 
-	public void setLastname(String lastname) {
+	public void setLastName(String lastname) {
 		this.lastname = lastname;
 	}
 
-	public String getDateofbirth() {
+	public String getDateOfBirth() {
 		return dateofbirth;
 	}
 
-	public void setDateofbirth(String dateofbirth) {
+	public void setDateOfBirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
 	
