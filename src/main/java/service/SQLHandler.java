@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class SQLHandler {
 	private Connection connection;
-	private String url = "jdbc:postgresql://localhost:5432/cigbase";
+	private String url = "jdbc:postgresql://localhost:5432/cigarbase";
 
 	private String createTableRole = "CREATE TABLE Role ("
 									+ "id SERIAL PRIMARY KEY, "
@@ -54,30 +54,18 @@ public class SQLHandler {
 										+ "SnapshotDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,"
 										+ "Content TEXT);";
 
-	private String getAllRoleStmt = "SELECT id, RoleName FROM Role;";
-	private String getAllAccountStmt = "SELECT id, AccountRole, NickName, Email, UserPass, RegistrationDate, Description, FirstName, LastName, DateOfBirth FROM Account;";
-	private String getAllWorkgroupStmt = "SELECT id, GroupName, GroupCreationDate, Description, IsPrivate FROM Workgroup;";
-	private String getAllAttendanceStmt = "SELECT id, AttendingGroup, AttendingUser, IsGroupAdmin, JoinDate FROM Attendance;";
-	private String getAllTextFileStmt = "SELECT id, AttendingAuthor, AttendingUser, FileName, FileCreationDate, Description, IsPrivate FROM TextFile;";
-	private String getAllSnapshotStmt = "SELECT id, SnapshotAuthor, AttendingFile, SnapshotName, SnapshotDate, Content FROM Snapshot;";
-
-	private PreparedStatement addCigStmt;
-	private PreparedStatement deleteAllCigStmt;
-	private PreparedStatement deleteCigStmt;
-	private PreparedStatement replaceCigStmt;
-
-	private Statement statement;
+	protected Statement statement;
 
 	public SQLHandler() {
 		try {
 			Properties props = new Properties();
-			props.setProperty("user","fred");
-			props.setProperty("password","secret");
+			props.setProperty("user","postgres");
+			props.setProperty("password","postgres");
 			props.setProperty("ssl","true");
-			connection = DriverManager.getConnection(url, props);
-			statement = connection.createStatement();
+			setConnection(DriverManager.getConnection(url, props));
+			statement = getConnection().createStatement();
 
-			ResultSet rs = connection.getMetaData().getTables(null, null, null, null);
+			ResultSet rs = getConnection().getMetaData().getTables(null, null, null, null);
 			boolean tableExists = false;
 			while (rs.next()) {
 				if ("cigbase".equalsIgnoreCase(rs.getString("TABLE_NAME"))) {
@@ -150,20 +138,20 @@ public class SQLHandler {
 
 	// do transakcji
 	public void setAutoCommit(boolean e) throws SQLException {
-		connection.setAutoCommit(e);
+		getConnection().setAutoCommit(e);
 	}
 	public boolean getAutoCommit() throws SQLException {
-		return connection.getAutoCommit();
+		return getConnection().getAutoCommit();
 	}
 	public void doTranBegin() throws SQLException {
 		if (getAutoCommit() == true) setAutoCommit(false);
 	}
 	public void doTranCommit() throws SQLException {
-		connection.commit();
+		getConnection().commit();
 	}
 	public void doTranRollback() {
 		try {
-			connection.rollback();
+			getConnection().rollback();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -176,5 +164,13 @@ public class SQLHandler {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	protected Connection getConnection() {
+		return connection;
+	}
+
+	protected void setConnection(Connection connection) {
+		this.connection = connection;
 	}
 }

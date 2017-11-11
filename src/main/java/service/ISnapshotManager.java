@@ -1,12 +1,15 @@
 
 package service;
+import java.sql.SQLException;
+import java.util.List;
+
 import domain.Snapshot;
 interface ISnapshotManager {
 
-    public void addSnapshot(Snapshot snapshot);
-    public void editSnapshot(int oldSnapshotId, Snapshot newSnapshotData);
-    public void deleteSnapshot(int snapshotId);
-    public void getSnapshot(int snapshotId);
-    public void getAllSnapshots();
+    public void addSnapshot(Snapshot snapshot) throws SQLException, NumberFormatException;
+    public void editSnapshot(int oldSnapshotId, Snapshot newSnapshotData) throws SQLException, NumberFormatException;
+    public void deleteSnapshot(int snapshotId) throws SQLException;
+    public Snapshot getSnapshot(int snapshotId) throws SQLException, NullPointerException;
+    public List<Snapshot> getAllSnapshots() throws SQLException, NullPointerException;
 
 }
