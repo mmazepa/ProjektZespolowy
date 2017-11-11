@@ -36,17 +36,19 @@ main {
   bottom: 50px;
 }
 #indexMain {
-  width: 500px;
+  overflow-y: scroll;
+  width: 100%;
 }
 .authorization {
   padding: 25px;
   background-color: papayawhip;
-  width: 250px;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 200px;
+  border-radius: 100px;
   border-top: 2px solid goldenrod;
   border-bottom: 5px solid darkgoldenrod;
+  margin-bottom: 25px;
 }
 .credentials {
   margin-bottom: 15px;
@@ -127,24 +129,6 @@ footer {
 }
 #sendMessage:hover {
   background-color: #d14a4a;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-tr:first-child {
-  background-color: whitesmoke;
-  color: #696969;
-}
-tr:not(:first-child):hover {
-  background-color: lightgreen;
-  color: darkgreen;
 }
 .center {
   margin-left: auto;

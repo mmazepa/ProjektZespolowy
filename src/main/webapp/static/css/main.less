@@ -46,17 +46,19 @@ main {
 }
 
 #indexMain {
-  width: 500px;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 .authorization {
   padding: 25px;
   background-color: papayawhip;
-  width: 250px;
+  width: 350px;
   .center;
-  border-radius: 200px;
+  border-radius: 100px;
   border-top: 2px solid goldenrod;
   border-bottom: 5px solid darkgoldenrod;
+  margin-bottom: 25px;
 }
 
 .credentials {
@@ -143,27 +145,6 @@ footer {
 
 #sendMessage:hover {
   background-color: lighten(brown, 15%);
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-tr:first-child {
-  background-color: whitesmoke;
-  color: darken(darkgray, 25%);
-}
-
-tr:not(:first-child):hover {
-  background-color: lightgreen;
-  color: darkgreen;
 }
 
 .center {

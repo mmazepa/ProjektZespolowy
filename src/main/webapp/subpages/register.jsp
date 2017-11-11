@@ -6,6 +6,7 @@
 		<meta type="text/html" charset="UTF-8" language="java" />
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link type="text/css" rel="stylesheet" href="../static/css/buttons.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/tables.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="static/javascript/main.js"></script>
 	</head>
@@ -22,14 +23,60 @@
         <!-- REGISTER SECTION -->
         <div class="authorization">
           <form action="editor.jsp">
-            Login <sup>* required</sup><br/>
-            <input class="credentials" type="text" name="login"/><br/>
-            First Name<br/>
-            <input class="credentials" type="text" name="firstname"/><br/>
-            Last Name<br/>
-            <input class="credentials" type="text" name="lastname"/><br/>
-            Password <sup>* required</sup><br/>
-            <input class="credentials" type="password" name="password"/><br/>
+            Enter your data, at least required ones, and press Register button to submit.
+            <table id="registerTable">
+              <tr>
+                <td>Login <sup>* required</sup></td>
+                <td>
+                  <input  class="credentials"
+                          type="text"
+                          name="login"
+                          maxlength="20"
+                          pattern="[A-Za-z]{3,20}"
+                          title="All letters allowed, min 3, max 20."/>
+                </td>
+              </tr>
+              <tr>
+                <td>First Name</td>
+                <td>
+                  <input  class="credentials"
+                          type="text"
+                          name="firstname"
+                          maxlength="20"
+                          pattern="([A-ZĄĆĘŁŃÓŚŻŹ]{1}[a-ząćęłńóśżź]*.{2,20})"
+                          title="First letter uppercase and the rest lowercase, min 3, max 20."/>
+                </td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>
+                  <input  class="credentials"
+                          type="text"
+                          name="lastname"
+                          maxlength="20"
+                          pattern="([A-ZĄĆĘŁŃÓŚŻŹ]{1}[a-ząćęłńóśżź]*.{2,20})"
+                          title="First letter uppercase and the rest lowercase, min 3, max 20."/>
+                </td>
+              </tr>
+              <tr>
+                <td>E-mail Address</td>
+                <td>
+                  <input  class="credentials"
+                          type="email"
+                          name="email"
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                          title="Regular form of e-mail address."/>
+                </td>
+              </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td><input class="credentials" type="date" name="birthdate"/></td>
+              </tr>
+              <tr>
+                <td>Password <sup>* required</sup></td>
+                <td><input class="credentials" type="password" name="password"/></td>
+              </tr>
+            </table>
             <!-- REGISTER BUTTON -->
             <input  id="button"
                     type="submit"
@@ -38,6 +85,7 @@
           </form>
         </div>
 
+        <a href="../index.jsp">back</a>
       </div>
     </main>
     <footer>

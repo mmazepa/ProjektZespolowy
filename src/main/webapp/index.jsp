@@ -19,9 +19,9 @@
         <h3>Welcome to Editor On-Line</h3>
         <hr/>
         <p>
-          We're glad to see you visiting our site! We'll be pleased,
-          if you mind check functionality prepared for you. Log in,
-          if you have an account, or register, if you want to have one.
+          We're glad to see you visiting our site!<br/>
+          We'll be pleased, if you mind check functionality prepared for you.<br/>
+          Log in, if you have an account, or register, if you want to have one.
         </p>
         <br/>
 
@@ -29,7 +29,14 @@
         <div class="authorization">
           <form>
             Login<br/>
-            <input id="login" class="credentials" type="text" name="login"/><br/>
+            <input  id="login"
+                    class="credentials"
+                    type="text"
+                    name="login"
+                    maxlength="20"
+                    pattern="[A-Za-z]{3,20}"
+                    title="All letters allowed, min 3, max 20."/>
+            <br/>
             Password<br/>
             <input id="password" class="credentials" type="password" name="password"/><br/>
             <!-- LOG IN BUTTON -->
@@ -40,7 +47,6 @@
                     onclick="checkCredentials()"/>
           </form>
         </div>
-        <br/>
         <br/>
 
         <p>

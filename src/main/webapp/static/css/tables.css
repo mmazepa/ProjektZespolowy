@@ -1,0 +1,31 @@
+#adminTable {
+  border-collapse: collapse;
+  width: 700px;
+  margin: 0 auto;
+}
+#adminTable tr:first-child {
+  background-color: whitesmoke;
+  color: #696969;
+}
+#adminTable tr:not(:first-child):hover {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+#adminTable th,
+#adminTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+#registerTable {
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border-radius: 25px;
+  text-align: left;
+}
+#registerTable .credentials {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
