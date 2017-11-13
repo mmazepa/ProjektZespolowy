@@ -1,0 +1,44 @@
+// out: chat.css
+
+@chatHeight: 350px;
+
+.chat {
+  background-color: wheat;
+  padding: 10px;
+  border: 1px solid darken(wheat, 50%);
+  border-radius: 10px;
+  .size(100%, @chatHeight);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#messages {
+  overflow-y: scroll;
+  height: 285px;
+}
+
+#message {
+  width: 110px;
+}
+
+#chatTyping {
+  position: fixed;
+  top: 425px;
+  border-top: 1px dotted red;
+  padding-top: 5px;
+  width: 200px;
+}
+
+#sendMessage {
+  .size(40px, 35px);
+  background-color: brown;
+}
+
+#sendMessage:hover {
+  background-color: lighten(brown, 15%);
+}
+
+.size(@width, @height){
+  width: @width;
+  height: @height;
+}

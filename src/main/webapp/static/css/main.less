@@ -1,10 +1,15 @@
 // out: main.css
 
+@import url("authorization.css");
+@import url("buttons.css");
+@import url("tables.css");
+@import url("chat.css");
+
 @width: 500px;
 @editorBorder: 2px inset green;
 @editorBorderRadius: 25px;
 @headFootLine: 50px;
-@editorAndChatHeight: 350px;
+@editorHeight: 350px;
 
 body {
   width: 100vh;
@@ -50,38 +55,6 @@ main {
   width: 100%;
 }
 
-.authorization {
-  padding: 25px;
-  background-color: papayawhip;
-  width: 350px;
-  .center;
-  border-radius: 100px;
-  border-top: 2px solid goldenrod;
-  border-bottom: 5px solid darkgoldenrod;
-  margin-bottom: 25px;
-}
-
-.credentials {
-  margin-bottom: 15px;
-  .size(150px, 30px);
-  border: none;
-  background-color: whitesmoke;
-  text-indent: 10px;
-  border-top: 1px solid silver;
-  border-bottom: 3px solid black;
-  border-radius: 10px;
-}
-
-.credentials:hover {
-  background-color: lighten(silver, 15%);
-  border-top: 1px solid gray;
-  border-bottom: 3px solid lighten(black, 25%);
-}
-
-sup {
-  color: red;
-}
-
 footer {
   bottom: -@headFootLine / 2;
   left: 50%;
@@ -103,48 +76,12 @@ footer {
 }
 
 .mainEditor {
-  .min-size(100%, @editorAndChatHeight);
-  .max-size(100%, @editorAndChatHeight);
+  .min-size(100%, @editorHeight);
+  .max-size(100%, @editorHeight);
   border: @editorBorder;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.chat {
-  background-color: wheat;
-  padding: 10px;
-  border: 1px solid darken(wheat, 50%);
-  border-radius: 10px;
-  .size(100%, @editorAndChatHeight);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#messages {
-  overflow-y: scroll;
-  height: 285px;
-}
-
-#message {
-  width: 110px;
-}
-
-#chatTyping {
-  position: fixed;
-  top: 425px;
-  border-top: 1px dotted red;
-  padding-top: 5px;
-  width: 200px;
-}
-
-#sendMessage {
-  .size(40px, 35px);
-  background-color: brown;
-}
-
-#sendMessage:hover {
-  background-color: lighten(brown, 15%);
 }
 
 .center {
@@ -159,6 +96,7 @@ footer {
 .bold {
   font-weight: bold;
 }
+
 .size(@width, @height){
   width: @width;
   height: @height;
