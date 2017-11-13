@@ -6,7 +6,7 @@
 		<meta type="text/html" charset="UTF-8" language="java" />
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="static/javascript/main.js"></script>
+    <script src="../static/javascript/main.js"></script>
 	</head>
 	<body>
     <header>
@@ -20,13 +20,14 @@
 
         <!-- REGISTER SECTION -->
         <div class="authorization">
-          <form action="editor.jsp">
+          <form action="registerSuccess.jsp" onsubmit="saveInfo()" method="POST">
             Enter your data, at least required ones, and press Register button to submit.
             <table id="registerTable">
               <tr>
                 <td>Login <sup>* required</sup></td>
                 <td>
-                  <input  class="credentials"
+                  <input  id="login"
+                          class="credentials"
                           type="text"
                           name="login"
                           maxlength="20"
@@ -38,7 +39,8 @@
               <tr>
                 <td>First Name</td>
                 <td>
-                  <input  class="credentials"
+                  <input  id="fname"
+                          class="credentials"
                           type="text"
                           name="firstname"
                           maxlength="20"
@@ -49,7 +51,8 @@
               <tr>
                 <td>Last Name</td>
                 <td>
-                  <input  class="credentials"
+                  <input  id="lname"
+                          class="credentials"
                           type="text"
                           name="lastname"
                           maxlength="20"
@@ -60,7 +63,8 @@
               <tr>
                 <td>E-mail Address</td>
                 <td>
-                  <input  class="credentials"
+                  <input  id="email"
+                          class="credentials"
                           type="email"
                           name="email"
                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -69,11 +73,11 @@
               </tr>
               <tr>
                 <td>Date of Birth</td>
-                <td><input class="credentials" type="date" name="birthdate"/></td>
+                <td><input id="birth" class="credentials" type="date" name="birthdate"/></td>
               </tr>
               <tr>
                 <td>Password <sup>* required</sup></td>
-                <td><input class="credentials" type="password" name="password" required/></td>
+                <td><input id="passw" class="credentials" type="password" name="password" required/></td>
               </tr>
             </table>
             <!-- REGISTER BUTTON -->

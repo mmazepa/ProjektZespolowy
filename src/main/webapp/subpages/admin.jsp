@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -21,77 +22,35 @@
         <br/>
         <table id="adminTable">
           <tr>
-            <th>No.</th>
-            <th>Login</th>
+            <th>ID</th>
+            <th>Role</th>
+            <th>Nickname</th>
+            <th>E-mail</th>
+            <th>Password</th>
+            <th>Registration Date</th>
+            <th>Description</th>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Password</th>
+            <th>Date Of Birth</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>user</td>
-            <td>John</td>
-            <td>Brown</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>user2</td>
-            <td>Jack</td>
-            <td>-</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>user3</td>
-            <td>-</td>
-            <td>-</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>user4</td>
-            <td>-</td>
-            <td>-</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>user5</td>
-            <td>Ryszard</td>
-            <td>Kowalski</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>user6</td>
-            <td>-</td>
-            <td>-</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>user7</td>
-            <td>Zdzisław</td>
-            <td>-</td>
-            <td>*****</td>
-            <td><span class="glyphicon glyphicon-pencil"></span></td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
-          </tr>
+          <c:forEach var="account" items="${accounts}">
+      			<tr>
+      				<td><c:out value="${account.getID()}"/></td>
+              <td><c:out value="${account.getRole()}"/></td>
+      				<td><c:out value="${account.getNickname()}"/></td>
+              <td><c:out value="${account.getEmail()}"/></td>
+              <td><c:out value="${account.getPass()}"/></td>
+              <td><c:out value="${account.getRegistrationdate()}"/></td>
+              <td><c:out value="${account.getDescription()}"/></td>
+              <td><c:out value="${account.getFirstName()}"/></td>
+              <td><c:out value="${account.getLastName()}"/></td>
+              <td><c:out value="${account.getDateOfBirth()}"/></td>
+              <td><span class="glyphicon glyphicon-pencil"></span></td>
+              <td><span class="glyphicon glyphicon-remove"></span></td>
+            </tr>
+          </c:forEach>
         </table>
         <br/>
         <a href="../index.jsp">back</a>

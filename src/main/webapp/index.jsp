@@ -56,7 +56,7 @@
         <p>
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="glyphicon glyphicon-chevron-right"></span>
-          <a href="subpages/admin.jsp">[ Administrator panel ]</a>
+          <a href="/accounts">[ Administrator panel ]</a>
           <span class="glyphicon glyphicon-chevron-left"></span>
           <span class="glyphicon glyphicon-chevron-left"></span>
         </p>

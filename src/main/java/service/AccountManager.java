@@ -10,17 +10,17 @@ import domain.Account;
 
 
 public class AccountManager extends SQLHandler implements IAccountManager {
-	
+
 	private String getAllAccountStmt = "SELECT "
 			+ "id, AccountRole, NickName, Email, UserPass, RegistrationDate, "
 			+ "Description, FirstName, LastName, DateOfBirth "
 			+ "FROM Account;";
-	
+
 	private PreparedStatement getAccountByIDStmt;
 	private PreparedStatement deleteAccountStmt;
 	private PreparedStatement addAccountStmt;
 	private PreparedStatement editAccountStmt;
-	
+
 	public AccountManager() {
 		super();
 		try {
@@ -70,7 +70,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  editAccountStmt.setString(7, newAccountData.getFirstName());
 	  editAccountStmt.setString(8, newAccountData.getLastName());
 	  editAccountStmt.setString(9, newAccountData.getDateOfBirth());
-	  
+
 	  editAccountStmt.setInt(10, oldAccountId);
 
 	  editAccountStmt.executeUpdate();
@@ -85,10 +85,10 @@ public class AccountManager extends SQLHandler implements IAccountManager {
   @Override
   public Account getAccount(int accountId) throws SQLException, NullPointerException {
 	  Account p = new Account();
-	  
+
 	  getAccountByIDStmt.setInt(1, accountId);
 	  ResultSet rs = getAccountByIDStmt.executeQuery();
-			
+
 	  rs.next();
 	  p.setID(rs.getInt("id"));
 	  p.setRole(rs.getInt("AccountRole"));
@@ -100,7 +100,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  p.setFirstName(rs.getString("FirstName"));
 	  p.setLastName(rs.getString("LastName"));
 	  p.setDateOfBirth(rs.getString("DateOfBirth"));
-	  
+
 	  return p;
   }
 
@@ -125,5 +125,22 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  }
 	  return cigs;
   }
+
+  public static ArrayList<Account> getAllAccounts2(){
+		Account account1 = new Account(1, 1, "user1", "user1@user.com", "user1pass", "1970-01-01", "user1description", "User", "One", "1970-01-01");
+    Account account2 = new Account(2, 1, "user2", "user2@user.com", "user2pass", "1970-01-01", "user2description", "User", "Two", "1970-01-01");
+    Account account3 = new Account(3, 1, "user3", "user3@user.com", "user3pass", "1970-01-01", "user3description", "User", "Three", "1970-01-01");
+    Account account4 = new Account(4, 1, "user4", "user4@user.com", "user4pass", "1970-01-01", "user4description", "User", "Four", "1970-01-01");
+    Account account5 = new Account(5, 1, "user5", "user5@user.com", "user5pass", "1970-01-01", "user5description", "User", "Five", "1970-01-01");
+
+		ArrayList<Account> accounts = new ArrayList<>();
+		accounts.add(account1);
+		accounts.add(account2);
+		accounts.add(account3);
+		accounts.add(account4);
+		accounts.add(account5);
+
+		return accounts;
+	}
 
 }
