@@ -23,7 +23,6 @@
           We'll be pleased, if you mind check functionality prepared for you.<br/>
           Log in, if you have an account, or register, if you want to have one.
         </p>
-        <br/>
 
         <!-- LOGGING IN SECTION -->
         <div class="authorization">
@@ -46,8 +45,9 @@
                     value="Log In"
                     onclick="checkCredentials()"/>
           </form>
+          <br/>
+          <p id="loginInfo">Hello!</p>
         </div>
-        <br/>
 
         <p>
           Don't have an account? Want one? Just use our

@@ -31,7 +31,8 @@
                           name="login"
                           maxlength="20"
                           pattern="[A-Za-z]{3,20}"
-                          title="All letters allowed, min 3, max 20."/>
+                          title="All letters allowed, min 3, max 20."
+                          required/>
                 </td>
               </tr>
               <tr>
@@ -72,7 +73,7 @@
               </tr>
               <tr>
                 <td>Password <sup>* required</sup></td>
-                <td><input class="credentials" type="password" name="password"/></td>
+                <td><input class="credentials" type="password" name="password" required/></td>
               </tr>
             </table>
             <!-- REGISTER BUTTON -->

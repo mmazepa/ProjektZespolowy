@@ -2,7 +2,7 @@
 function changeLanguage(){
     var select = document.getElementById("languages");
     var lang = select.options[select.selectedIndex].innerHTML;
-    document.getElementById("usedLanguage").innerHTML = lang;
+    changeContent("usedLanguage", lang);
 }
 
 // CHECKING IF CREDENTIALS ARE CORRECT
@@ -10,32 +10,47 @@ function checkCredentials(){
     var login = document.getElementById("login").value;
     var password = document.getElementById("password").value;
 
+    changeFontColor("loginInfo", "red");
+
     if (login == "user"){
         if (password == "user1234"){
-            alert("Authorization succeded, you're welcome!");
-            location.assign("subpages/editor.jsp");
+            changeContent("loginInfo", "Authorization succeded, you're welcome!");
+            changeFontColor("loginInfo", "green");
+            setTimeout(function(){
+                location.assign("subpages/editor.jsp");
+            }, 1000);
         }
-        else if (password == "") {
-            alert("Please enter your password.");
+        else if (!password) {
+            changeContent("loginInfo", "Please enter your password");
         }
         else {
-            alert("Authorization failed, try again later!");
+            changeContent("loginInfo", "Authorization failed, try again later!");
         }
     }
     else {
-        if (login == "" || password == "") {
-            alert("Please enter your login and password.");
+        if (!login || !password) {
+            changeContent("loginInfo", "Please enter your login and password.");
         }
         else {
-            alert("Authorization failed, try again later!");
+            changeContent("loginInfo", "Authorization failed, try again later!");
         }
     }
+}
+
+// CHANGING HTML CONTENT
+function changeContent(id, content){
+    document.getElementById(id).innerHTML = content;
+}
+
+// CHANGING FONT COLOR
+function changeFontColor(id, color){
+    document.getElementById(id).style.color = color;
 }
 
 // ADDING NEW MESSAGE TO CHAT
 function addMessage(){
     var message = document.getElementById("message").value;
-    if (message != ""){
+    if (message){
         var chat = document.getElementById("messages");
 
         var div = document.createElement("div");
