@@ -28,7 +28,7 @@ public class accountServlet extends HttpServlet {
     		e.printStackTrace();
     	}
       	request.setAttribute("accounts", accounts);
-      	request.getRequestDispatcher("/subpages/admin.jsp").forward(request, response);
+      	request.getRequestDispatcher("/subpages/accounts.jsp").forward(request, response);
 
     }
 
