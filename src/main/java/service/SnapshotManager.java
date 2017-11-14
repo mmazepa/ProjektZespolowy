@@ -87,7 +87,7 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 
 	@Override
 	public List<Snapshot> getAllSnapshots() throws SQLException, NullPointerException {
-		List<Snapshot> cigs = Collections.synchronizedList(new ArrayList<Snapshot>());
+		List<Snapshot> lista = Collections.synchronizedList(new ArrayList<Snapshot>());
 
 		ResultSet rs = statement.executeQuery(getAllSnapshotStmt);
 		while (rs.next()) {
@@ -98,8 +98,8 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 			p.setName(rs.getString("SnapshotName"));
 			p.setCreationDate(rs.getString("SnapshotDate"));
 			p.setContent(rs.getString("Content"));
-			cigs.add(p);
+			lista.add(p);
 		}
-		return cigs;
+		return lista;
 	}
 }

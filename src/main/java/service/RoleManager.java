@@ -68,15 +68,15 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 
 	@Override
 	public List<Role> getAllRoles() throws SQLException, NullPointerException {
-		List<Role> cigs = Collections.synchronizedList(new ArrayList<Role>());
+		List<Role> lista = Collections.synchronizedList(new ArrayList<Role>());
 
 		ResultSet rs = statement.executeQuery(getAllRoleStmt);
 		while (rs.next()) {
 			Role p = new Role();
 			p.setID(rs.getInt("id"));
-			p.setName(rs.getString("NickName"));
-			cigs.add(p);
+			p.setName(rs.getString("RoleName"));
+			lista.add(p);
 		}
-		return cigs;
+		return lista;
 	}
 }

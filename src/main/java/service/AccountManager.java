@@ -106,7 +106,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 
   @Override
   public List<Account> getAllAccounts() throws SQLException, NullPointerException {
-	  List<Account> cigs = Collections.synchronizedList(new ArrayList<Account>());
+	  List<Account> lista = Collections.synchronizedList(new ArrayList<Account>());
 
 	  ResultSet rs = statement.executeQuery(getAllAccountStmt);
 	  while (rs.next()) {
@@ -121,9 +121,9 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 		  p.setFirstName(rs.getString("FirstName"));
 		  p.setLastName(rs.getString("LastName"));
 		  p.setDateOfBirth(rs.getString("DateOfBirth"));
-		  cigs.add(p);
+		  lista.add(p);
 	  }
-	  return cigs;
+	  return lista;
   }
 
   public static ArrayList<Account> getAllAccounts2(){

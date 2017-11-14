@@ -89,7 +89,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 
 	@Override
 	public List<TextFile> getAllTextFiles() throws SQLException, NullPointerException {
-		List<TextFile> cigs = Collections.synchronizedList(new ArrayList<TextFile>());
+		List<TextFile> lista = Collections.synchronizedList(new ArrayList<TextFile>());
 
 		ResultSet rs = statement.executeQuery(getAllTextFileStmt);
 		while (rs.next()) {
@@ -101,8 +101,8 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 			p.setCreationDate(rs.getString("FileCreationDate"));
 			p.setDescription(rs.getString("Description"));
 			p.setPrivate((rs.getInt("IsPrivate") == 1)? true : false);
-			cigs.add(p);
+			lista.add(p);
 		}
-		return cigs;
+		return lista;
 	}
 }

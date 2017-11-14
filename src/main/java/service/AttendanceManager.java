@@ -83,7 +83,7 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 
 	@Override
 	public List<Attendance> getAllAttendances() throws SQLException, NullPointerException {
-		List<Attendance> cigs = Collections.synchronizedList(new ArrayList<Attendance>());
+		List<Attendance> lista = Collections.synchronizedList(new ArrayList<Attendance>());
 
 		ResultSet rs = statement.executeQuery(getAllAttendanceStmt);
 		while (rs.next()) {
@@ -93,9 +93,9 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 			p.setUser(rs.getInt("AttendingUser"));
 			p.setAdmin((rs.getInt("IsGroupAdmin") == 1)? true : false);
 			p.setJoinDate(rs.getString("JoinDate"));
-			cigs.add(p);
+			lista.add(p);
 		}
-		return cigs;
+		return lista;
 	}
 
 }

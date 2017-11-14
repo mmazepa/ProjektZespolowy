@@ -85,7 +85,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 
 	@Override
 	public List<Workgroup> getAllWorkgroups() throws SQLException, NullPointerException {
-		List<Workgroup> cigs = Collections.synchronizedList(new ArrayList<Workgroup>());
+		List<Workgroup> lista = Collections.synchronizedList(new ArrayList<Workgroup>());
 
 		ResultSet rs = statement.executeQuery(getAllWorkgroupStmt);
 		while (rs.next()) {
@@ -95,8 +95,8 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 			p.setCreationDate(rs.getString("GroupCreationDate"));
 			p.setDescription("Description");
 			p.setPrivate((rs.getInt("IsPrivate") == 1)? true : false);
-			cigs.add(p);
+			lista.add(p);
 		}
-		return cigs;
+		return lista;
 	}
 }
