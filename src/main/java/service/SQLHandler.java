@@ -62,7 +62,8 @@ public class SQLHandler {
 			props.setProperty("user","postgres");
 			props.setProperty("password","postgres");
 			props.setProperty("ssl","true");
-			setConnection(DriverManager.getConnection(url, props));
+			//setConnection(DriverManager.getConnection(url, props));
+			connection = DriverManager.getConnection(url, props);
 			statement = getConnection().createStatement();
 
 			ResultSet rs = getConnection().getMetaData().getTables(null, null, null, null);
