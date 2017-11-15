@@ -8,11 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="static/javascript/main.js"></script>
 	</head>
-	<body>
-    <header>
-      <span class="glyphicon glyphicon-globe"></span>
-      Editor On-Line for programmatic cooperation in real-time
-    </header>
+	<body onload="loadHeaderAndFooter()">
+    <header id="header"></header>
     <main id="indexMain">
       <div class="centeredText">
         <h3>Welcome to Editor On-Line</h3>
@@ -64,8 +61,6 @@
         </p>
       </div>
     </main>
-    <footer>
-      University of Gdansk © 2017 All Rights Reserved
-    </footer>
+    <footer></footer>
 	</body>
 </html>

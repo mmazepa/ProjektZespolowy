@@ -9,11 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
 	</head>
-	<body>
-    <header>
-      <span class="glyphicon glyphicon-globe"></span>
-      Editor On-Line for programmatic cooperation in real-time
-    </header>
+	<body onload="loadHeaderAndFooter()">
+    <header></header>
     <main id="indexMain">
       <div class="centeredText">
         <h3>Administrator Panel</h3>
@@ -56,8 +53,6 @@
         <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
-    <footer>
-      University of Gdansk © 2017 All Rights Reserved
-    </footer>
+    <footer></footer>
 	</body>
 </html>

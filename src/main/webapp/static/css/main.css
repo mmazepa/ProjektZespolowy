@@ -5,6 +5,15 @@
 body {
   width: 100vh;
 }
+#logo {
+  color: silver;
+  text-decoration: none;
+  transition: 1s;
+}
+#logo:hover {
+  color: green;
+  transition: 1s;
+}
 header,
 footer {
   background-color: black;

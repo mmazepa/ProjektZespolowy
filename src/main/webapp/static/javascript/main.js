@@ -69,6 +69,31 @@ function addMessage(){
     }
 }
 
+// LOAD HEADER AND FOOTER SECTIONS
+function loadHeaderAndFooter(){
+    var headerPath = "/subpages/header.jsp";
+    var footerPath = "/subpages/footer.jsp";
+    readTextFile("header", headerPath);
+    readTextFile("footer", footerPath);
+}
+
+// READ TEXT FROM FILE
+function readTextFile(file, path){
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", path, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                document.getElementsByTagName(file)[0].innerHTML = allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
 
 
 // ŁOPATOLOGICZNE FUNKCJE TYMCZASOWE, DO POPRAWKI !!!
