@@ -27,27 +27,27 @@
             <th>Group</th>
             <th>Name</th>
             <th>Creation Date</th>
-			<th>Description</th>
-			<th>Is Private</th>
+			      <th>Description</th>
+			      <th>Is Private</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
           <c:forEach var="textFile" items="${textFiles}">
-      			<tr>
-      				<td><c:out value="${textFile.getID()}"/></td>
-					<td><c:out value="${textFile.getAuthor()}"/></td>
-      				<td><c:out value="${textFile.getGroup()}"/></td>
-					<td><c:out value="${textFile.getName()}"/></td>
-					<td><c:out value="${textFile.getCreationDate()}"/></td>
-					<td><c:out value="${textFile.getDescription()}"/></td>
-					<td><c:out value="${textFile.isPrivate()}"/></td>
-					<td><span class="glyphicon glyphicon-pencil"></span></td>
-					<td><span class="glyphicon glyphicon-remove"></span></td>
-				</tr>
+      		<tr>
+      			<td><c:out value="${textFile.getID()}"/></td>
+					  <td><c:out value="${textFile.getAuthor()}"/></td>
+      			<td><c:out value="${textFile.getGroup()}"/></td>
+					  <td><c:out value="${textFile.getName()}"/></td>
+  					<td><c:out value="${textFile.getCreationDate()}"/></td>
+  					<td><c:out value="${textFile.getDescription()}"/></td>
+  					<td><c:out value="${textFile.isPrivate()}"/></td>
+  					<td><span class="glyphicon glyphicon-pencil"></span></td>
+  					<td><span class="glyphicon glyphicon-remove"></span></td>
+  				</tr>
           </c:forEach>
         </table>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
     <footer>

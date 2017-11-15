@@ -25,25 +25,25 @@
             <th>ID</th>
             <th>Name</th>
             <th>Creation Date</th>
-            <th>Dscription</th>
+            <th>Description</th>
             <th>Is Private</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
           <c:forEach var="workgroup" items="${workgroups}">
-      			<tr>
-      				<td><c:out value="${workgroup.getID()}"/></td>
-					<td><c:out value="${workgroup.getName()}"/></td>
-      				<td><c:out value="${workgroup.getCreationDate()}"/></td>
-					<td><c:out value="${workgroup.getDescription()}"/></td>
-					<td><c:out value="${workgroup.isPrivate()}"/></td>
-					<td><span class="glyphicon glyphicon-pencil"></span></td>
-					<td><span class="glyphicon glyphicon-remove"></span></td>
-				</tr>
+      		<tr>
+        		<td><c:out value="${workgroup.getID()}"/></td>
+  					<td><c:out value="${workgroup.getName()}"/></td>
+        		<td><c:out value="${workgroup.getCreationDate()}"/></td>
+  					<td><c:out value="${workgroup.getDescription()}"/></td>
+  					<td><c:out value="${workgroup.isPrivate()}"/></td>
+  					<td><span class="glyphicon glyphicon-pencil"></span></td>
+  					<td><span class="glyphicon glyphicon-remove"></span></td>
+  				</tr>
           </c:forEach>
         </table>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
     <footer>

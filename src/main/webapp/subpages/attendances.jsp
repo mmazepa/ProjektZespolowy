@@ -31,19 +31,19 @@
             <th>Delete</th>
           </tr>
           <c:forEach var="attendance" items="${attendances}">
-      			<tr>
-      				<td><c:out value="${attendance.getID()}"/></td>
-					<td><c:out value="${attendance.getGroup()}"/></td>
-      				<td><c:out value="${attendance.getUser()}"/></td>
-					<td><c:out value="${attendance.isAdmin()}"/></td>
-					<td><c:out value="${attendance.getJoinDate()}"/></td>
-					<td><span class="glyphicon glyphicon-pencil"></span></td>
-					<td><span class="glyphicon glyphicon-remove"></span></td>
-				</tr>
+      		<tr>
+        		<td><c:out value="${attendance.getID()}"/></td>
+  					<td><c:out value="${attendance.getGroup()}"/></td>
+        		<td><c:out value="${attendance.getUser()}"/></td>
+  					<td><c:out value="${attendance.isAdmin()}"/></td>
+  					<td><c:out value="${attendance.getJoinDate()}"/></td>
+  					<td><span class="glyphicon glyphicon-pencil"></span></td>
+  					<td><span class="glyphicon glyphicon-remove"></span></td>
+				  </tr>
           </c:forEach>
         </table>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
     <footer>

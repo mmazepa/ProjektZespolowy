@@ -5,7 +5,6 @@
 		<title>Editor On-Line</title>
 		<meta type="text/html" charset="UTF-8" language="java" />
 		<link type="text/css" rel="stylesheet" href="static/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/buttons.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="static/javascript/main.js"></script>
 	</head>
@@ -56,7 +55,10 @@
         <p>
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="glyphicon glyphicon-chevron-right"></span>
-          <a href="/accounts">[ Administrator panel ]</a>
+
+          <!-- ADMINISTRATOR PANEL -->
+          <a href="/subpages/admin.jsp">[ Administrator panel ]</a>
+
           <span class="glyphicon glyphicon-chevron-left"></span>
           <span class="glyphicon glyphicon-chevron-left"></span>
         </p>

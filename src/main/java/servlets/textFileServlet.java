@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = "/textFile")
+@WebServlet(urlPatterns = "/textFiles")
 public class textFileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     	TextFileManager db = new TextFileManager();
-    	List<TextFile> textFiles = new ArrayList<TextFile>(); 
+    	List<TextFile> textFiles = new ArrayList<TextFile>();
     	try {
     		textFiles = db.getAllTextFiles();
     	} catch (SQLException | NullPointerException e) {

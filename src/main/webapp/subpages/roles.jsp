@@ -28,16 +28,16 @@
             <th>Delete</th>
           </tr>
           <c:forEach var="role" items="${roles}">
-      			<tr>
-      				<td><c:out value="${role.getID()}"/></td>
-					<td><c:out value="${role.getName()}"/></td>
-      		        <td><span class="glyphicon glyphicon-pencil"></span></td>
-					<td><span class="glyphicon glyphicon-remove"></span></td>
-				</tr>
+      		<tr>
+        		<td><c:out value="${role.getID()}"/></td>
+  					<td><c:out value="${role.getName()}"/></td>
+        		<td><span class="glyphicon glyphicon-pencil"></span></td>
+  					<td><span class="glyphicon glyphicon-remove"></span></td>
+				  </tr>
           </c:forEach>
         </table>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
     <footer>

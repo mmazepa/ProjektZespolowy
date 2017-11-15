@@ -27,25 +27,25 @@
             <th>File</th>
             <th>Name</th>
             <th>Creation Date</th>
-			<th>Content</th>
+			      <th>Content</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
           <c:forEach var="snapshot" items="${snapshots}">
-      			<tr>
-      				<td><c:out value="${snapshot.getID()}"/></td>
-					<td><c:out value="${snapshot.getAuthor()}"/></td>
-      				<td><c:out value="${snapshot.getFile()}"/></td>
-					<td><c:out value="${snapshot.getName()}"/></td>
-					<td><c:out value="${snapshot.getCreationDate()}"/></td>
-					<td><c:out value="${snapshot.getContent()}"/></td>
-					<td><span class="glyphicon glyphicon-pencil"></span></td>
-					<td><span class="glyphicon glyphicon-remove"></span></td>
-				</tr>
+      		<tr>
+      			<td><c:out value="${snapshot.getID()}"/></td>
+					  <td><c:out value="${snapshot.getAuthor()}"/></td>
+      			<td><c:out value="${snapshot.getFile()}"/></td>
+  					<td><c:out value="${snapshot.getName()}"/></td>
+  					<td><c:out value="${snapshot.getCreationDate()}"/></td>
+  					<td><c:out value="${snapshot.getContent()}"/></td>
+  					<td><span class="glyphicon glyphicon-pencil"></span></td>
+  					<td><span class="glyphicon glyphicon-remove"></span></td>
+  				</tr>
           </c:forEach>
         </table>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="/subpages/admin.jsp">back</a>
       </div>
     </main>
     <footer>

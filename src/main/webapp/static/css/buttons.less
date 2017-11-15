@@ -1,5 +1,8 @@
 // out: buttons.css
 
+@buttonWidth: 135px;
+@buttonHeight: 150px;
+
 #button {
   width: 150px;
   background-color: darkgreen;
@@ -7,4 +10,87 @@
 
 #button:hover {
   background-color: green;
+}
+
+
+/* ADMIN BUTTONS */
+
+.adminButtons {
+  width: @buttonWidth;
+  height: @buttonHeight;
+  margin-top: 15px;
+  .transformScale(1.0, 1.0, 0.2s);
+  z-index: 0;
+}
+
+.adminButtons:hover {
+  .transformScale(1.15, 1.15, 0.2s);
+  z-index: 1;
+}
+
+.adminButtonsGroup {
+  background-color: silver;
+  width: @buttonWidth * 6 + 60px;
+  margin: 0px auto;
+  border: 1px solid gray;
+}
+
+#accounts, #snapshots {
+  .colors(darkred, white);
+}
+
+#attendances, #textFiles {
+  .colors(darkgreen, white);
+}
+
+#roles, #workgroups {
+  .colors(darkblue, white);
+}
+
+#accounts:hover, #snapshots:hover {
+  .colors(tomato, black);
+}
+
+#attendances:hover, #textFiles:hover {
+  .colors(lightgreen, black);
+}
+
+#roles:hover, #workgroups:hover {
+  .colors(lightblue, black);
+}
+
+.wrapper {
+  width: @buttonWidth;
+  height: @buttonHeight;
+  display: inline-block;
+}
+
+.wrapper .text {
+  position: relative;
+  bottom: 50px;
+  left: 0px;
+  visibility: hidden;
+  z-index: 0;
+}
+
+.wrapper:hover .text {
+  visibility: visible;
+  z-index: 1;
+}
+
+.colors(@background, @font){
+  background: @background;
+  background: -webkit-linear-gradient(@background, lighten(@background, 15%));
+  background: -o-linear-gradient(@background, lighten(@background, 15%));
+  background: -moz-linear-gradient(@background, lighten(@background, 15%));
+  background: linear-gradient(@background, lighten(@background, 15%));
+  color: @font;
+  font-weight: bold;
+}
+
+.transformScale(@width, @height, @time){
+  transform: scale(@width, @height);
+  -webkit-transform: scale(@width, @height);
+  -moz-transform: scale(@width, @height);
+  transition: @time;
 }

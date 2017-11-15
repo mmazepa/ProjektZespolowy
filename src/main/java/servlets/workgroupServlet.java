@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = "/workgroup")
+@WebServlet(urlPatterns = "/workgroups")
 public class workgroupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     	WorkgroupManager db = new WorkgroupManager();
-    	List<Workgroup> workgroups = new ArrayList<Workgroup>(); 
+    	List<Workgroup> workgroups = new ArrayList<Workgroup>();
     	try {
     		workgroups = db.getAllWorkgroups();
     	} catch (SQLException | NullPointerException e) {

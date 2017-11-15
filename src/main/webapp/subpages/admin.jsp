@@ -18,40 +18,65 @@
       <div class="centeredText">
         <h3>Administrator Panel</h3>
         <hr/>
-        <h4>List of registered users</h4>
+        Welcome to Administrator Panel.<br/>
+        Choose what you want to manage by clicking one of buttons below.<br/>
         <br/>
-        <table id="adminTable">
-          <tr>
-            <th>ID</th>
-            <th>Role</th>
-            <th>Nickname</th>
-            <th>E-mail</th>
-            <th>Password</th>
-            <th>Registration Date</th>
-            <th>Description</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Date Of Birth</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-          <c:forEach var="account" items="${accounts}">
-      			<tr>
-      				<td><c:out value="${account.getID()}"/></td>
-              <td><c:out value="${account.getRole()}"/></td>
-      				<td><c:out value="${account.getNickname()}"/></td>
-              <td><c:out value="${account.getEmail()}"/></td>
-              <td><c:out value="${account.getPass()}"/></td>
-              <td><c:out value="${account.getRegistrationdate()}"/></td>
-              <td><c:out value="${account.getDescription()}"/></td>
-              <td><c:out value="${account.getFirstName()}"/></td>
-              <td><c:out value="${account.getLastName()}"/></td>
-              <td><c:out value="${account.getDateOfBirth()}"/></td>
-              <td><span class="glyphicon glyphicon-pencil"></span></td>
-              <td><span class="glyphicon glyphicon-remove"></span></td>
-            </tr>
-          </c:forEach>
-        </table>
+
+        <!-- ADMIN BUTTONS SECTION -->
+        <div class="adminButtonsGroup">
+          <div class="wrapper">
+            <button id="accounts"
+                    class="adminButtons"
+                    onclick="location.assign('/accounts')">
+                Accounts
+            </button>
+            <p class="text">List of users</p>
+          </div>
+          <div class="wrapper">
+            <button id="attendances"
+                    class="adminButtons"
+                    onclick="location.assign('/attendances')">
+                Attendances
+            </button>
+            <p class="text">List of attendances</p>
+          </div>
+          <div class="wrapper">
+            <button id="roles"
+                    class="adminButtons"
+                    onclick="location.assign('/roles')">
+                Roles
+            </button>
+            <p class="text">List of roles</p>
+          </div>
+          <div class="wrapper">
+            <button id="snapshots"
+                    class="adminButtons"
+                    onclick="location.assign('/snapshots')">
+                Snapshots
+            </button>
+            <p class="text">List of snapshots</p>
+          </div>
+          <div class="wrapper">
+            <button id="textFiles"
+                    class="adminButtons"
+                    onclick="location.assign('/textFiles')">
+                Text Files
+            </button>
+            <p class="text">List of text files</p>
+          </div>
+          <div class="wrapper">
+            <button id="workgroups"
+                    class="adminButtons"
+                    onclick="location.assign('/workgroups')">
+                Workgroups
+            </button>
+            <p class="text">List of workgroups</p>
+          </div>
+        </div>
+
+        <br/>
+        <br/>
+        Administator panel for administrative things.<br/>
         <br/>
         <a href="../index.jsp">back</a>
       </div>
