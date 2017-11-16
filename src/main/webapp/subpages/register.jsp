@@ -78,7 +78,7 @@
               </tr>
             </table>
             <!-- REGISTER BUTTON -->
-            <input  id="button"
+            <input  id="registerButton"
                     type="submit"
                     class="btn btn-primary"
                     value="Register"/>

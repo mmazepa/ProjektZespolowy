@@ -5,7 +5,10 @@
   width: 350px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 100px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
   margin-bottom: 25px;
   .colors(papayawhip, 2px solid goldenrod, 5px solid darkgoldenrod);
 }
@@ -17,10 +20,12 @@
   text-indent: 10px;
   border-radius: 10px;
   .colors(whitesmoke, 1px solid silver, 3px solid black);
+  transition: 0.2s;
 }
 
 .credentials:hover {
   .colors(lighten(silver, 15%), 1px solid gray, 3px solid lighten(black, 25%));
+  transition: 0.2s;
 }
 
 sup {

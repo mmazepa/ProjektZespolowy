@@ -13,7 +13,11 @@
     <header></header>
     <main id="indexMain">
       <div class="centeredText">
-        <h3>Administrator Panel</h3>
+        <h3>
+          <span class="glyphicon glyphicon-sunglasses"></span>
+          Administrator Panel
+          <span class="glyphicon glyphicon-sunglasses"></span>
+        </h3>
         <hr/>
         Welcome to Administrator Panel.<br/>
         Choose what you want to manage by clicking one of buttons below.<br/>

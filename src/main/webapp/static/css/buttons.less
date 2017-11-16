@@ -3,27 +3,49 @@
 @buttonWidth: 135px;
 @buttonHeight: 150px;
 
-#button {
-  width: 150px;
-  background-color: darkgreen;
+#loginButton {
+  .authorizationButtons(150px, darkgreen, lighten(darkgreen, 15%), 0.5s);
+  margin-top: 5px;
 }
 
-#button:hover {
-  background-color: green;
+#loginButton:hover {
+  .authorizationButtons(150px, lighten(green, 5%), lighten(green, 20%), 0.5s);
+  border-radius: 25px;
 }
 
+#registerButton {
+  .authorizationButtons(150px, darkblue, lighten(darkblue, 15%), 0.5s);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#registerButton:hover {
+  .authorizationButtons(150px, lighten(blue, 5%), lighten(blue, 20%), 0.5s);
+  border-radius: 25px;
+}
+
+.authorizationButtons(@width, @background, @border, @transition){
+  width: @width;
+  background-color: @background;
+  border: @border;
+  transition: @transition;
+}
 
 /* ADMIN BUTTONS */
 
 .adminButtons {
   width: @buttonWidth;
   height: @buttonHeight;
+  font-size: 16px;
+  text-shadow: 1px 1px lighten(black, 15%);
   margin-top: 15px;
   .transformScale(1.0, 1.0, 0.2s);
   z-index: 0;
 }
 
 .adminButtons:hover {
+  text-shadow: 1px 1px darken(white, 50%);
+  border-radius: 15px;
   .transformScale(1.15, 1.15, 0.2s);
   z-index: 1;
 }
@@ -69,13 +91,17 @@
   position: relative;
   bottom: 50px;
   left: 0px;
-  visibility: hidden;
-  z-index: 0;
+  .visibility(hidden, 0);
 }
 
 .wrapper:hover .text {
   visibility: visible;
-  z-index: 1;
+  .visibility(visible, 1)
+}
+
+.visibility(@visibility, @z-index){
+  visibility: @visibility;
+  z-index: @z-index;
 }
 
 .colors(@background, @font){

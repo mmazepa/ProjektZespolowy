@@ -35,7 +35,7 @@
             Password<br/>
             <input id="password" class="credentials" type="password" name="password"/><br/>
             <!-- LOG IN BUTTON -->
-            <input  id="button"
+            <input  id="loginButton"
                     type="button"
                     class="btn btn-success"
                     value="Log In"
@@ -49,15 +49,13 @@
           Don't have an account? Want one? Just use our
           <a href="subpages/register.jsp">register</a> form.
         </p>
-        <p>
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="glyphicon glyphicon-chevron-right"></span>
+        <p id="adminPanel">
+          <span class="glyphicon glyphicon-sunglasses"></span>
 
           <!-- ADMINISTRATOR PANEL -->
-          <a href="/subpages/admin.jsp">[ Administrator panel ]</a>
+          <a href="/subpages/admin.jsp">Administrator panel</a>
 
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="glyphicon glyphicon-sunglasses"></span>
         </p>
       </div>
     </main>

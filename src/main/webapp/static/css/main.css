@@ -14,6 +14,33 @@ body {
   color: green;
   transition: 1s;
 }
+.glyphicon-globe {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 2.5px;
+}
+.glyphicon-pencil:hover,
+.glyphicon-remove:hover {
+  color: red;
+  transition: 0.2s;
+}
+.glyphicon-sunglasses {
+  margin: 0px 60px;
+}
+#adminPanel {
+  background-color: #dcdcdc;
+  width: 425px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  border-radius: 10px;
+}
+#adminPanel a {
+  color: dimgray;
+}
+#adminPanel a:hover {
+  color: black;
+}
 header,
 footer {
   background-color: black;
@@ -23,6 +50,8 @@ footer {
   position: fixed;
   width: 100%;
   text-align: center;
+  text-shadow: 2px 2px #333333;
+  font-size: 16px;
 }
 header,
 main,

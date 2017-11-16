@@ -1,14 +1,38 @@
-#button {
+#loginButton {
   width: 150px;
   background-color: darkgreen;
+  border: #00b100;
+  transition: 0.5s;
+  margin-top: 5px;
 }
-#button:hover {
-  background-color: green;
+#loginButton:hover {
+  width: 150px;
+  background-color: #009a00;
+  border: #00e600;
+  transition: 0.5s;
+  border-radius: 25px;
+}
+#registerButton {
+  width: 150px;
+  background-color: darkblue;
+  border: #0000d7;
+  transition: 0.5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#registerButton:hover {
+  width: 150px;
+  background-color: #1a1aff;
+  border: #6666ff;
+  transition: 0.5s;
+  border-radius: 25px;
 }
 /* ADMIN BUTTONS */
 .adminButtons {
   width: 135px;
   height: 150px;
+  font-size: 16px;
+  text-shadow: 1px 1px #262626;
   margin-top: 15px;
   transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -17,6 +41,8 @@
   z-index: 0;
 }
 .adminButtons:hover {
+  text-shadow: 1px 1px #808080;
+  border-radius: 15px;
   transform: scale(1.15, 1.15);
   -webkit-transform: scale(1.15, 1.15);
   -moz-transform: scale(1.15, 1.15);

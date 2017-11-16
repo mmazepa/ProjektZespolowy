@@ -3,7 +3,10 @@
   width: 350px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 100px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
   margin-bottom: 25px;
   background-color: papayawhip;
   border-top: 2px solid goldenrod;
@@ -18,11 +21,13 @@
   background-color: whitesmoke;
   border-top: 1px solid silver;
   border-bottom: 3px solid black;
+  transition: 0.2s;
 }
 .credentials:hover {
   background-color: #e6e6e6;
   border-top: 1px solid gray;
   border-bottom: 3px solid #404040;
+  transition: 0.2s;
 }
 sup {
   color: red;
