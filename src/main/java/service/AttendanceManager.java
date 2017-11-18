@@ -15,6 +15,7 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 	private PreparedStatement getAttendanceByIDStmt;
 	private PreparedStatement deleteAttendanceStmt;
 	private PreparedStatement addAttendanceStmt;
+	private PreparedStatement addAttendanceByParamsStmt;
 	private PreparedStatement editAttendanceStmt;
 	
 	public AttendanceManager() {
@@ -28,6 +29,9 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 			addAttendanceStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Attendance (AttendingGroup, AttendingUser, IsGroupAdmin, JoinDate) "
 					+ "VALUES (?, ?, ?, ?);");
+			addAttendanceByParamsStmt = getConnection().prepareStatement("INSERT INTO "
+					+ "Attendance (AttendingGroup, AttendingUser, IsGroupAdmin) "
+					+ "VALUES (?, ?, ?);");
 			editAttendanceStmt = getConnection().prepareStatement("UPDATE Attendance SET "
 					+ "AttendingGroup = ?, AttendingUser = ?, "
 					+ "IsGroupAdmin = ?, JoinDate = ? "
@@ -47,6 +51,15 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 		addAttendanceStmt.executeUpdate();
 	}
 
+	public void addAttendanceByParams(int group, int user, boolean isAdmin) throws SQLException, NumberFormatException {
+		addAttendanceByParamsStmt.setInt(1, group);
+		addAttendanceByParamsStmt.setInt(2, user);
+		addAttendanceByParamsStmt.setInt(3, (isAdmin) ? 1 : 0);
+
+		addAttendanceByParamsStmt.executeUpdate();
+	}
+    
+	
 	@Override
 	public void editAttendance(int oldAttendanceId, Attendance newAttendanceData) throws SQLException, NumberFormatException {
 		editAttendanceStmt.setInt(1, newAttendanceData.getGroup());

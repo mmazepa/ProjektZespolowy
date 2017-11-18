@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 import domain.Snapshot;
-import domain.TextFile;
 
 
 public class SnapshotManager extends SQLHandler implements ISnapshotManager {
@@ -16,6 +15,7 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 	private PreparedStatement getSnapshotByIDStmt;
 	private PreparedStatement deleteSnapshotStmt;
 	private PreparedStatement addSnapshotStmt;
+	private PreparedStatement addSnapshotByParamsStmt;
 	private PreparedStatement editSnapshotStmt;
 	
 	public SnapshotManager() {
@@ -29,6 +29,9 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 			addSnapshotStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Snapshot (SnapshotAuthor, AttendingFile, SnapshotName, SnapshotDate, Content) "
 					+ "VALUES (?, ?, ?, ?, ?);");
+			addSnapshotByParamsStmt = getConnection().prepareStatement("INSERT INTO "
+					+ "Snapshot (SnapshotAuthor, AttendingFile, SnapshotName, Content) "
+					+ "VALUES (?, ?, ?, ?);");
 			editSnapshotStmt = getConnection().prepareStatement("UPDATE Snapshot SET "
 					+ "SnapshotAuthor = ?, AttendingFile = ?, "
 					+ "SnapshotName = ?, SnapshotDate = ?, Content = ? "
@@ -47,6 +50,16 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 		addSnapshotStmt.setString(5, snapshot.getContent());
 
 		addSnapshotStmt.executeUpdate();
+	}
+	
+	@Override
+	public void addSnapshotByParams(int author, int file, String name, String content) throws SQLException, NumberFormatException {
+		addSnapshotByParamsStmt.setInt(1, author);
+		addSnapshotByParamsStmt.setInt(2, file);
+		addSnapshotByParamsStmt.setString(3, name);
+		addSnapshotByParamsStmt.setString(4, content);
+
+		addSnapshotByParamsStmt.executeUpdate();
 	}
 
 	@Override

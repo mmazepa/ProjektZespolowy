@@ -17,6 +17,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 	private PreparedStatement getWorkgroupByIDStmt;
 	private PreparedStatement deleteWorkgroupStmt;
 	private PreparedStatement addWorkgroupStmt;
+	private PreparedStatement addWorkgroupByParamsStmt;
 	private PreparedStatement editWorkgroupStmt;
 	
 	public WorkgroupManager() {
@@ -30,6 +31,9 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 			addWorkgroupStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Workgroup (GroupName, GroupCreationDate, Description, IsPrivate) "
 					+ "VALUES (?, ?, ?, ?);");
+			addWorkgroupByParamsStmt = getConnection().prepareStatement("INSERT INTO "
+					+ "Workgroup (GroupName, IsPrivate) "
+					+ "VALUES (?, ?);");
 			editWorkgroupStmt = getConnection().prepareStatement("UPDATE Workgroup SET "
 					+ "GroupName = ?, GroupCreationDate = ?, "
 					+ "Description = ?, IsPrivate = ? "
@@ -48,6 +52,15 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 
 		addWorkgroupStmt.executeUpdate();
 	}
+	
+	@Override
+	public void addWorkgroupByParams(String name, boolean is_private) throws SQLException, NumberFormatException {
+		addWorkgroupByParamsStmt.setString(1, name);
+		addWorkgroupByParamsStmt.setInt(2, (is_private) ? 1 : 0);
+
+		addWorkgroupByParamsStmt.executeUpdate();
+	}
+    
 
 	@Override
 	public void editWorkgroup(int oldWorkgroupId, Workgroup newWorkgroupData) throws SQLException, NumberFormatException {

@@ -19,6 +19,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	private PreparedStatement getAccountByIDStmt;
 	private PreparedStatement deleteAccountStmt;
 	private PreparedStatement addAccountStmt;
+	private PreparedStatement addAccountByParamsStmt;
 	private PreparedStatement editAccountStmt;
 
 	public AccountManager() {
@@ -30,6 +31,10 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 					+ "FROM Account WHERE "
 					+ "id = ?");
 			deleteAccountStmt = getConnection().prepareStatement("DELETE FROM Account WHERE id = ?;");
+			addAccountByParamsStmt = getConnection().prepareStatement("INSERT INTO "
+					+ "Account (AccountRole, NickName, Email, UserPass, "
+					+ "FirstName, LastName, DateOfBirth) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?);");
 			addAccountStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Account (AccountRole, NickName, Email, UserPass, RegistrationDate, "
 					+ "Description, FirstName, LastName, DateOfBirth) "
@@ -57,6 +62,22 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  addAccountStmt.setString(9, account.getDateOfBirth());
 
 	  addAccountStmt.executeUpdate();
+  }
+  
+  @Override
+  public void addAccountByParams(int role, String nickname, String email,
+								String pass, String firstname, 
+								String lastname, String dateofbirth) 
+								throws SQLException, NumberFormatException {
+	  addAccountByParamsStmt.setInt(1, role);
+	  addAccountByParamsStmt.setString(2, nickname);
+	  addAccountByParamsStmt.setString(3, email);
+	  addAccountByParamsStmt.setString(4, pass);
+	  addAccountByParamsStmt.setString(5, firstname);
+	  addAccountByParamsStmt.setString(6, lastname);
+	  addAccountByParamsStmt.setString(7, dateofbirth);
+
+	  addAccountByParamsStmt.executeUpdate();
   }
 
   @Override
