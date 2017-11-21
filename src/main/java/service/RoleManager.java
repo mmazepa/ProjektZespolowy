@@ -17,6 +17,7 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 	private PreparedStatement addRoleStmt;
 	private PreparedStatement addRoleByParamsStmt;
 	private PreparedStatement editRoleStmt;
+	private PreparedStatement editRoleByParamsStmt;
 	
 	public RoleManager() {
 		super();
@@ -30,6 +31,8 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 			addRoleByParamsStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Role (RoleName) VALUES (?);");
 			editRoleStmt = getConnection().prepareStatement("UPDATE Role SET "
+					+ "RoleName = ? WHERE id = ?;");
+			editRoleByParamsStmt = getConnection().prepareStatement("UPDATE Role SET "
 					+ "RoleName = ? WHERE id = ?;");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,6 +55,12 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 		editRoleStmt.setString(1, newRoleData.getName());
 		editRoleStmt.setInt(2, oldRoleId);
 		editRoleStmt.executeUpdate();
+	}
+	
+	public void editRoleByParams(int oldRoleId, String name) throws SQLException, NumberFormatException {
+		editRoleByParamsStmt.setString(1, name);
+		editRoleByParamsStmt.setInt(2, oldRoleId);
+		editRoleByParamsStmt.executeUpdate();
 	}
 
 	@Override
