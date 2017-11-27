@@ -17,6 +17,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 	private PreparedStatement addTextFileStmt;
 	private PreparedStatement addTextFileByParamsStmt;
 	private PreparedStatement editTextFileStmt;
+	private PreparedStatement editTextFileByParamsStmt;
 	
 	public TextFileManager() {
 		super();
@@ -35,6 +36,10 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 			editTextFileStmt = getConnection().prepareStatement("UPDATE TextFile SET "
 					+ "AttendingAuthor = ?, AttendingGroup = ?, FileName = ? "
 					+ "FileCreationDate = ?, Description = ?, IsPrivate = ? "
+					+ "WHERE id = ?;");
+			editTextFileByParamsStmt = getConnection().prepareStatement("UPDATE TextFile SET "
+					+ "FileName = ? "
+					+ "Description = ?, IsPrivate = ? "
 					+ "WHERE id = ?;");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,6 +79,16 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 		editTextFileStmt.setInt(7, oldTextFileId);
 
 		editTextFileStmt.executeUpdate();
+	}
+	
+	@Override
+	public void editTextFileByParams(int oldTextFileId, String name, String description, boolean is_private) throws SQLException, NumberFormatException {
+		editTextFileByParamsStmt.setString(1, name);
+		editTextFileByParamsStmt.setString(2, description);
+		editTextFileByParamsStmt.setInt(3, (is_private) ? 1 : 0);
+		editTextFileByParamsStmt.setInt(4, oldTextFileId);
+
+		editTextFileByParamsStmt.executeUpdate();
 	}
 
 	@Override

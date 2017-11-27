@@ -21,6 +21,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	private PreparedStatement addAccountStmt;
 	private PreparedStatement addAccountByParamsStmt;
 	private PreparedStatement editAccountStmt;
+	private PreparedStatement editAccountByParamsStmt;
 
 	public AccountManager() {
 		super();
@@ -42,6 +43,11 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 			editAccountStmt = getConnection().prepareStatement("UPDATE Account SET "
 					+ "AccountRole = ?, NickName = ?, Email = ?, "
 					+ "UserPass = ?, RegistrationDate = ?, Description = ?, "
+					+ "FirstName = ?, LastName = ?, DateOfBirth = ? "
+					+ "WHERE id = ?;");
+			editAccountByParamsStmt = getConnection().prepareStatement("UPDATE Account SET "
+					+ "NickName = ?, Email = ?, "
+					+ "UserPass = ?, Description = ?, "
 					+ "FirstName = ?, LastName = ?, DateOfBirth = ? "
 					+ "WHERE id = ?;");
 		} catch (SQLException e) {
@@ -95,6 +101,22 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  editAccountStmt.setInt(10, oldAccountId);
 
 	  editAccountStmt.executeUpdate();
+  }
+  
+  @Override
+  public void editAccountByParams(int id, String nickname, String email,
+			String pass, String description, String firstname, String lastname, String dateofbirth) throws SQLException, NumberFormatException {
+	  editAccountByParamsStmt.setString(1, nickname);
+	  editAccountByParamsStmt.setString(2, email);
+	  editAccountByParamsStmt.setString(3, pass);
+	  editAccountByParamsStmt.setString(4, description);
+	  editAccountByParamsStmt.setString(5, firstname);
+	  editAccountByParamsStmt.setString(6, lastname);
+	  editAccountByParamsStmt.setString(7, dateofbirth);
+
+	  editAccountByParamsStmt.setInt(8, id);
+
+	  editAccountByParamsStmt.executeUpdate();
   }
 
   @Override
