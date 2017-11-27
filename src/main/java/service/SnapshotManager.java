@@ -17,6 +17,7 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 	private PreparedStatement addSnapshotStmt;
 	private PreparedStatement addSnapshotByParamsStmt;
 	private PreparedStatement editSnapshotStmt;
+	private PreparedStatement editSnapshotByParamsStmt;
 	
 	public SnapshotManager() {
 		super();
@@ -35,6 +36,9 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 			editSnapshotStmt = getConnection().prepareStatement("UPDATE Snapshot SET "
 					+ "SnapshotAuthor = ?, AttendingFile = ?, "
 					+ "SnapshotName = ?, SnapshotDate = ?, Content = ? "
+					+ "WHERE id = ?;");
+			editSnapshotByParamsStmt = getConnection().prepareStatement("UPDATE Snapshot SET "
+					+ "SnapshotName = ?, Content = ? "
 					+ "WHERE id = ?;");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,6 +78,15 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 		editSnapshotStmt.executeUpdate();
 	}
 
+	@Override
+	public void editSnapshotByParams(int oldSnapshotId, String name, String content) throws SQLException, NumberFormatException {
+		editSnapshotByParamsStmt.setString(1, name);
+		editSnapshotByParamsStmt.setString(2, content);
+		editSnapshotByParamsStmt.setInt(3, oldSnapshotId);
+
+		editSnapshotByParamsStmt.executeUpdate();
+	}
+	
 	@Override
 	public void deleteSnapshot(int snapshotId) throws SQLException {
 		deleteSnapshotStmt.setInt(1, snapshotId);
