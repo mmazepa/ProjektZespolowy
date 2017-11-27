@@ -19,33 +19,64 @@
         <br/>
         <table id="adminTable">
           <tr>
-            <th>ID</th>
-            <th>Role</th>
-            <th>Nickname</th>
-            <th>E-mail</th>
-            <th>Password</th>
-            <th>Registration Date</th>
-            <th>Description</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Date Of Birth</th>
+            <th>Input</th>
+            <th>Type</th>
           </tr>
           <form action="editAccount.jsp" style="margin-left:0.1in" method="post">
-			<input type="text" name="id" value="${account.getID()}">
-			<input type="text" name="role" value="${account.getRole()}">
-			<input type="text" name="nickname" value="${account.getNickname()}">
-			<input type="text" name="email" value="${account.getEmail()}">
-			<input type="text" name="pass" value="${account.getPass()}">
-			<input type="text" name="registrationdate" value="${account.getRegistrationdate()}">
-			<input type="text" name="description" value="${account.getDescription()}">
-			<input type="text" name="firstName" value="${account.getFirstName()}">
-			<input type="text" name="lastName" value="${account.getLastName()}">
-			<input type="text" name="dateOfBirth" value="${account.getDateOfBirth()}">
-			<input type="submit" value=" OK ">
-		  </form>
+            <tr>
+              <td>ID</td>
+              <td><input type="text" name="id" value="${account.getID()}"></td>
+            </tr>
+            <tr>
+              <td>Role</td>
+              <td><input type="text" name="role" value="${account.getRole()}"></td>
+            </tr>
+            <tr>
+              <td>Nickname</td>
+              <td><input type="text" name="nickname" value="${account.getNickname()}"></td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td><input type="text" name="email" value="${account.getEmail()}"></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="text" name="pass" value="${account.getPass()}"></td>
+            </tr>
+            <tr>
+              <td>Registration Date</td>
+              <td><input type="text" name="registrationdate" value="${account.getRegistrationdate()}"></td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td><input type="text" name="description" value="${account.getDescription()}"></td>
+            </tr>
+            <tr>
+              <td>Firstname</td>
+              <td><input type="text" name="firstName" value="${account.getFirstName()}"></td>
+            </tr>
+            <tr>
+              <td>Lastname</td>
+              <td><input type="text" name="lastName" value="${account.getLastName()}"></td>
+            </tr>
+            <tr>
+              <td>Date Of Birth</td>
+              <td><input type="text" name="dateOfBirth" value="${account.getDateOfBirth()}"></td>
+            </tr>
+            <tr>
+              <td>Submit</td>
+        			<td>
+                <button type="submit" class="btn btn-success">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </td>
+            </tr>
+      		</form>
         </table>
         <br/>
-        <a href="/subpages/accounts.jsp">back</a>
+        <a href="/accounts">back</a>
+        <br/>
+        <br/>
       </div>
     </main>
     <footer></footer>

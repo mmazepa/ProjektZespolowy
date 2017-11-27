@@ -149,3 +149,7 @@ function getInfo(){
 
     count++;
 }
+
+// // CODE MIRROR
+// var myCodeMirror = CodeMirror(document.body);
+// alert("hej!");
