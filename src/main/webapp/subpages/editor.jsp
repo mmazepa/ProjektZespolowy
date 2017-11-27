@@ -7,6 +7,10 @@
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <!-- CODE MIRROR FOR SYNTAX HIGHLIGHTING -->
+    <script src="../static/codemirror-5.32.0/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../static/codemirror-5.32.0/lib/codemirror.css">
+    <script src="../static/codemirror-5.32.0/mode/javascript/javascript.js"></script>
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -19,7 +23,16 @@
       </h5>
       <div class="row">
         <div class="col-sm-8">
-          <textarea placeholder="Enter some code... " class="mainEditor"></textarea>
+          <textarea id="code" placeholder="Enter some code... " class="mainEditor"></textarea>
+          <script>
+            var myTextArea = document.getElementById("code");
+            // var editor = CodeMirror.fromTextArea(myTextarea, {
+            //   lineNumbers: true
+            // });
+            var myCodeMirror = CodeMirror(function(elt) {
+              myTextArea.parentNode.replaceChild(elt, myTextArea);
+            }, {value: myTextArea.value, lineNumbers: true});
+          </script>
         </div>
         <div class="col-sm-4">
           <div class="chat">

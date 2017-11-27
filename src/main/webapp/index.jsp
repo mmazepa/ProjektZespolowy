@@ -57,6 +57,10 @@
 
           <span class="glyphicon glyphicon-sunglasses"></span>
         </p>
+        <p>
+          Some parts of this site is working under
+          <a href="subpages/license.jsp">MIT License</a>.
+        </p>
       </div>
     </main>
     <footer></footer>

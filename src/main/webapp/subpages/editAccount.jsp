@@ -47,7 +47,7 @@
 	}
 	%>
 	<p>
-  		<a href="/subpages/accounts.jsp">back</a>
+  		<a href="/accounts">back</a>
 	</p>
 </body>
 </html>

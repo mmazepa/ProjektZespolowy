@@ -69,11 +69,11 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 
 	  addAccountStmt.executeUpdate();
   }
-  
+
   @Override
   public void addAccountByParams(int role, String nickname, String email,
-								String pass, String firstname, 
-								String lastname, String dateofbirth) 
+								String pass, String firstname,
+								String lastname, String dateofbirth)
 								throws SQLException, NumberFormatException {
 	  addAccountByParamsStmt.setInt(1, role);
 	  addAccountByParamsStmt.setString(2, nickname);
@@ -168,22 +168,5 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  }
 	  return lista;
   }
-
-  public static ArrayList<Account> getAllAccounts2(){
-		Account account1 = new Account(1, 1, "user1", "user1@user.com", "user1pass", "1970-01-01", "user1description", "User", "One", "1970-01-01");
-    Account account2 = new Account(2, 1, "user2", "user2@user.com", "user2pass", "1970-01-01", "user2description", "User", "Two", "1970-01-01");
-    Account account3 = new Account(3, 1, "user3", "user3@user.com", "user3pass", "1970-01-01", "user3description", "User", "Three", "1970-01-01");
-    Account account4 = new Account(4, 1, "user4", "user4@user.com", "user4pass", "1970-01-01", "user4description", "User", "Four", "1970-01-01");
-    Account account5 = new Account(5, 1, "user5", "user5@user.com", "user5pass", "1970-01-01", "user5description", "User", "Five", "1970-01-01");
-
-		ArrayList<Account> accounts = new ArrayList<>();
-		accounts.add(account1);
-		accounts.add(account2);
-		accounts.add(account3);
-		accounts.add(account4);
-		accounts.add(account5);
-
-		return accounts;
-	}
 
 }
