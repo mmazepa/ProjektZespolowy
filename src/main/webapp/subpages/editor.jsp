@@ -16,6 +16,11 @@
     <header></header>
     <main>
       <br/>
+      <p>
+        Some parts of this site is working under
+        <a href="license.jsp">MIT License</a>,
+        e.g. CodeMirror.
+      </p>
       <h5 id="helloUser">
         <strong>HELLO!</strong>
         You are logged as <strong>user</strong> <!-- "user" is currently used username -->
@@ -26,9 +31,6 @@
           <textarea id="code" placeholder="Enter some code... " class="mainEditor"></textarea>
           <script>
             var myTextArea = document.getElementById("code");
-            // var editor = CodeMirror.fromTextArea(myTextarea, {
-            //   lineNumbers: true
-            // });
             var myCodeMirror = CodeMirror(function(elt) {
               myTextArea.parentNode.replaceChild(elt, myTextArea);
             }, {value: myTextArea.value, lineNumbers: true});
@@ -62,16 +64,17 @@
           </p>
           <select id="languages" name="language">
               <option disabled="disabled">Choose one...</option>
-          		<option>C</option>
+          		<%-- <option>C</option>
           		<option>C++</option>
               <option>Java</option>
-              <option>Plain Text</option>
+              <option>Plain Text</option> --%>
+              <option>JavaScript</option>
         	</select>
           <button onclick="changeLanguage()" class="btn btn-success">Change</button>
         </div>
         <div id="col2" class="col-sm-4">
           <p class="bold">Currently used:</p>
-          <p id="usedLanguage">C (default)</p>
+          <p id="usedLanguage">JavaScript (default)</p>
         </div>
       </div>
     </main>

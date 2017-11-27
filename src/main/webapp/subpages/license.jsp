@@ -37,7 +37,7 @@
           OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN<br/>
           THE SOFTWARE.
         </p>
-        <a href="/index.jsp">back</a>
+        <a href="editor.jsp">back</a>
       </div>
     </main>
     <footer></footer>
