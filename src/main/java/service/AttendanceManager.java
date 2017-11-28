@@ -2,6 +2,7 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -70,7 +71,7 @@ public class AttendanceManager extends SQLHandler implements IAttendanceManager 
 		editAttendanceStmt.setInt(1, newAttendanceData.getGroup());
 		editAttendanceStmt.setInt(2, newAttendanceData.getUser());
 		editAttendanceStmt.setInt(3, (newAttendanceData.isAdmin()) ? 1 : 0);
-		editAttendanceStmt.setString(4, newAttendanceData.getJoinDate());
+		editAttendanceStmt.setTimestamp(4, Timestamp.valueOf(newAttendanceData.getJoinDate()));
 		editAttendanceStmt.setInt(5, oldAttendanceId);
 
 		editAttendanceStmt.executeUpdate();

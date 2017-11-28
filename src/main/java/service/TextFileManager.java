@@ -2,6 +2,7 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -73,7 +74,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 		editTextFileStmt.setInt(1, newTextFileData.getGroup());
 		editTextFileStmt.setInt(2, newTextFileData.getAuthor());
 		editTextFileStmt.setString(3, newTextFileData.getName());
-		editTextFileStmt.setString(4, newTextFileData.getCreationDate());
+		editTextFileStmt.setTimestamp(4, Timestamp.valueOf(newTextFileData.getCreationDate()));
 		editTextFileStmt.setString(5, newTextFileData.getDescription());
 		editTextFileStmt.setInt(6, (newTextFileData.isPrivate()) ? 1 : 0);
 		editTextFileStmt.setInt(7, oldTextFileId);

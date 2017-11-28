@@ -2,6 +2,7 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -71,7 +72,7 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 		editSnapshotStmt.setInt(1, newSnapshotData.getAuthor());
 		editSnapshotStmt.setInt(2, newSnapshotData.getFile());
 		editSnapshotStmt.setString(3, newSnapshotData.getName());
-		editSnapshotStmt.setString(4, newSnapshotData.getCreationDate());
+		editSnapshotStmt.setTimestamp(4, Timestamp.valueOf(newSnapshotData.getCreationDate()));
 		editSnapshotStmt.setString(5, newSnapshotData.getContent());
 		editSnapshotStmt.setInt(6, oldSnapshotId);
 

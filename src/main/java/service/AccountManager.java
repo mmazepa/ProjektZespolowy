@@ -2,6 +2,7 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -46,7 +47,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 					+ "FirstName = ?, LastName = ?, DateOfBirth = ? "
 					+ "WHERE id = ?;");
 			editAccountByParamsStmt = getConnection().prepareStatement("UPDATE Account SET "
-					+ "NickName = ?, Email = ?, "
+					+ "AccountRole = ?, NickName = ?, Email = ?, "
 					+ "UserPass = ?, Description = ?, "
 					+ "FirstName = ?, LastName = ?, DateOfBirth = ? "
 					+ "WHERE id = ?;");
@@ -96,7 +97,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  editAccountStmt.setString(6, newAccountData.getDescription());
 	  editAccountStmt.setString(7, newAccountData.getFirstName());
 	  editAccountStmt.setString(8, newAccountData.getLastName());
-	  editAccountStmt.setString(9, newAccountData.getDateOfBirth());
+	  editAccountStmt.setTimestamp(9, Timestamp.valueOf(newAccountData.getDateOfBirth()));
 
 	  editAccountStmt.setInt(10, oldAccountId);
 
@@ -104,17 +105,18 @@ public class AccountManager extends SQLHandler implements IAccountManager {
   }
   
   @Override
-  public void editAccountByParams(int id, String nickname, String email,
+  public void editAccountByParams(int id, int role, String nickname, String email,
 			String pass, String description, String firstname, String lastname, String dateofbirth) throws SQLException, NumberFormatException {
-	  editAccountByParamsStmt.setString(1, nickname);
-	  editAccountByParamsStmt.setString(2, email);
-	  editAccountByParamsStmt.setString(3, pass);
-	  editAccountByParamsStmt.setString(4, description);
-	  editAccountByParamsStmt.setString(5, firstname);
-	  editAccountByParamsStmt.setString(6, lastname);
-	  editAccountByParamsStmt.setString(7, dateofbirth);
+	  editAccountByParamsStmt.setInt(1, role);
+	  editAccountByParamsStmt.setString(2, nickname);
+	  editAccountByParamsStmt.setString(3, email);
+	  editAccountByParamsStmt.setString(4, pass);
+	  editAccountByParamsStmt.setString(5, description);
+	  editAccountByParamsStmt.setString(6, firstname);
+	  editAccountByParamsStmt.setString(7, lastname);
+	  editAccountByParamsStmt.setTimestamp(8, Timestamp.valueOf(dateofbirth));
 
-	  editAccountByParamsStmt.setInt(8, id);
+	  editAccountByParamsStmt.setInt(9, id);
 
 	  editAccountByParamsStmt.executeUpdate();
   }

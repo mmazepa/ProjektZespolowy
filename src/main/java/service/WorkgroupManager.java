@@ -2,6 +2,7 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -70,7 +71,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 	@Override
 	public void editWorkgroup(int oldWorkgroupId, Workgroup newWorkgroupData) throws SQLException, NumberFormatException {
 		editWorkgroupStmt.setString(1, newWorkgroupData.getName());
-		editWorkgroupStmt.setString(2, newWorkgroupData.getCreationDate());
+		editWorkgroupStmt.setTimestamp(2, Timestamp.valueOf(newWorkgroupData.getCreationDate()));
 		editWorkgroupStmt.setString(3, newWorkgroupData.getDescription());
 		editWorkgroupStmt.setInt(4, (newWorkgroupData.isPrivate()) ? 1 : 0);
 		editWorkgroupStmt.setInt(5, oldWorkgroupId);
