@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ page import="service.AccountManager"%>
+<%@ page import="java.sql.SQLException"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -84,6 +87,30 @@
                     value="Register"/>
           </form>
         </div>
+
+        <%-- <%
+      	try {
+      		AccountManager am = new AccountManager();
+      	  try {
+      			am.addAccountByParams(3, "kazimierz", "kazikwielki@krul.pl", "kazik123", "Kazimierz", "Wielki", "1999-01-08 04:05:06");
+
+            // PROBLEM Z PRZEPCHNIĘCIEM DATEOFBIRTH DO BAZY !!!
+
+            // org.postgresql.util.PSQLException: ERROR: column "dateofbirth"
+            // is of type timestamp without time zone but expression is of
+            // type character varying
+            // Wskazówka: You will need to rewrite or cast the expression.
+            // Pozycja: 128
+
+        		out.println("<p><h3>Account created</h3></p>");
+      		} catch (SQLException e) {
+      			out.println("<p><h3>SQL exception</h3></p>");
+            e.printStackTrace();
+      		}
+      	} catch (NumberFormatException e) {
+      		out.println("<p><h3>SQL exception</h3></p>");
+      	}
+      	%> --%>
 
         <a href="../index.jsp">back</a>
       </div>

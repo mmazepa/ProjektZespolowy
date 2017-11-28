@@ -1,10 +1,3 @@
-// CHANGING CURRENTLY USED PROGRAMMING LANGUAGE
-function changeLanguage(){
-    var select = document.getElementById("languages");
-    var lang = select.options[select.selectedIndex].innerHTML;
-    changeContent("usedLanguage", lang);
-}
-
 // CHECKING IF CREDENTIALS ARE CORRECT
 function checkCredentials(){
     var login = document.getElementById("login").value;
@@ -25,6 +18,7 @@ function checkCredentials(){
         }
         else {
             changeContent("loginInfo", "Authorization failed, try again later!");
+            clearCredentials();
         }
     }
     else {
@@ -33,6 +27,7 @@ function checkCredentials(){
         }
         else {
             changeContent("loginInfo", "Authorization failed, try again later!");
+            clearCredentials();
         }
     }
 }
@@ -40,6 +35,11 @@ function checkCredentials(){
 // CHANGING HTML CONTENT
 function changeContent(id, content){
     document.getElementById(id).innerHTML = content;
+}
+
+function clearCredentials(){
+    document.getElementById("login").value = "";
+    document.getElementById("password").value = "";
 }
 
 // CHANGING FONT COLOR

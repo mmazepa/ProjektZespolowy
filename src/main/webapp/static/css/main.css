@@ -81,24 +81,17 @@ main {
   overflow-y: scroll;
   width: 100%;
 }
+#mode {
+  background-color: black;
+  color: white;
+  width: 150px;
+  height: 30px;
+  border-bottom-left-radius: 10px;
+}
 footer {
   bottom: -25px;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#underRow {
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translateX(-15px);
-}
-#languages {
-  background-color: black;
-  color: white;
-  width: 150px;
-  height: 35px;
-  border: 3px solid silver;
-  border-top-right-radius: 20px;
 }
 .center {
   margin-left: auto;

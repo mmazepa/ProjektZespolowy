@@ -7,6 +7,8 @@
 		<link type="text/css" rel="stylesheet" href="static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="static/javascript/main.js"></script>
+    <!-- ANGULAR JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header id="header"></header>
@@ -20,8 +22,8 @@
           Log in, if you have an account, or register, if you want to have one.
         </p>
 
-        <!-- LOGGING IN SECTION -->
-        <div class="authorization">
+        <!-- LOGGING IN SECTION // ANGULAR JS INCLUDED -->
+        <div ng-app="" class="authorization">
           <form>
             Login<br/>
             <input  id="login"
@@ -30,10 +32,28 @@
                     name="login"
                     maxlength="20"
                     pattern="[A-Za-z]{3,20}"
-                    title="All letters allowed, min 3, max 20."/>
+                    title="All letters allowed, min 3, max 20."
+                    ng-model="login"/>
+                    <span ng-if="login == 'user'">
+                      <span class="glyphicon glyphicon-ok" style="color:green;"></span>
+                    </span>
+                    <span ng-if="login != 'user'">
+                      <span class="glyphicon glyphicon-remove" style="color:red;"></span>
+                    </span>
             <br/>
             Password<br/>
-            <input id="password" class="credentials" type="password" name="password"/><br/>
+            <input  id="password"
+                    class="credentials"
+                    type="password"
+                    name="password"
+                    ng-model="password"/>
+                    <span ng-if="password == 'user1234'">
+                      <span class="glyphicon glyphicon-ok" style="color:green;"></span>
+                    </span>
+                    <span ng-if="password != 'user1234'">
+                      <span class="glyphicon glyphicon-remove" style="color:red;"></span>
+                    </span>
+            <br/>
             <!-- LOG IN BUTTON -->
             <input  id="loginButton"
                     type="button"
