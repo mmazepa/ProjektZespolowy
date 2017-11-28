@@ -34,8 +34,30 @@
         		<td><c:out value="${attendance.getUser()}"/></td>
   					<td><c:out value="${attendance.isAdmin()}"/></td>
   					<td><c:out value="${attendance.getJoinDate()}"/></td>
-  					<td><span class="glyphicon glyphicon-pencil"></span></td>
-  					<td><span class="glyphicon glyphicon-remove"></span></td>
+  					              <td>
+                <form action="/subpages/obtainEditedAttendanceData.jsp" style="display:inline">
+      						<input type="hidden" name="id" value="${attendance.getID()}">
+      						<input type="hidden" name="group" value="${attendance.getGroup()}">
+      						<input type="hidden" name="user" value="${attendance.getUser()}">
+      						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
+      						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
+      						<button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-pencil"></span>
+      						</button>
+                </form>
+              </td>
+  			  		<td>
+                <form action="/subpages/removeAttendance.jsp" style="display:inline" method="get">
+      						<input type="hidden" name="id" value="${attendance.getID()}">
+      						<input type="hidden" name="group" value="${attendance.getGroup()}">
+      						<input type="hidden" name="user" value="${attendance.getUser()}">
+      						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
+      						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
+                  <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+      						</button>
+						    </form>
+					    </td>
 				  </tr>
           </c:forEach>
         </table>
