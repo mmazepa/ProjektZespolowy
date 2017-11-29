@@ -7,7 +7,7 @@
 Niniejsza dokumentacja dotyczy projektu edytora on-line do współpracy
 programistycznej w czasie rzeczywistym.
 
-## Skład zespołu: ##
+## Skład zespołu ##
 
 | L.P. | Imię i nazwisko   | Pełnione funkcje           | Zakres obowiązków               |
 |------|-------------------|----------------------------|---------------------------------|

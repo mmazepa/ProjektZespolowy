@@ -12,9 +12,8 @@
     <header></header>
     <main id="indexMain">
       <div class="centeredText">
-      <h3>Register Success</h3>
-        You have pass the registration process successfully.<br/>
-        Now you can log in to Editor On-Line and check the functionality.<br/>
+      <h3>Register Failure</h3>
+        Something went wrong. Please try again later.<br/>
         <br/>
         <a href="../index.jsp">back</a>
       </div>

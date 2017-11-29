@@ -62,11 +62,11 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  addAccountStmt.setString(2, account.getNickname());
 	  addAccountStmt.setString(3, account.getEmail());
 	  addAccountStmt.setString(4, account.getPass());
-	  addAccountStmt.setString(5, account.getRegistrationdate());
+	  addAccountStmt.setTimestamp(5, Timestamp.valueOf(account.getRegistrationdate()));
 	  addAccountStmt.setString(6, account.getDescription());
 	  addAccountStmt.setString(7, account.getFirstName());
 	  addAccountStmt.setString(8, account.getLastName());
-	  addAccountStmt.setString(9, account.getDateOfBirth());
+	  addAccountStmt.setTimestamp(9, Timestamp.valueOf(account.getDateOfBirth()));
 
 	  addAccountStmt.executeUpdate();
   }
@@ -82,7 +82,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  addAccountByParamsStmt.setString(4, pass);
 	  addAccountByParamsStmt.setString(5, firstname);
 	  addAccountByParamsStmt.setString(6, lastname);
-	  addAccountByParamsStmt.setString(7, dateofbirth);
+	  addAccountByParamsStmt.setTimestamp(7, Timestamp.valueOf(dateofbirth));
 
 	  addAccountByParamsStmt.executeUpdate();
   }
@@ -103,7 +103,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 
 	  editAccountStmt.executeUpdate();
   }
-  
+
   @Override
   public void editAccountByParams(int id, int role, String nickname, String email,
 			String pass, String description, String firstname, String lastname, String dateofbirth) throws SQLException, NumberFormatException {

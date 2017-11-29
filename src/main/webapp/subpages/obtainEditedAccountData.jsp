@@ -31,7 +31,7 @@
             <tr>
               <td>Role</td>
             <td>
-            <% 
+            <%
 			try
 			{
 				%>
@@ -52,8 +52,8 @@
 				%>
 				</select>
 				<%
-			} catch (Exception e) {    
-				
+			} catch (Exception e) {
+
 			}
 			%>
 			</td>

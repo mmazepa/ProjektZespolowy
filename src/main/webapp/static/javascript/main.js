@@ -37,6 +37,7 @@ function changeContent(id, content){
     document.getElementById(id).innerHTML = content;
 }
 
+// CLEARING CREDENTIAL INPUTS ON LOGIN FAILURE
 function clearCredentials(){
     document.getElementById("login").value = "";
     document.getElementById("password").value = "";
@@ -93,59 +94,4 @@ function readTextFile(file, path){
         }
     }
     rawFile.send(null);
-}
-
-
-// ŁOPATOLOGICZNE FUNKCJE TYMCZASOWE, DO POPRAWKI !!!
-
-// SAVE USER INFO IN SESSION STORAGE
-function saveInfo(){
-    var login = document.getElementById("login").value;
-    var fname = document.getElementById("fname").value;
-    var lname = document.getElementById("lname").value;
-    var email = document.getElementById("email").value;
-    var birth = document.getElementById("birth").value;
-    var passw = document.getElementById("passw").value;
-
-    sessionStorage.setItem('user.login', login);
-    sessionStorage.setItem('user.fname', fname);
-    sessionStorage.setItem('user.lname', lname);
-    sessionStorage.setItem('user.email', email);
-    sessionStorage.setItem('user.birth', birth);
-    sessionStorage.setItem('user.passw', passw);
-}
-
-// GET USER INFO FROM SESSION STORAGE
-count = 0;
-function getInfo(){
-    if(count%2 == 0){
-        var login = sessionStorage.getItem('user.login');
-        var fname = sessionStorage.getItem('user.fname');
-        var lname = sessionStorage.getItem('user.lname');
-        var email = sessionStorage.getItem('user.email');
-        var birth = sessionStorage.getItem('user.birth');
-        var passw = sessionStorage.getItem('user.passw');
-
-        changeContent("login", login);
-        changeContent("fname", fname);
-        changeContent("lname", lname);
-        changeContent("email", email);
-        changeContent("birth", birth);
-        changeContent("passw", passw);
-
-        changeContent("showHide", "Hide!");
-    }
-
-    if(count%2 == 1){
-        changeContent("login", "...");
-        changeContent("fname", "...");
-        changeContent("lname", "...");
-        changeContent("email", "...");
-        changeContent("birth", "...");
-        changeContent("passw", "...");
-
-        changeContent("showHide", "Show!");
-    }
-
-    count++;
 }
