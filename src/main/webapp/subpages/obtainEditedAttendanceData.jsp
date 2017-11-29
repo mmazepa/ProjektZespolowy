@@ -11,7 +11,7 @@
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="group" class="domain.Workgroup" scope="session" />
     <jsp:useBean id="currentgroup" class="domain.Workgroup" scope="session" />
-	<jsp:useBean id="storage" class="service.WorkgroupManager" scope="application" />
+	<jsp:useBean id="workgroupstorage" class="service.WorkgroupManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -37,7 +37,7 @@
 				%>
 				<select name="group" id="choose1" value="<%=Integer.parseInt(request.getParameter("group"))%>">
 				<%
-				for (Workgroup i : storage.getAllWorkgroups())
+				for (Workgroup i : workgroupstorage.getAllWorkgroups())
      			{
 					if (Integer.parseInt(request.getParameter("group")) == i.getID()) {
 						%>

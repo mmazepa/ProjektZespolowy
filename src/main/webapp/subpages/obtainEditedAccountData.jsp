@@ -11,7 +11,7 @@
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="role" class="domain.Role" scope="session" />
     <jsp:useBean id="currentrole" class="domain.Role" scope="session" />
-	<jsp:useBean id="storage" class="service.RoleManager" scope="application" />
+	<jsp:useBean id="rolestorage" class="service.RoleManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -37,7 +37,7 @@
 				%>
 				<select name="role" id="choose1" value="<%=Integer.parseInt(request.getParameter("role"))%>">
 				<%
-				for (Role i : storage.getAllRoles())
+				for (Role i : rolestorage.getAllRoles())
      			{
 					if (Integer.parseInt(request.getParameter("role")) == i.getID()) {
 						%>

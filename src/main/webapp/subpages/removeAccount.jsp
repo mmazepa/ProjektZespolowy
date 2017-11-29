@@ -12,7 +12,7 @@
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="acc" class="domain.Account" scope="session" />
 	<jsp:setProperty name="acc" property="*" />
-	<jsp:useBean id="storage" class="service.AccountManager" scope="application" />
+	<jsp:useBean id="accstorage" class="service.AccountManager" scope="application" />
 	</head>
 <body onload="loadHeaderAndFooter()">
     <header></header>
@@ -23,7 +23,7 @@
         <h4>Please confirm you want to remove that record.</h4>
         <br/>
 	<% 
-  	acc = storage.getAccount(Integer.parseInt(request.getParameter("id")));
+  	acc = accstorage.getAccount(Integer.parseInt(request.getParameter("id")));
 	%>
 	<form action="/doRemoveAccount" style="margin-left:0.1in; display:inline" method="post">
 		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />

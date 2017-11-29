@@ -15,7 +15,7 @@
 	<jsp:useBean id="storageTextFile" class="service.TextFileManager" scope="application" />
 	<jsp:useBean id="account" class="domain.Account" scope="session" />
     <jsp:useBean id="currentaccount" class="domain.Account" scope="session" />
-	<jsp:useBean id="storage" class="service.AccountManager" scope="application" />
+	<jsp:useBean id="storageAccount" class="service.AccountManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -41,7 +41,7 @@
 				%>
 				<select name="author" id="choose1" value="<%=Integer.parseInt(request.getParameter("author"))%>">
 				<%
-				for (Account i : storage.getAllAccounts())
+				for (Account i : storageAccount.getAllAccounts())
      			{
 					if (Integer.parseInt(request.getParameter("author")) == i.getID()) {
 						%>
@@ -69,7 +69,7 @@
 			try
 			{
 				%>
-				<select name="file" id="choose1" value="<%=Integer.parseInt(request.getParameter("file"))%>">
+				<select name="file" id="choose2" value="<%=Integer.parseInt(request.getParameter("file"))%>">
 				<%
 				for (TextFile i : storageTextFile.getAllTextFiles())
      			{

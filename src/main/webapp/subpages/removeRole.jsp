@@ -10,9 +10,9 @@
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
-    <jsp:useBean id="acc" class="domain.Role" scope="session" />
-	<jsp:setProperty name="acc" property="*" />
-	<jsp:useBean id="storage" class="service.RoleManager" scope="application" />
+    <jsp:useBean id="rol" class="domain.Role" scope="session" />
+	<jsp:setProperty name="rol" property="*" />
+	<jsp:useBean id="rolstorage" class="service.RoleManager" scope="application" />
 	</head>
 <body onload="loadHeaderAndFooter()">
     <header></header>
@@ -23,11 +23,11 @@
         <h4>Please confirm you want to remove that record.</h4>
         <br/>
 	<% 
-  	acc = storage.getRole(Integer.parseInt(request.getParameter("id")));
+  	rol = rolstorage.getRole(Integer.parseInt(request.getParameter("id")));
 	%>
 	<form action="/doRemoveRole" style="margin-left:0.1in; display:inline" method="post">
 		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-		<p><b>Name:</b> <jsp:getProperty name="acc" property="name"></jsp:getProperty></p>
+		<p><b>Name:</b> <jsp:getProperty name="rol" property="name"></jsp:getProperty></p>
 		<input class="button" type="submit" value=" Confirm " style="display:inline">
 	</form>
 	<br/>
