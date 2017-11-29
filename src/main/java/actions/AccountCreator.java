@@ -25,6 +25,11 @@ public class AccountCreator extends HttpServlet {
 			String lastname = request.getParameter("lastName");
 			String dateofbirth = request.getParameter("dateOfBirth") + " 00:00:00";
 
+      // if (dateofbirth == null || dateofbirth == "") {
+      //   dateofbirth = "1970-01-01";
+      // }
+      // dateofbirth.concat(" 00:00:00");
+
 			db.doTranBegin();
 			db.addAccountByParams(3, nickname, email, pass, firstname, lastname, dateofbirth);
 			db.doTranCommit();

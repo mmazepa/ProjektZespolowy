@@ -24,7 +24,7 @@
 
         <!-- LOGGING IN SECTION // ANGULAR JS INCLUDED -->
         <div ng-app="" class="authorization">
-          <form>
+          <form name="form">
             Login<br/>
             <input  id="login"
                     class="credentials"
@@ -33,26 +33,25 @@
                     maxlength="20"
                     pattern="[A-Za-z]{3,20}"
                     title="All letters allowed, min 3, max 20."
-                    ng-model="login"/>
-                    <span ng-if="login == 'user'">
-                      <span class="glyphicon glyphicon-ok" style="color:green;"></span>
-                    </span>
-                    <span ng-if="login != 'user'">
-                      <span class="glyphicon glyphicon-remove" style="color:red;"></span>
-                    </span>
+                    ng-model="login"
+                    ng-pattern="[A-Za-z]{3,20}"
+                    required/>
             <br/>
             Password<br/>
             <input  id="password"
                     class="credentials"
                     type="password"
                     name="password"
-                    ng-model="password"/>
-                    <span ng-if="password == 'user1234'">
-                      <span class="glyphicon glyphicon-ok" style="color:green;"></span>
-                    </span>
-                    <span ng-if="password != 'user1234'">
-                      <span class="glyphicon glyphicon-remove" style="color:red;"></span>
-                    </span>
+                    ng-model="password"
+                    required/>
+            <br/>
+            Credentials validation:
+            <span ng-if="form.$valid">
+              <span class="glyphicon glyphicon-ok" style="color:green;"></span>
+            </span>
+            <span ng-if="form.$invalid">
+              <span class="glyphicon glyphicon-remove" style="color:red;"></span>
+            </span>
             <br/>
             <!-- LOG IN BUTTON -->
             <input  id="loginButton"
