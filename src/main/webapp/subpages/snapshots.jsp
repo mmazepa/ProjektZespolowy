@@ -36,8 +36,30 @@
   					<td><c:out value="${snapshot.getName()}"/></td>
   					<td><c:out value="${snapshot.getCreationDate()}"/></td>
   					<td><c:out value="${snapshot.getContent()}"/></td>
-  					<td><span class="glyphicon glyphicon-pencil"></span></td>
-  					<td><span class="glyphicon glyphicon-remove"></span></td>
+              <td>
+                <form action="/subpages/obtainEditedSnapshotData.jsp" style="display:inline">
+      						<input type="hidden" name="id" value="${snapshot.getID()}">
+      						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
+      						<input type="hidden" name="file" value="${snapshot.getFile()}">
+      						<input type="hidden" name="name" value="${snapshot.getName()}">
+      						<input type="hidden" name="creationDate" value="${snapshot.getCreationDate()}">
+      						<input type="hidden" name="content" value="${snapshot.getContent()}">
+      						<button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-pencil"></span>
+      						</button>
+                </form>
+              </td>
+  			  		<td>
+                <form action="/subpages/removeSnapshot.jsp" style="display:inline" method="get">
+      						<input type="hidden" name="id" value="${snapshot.getID()}">
+      						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
+      						<input type="hidden" name="file" value="${snapshot.getFile()}">
+      						<input type="hidden" name="name" value="${snapshot.getName()}">
+                  <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+      						</button>
+						    </form>
+					    </td>
   				</tr>
           </c:forEach>
         </table>

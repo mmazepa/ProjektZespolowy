@@ -1,4 +1,4 @@
-<%@page import="domain.Role"%>
+<%@page import="domain.Workgroup"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE HTML>
@@ -9,9 +9,9 @@
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
-    <jsp:useBean id="role" class="domain.Role" scope="session" />
-    <jsp:useBean id="currentrole" class="domain.Role" scope="session" />
-	<jsp:useBean id="storage" class="service.RoleManager" scope="application" />
+    <jsp:useBean id="group" class="domain.Workgroup" scope="session" />
+    <jsp:useBean id="currentgroup" class="domain.Workgroup" scope="session" />
+	<jsp:useBean id="storage" class="service.WorkgroupManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -29,17 +29,17 @@
           <form action="/doEditAttendance" style="margin-left:0.1in" method="post">
           	<input type="hidden" name="id" value="<%=request.getParameter("id")%>" />
             <tr>
-              <td>Role</td>
+              <td>Group</td>
             <td>
             <% 
 			try
 			{
 				%>
-				<select name="role" id="choose1" value="<%=Integer.parseInt(request.getParameter("role"))%>">
+				<select name="group" id="choose1" value="<%=Integer.parseInt(request.getParameter("group"))%>">
 				<%
-				for (Role i : storage.getAllRoles())
+				for (Workgroup i : storage.getAllWorkgroups())
      			{
-					if (Integer.parseInt(request.getParameter("role")) == i.getID()) {
+					if (Integer.parseInt(request.getParameter("group")) == i.getID()) {
 						%>
 	          			<option value="<%=i.getID()%>" selected><%=i.getName()%></option>
 						<%
@@ -57,10 +57,6 @@
 			}
 			%>
 			</td>
-            </tr>
-            <tr>
-              <td>Group</td>
-              <td><input type="text" name="group" value="<%=request.getParameter("group")%>"></td>
             </tr>
             <tr>
               <td>User</td>

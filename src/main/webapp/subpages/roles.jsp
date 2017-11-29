@@ -28,8 +28,24 @@
       		<tr>
         		<td><c:out value="${role.getID()}"/></td>
   					<td><c:out value="${role.getName()}"/></td>
-        		<td><span class="glyphicon glyphicon-pencil"></span></td>
-  					<td><span class="glyphicon glyphicon-remove"></span></td>
+              <td>
+                <form action="/subpages/obtainEditedRoleData.jsp" style="display:inline">
+      						<input type="hidden" name="id" value="${role.getID()}">
+      						<input type="hidden" name="name" value="${role.getName()}">
+      						<button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-pencil"></span>
+      						</button>
+                </form>
+              </td>
+  			  		<td>
+                <form action="/subpages/removeRole.jsp" style="display:inline" method="get">
+      						<input type="hidden" name="id" value="${role.getID()}">
+      						<input type="hidden" name="name" value="${role.getName()}">
+                  <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+      						</button>
+						    </form>
+					    </td>
 				  </tr>
           </c:forEach>
         </table>
