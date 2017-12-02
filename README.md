@@ -20,5 +20,5 @@ programistycznej w czasie rzeczywistym.
 | L.P. | Nazwa                                                         | Wersja | Użyteczność             | Licencja        |
 |------|---------------------------------------------------------------|--------|-------------------------|-----------------|
 | 1    | [Bootstrap](https://getbootstrap.com/ "Bootstrap's Homepage") | 3.3.7  | Framework CSS           | Licencja MIT    |
-| 2    | [AngularJS](https://angularjs.org/ "AngularJS's Homepage"     | 1.6.4  | Framework JavaScript    | Licencja MIT    |
+| 2    | [AngularJS](https://angularjs.org/ "AngularJS's Homepage")    | 1.6.4  | Framework JavaScript    | Licencja MIT    |
 | 3    | [CodeMirror](https://codemirror.net/ "CodeMirror's Homepage") | 5.32.0 | Wsparcie edytora tekstu | Licencja MIT    |
