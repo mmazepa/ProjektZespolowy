@@ -17,9 +17,8 @@
         <h3>Welcome to Editor On-Line</h3>
         <hr/>
         <p>
-          We're glad to see you visiting our site!<br/>
-          We'll be pleased, if you mind check functionality prepared for you.<br/>
-          Log in, if you have an account, or register, if you want to have one.
+          We're glad to see you visiting our site! We'll be pleased, if you mind check functionality<br/>
+          prepared for you. Log in, if you have an account, or register, if you want to have one.
         </p>
 
         <!-- LOGGING IN SECTION // ANGULAR JS INCLUDED -->
@@ -67,6 +66,11 @@
         <p>
           Don't have an account? Want one? Just use our
           <a href="subpages/register.jsp">register</a> form.
+        </p>
+        <!-- LICENSE ADNOTATION -->
+        <p>
+          Some parts of this site is working under
+          <a href="/subpages/license.jsp">MIT License</a>.
         </p>
         <p id="adminPanel">
           <span class="glyphicon glyphicon-sunglasses"></span>

@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of snapshots</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable snapshotTable">
           <tr>
             <th>ID</th>
             <th>Author</th>

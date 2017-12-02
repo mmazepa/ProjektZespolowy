@@ -1,25 +1,61 @@
 // out: tables.css
 
-#adminTable {
+.adminTable {
   border-collapse: collapse;
   width: 700px;
   margin: 0 auto;
-
-  tr:first-child {
-    background-color: whitesmoke;
-    color: darken(darkgray, 25%);
-  }
-
-  tr:not(:first-child):hover {
-    background-color: lightgreen;
-    color: darkgreen;
-    transition: 0.2s;
-  }
+  .tableProperties(darken(darkgray, 25%), silver);
 
   th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+  }
+}
+
+.accountTable {
+    .tableProperties(darkred, lighten(tomato, 20%));
+}
+
+.attendanceTable {
+    .tableProperties(darkgreen, lightgreen);
+}
+
+.roleTable {
+  .tableProperties(darkblue, lightblue);
+}
+
+.snapshotTable {
+  .tableProperties(darken(darkorchid, 10%), orchid);
+}
+
+.textFileTable {
+  .tableProperties(chocolate, coral);
+}
+
+.workgroupTable {
+  .tableProperties(darkslategray, lighten(slategray, 20%));
+}
+
+.licenseTable {
+  .tableProperties(darken(darkorange, 15%), lighten(orange, 25%));
+}
+
+.tableProperties(@mainColor, @hoverColor){
+
+  tr:first-child {
+    background: lighten(@hoverColor, 15%);
+    background: -webkit-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
+    background: -o-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
+    background: -moz-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
+    background: linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
+    color: @mainColor;
+  }
+
+  tr:not(:first-child):hover {
+    background-color: @hoverColor;
+    color: @mainColor;
+    transition: 0.2s;
   }
 }
 

@@ -15,8 +15,10 @@ programistycznej w czasie rzeczywistym.
 | 2    | Mazepa Mariusz    | Lider, webmaster, grafik   | Front-end, wsparcie back-endu   |
 | 3    | Zakrzewski Michał | Webdeveloper (programista) | Back-end                        |
 
-## Używane moduły ##
+## Moduły i frameworki ##
 
-| L.P. | Nazwa modułu                                                  | Użyteczność modułu      | Licencja modułu |
-|------|---------------------------------------------------------------|-------------------------|-----------------|
-| 1    | [CodeMirror](https://codemirror.net/ "CodeMirror's Homepage") | Wsparcie edytora tekstu | Licencja MIT    |
+| L.P. | Nazwa                                                         | Wersja | Użyteczność             | Licencja        |
+|------|---------------------------------------------------------------|--------|-------------------------|-----------------|
+| 1    | Bootstrap                                                     | 3.3.7  |                         | Licencja MIT    |
+| 2    | AngularJS                                                     | 1.6.4  |                         |                 |
+| 3    | [CodeMirror](https://codemirror.net/ "CodeMirror's Homepage") | 5.32.0 | Wsparcie edytora tekstu | Licencja MIT    |

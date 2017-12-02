@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of attendances</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable attendanceTable">
           <tr>
             <th>ID</th>
             <th>Group</th>

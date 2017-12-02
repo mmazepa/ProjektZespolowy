@@ -18,11 +18,6 @@
     <header></header>
     <main>
       <br/>
-      <p>
-        Some parts of this site is working under
-        <a href="license.jsp">MIT License</a>,
-        e.g. CodeMirror.
-      </p>
       <h5 id="helloUser">
         <strong>HELLO!</strong>
         <!-- "user" is currently used username -->

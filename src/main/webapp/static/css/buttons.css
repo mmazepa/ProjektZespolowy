@@ -55,8 +55,7 @@
   margin: 0px auto;
   border: 1px solid gray;
 }
-#accounts,
-#snapshots {
+#accounts {
   background: darkred;
   background: -webkit-linear-gradient(darkred, #d70000);
   background: -o-linear-gradient(darkred, #d70000);
@@ -65,8 +64,7 @@
   color: white;
   font-weight: bold;
 }
-#attendances,
-#textFiles {
+#attendances {
   background: darkgreen;
   background: -webkit-linear-gradient(darkgreen, #00b100);
   background: -o-linear-gradient(darkgreen, #00b100);
@@ -75,8 +73,7 @@
   color: white;
   font-weight: bold;
 }
-#roles,
-#workgroups {
+#roles {
   background: darkblue;
   background: -webkit-linear-gradient(darkblue, #0000d7);
   background: -o-linear-gradient(darkblue, #0000d7);
@@ -85,8 +82,34 @@
   color: white;
   font-weight: bold;
 }
-#accounts:hover,
-#snapshots:hover {
+#snapshots {
+  background: darkorchid;
+  background: -webkit-linear-gradient(darkorchid, #b86fdc);
+  background: -o-linear-gradient(darkorchid, #b86fdc);
+  background: -moz-linear-gradient(darkorchid, #b86fdc);
+  background: linear-gradient(darkorchid, #b86fdc);
+  color: white;
+  font-weight: bold;
+}
+#textFiles {
+  background: chocolate;
+  background: -webkit-linear-gradient(chocolate, #e79256);
+  background: -o-linear-gradient(chocolate, #e79256);
+  background: -moz-linear-gradient(chocolate, #e79256);
+  background: linear-gradient(chocolate, #e79256);
+  color: white;
+  font-weight: bold;
+}
+#workgroups {
+  background: darkslategray;
+  background: -webkit-linear-gradient(darkslategray, #4c7f7f);
+  background: -o-linear-gradient(darkslategray, #4c7f7f);
+  background: -moz-linear-gradient(darkslategray, #4c7f7f);
+  background: linear-gradient(darkslategray, #4c7f7f);
+  color: white;
+  font-weight: bold;
+}
+#accounts:hover {
   background: tomato;
   background: -webkit-linear-gradient(tomato, #ffa494);
   background: -o-linear-gradient(tomato, #ffa494);
@@ -95,8 +118,7 @@
   color: black;
   font-weight: bold;
 }
-#attendances:hover,
-#textFiles:hover {
+#attendances:hover {
   background: lightgreen;
   background: -webkit-linear-gradient(lightgreen, #d2f8d2);
   background: -o-linear-gradient(lightgreen, #d2f8d2);
@@ -105,13 +127,39 @@
   color: black;
   font-weight: bold;
 }
-#roles:hover,
-#workgroups:hover {
+#roles:hover {
   background: lightblue;
   background: -webkit-linear-gradient(lightblue, #e8f4f8);
   background: -o-linear-gradient(lightblue, #e8f4f8);
   background: -moz-linear-gradient(lightblue, #e8f4f8);
   background: linear-gradient(lightblue, #e8f4f8);
+  color: black;
+  font-weight: bold;
+}
+#snapshots:hover {
+  background: orchid;
+  background: -webkit-linear-gradient(orchid, #eaade7);
+  background: -o-linear-gradient(orchid, #eaade7);
+  background: -moz-linear-gradient(orchid, #eaade7);
+  background: linear-gradient(orchid, #eaade7);
+  color: black;
+  font-weight: bold;
+}
+#textFiles:hover {
+  background: coral;
+  background: -webkit-linear-gradient(coral, #ffb79d);
+  background: -o-linear-gradient(coral, #ffb79d);
+  background: -moz-linear-gradient(coral, #ffb79d);
+  background: linear-gradient(coral, #ffb79d);
+  color: black;
+  font-weight: bold;
+}
+#workgroups:hover {
+  background: slategray;
+  background: -webkit-linear-gradient(slategray, #9ba6b1);
+  background: -o-linear-gradient(slategray, #9ba6b1);
+  background: -moz-linear-gradient(slategray, #9ba6b1);
+  background: linear-gradient(slategray, #9ba6b1);
   color: black;
   font-weight: bold;
 }

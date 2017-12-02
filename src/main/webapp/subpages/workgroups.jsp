@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of workgroups</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable workgroupTable">
           <tr>
             <th>ID</th>
             <th>Name</th>

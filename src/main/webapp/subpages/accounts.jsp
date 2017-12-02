@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of registered users</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable accountTable">
           <tr>
             <th>ID</th>
             <th>Role</th>
@@ -35,7 +35,20 @@
           <c:forEach var="account" items="${accounts}">
       			<tr>
       				<td><c:out value="${account.getID()}"/></td>
-              <td><c:out value="${account.getRole()}"/></td>
+              <td style="font-size: 12px;">
+                <%-- <c:out value="${account.getRole()}"/> --%>
+                <c:choose>
+                  <c:when test="${account.getRole() == '1'}">
+                    Administrator
+                  </c:when>
+                  <c:when test="${account.getRole() == '2'}">
+                    Moderator
+                  </c:when>
+                  <c:when test="${account.getRole() == '3'}">
+                    User
+                  </c:when>
+                </c:choose>
+              </td>
       				<td><c:out value="${account.getNickname()}"/></td>
               <td><c:out value="${account.getEmail()}"/></td>
               <td><c:out value="${account.getPass()}"/></td>

@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of roles</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable roleTable">
           <tr>
             <th>ID</th>
             <th>Name</th>

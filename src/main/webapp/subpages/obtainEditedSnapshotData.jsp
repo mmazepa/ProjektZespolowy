@@ -25,7 +25,7 @@
         <hr/>
         <h4>Edit user</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable">
           <tr>
             <th>Input</th>
             <th>Type</th>
@@ -35,7 +35,7 @@
             <tr>
               <td>Author</td>
             <td>
-            <% 
+            <%
 			try
 			{
 				%>
@@ -56,8 +56,8 @@
 				%>
 				</select>
 				<%
-			} catch (Exception e) {    
-				
+			} catch (Exception e) {
+
 			}
 			%>
 			</td>
@@ -65,7 +65,7 @@
                         <tr>
               <td>File</td>
             <td>
-            <% 
+            <%
 			try
 			{
 				%>
@@ -86,13 +86,13 @@
 				%>
 				</select>
 				<%
-			} catch (Exception e) {    
-				
+			} catch (Exception e) {
+
 			}
 			%>
 			</td>
             </tr>
-            
+
             <tr>
               <td>Name</td>
               <td><input type="text" name="name" value="<%=request.getParameter("name")%>"></td>

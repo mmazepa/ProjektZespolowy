@@ -21,7 +21,7 @@
         <hr/>
         <h4>Edit attendance</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable">
           <tr>
             <th>Input</th>
             <th>Type</th>
@@ -31,7 +31,7 @@
             <tr>
               <td>Group</td>
             <td>
-            <% 
+            <%
 			try
 			{
 				%>
@@ -52,8 +52,8 @@
 				%>
 				</select>
 				<%
-			} catch (Exception e) {    
-				
+			} catch (Exception e) {
+
 			}
 			%>
 			</td>
@@ -81,7 +81,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/accounts">back</a>
+        <a href="/attendanceshu">back</a>
         <br/>
         <br/>
       </div>

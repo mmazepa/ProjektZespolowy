@@ -17,7 +17,7 @@
         <hr/>
         <h4>List of text files</h4>
         <br/>
-        <table id="adminTable">
+        <table class="adminTable textFileTable">
           <tr>
             <th>ID</th>
             <th>Author</th>
