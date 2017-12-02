@@ -16,7 +16,7 @@
         You have pass the registration process successfully.<br/>
         Now you can log in to Editor On-Line and check the functionality.<br/>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

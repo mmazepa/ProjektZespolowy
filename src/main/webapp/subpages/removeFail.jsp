@@ -15,7 +15,7 @@
       <h3>Fail!</h3>
         An error occured when removing a record.<br/>
 
-        <a href="admin.jsp">back</a>
+        <a href="admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

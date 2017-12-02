@@ -22,7 +22,7 @@
         <hr/>
         <h4>Please confirm you want to remove that record.</h4>
         <br/>
-	<% 
+	<%
   	snp = snpstorage.getSnapshot(Integer.parseInt(request.getParameter("id")));
 	%>
 	<form action="/doRemoveSnapshot" style="margin-left:0.1in; display:inline" method="post">
@@ -32,7 +32,7 @@
 	</form>
 	<br/>
 	<p>
-  		<a href="/snapshots">Back</a>
+  		<a href="/snapshots"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</p>
 </body>
 </html>

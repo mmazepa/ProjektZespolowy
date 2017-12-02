@@ -90,7 +90,7 @@
           </c:forEach>
         </table>
         <br/>
-        <a href="/subpages/admin.jsp">back</a>
+        <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

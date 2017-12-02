@@ -81,7 +81,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/attendanceshu">back</a>
+        <a href="/attendances"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>

@@ -43,7 +43,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/roles">back</a>
+        <a href="/roles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>

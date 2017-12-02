@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="acc" class="domain.Account" scope="session" />
-	<jsp:setProperty name="acc" property="*" />
-	<jsp:useBean id="accstorage" class="service.AccountManager" scope="application" />
+  	<jsp:setProperty name="acc" property="*" />
+  	<jsp:useBean id="accstorage" class="service.AccountManager" scope="application" />
 	</head>
-<body onload="loadHeaderAndFooter()">
+  <body onload="loadHeaderAndFooter()">
     <header></header>
     <main id="indexMain">
       <div class="centeredText">
@@ -22,20 +22,61 @@
         <hr/>
         <h4>Please confirm you want to remove that record.</h4>
         <br/>
-	<% 
-  	acc = accstorage.getAccount(Integer.parseInt(request.getParameter("id")));
-	%>
-	<form action="/doRemoveAccount" style="margin-left:0.1in; display:inline" method="post">
-		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-		<p><b>Nickname:</b> <jsp:getProperty name="acc" property="nickname"></jsp:getProperty></p>
-		<p><b>Email:</b> <jsp:getProperty name="acc" property="email"></jsp:getProperty></p>
-		<p><b>Name:</b> <jsp:getProperty name="acc" property="firstName"></jsp:getProperty></p>
-		<p><b>Surname:</b> <jsp:getProperty name="acc" property="lastName"></jsp:getProperty></p>
-		<input class="button" type="submit" value=" Confirm " style="display:inline">
-	</form>
-	<br/>
-	<p>
-  		<a href="/accounts">Back</a>
-	</p>
-</body>
+      	<%
+        	acc = accstorage.getAccount(Integer.parseInt(request.getParameter("id")));
+      	%>
+        <table class="adminTable formTable">
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        	<form action="/doRemoveAccount" style="margin-left:0.1in; display:inline" method="post">
+        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+            <tr>
+        		   <td>
+                 <b>Nickname</b>
+               </td>
+               <td>
+                 <jsp:getProperty name="acc" property="nickname"></jsp:getProperty>
+               </td>
+            </tr>
+            <tr>
+        		  <td>
+                <b>Email</b>
+              </td>
+              <td>
+                <jsp:getProperty name="acc" property="email"></jsp:getProperty>
+              </td>
+            </tr>
+            <tr>
+          	   <td>
+                 <b>Name</b>
+               </td>
+               <td>
+                 <jsp:getProperty name="acc" property="firstName"></jsp:getProperty>
+               </td>
+            </tr>
+            <tr>
+          		<td>
+                <b>Surname</b>
+              </td>
+              <td>
+                <jsp:getProperty name="acc" property="lastName"></jsp:getProperty>
+              </td>
+            </tr>
+            <tr>
+          		<td colspan="2" style="text-align:center;">
+                <input class="btn btn-danger" type="submit" value=" Confirm " style="display:inline">
+              </td>
+            </tr>
+        	</form>
+        </table>
+  	    <br/>
+        <p>
+        	<a href="/accounts"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        </p>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>

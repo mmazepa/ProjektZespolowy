@@ -79,7 +79,7 @@
         <br/>
         Administator panel for administrative things.<br/>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

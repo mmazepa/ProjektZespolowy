@@ -112,7 +112,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/snapshots">back</a>
+        <a href="/snapshots"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>

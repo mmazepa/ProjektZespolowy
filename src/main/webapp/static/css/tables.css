@@ -113,6 +113,19 @@
   color: #b36200;
   transition: 0.2s;
 }
+.formTable tr:first-child {
+  background: #e6e6e6;
+  background: -webkit-linear-gradient(white, #e6e6e6, #e6e6e6);
+  background: -o-linear-gradient(white, #e6e6e6, #e6e6e6);
+  background: -moz-linear-gradient(white, #e6e6e6, #e6e6e6);
+  background: linear-gradient(white, #e6e6e6, #e6e6e6);
+  color: gray;
+}
+.formTable tr:not(:first-child):hover {
+  background-color: silver;
+  color: gray;
+  transition: 0.2s;
+}
 #registerTable {
   width: 300px;
   margin-top: 10px;

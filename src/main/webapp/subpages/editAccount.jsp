@@ -47,7 +47,7 @@
 	}
 	%>
 	<p>
-  		<a href="/accounts">back</a>
+      <a href="/accounts"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</p>
 </body>
 </html>

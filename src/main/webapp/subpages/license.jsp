@@ -53,7 +53,7 @@
             DEALINGS IN THE SOFTWARE.
           </p>
         </nav>
-        <a href="../index.jsp" style="font-size: 14px;">back</a>
+        <a href="../index.jsp" style="font-size: 14px;"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

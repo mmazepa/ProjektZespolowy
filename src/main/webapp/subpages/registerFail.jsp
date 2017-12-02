@@ -15,7 +15,7 @@
       <h3>Register Failure</h3>
         Something went wrong. Please try again later.<br/>
         <br/>
-        <a href="../index.jsp">back</a>
+        <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

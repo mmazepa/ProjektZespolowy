@@ -15,7 +15,7 @@
       <h3>Success!</h3>
         You updated a record successfully.<br/>
 
-        <a href="admin.jsp">back</a>
+        <a href="admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>
