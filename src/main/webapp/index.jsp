@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -23,7 +24,7 @@
 
         <!-- LOGGING IN SECTION // ANGULAR JS INCLUDED -->
         <div ng-app="" class="authorization">
-          <form name="form">
+          <form name="form" action="/doCheckCredentials" method="POST">
             Login<br/>
             <input  id="login"
                     class="credentials"
@@ -54,7 +55,7 @@
             <br/>
             <!-- LOG IN BUTTON -->
             <input  id="loginButton"
-                    type="button"
+                    type="submit"
                     class="btn btn-success"
                     value="Log In"
                     onclick="checkCredentials()"/>

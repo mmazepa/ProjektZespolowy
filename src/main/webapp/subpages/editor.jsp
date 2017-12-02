@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="service.AccountManager"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -16,12 +17,19 @@
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
+    <%
+      AccountManager am = new AccountManager();
+      String currentNickname = "_user";
+    %>
     <main>
       <br/>
       <h5 id="helloUser">
         <strong>HELLO!</strong>
-        <!-- "user" is currently used username -->
-        You are logged as <strong>user</strong>
+        You are logged as
+
+        <!-- ALBO TO --> <strong><c:out value="${currentNickname}"/></strong>
+        <!-- ALBO TO --> <strong><%= request.getParameter("activeAccountNickname")%></strong>
+
         (<a href="../index.jsp">logout</a>)
       </h5>
       <div class="row">
@@ -42,6 +50,8 @@
             </select>
             <button type=button class="btn btn-primary" onclick="change()">change mode</button>
           </p>
+
+					<!-- CODE_MIRROR STARTING SCRIPT -->
           <script>
             var myTextArea = document.getElementById("code");
             var myCodeMirror = CodeMirror(function(elt) {
@@ -89,18 +99,22 @@
                 }
               }
           </script>
+
         </div>
         <div class="col-sm-4">
           <div class="chat">
             <div id="messages">
               <div id="systemMessage">
                 <strong>SYSTEM:</strong> Welcome to chat.
-                Type some text and press the "Send" button.
+                Type some text and press the button with
+                paper aeroplan to send it to chat.
               </div>
             </div>
             <div id="chatTyping">
-              <!-- "user" is currently used username -->
-              <strong>user:</strong>
+
+              <!-- ALBO TO --> <strong><c:out value="${currentNickname}"/></strong>
+              <!-- ALBO TO --> <strong><%= request.getParameter("activeAccountNickname")%></strong>
+
               <input id="message" type="text" name="message"/>
               <button id="sendMessage"
                       class="btn btn-success"
