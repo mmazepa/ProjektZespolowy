@@ -19,7 +19,7 @@
         <br/>
         <table class="adminTable workgroupTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Name</th>
             <th>Creation Date</th>
             <th>Description</th>
@@ -27,9 +27,14 @@
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+          <c:set var="count" value="0" />
           <c:forEach var="workgroup" items="${workgroups}">
       		<tr>
-        		<td><c:out value="${workgroup.getID()}"/></td>
+        		<td>
+              <%-- <c:out value="${workgroup.getID()}"/> --%>
+              <c:set var="count" value="${count + 1}" />
+              <c:out value="${count}" />
+            </td>
   					<td><c:out value="${workgroup.getName()}"/></td>
         		<td><c:out value="${workgroup.getCreationDate()}"/></td>
   					<td><c:out value="${workgroup.getDescription()}"/></td>

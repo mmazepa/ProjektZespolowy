@@ -19,7 +19,7 @@
         <br/>
         <table class="adminTable accountTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Role</th>
             <th>Nickname</th>
             <th>E-mail</th>
@@ -32,9 +32,14 @@
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+          <c:set var="count" value="0" />
           <c:forEach var="account" items="${accounts}">
       			<tr>
-      				<td><c:out value="${account.getID()}"/></td>
+      				<td>
+                <%-- <c:out value="${account.getID()}"/> --%>
+                <c:set var="count" value="${count + 1}" />
+                <c:out value="${count}" />
+              </td>
               <td style="font-size: 12px;">
                 <%-- <c:out value="${account.getRole()}"/> --%>
                 <c:choose>

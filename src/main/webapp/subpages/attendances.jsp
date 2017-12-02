@@ -19,7 +19,7 @@
         <br/>
         <table class="adminTable attendanceTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Group</th>
             <th>User</th>
             <th>Is Admin</th>
@@ -27,9 +27,14 @@
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+          <c:set var="count" value="0" />
           <c:forEach var="attendance" items="${attendances}">
       		<tr>
-        		<td><c:out value="${attendance.getID()}"/></td>
+        		<td>
+              <%-- <c:out value="${attendance.getID()}"/> --%>
+              <c:set var="count" value="${count + 1}" />
+              <c:out value="${count}" />
+            </td>
   					<td><c:out value="${attendance.getGroup()}"/></td>
         		<td><c:out value="${attendance.getUser()}"/></td>
   					<td><c:out value="${attendance.isAdmin()}"/></td>

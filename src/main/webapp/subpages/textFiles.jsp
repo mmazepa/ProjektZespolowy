@@ -19,7 +19,7 @@
         <br/>
         <table class="adminTable textFileTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Author</th>
             <th>Group</th>
             <th>Name</th>
@@ -29,9 +29,14 @@
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+          <c:set var="count" value="0" />
           <c:forEach var="textFile" items="${textFiles}">
       		<tr>
-      			<td><c:out value="${textFile.getID()}"/></td>
+      			<td>
+              <%-- <c:out value="${textFile.getID()}"/> --%>
+              <c:set var="count" value="${count + 1}" />
+              <c:out value="${count}" />
+            </td>
 					  <td><c:out value="${textFile.getAuthor()}"/></td>
       			<td><c:out value="${textFile.getGroup()}"/></td>
 					  <td><c:out value="${textFile.getName()}"/></td>

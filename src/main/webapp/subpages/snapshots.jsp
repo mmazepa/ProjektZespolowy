@@ -19,7 +19,7 @@
         <br/>
         <table class="adminTable snapshotTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Author</th>
             <th>File</th>
             <th>Name</th>
@@ -28,9 +28,14 @@
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+					<c:set var="count" value="0" />
           <c:forEach var="snapshot" items="${snapshots}">
       		<tr>
-      			<td><c:out value="${snapshot.getID()}"/></td>
+      			<td>
+							<%-- <c:out value="${snapshot.getID()}"/> --%>
+							<c:set var="count" value="${count + 1}" />
+							<c:out value="${count}" />
+						</td>
 					  <td><c:out value="${snapshot.getAuthor()}"/></td>
       			<td><c:out value="${snapshot.getFile()}"/></td>
   					<td><c:out value="${snapshot.getName()}"/></td>

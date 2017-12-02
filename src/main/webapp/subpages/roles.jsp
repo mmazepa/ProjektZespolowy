@@ -19,14 +19,19 @@
         <br/>
         <table class="adminTable roleTable">
           <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Name</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
+          <c:set var="count" value="0" />
           <c:forEach var="role" items="${roles}">
       		<tr>
-        		<td><c:out value="${role.getID()}"/></td>
+        		<td>
+              <%-- <c:out value="${role.getID()}"/> --%>
+              <c:set var="count" value="${count + 1}" />
+              <c:out value="${count}" />
+            </td>
   					<td><c:out value="${role.getName()}"/></td>
               <td>
                 <form action="/subpages/obtainEditedRoleData.jsp" style="display:inline">
