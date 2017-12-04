@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class SQLHandler {
 	private Connection connection;
-	private String url = "jdbc:postgresql://localhost:5432/cigarbase";
+	private String url = "jdbc:postgresql://94.177.245.154:5432/cigarbase";
 
 	private String createTableRole = "CREATE TABLE Role ("
 									+ "id SERIAL PRIMARY KEY, "
@@ -61,7 +61,7 @@ public class SQLHandler {
 			Properties props = new Properties();
 			props.setProperty("user","postgres");
 			props.setProperty("password","postgres");
-			props.setProperty("ssl","true");
+			//props.setProperty("ssl","disable");
 			//setConnection(DriverManager.getConnection(url, props));
 			connection = DriverManager.getConnection(url, props);
 			statement = getConnection().createStatement();
