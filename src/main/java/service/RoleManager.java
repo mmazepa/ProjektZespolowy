@@ -37,9 +37,6 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 			editRoleByParamsStmt = getConnection().prepareStatement("UPDATE Role SET "
 					+ "RoleName = ? WHERE id = ?;");
 			
-			ZoneId zonedId = ZoneId.of( "UTC" );
-			ZonedDateTime zdt = ZonedDateTime.now( zonedId );
-			System.out.println("Connected with Role on " + zdt + " !");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
