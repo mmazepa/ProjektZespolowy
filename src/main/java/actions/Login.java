@@ -17,8 +17,8 @@ import javax.servlet.http.HttpSession;
 import domain.Account;
 import service.AccountManager;
 
-@WebServlet("/doCheckCredentials")
-public class CredentialsChecker extends HttpServlet {
+@WebServlet("/doLogin")
+public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -47,23 +47,24 @@ public class CredentialsChecker extends HttpServlet {
       }
 
       if (credentialsCorrect) {
-        request.setAttribute("userId", activeAccount.getID());
-        request.setAttribute("userRole", activeAccount.getRole());
-        request.setAttribute("userLogin", activeAccount.getNickname());
+        // request.setAttribute("userId", activeAccount.getID());
+        // request.setAttribute("userRole", activeAccount.getRole());
+        // request.setAttribute("userLogin", activeAccount.getNickname());
 
         am.activeAccountNickname = activeAccount.getNickname();
+        am.activeAccountRole = activeAccount.getRole();
 
         String ipAddress = request.getRemoteAddr();
         String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
         System.out.println("SUCCESS CHECK    Account         "+ipAddress+"\t"+commitdate+"");
-        
+
         response.sendRedirect("/subpages/LoginSuccess.jsp");
       }
       else {
-    	String ipAddress = request.getRemoteAddr();
-	    String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	    System.out.println("FAIL    CHECK    Account         "+ipAddress+"\t"+commitdate+"");  
-    	  
+      	String ipAddress = request.getRemoteAddr();
+  	    String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+  	    System.out.println("FAIL    CHECK    Account         "+ipAddress+"\t"+commitdate+"");
+
         response.sendRedirect("/subpages/LoginFail.jsp");
       }
     }

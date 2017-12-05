@@ -111,3 +111,8 @@ function uploadToEditor(){
     alert(filePath);
     readTextFile("code", filePath);
 }
+
+// LOG OUT FUNCTION
+function logout(){
+    location.href = '../index.jsp';
+}

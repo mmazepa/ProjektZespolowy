@@ -12,6 +12,22 @@
   transition: 0.5s;
   border-radius: 25px;
 }
+#logoutButton {
+  width: 150px;
+  background-color: darkred;
+  border: #d70000;
+  transition: 0.5s;
+  height: 25px;
+  padding: 0px;
+  color: white;
+}
+#logoutButton:hover {
+  width: 150px;
+  background-color: #a40000;
+  border: #f10000;
+  transition: 0.5s;
+  border-radius: 25px;
+}
 #registerButton {
   width: 150px;
   background-color: darkblue;
@@ -24,6 +40,22 @@
   width: 150px;
   background-color: #1a1aff;
   border: #6666ff;
+  transition: 0.5s;
+  border-radius: 25px;
+}
+#backToMenuButton {
+  width: 150px;
+  background-color: darkgreen;
+  border: #00b100;
+  transition: 0.5s;
+  height: 25px;
+  padding: 0px;
+  color: white;
+}
+#backToMenuButton:hover {
+  width: 150px;
+  background-color: #007e00;
+  border: #00ca00;
   transition: 0.5s;
   border-radius: 25px;
 }
@@ -162,6 +194,22 @@
   background: linear-gradient(slategray, #9ba6b1);
   color: black;
   font-weight: bold;
+}
+#userButton01,
+#userButton02,
+#userButton03 {
+  width: 250px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+#userButton01:hover,
+#userButton02:hover,
+#userButton03:hover {
+  width: 300px;
+  background-color: darkmagenta;
+  border: 1px solid darkviolet;
+  border-radius: 25px;
+  transition: 0.5s;
 }
 .wrapper {
   width: 135px;
