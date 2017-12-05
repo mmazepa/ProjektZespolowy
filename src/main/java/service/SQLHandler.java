@@ -104,11 +104,7 @@ public class SQLHandler {
 				}
 			}
 
-			/*addCigStmt = connection.prepareStatement("INSERT INTO Cigarette(Name, Price, Count) VALUES (?, ?, ?);");
-			deleteAllCigStmt = connection.prepareStatement("DELETE FROM Cigarette;");
-			deleteCigStmt = connection.prepareStatement("DELETE FROM Cigarette WHERE id = ?;");
-			replaceCigStmt = connection.prepareStatement("UPDATE Cigarette SET Name = ?, Price = ?, Count = ? WHERE id = ?;");
-			*/System.out.println("Connected!");
+			//System.out.println("Connected!");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -149,6 +145,7 @@ public class SQLHandler {
 	}
 	public void doTranCommit() throws SQLException {
 		getConnection().commit();
+		System.out.println("");
 	}
 	public void doTranRollback() {
 		try {

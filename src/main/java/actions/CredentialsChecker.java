@@ -2,6 +2,8 @@ package actions;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -51,9 +53,17 @@ public class CredentialsChecker extends HttpServlet {
 
         am.activeAccountNickname = activeAccount.getNickname();
 
+        String ipAddress = request.getRemoteAddr();
+        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+        System.out.println("SUCCESS CHECK    Account         "+ipAddress+"\t"+commitdate+"");
+        
         response.sendRedirect("/subpages/LoginSuccess.jsp");
       }
       else {
+    	String ipAddress = request.getRemoteAddr();
+	    String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	    System.out.println("FAIL    CHECK    Account         "+ipAddress+"\t"+commitdate+"");  
+    	  
         response.sendRedirect("/subpages/LoginFail.jsp");
       }
     }

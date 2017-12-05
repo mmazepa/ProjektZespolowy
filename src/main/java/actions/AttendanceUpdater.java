@@ -2,6 +2,8 @@ package actions;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,10 +29,20 @@ public class AttendanceUpdater extends HttpServlet {
 			db.doTranBegin();
 			db.editAttendanceByParams(id, grup, user, isAdmin);
 			db.doTranCommit();
+			
+			String ipAddress = request.getRemoteAddr();
+	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	        System.out.println("SUCCESS UPDATE   Attendance      "+ipAddress+"\t"+commitdate+"");
+			
 			response.sendRedirect("/subpages/updateSuccess.jsp");
 		} catch (SQLException e) {
 			db.doTranRollback();
+			
+			String ipAddress = request.getRemoteAddr();
+	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	        System.out.println("FAIL    UPDATE   Attendance      "+ipAddress+"\t"+commitdate+"");
 			e.printStackTrace();
+			
 			response.sendRedirect("/subpages/updateFail.jsp");
 		} finally {
 			db.doTranEnd();

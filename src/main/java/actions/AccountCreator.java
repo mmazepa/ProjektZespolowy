@@ -2,6 +2,8 @@ package actions;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,11 +35,22 @@ public class AccountCreator extends HttpServlet {
 			db.doTranBegin();
 			db.addAccountByParams(3, nickname, email, pass, firstname, lastname, dateofbirth);
 			db.doTranCommit();
-      response.sendRedirect("/subpages/registerSuccess.jsp");
+			
+			String ipAddress = request.getRemoteAddr();
+	        //String hostname = request.getRemoteHost();
+	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	        System.out.println("SUCCESS CREATE   Account         "+ipAddress+"\t"+commitdate+"");
+	        
+	        response.sendRedirect("/subpages/registerSuccess.jsp");
 		} catch (SQLException e) {
 			db.doTranRollback();
-			e.printStackTrace();
-      response.sendRedirect("/subpages/registerFail.jsp");
+			
+			String ipAddress = request.getRemoteAddr();
+	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	        System.out.println("FAIL    CREATE   Account         "+ipAddress+"\t"+commitdate+"");
+	        e.printStackTrace();
+	        
+			response.sendRedirect("/subpages/registerFail.jsp");
 		} finally {
 
 			db.doTranEnd();

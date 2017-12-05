@@ -2,6 +2,8 @@ package service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,6 +36,10 @@ public class RoleManager extends SQLHandler implements IRoleManager {
 					+ "RoleName = ? WHERE id = ?;");
 			editRoleByParamsStmt = getConnection().prepareStatement("UPDATE Role SET "
 					+ "RoleName = ? WHERE id = ?;");
+			
+			ZoneId zonedId = ZoneId.of( "UTC" );
+			ZonedDateTime zdt = ZonedDateTime.now( zonedId );
+			System.out.println("Connected with Role on " + zdt + " !");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
