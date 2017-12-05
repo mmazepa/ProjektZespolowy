@@ -182,14 +182,16 @@
 
       <!-- IF USER IS NOT LOGGED IN -->
       <c:if test="${currentNickname == ''}">
-        <h5 id="helloGuest">
-          <strong>HELLO!</strong>
-          You are not logged in. Please log in to achieve permission do use editor.
-        </h5>
-        <a id="backLink" href="/index.jsp">
-          <span class="glyphicon glyphicon-arrow-left"></span>
-          Back
-        </a>
+				<div class="centeredText">
+	        <h5 id="helloGuest">
+	          <strong>HELLO!</strong>
+	          You are not logged in. Please log in to achieve permission do use editor.
+	        </h5>
+	        <a id="backLink" href="/index.jsp">
+	          <span class="glyphicon glyphicon-arrow-left"></span>
+	          Back
+	        </a>
+				</div>
       </c:if>
     </main>
     <footer></footer>

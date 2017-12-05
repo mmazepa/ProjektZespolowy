@@ -64,6 +64,12 @@
               Editor
             </button>
           </form>
+          <form action="/index.jsp" method="post">
+            <button id="userButton04" type="submit" class="btn btn-primary">
+              <span class="glyphicon glyphicon-th-list"></span>
+              Home Page
+            </button>
+          </form>
           <form action="/doLogout" method="post">
             <button id="userButton03" type="submit" class="btn btn-primary">
               <span class="glyphicon glyphicon-log-out"></span>
