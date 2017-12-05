@@ -61,12 +61,25 @@
 }
 
 #sendMessage {
-  .size(40px, 35px);
+  .size(75px, 28px);
   background-color: brown;
+  border-top: 1px solid darken(brown, 10%);
+  border-left: 1px solid darken(brown, 15%);
+  border-right: 1px solid darken(brown, 20%);
+  border-bottom: 1px solid darken(brown, 25%);
+  transition: 0.5s;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #sendMessage:hover {
   background-color: lighten(brown, 15%);
+  border-top: 1px solid darken(lighten(brown, 15%), 10%);
+  border-left: 1px solid darken(lighten(brown, 15%), 15%);
+  border-right: 1px solid darken(lighten(brown, 15%), 20%);
+  border-bottom: 1px solid darken(lighten(brown, 15%), 25%);
+  border-radius: 25px;
+  transition: 0.5s;
 }
 
 .size(@width, @height){

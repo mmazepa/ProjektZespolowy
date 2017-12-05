@@ -13,6 +13,7 @@ import domain.Account;
 public class AccountManager extends SQLHandler implements IAccountManager {
 
 	public static String activeAccountNickname = new String();
+	public static int activeAccountRole = 0;
 
 	private String getAllAccountStmt = "SELECT "
 			+ "id, AccountRole, NickName, Email, UserPass, RegistrationDate, "

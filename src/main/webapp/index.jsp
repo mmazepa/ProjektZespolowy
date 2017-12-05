@@ -24,7 +24,7 @@
 
         <!-- LOGGING IN SECTION // ANGULAR JS INCLUDED -->
         <div ng-app="" class="authorization">
-          <form name="form" action="/doCheckCredentials" method="POST">
+          <form name="form" action="/doLogin" method="POST">
             Login<br/>
             <input  id="login"
                     class="credentials"
@@ -54,14 +54,15 @@
             </span>
             <br/>
             <!-- LOG IN BUTTON -->
-            <input  id="loginButton"
+            <button  id="loginButton"
                     type="submit"
                     class="btn btn-success"
-                    value="Log In"
-                    onclick="checkCredentials()"/>
+                    value="Log In">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Log In
+            </button>
           </form>
           <br/>
-          <p id="loginInfo">Hello!</p>
         </div>
 
         <p>
@@ -72,14 +73,6 @@
         <p>
           Some parts of this site is working under
           <a href="/subpages/license.jsp">MIT License</a>.
-        </p>
-        <p id="adminPanel">
-          <span class="glyphicon glyphicon-sunglasses"></span>
-
-          <!-- ADMINISTRATOR PANEL -->
-          <a href="/subpages/admin.jsp">Administrator panel</a>
-
-          <span class="glyphicon glyphicon-sunglasses"></span>
         </p>
       </div>
     </main>

@@ -4,31 +4,55 @@
 @buttonHeight: 150px;
 
 #loginButton {
-  .authorizationButtons(150px, darkgreen, lighten(darkgreen, 15%), 0.5s);
+  .authorizationButtons(150px, darkgreen);
   margin-top: 5px;
 }
 
 #loginButton:hover {
-  .authorizationButtons(150px, lighten(green, 5%), lighten(green, 20%), 0.5s);
+  .authorizationButtons(150px, lighten(green, 5%));
+  border-radius: 25px;
+}
+
+#logoutButton {
+  .authorizationButtons(150px, darkred);
+  height: 25px;
+  padding: 0px;
+  color: white;
+}
+
+#logoutButton:hover {
+  .authorizationButtons(150px, lighten(darkred, 5%));
   border-radius: 25px;
 }
 
 #registerButton {
-  .authorizationButtons(150px, darkblue, lighten(darkblue, 15%), 0.5s);
+  .authorizationButtons(150px, darkblue);
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 #registerButton:hover {
-  .authorizationButtons(150px, lighten(blue, 5%), lighten(blue, 20%), 0.5s);
+  .authorizationButtons(150px, lighten(blue, 5%));
   border-radius: 25px;
 }
 
-.authorizationButtons(@width, @background, @border, @transition){
+#backToMenuButton {
+  .authorizationButtons(150px, darkgreen);
+  height: 25px;
+  padding: 0px;
+  color: white;
+}
+
+#backToMenuButton:hover {
+  .authorizationButtons(150px, lighten(darkgreen, 5%));
+  border-radius: 25px;
+}
+
+.authorizationButtons(@width, @background){
   width: @width;
   background-color: @background;
-  border: @border;
-  transition: @transition;
+  border: lighten(@background, 15%);
+  transition: 0.5s;
 }
 
 /* ADMIN BUTTONS */
@@ -103,6 +127,20 @@
 
 #workgroups:hover {
   .colors(slategray, black);
+}
+
+#userButton01, #userButton02, #userButton03 {
+  width: 250px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+#userButton01:hover, #userButton02:hover, #userButton03:hover {
+  width: 300px;
+  background-color: darkmagenta;
+  border: 1px solid darkviolet;
+  border-radius: 25px;
+  transition: 0.5s;
 }
 
 .wrapper {

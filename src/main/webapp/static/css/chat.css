@@ -55,10 +55,23 @@
   border-bottom-right-radius: 15px;
 }
 #sendMessage {
-  width: 40px;
-  height: 35px;
+  width: 75px;
+  height: 28px;
   background-color: brown;
+  border-top: 1px solid #7c2020;
+  border-left: 1px solid #681a1a;
+  border-right: 1px solid #541515;
+  border-bottom: 1px solid #3f1010;
+  transition: 0.5s;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 #sendMessage:hover {
   background-color: #d14a4a;
+  border-top: 1px solid #b92f2f;
+  border-left: 1px solid #a52a2a;
+  border-right: 1px solid #912525;
+  border-bottom: 1px solid #7c2020;
+  border-radius: 25px;
+  transition: 0.5s;
 }

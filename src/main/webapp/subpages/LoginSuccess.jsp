@@ -16,7 +16,7 @@
         You have pass the logging in process successfully.<br/>
         Now you can proceed to Editor On-Line and check the functionality.<br/>
         <br/>
-        <form action="/editor" method="post">
+        <form action="/subpages/loggedUserMainMenu.jsp" method="post">
           <button type="submit">
             Next <span class="glyphicon glyphicon-arrow-right"></span>
           </button>
