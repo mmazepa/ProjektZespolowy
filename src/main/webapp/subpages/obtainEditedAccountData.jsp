@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td>Password</td>
-              <td><input type="text" name="pass" value="<%=request.getParameter("pass")%>"></td>
+              <td><input type="password" name="pass" value="<%=request.getParameter("pass")%>"></td>
             </tr>
             <tr>
               <td>Description</td>

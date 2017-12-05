@@ -19,18 +19,14 @@
     <header></header>
     <%
       AccountManager am = new AccountManager();
-      String currentNickname = "_user";
+      String currentNickname = am.activeAccountNickname;
+      request.setAttribute("currentNickname", currentNickname);
     %>
     <main>
       <br/>
       <h5 id="helloUser">
         <strong>HELLO!</strong>
-        You are logged as
-
-        <!-- ALBO TO --> <strong><c:out value="${currentNickname}"/></strong>
-        <!-- ALBO TO --> <strong><%= request.getParameter("activeAccountNickname")%></strong>
-
-        (<a href="../index.jsp">logout</a>)
+        You are logged as <strong><%= currentNickname %></strong> (<a href="../index.jsp">logout</a>)
       </h5>
       <div class="row">
         <div class="col-sm-8">
@@ -50,6 +46,23 @@
             </select>
             <button type=button class="btn btn-primary" onclick="change()">change mode</button>
           </p>
+
+          <!-- FILE UPLOADER TO EDITOR -->
+          <table>
+            <tr>
+              <td>
+                <label>Choose file to upload:</label>
+                <input id="file" type="file" name="file" />
+              </td>
+              <td>
+                  <button type="button"
+                          class="btn btn-primary"
+                          onclick="uploadToEditor()">
+                    upload to editor
+                  </button>
+              </td>
+            </tr>
+          </table>
 
 					<!-- CODE_MIRROR STARTING SCRIPT -->
           <script>
@@ -104,24 +117,23 @@
         <div class="col-sm-4">
           <div class="chat">
             <div id="messages">
-              <div id="systemMessage">
+              <div class="alert alert-info">
                 <strong>SYSTEM:</strong> Welcome to chat.
-                Type some text and press the button with
-                paper aeroplan to send it to chat.
+                Type something and press the paper aeroplan
+                to send it.
               </div>
             </div>
-            <div id="chatTyping">
-
-              <!-- ALBO TO --> <strong><c:out value="${currentNickname}"/></strong>
-              <!-- ALBO TO --> <strong><%= request.getParameter("activeAccountNickname")%></strong>
-
-              <input id="message" type="text" name="message"/>
-              <button id="sendMessage"
-                      class="btn btn-success"
-                      onclick="addMessage()">
-                  <span class="glyphicon glyphicon-send"></span>
-              </button>
-            </div>
+						<form onsubmit="addMessage('<%= currentNickname %>'); return false;">
+	            <div id="chatTyping">
+	              <strong><%= currentNickname %>:</strong>
+	              <input id="message" type="text" name="message"/>
+	              <button id="sendMessage"
+												type="submit"
+	                      class="btn btn-success">
+	                  <span class="glyphicon glyphicon-send"></span>
+	              </button>
+	            </div>
+						</form>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 @chatHeight: 350px;
 
 .chat {
-  background-color: wheat;
+  .gradient(wheat, darkgoldenrod, darkgreen);
   padding: 10px;
   border: 1px solid darken(wheat, 50%);
   border-radius: 10px;
@@ -15,18 +15,49 @@
 #messages {
   overflow-y: scroll;
   height: 285px;
+  background-color: wheat;
+  border-top: 1px solid darken(wheat, 15%);
+  border-left: 1px solid darken(wheat, 15%);
 }
 
 #message {
-  width: 110px;
+  width: 50%;
+}
+
+#myMessage {
+  background-color: whitesmoke;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid silver;
+  border-radius: 15px;
+  padding: 5px;
+  width: 95%;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  margin-left: 10px;
+}
+
+#myMessage:hover {
+  background-color: darken(whitesmoke, 5%);
+}
+
+#sendTime {
+  display: block;
+  font-size: smaller;
+  text-align: right;
+  color: gray;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #chatTyping {
-  position: fixed;
-  top: 425px;
-  border-top: 1px dotted red;
   padding-top: 5px;
-  width: 200px;
+  width: 100%;
+  background-color: darken(wheat, 10%);
+  padding: 5px;
+  border-top: 1px dotted darken(wheat, 50%);
+  border-bottom: 1px solid darken(wheat, 50%);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 #sendMessage {
@@ -41,4 +72,12 @@
 .size(@width, @height){
   width: @width;
   height: @height;
+}
+
+.gradient(@color1, @color2, @color3) {
+  background: @color1;
+  background: -webkit-linear-gradient(@color1, @color2, @color3);
+  background: -o-linear-gradient(@color1, @color2, @color3);
+  background: -moz-linear-gradient(@color1, @color2, @color3);
+  background: linear-gradient(@color1, @color2, @color3);
 }

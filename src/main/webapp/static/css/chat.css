@@ -1,5 +1,9 @@
 .chat {
-  background-color: wheat;
+  background: wheat;
+  background: -webkit-linear-gradient(wheat, darkgoldenrod, darkgreen);
+  background: -o-linear-gradient(wheat, darkgoldenrod, darkgreen);
+  background: -moz-linear-gradient(wheat, darkgoldenrod, darkgreen);
+  background: linear-gradient(wheat, darkgoldenrod, darkgreen);
   padding: 10px;
   border: 1px solid #956814;
   border-radius: 10px;
@@ -11,16 +15,44 @@
 #messages {
   overflow-y: scroll;
   height: 285px;
+  background-color: wheat;
+  border-top: 1px solid #ecc16f;
+  border-left: 1px solid #ecc16f;
 }
 #message {
-  width: 110px;
+  width: 50%;
+}
+#myMessage {
+  background-color: whitesmoke;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid silver;
+  border-radius: 15px;
+  padding: 5px;
+  width: 95%;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  margin-left: 10px;
+}
+#myMessage:hover {
+  background-color: #e8e8e8;
+}
+#sendTime {
+  display: block;
+  font-size: smaller;
+  text-align: right;
+  color: gray;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #chatTyping {
-  position: fixed;
-  top: 425px;
-  border-top: 1px dotted red;
   padding-top: 5px;
-  width: 200px;
+  width: 100%;
+  background-color: #efca86;
+  padding: 5px;
+  border-top: 1px dotted #956814;
+  border-bottom: 1px solid #956814;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 #sendMessage {
   width: 40px;

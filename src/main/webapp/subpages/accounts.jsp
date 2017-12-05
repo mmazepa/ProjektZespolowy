@@ -55,13 +55,22 @@
                 </c:choose>
               </td>
       				<td><c:out value="${account.getNickname()}"/></td>
-              <td><c:out value="${account.getEmail()}"/></td>
-              <td><c:out value="${account.getPass()}"/></td>
-              <td><c:out value="${account.getRegistrationdate()}"/></td>
+              <td>
+                <a href="mailto:${account.getEmail()}">
+                  <c:out value="${account.getEmail()}"/>
+                </a>
+              </td>
+              <%-- <td><c:out value="${account.getPass()}"/></td> --%>
+              <td>**********</td>
+              <td>
+                <abbr title="${account.getRegistrationdate().substring(0,16)}">
+                  <c:out value="${account.getRegistrationdate().substring(0,10)}"/>
+                </abbr>
+              </td>
               <td><c:out value="${account.getDescription()}"/></td>
               <td><c:out value="${account.getFirstName()}"/></td>
               <td><c:out value="${account.getLastName()}"/></td>
-              <td><c:out value="${account.getDateOfBirth()}"/></td>
+              <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>
               <td>
                 <form action="/subpages/obtainEditedAccountData.jsp" style="display:inline">
       						<input type="hidden" name="id" value="${account.getID()}">
