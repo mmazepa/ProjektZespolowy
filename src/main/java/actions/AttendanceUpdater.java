@@ -21,7 +21,7 @@ public class AttendanceUpdater extends HttpServlet {
 		AttendanceManager db = new AttendanceManager();
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
-			int grup = Integer.parseInt(request.getParameter("grup"));
+			int grup = Integer.parseInt(request.getParameter("group"));
 			int user = Integer.parseInt(request.getParameter("user"));
 			boolean isAdmin = Boolean.parseBoolean(request.getParameter("isAdmin"));
 			String joinDate = request.getParameter("joinDate");
