@@ -22,3 +22,5 @@ dist
 .svn
 .CVS
 .hg*
+
+src/main/sql/krypt.sql
