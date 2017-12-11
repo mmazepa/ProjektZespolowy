@@ -23,4 +23,20 @@
 		<servlet-name>Web Application</servlet-name>
 		<url-pattern>projekt/*</url-pattern>
 	</servlet-mapping>
+
+  <!-- CUSTOM ERROR PAGES -->
+  <error-page>
+		<error-code>403</error-code>
+		<location>/subpages/error_pages/404.jsp</location>
+	</error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/subpages/error_pages/404.jsp</location>
+  </error-page>
+
+  <!-- TO NOT ALLOW BROWSE DIRECTORIES -->
+  <context-param>
+    <param-name>org.eclipse.jetty.servlet.Default.dirAllowed</param-name>
+    <param-value>false</param-value>
+  </context-param>
 </web-app>

@@ -72,19 +72,17 @@
               Current mode: <span id="modeinfo">text/plain</span>
             </p>
             <p>
+              <span class="glyphicon glyphicon-edit"></span>
               Select desired mode for syntax highlighting:
-              <select id="mode" name="language">
-                  <option disabled="disabled">Choose one...</option>
+              <select id="mode" name="language" onchange="change()">
+                  <option disabled="disabled">
+                    Choose one...
+                  </option>
                   <option value="1">text/plain</option>
                   <option value="2">javascript</option>
                   <option value="3">xml</option>
                   <option value="4">css</option>
               </select>
-              <button type=button class="btn btn-primary" onclick="change()">
-                <span class="glyphicon glyphicon-edit"></span>
-                Change mode
-              </button>
-            </p>
 
             <!-- FILE UPLOADER TO EDITOR -->
             <table>
