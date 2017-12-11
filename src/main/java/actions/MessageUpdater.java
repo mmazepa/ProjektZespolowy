@@ -11,27 +11,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.SnapshotManager;
+import service.MessageManager;
 
-@WebServlet("/doEditSnapshot")
-public class SnapshotUpdater extends HttpServlet {
+@WebServlet("/doEditMessage")
+public class MessageUpdater extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SnapshotManager db = new SnapshotManager();
+		MessageManager db = new MessageManager();
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
-			int author = Integer.parseInt(request.getParameter("author"));
+			//int author = Integer.parseInt(request.getParameter("author"));
 			//int group = Integer.parseInt(request.getParameter("group"));
-			String name = request.getParameter("name");
 			String content = request.getParameter("content");
 			db.doTranBegin();
-			db.editSnapshotByParams(id, name, content);
+			db.editMessageByParams(id, content);
 			db.doTranCommit();
 
 			String ipAddress = request.getRemoteAddr();
 	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	        System.out.println("SUCCESS UPDATE   Snapshot        "+ipAddress+"\t"+commitdate+"");
+	        System.out.println("SUCCESS UPDATE   Message         "+ipAddress+"\t"+commitdate+"");
 
 			response.sendRedirect("/subpages/updateSuccess.jsp");
 		} catch (SQLException e) {
@@ -39,8 +38,8 @@ public class SnapshotUpdater extends HttpServlet {
 
 			String ipAddress = request.getRemoteAddr();
 	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	        System.out.println("FAIL    UPDATE   Snapshot        "+ipAddress+"\t"+commitdate+"");
-			e.printStackTrace();
+	        System.out.println("FAIL    UPDATE   Message         "+ipAddress+"\t"+commitdate+"");
+			//e.printStackTrace();
 
 			response.sendRedirect("/subpages/updateFail.jsp");
 		} finally {
