@@ -198,7 +198,9 @@
 #userButton01,
 #userButton02,
 #userButton03,
-#userButton04 {
+#userButton04,
+#userButton05,
+#userButton06 {
   width: 250px;
   margin-bottom: 10px;
   transition: 0.5s;
@@ -206,7 +208,9 @@
 #userButton01:hover,
 #userButton02:hover,
 #userButton03:hover,
-#userButton04:hover {
+#userButton04:hover,
+#userButton05:hover,
+#userButton06:hover {
   width: 300px;
   background-color: darkmagenta;
   border: 1px solid darkviolet;
@@ -228,6 +232,14 @@
 #userButton04 {
   background-color: darkgoldenrod;
   border: 1px solid goldenrod;
+}
+#userButton05 {
+  background-color: black;
+  border: 1px solid gray;
+}
+#userButton06 {
+  background-color: darkcyan;
+  border: 1px solid pink;
 }
 .wrapper {
   width: 135px;
