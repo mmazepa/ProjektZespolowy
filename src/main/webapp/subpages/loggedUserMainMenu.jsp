@@ -1,7 +1,12 @@
-<%@page import="domain.UserInfo"%>
+<%@ page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="service.AccountManager"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ page import="service.AccountManager"%>
+<%@ page import="service.RoleManager"%>
+<%@ page import="domain.Role"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.sql.SQLException"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -15,18 +20,38 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-    	UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    	currentuser = info;
-      //AccountManager am = new AccountManager();
-      //String currentNickname = am.activeAccountNickname;
-      //int currentRole = am.activeAccountRole;
-      //request.setAttribute("currentNickname", currentNickname);
-      //request.setAttribute("currentRole", currentRole);
-      
-      String currentNickname = currentuser.getNickName();
-      int currentRole = currentuser.getRole();
-      request.setAttribute("currentNickname", currentNickname);
-      request.setAttribute("currentRole", currentRole);
+//       AccountManager am = new AccountManager();
+//       String currentNickname = am.activeAccountNickname;
+//       int currentRole = am.activeAccountRole;
+//       request.setAttribute("currentNickname", currentNickname);
+//       request.setAttribute("currentRole", currentRole);
+    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+    if (info != null) {
+        currentuser = info;
+    } else {
+      //currentuser = new UserInfo();
+    }
+
+        String currentNickname = currentuser.getNickName();
+        int currentRoleId = currentuser.getUserID();
+        String currentRole = new String();
+
+        RoleManager db = new RoleManager();
+        List<Role> roles = new ArrayList<Role>();
+        try {
+          roles = db.getAllRoles();
+        } catch (SQLException | NullPointerException e) {
+          e.printStackTrace();
+        }
+
+        for (Role role : roles) {
+          if(role.getID() == currentRoleId) {
+            currentRole = role.getName();
+          }
+        }
+
+        request.setAttribute("currentNickname", currentNickname);
+        request.setAttribute("currentRole", currentRole);
     %>
     <main>
       <div class="centeredText">
@@ -38,20 +63,14 @@
           <h5 id="helloUser">
             <strong>HELLO!</strong>
             You are logged as <strong><%= currentNickname %></strong>
-            (
-            <c:choose>
-              <c:when test="${currentRole == 1}">Administrator</c:when>
-              <c:when test="${currentRole == 2}">Moderator</c:when>
-              <c:when test="${currentRole == 3}">User</c:when>
-            </c:choose>
-            )
+            ( <%= currentRole %> )
           </h5>
           <p>
             Use buttons below to achieve prefered destination.
           </p>
 
           <!-- IF USER IS ADMINISTRATOR -->
-          <c:if test="${currentRole == 1}">
+          <c:if test="${currentRole == 'Administrator'}">
             <form action="/subpages/admin.jsp" method="post">
               <button id="userButton01" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-wrench"></span>
@@ -61,10 +80,10 @@
           </c:if>
 
           <!-- IF USER IS MODERATOR -->
-          <c:if test="${currentRole == 2}"></c:if>
+          <c:if test="${currentRole == 'Moderator'}"></c:if>
 
           <!-- IF USER IS USER -->
-          <c:if test="${currentRole == 3}"></c:if>
+          <c:if test="${currentRole == 'User'}"></c:if>
 
           <!-- CONTENT FOR EVERYONE -->
           <form action="/subpages/editor.jsp" method="post">

@@ -1,7 +1,12 @@
-<%@page import="domain.UserInfo"%>
+<%@ page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ page import="service.AccountManager"%>
+<%@ page import="service.RoleManager"%>
+<%@ page import="domain.Role"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.sql.SQLException"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -28,9 +33,25 @@
 		} else {
 			//currentuser = new UserInfo();
 		}
-      
+
       	String currentNickname = currentuser.getNickName();
-      	int currentRole = currentuser.getRole();
+      	int currentRoleId = currentuser.getUserID();
+        String currentRole = new String();
+
+        RoleManager db = new RoleManager();
+      	List<Role> roles = new ArrayList<Role>();
+      	try {
+      		roles = db.getAllRoles();
+      	} catch (SQLException | NullPointerException e) {
+      		e.printStackTrace();
+      	}
+
+        for (Role role : roles) {
+          if(role.getID() == currentRoleId) {
+            currentRole = role.getName();
+          }
+        }
+
       	request.setAttribute("currentNickname", currentNickname);
       	request.setAttribute("currentRole", currentRole);
     %>
@@ -100,13 +121,7 @@
           <h5 id="helloUser">
             <strong>HELLO!</strong>
             You are logged as <strong><%= currentNickname %></strong>
-            (
-            <c:choose>
-              <c:when test="${currentRole == 1}">Administrator</c:when>
-              <c:when test="${currentRole == 2}">Moderator</c:when>
-              <c:when test="${currentRole == 3}">User</c:when>
-            </c:choose>
-            )
+            ( <%= currentRole %> )
           </h5>
           <p>
             You are logged in, so do what you want to.
