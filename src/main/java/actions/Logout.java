@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Account;
+import domain.UserInfo;
 import service.AccountManager;
 
 @WebServlet("/doLogout")
@@ -23,9 +24,14 @@ public class Logout extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		AccountManager am = new AccountManager();
-    am.activeAccountNickname = new String();
-    am.activeAccountRole = 0;
+		//AccountManager am = new AccountManager();
+    //am.activeAccountNickname = new String();
+    //am.activeAccountRole = 0;
+    
+    HttpSession session = request.getSession();
+    UserInfo info = new UserInfo();
+    session.setAttribute("usersessioninfo", info);
+    
     response.sendRedirect("/index.jsp");
 
   }

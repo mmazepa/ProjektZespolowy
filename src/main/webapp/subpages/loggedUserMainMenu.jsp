@@ -1,3 +1,4 @@
+<%@page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="service.AccountManager"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
@@ -7,15 +8,23 @@
 		<title>Editor On-Line</title>
 		<meta type="text/html" charset="UTF-8" language="java" />
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
+		<jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-      AccountManager am = new AccountManager();
-      String currentNickname = am.activeAccountNickname;
-      int currentRole = am.activeAccountRole;
+    	UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+    	currentuser = info;
+      //AccountManager am = new AccountManager();
+      //String currentNickname = am.activeAccountNickname;
+      //int currentRole = am.activeAccountRole;
+      //request.setAttribute("currentNickname", currentNickname);
+      //request.setAttribute("currentRole", currentRole);
+      
+      String currentNickname = currentuser.getNickName();
+      int currentRole = currentuser.getRole();
       request.setAttribute("currentNickname", currentNickname);
       request.setAttribute("currentRole", currentRole);
     %>

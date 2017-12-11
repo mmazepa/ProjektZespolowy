@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Account;
+import domain.UserInfo;
 import service.AccountManager;
 
 @WebServlet("/doLogin")
@@ -50,9 +51,13 @@ public class Login extends HttpServlet {
         // request.setAttribute("userId", activeAccount.getID());
         // request.setAttribute("userRole", activeAccount.getRole());
         // request.setAttribute("userLogin", activeAccount.getNickname());
+    	  
+    	  HttpSession session = request.getSession();
+    	  UserInfo info = new UserInfo(activeAccount.getID(), activeAccount.getRole(), activeAccount.getNickname(), request.getRemoteAddr(), true);
+    	  session.setAttribute("usersessioninfo", info);
 
-        am.activeAccountNickname = activeAccount.getNickname();
-        am.activeAccountRole = activeAccount.getRole();
+        //am.activeAccountNickname = activeAccount.getNickname();
+        //am.activeAccountRole = activeAccount.getRole();
 
         String ipAddress = request.getRemoteAddr();
         String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
