@@ -68,7 +68,7 @@
               <th>Role</th>
               <th>Nickname</th>
               <th>E-mail</th>
-              <th>Password</th>
+              <%-- <th>Password</th> --%>
               <th>Registration Date</th>
               <th>Description</th>
               <th>Firstname</th>
@@ -106,7 +106,7 @@
                   </a>
                 </td>
                 <%-- <td><c:out value="${account.getPass()}"/></td> --%>
-                <td>**********</td>
+                <%-- <td>**********</td> --%>
                 <td>
                   <abbr title="${account.getRegistrationdate().substring(0,16)}">
                     <c:out value="${account.getRegistrationdate().substring(0,10)}"/>
@@ -122,7 +122,6 @@
         						<input type="hidden" name="role" value="${account.getRole()}">
         						<input type="hidden" name="nickname" value="${account.getNickname()}">
         						<input type="hidden" name="email" value="${account.getEmail()}">
-        						<input type="hidden" name="pass" value="${account.getPass()}">
         						<input type="hidden" name="registrationdate" value="${account.getRegistrationdate()}">
         						<input type="hidden" name="description" value="${account.getDescription()}">
         						<input type="hidden" name="firstName" value="${account.getFirstName()}">
