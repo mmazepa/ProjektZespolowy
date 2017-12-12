@@ -67,7 +67,7 @@
               <th>No.</th>
               <th>Name</th>
               <th>Edit</th>
-              <th>Delete</th>
+              <!--<th>Delete</th>-->
             </tr>
             <c:set var="count" value="0" />
             <c:forEach var="role" items="${roles}">
@@ -87,7 +87,7 @@
         						</button>
                   </form>
                 </td>
-    			  		<td>
+    			  		<!--<td>
                   <form action="/subpages/removeRole.jsp" style="display:inline" method="get">
         						<input type="hidden" name="id" value="${role.getID()}">
         						<input type="hidden" name="name" value="${role.getName()}">
@@ -95,7 +95,7 @@
                       <span class="glyphicon glyphicon-remove"></span>
         						</button>
   						    </form>
-  					    </td>
+  					    </td>-->
   				  </tr>
             </c:forEach>
           </table>
