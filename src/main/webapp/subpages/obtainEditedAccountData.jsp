@@ -65,11 +65,7 @@
             <tr>
               <td>E-mail</td>
               <td><input type="text" name="email" value="<%=request.getParameter("email")%>"></td>
-            </tr>
-            <!--<tr>
-              <td>Password</td>
-              <td><input type="password" name="pass" value="<%=String.(request.getParameter("pass"))%>"></td>
-            </tr>-->
+	    </tr>
             <tr>
               <td>Description</td>
               <td><input type="text" name="description" value="<%=request.getParameter("description")%>"></td>
