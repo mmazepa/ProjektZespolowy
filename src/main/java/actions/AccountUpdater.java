@@ -24,14 +24,13 @@ public class AccountUpdater extends HttpServlet {
 			int role = Integer.parseInt(request.getParameter("role"));
 			String nickname = request.getParameter("nickname");
 			String email = request.getParameter("email");
-			String pass = request.getParameter("pass");
 			String description = request.getParameter("description");
 			String firstname = request.getParameter("firstName");
 			String lastname = request.getParameter("lastName");
 			String dateofbirth = request.getParameter("dateOfBirth");
 			
 			db.doTranBegin();
-			db.editAccountByParams(id, role, nickname, email, pass, description, firstname, lastname, dateofbirth);
+			db.editAccountByParams2(id, role, nickname, email, description, firstname, lastname, dateofbirth);
 			db.doTranCommit();
 			
 			String ipAddress = request.getRemoteAddr();
