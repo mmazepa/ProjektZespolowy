@@ -117,7 +117,7 @@
               <tr>
                 <td>
                   <label>Choose file to upload:</label>
-                  <input id="file" type="file" name="file" />
+                  <input id="file" name="file" type="file" />
                 </td>
                 <td>
                     <button type="button"
@@ -176,6 +176,25 @@
                   } else {
                     alert("Could not find a mode corresponding to " + val);
                   }
+                }
+
+                // UPLOADING TEXT INTO CODE_MIRROR EDITOR
+                function uploadToEditor() {
+                  var content = setContent();
+                  myCodeMirror.setValue(content);
+                }
+
+                // SETTING THE CONTENT FROM FILE
+                function setContent() {
+                  var file = document.getElementById("file");
+                  var filePath = file.value;
+
+                  var newContent = filePath;
+                  if (newContent === "" || newContent == null) {
+                    newContent = "No file selected.";
+                  }
+
+                  return newContent;
                 }
             </script>
 

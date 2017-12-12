@@ -105,13 +105,6 @@ function readTextFile(file, path){
     rawFile.send(null);
 }
 
-// UPLOAD TEXT FROM FILE TO EDITOR
-function uploadToEditor(){
-    var filePath = document.getElementById("file").value;
-    alert(filePath);
-    readTextFile("code", filePath);
-}
-
 // LOG OUT FUNCTION
 function logout(){
     location.href = '../index.jsp';
