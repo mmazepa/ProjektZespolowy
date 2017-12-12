@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
       String password = request.getParameter("password");
 
       for (Account account : accounts) {
-        if (account.getNickname().equals(login) && account.getPass().equals(password)) {
+        if (account.getNickname().equals(login) && account.getPass().equals(Long.toHexString(am.haszuj(password)))) {
           credentialsCorrect = true;
           activeAccount = account;
           break;

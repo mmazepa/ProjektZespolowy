@@ -171,4 +171,12 @@ public class SQLHandler {
 	protected void setConnection(Connection connection) {
 		this.connection = connection;
 	}
+	
+	public long haszuj(String text) {
+		long hasz = 7;
+		for (int i = 0; i < text.length(); i++) {
+		    hasz = hasz*37 + text.charAt(i);
+		}
+		return hasz;
+	}
 }

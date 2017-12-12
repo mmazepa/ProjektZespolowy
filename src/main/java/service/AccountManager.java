@@ -64,7 +64,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  addAccountStmt.setInt(1, account.getRole());
 	  addAccountStmt.setString(2, account.getNickname());
 	  addAccountStmt.setString(3, account.getEmail());
-	  addAccountStmt.setString(4, account.getPass());
+	  addAccountStmt.setString(4, Long.toHexString(haszuj(account.getPass())));
 	  addAccountStmt.setTimestamp(5, Timestamp.valueOf(account.getRegistrationdate()));
 	  addAccountStmt.setString(6, account.getDescription());
 	  addAccountStmt.setString(7, account.getFirstName());
@@ -82,7 +82,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  addAccountByParamsStmt.setInt(1, role);
 	  addAccountByParamsStmt.setString(2, nickname);
 	  addAccountByParamsStmt.setString(3, email);
-	  addAccountByParamsStmt.setString(4, pass);
+	  addAccountByParamsStmt.setString(4, Long.toHexString(haszuj(pass)));
 	  addAccountByParamsStmt.setString(5, firstname);
 	  addAccountByParamsStmt.setString(6, lastname);
 	  addAccountByParamsStmt.setTimestamp(7, Timestamp.valueOf(dateofbirth));
@@ -95,7 +95,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  editAccountStmt.setInt(1, newAccountData.getRole());
 	  editAccountStmt.setString(2, newAccountData.getNickname());
 	  editAccountStmt.setString(3, newAccountData.getEmail());
-	  editAccountStmt.setString(4, newAccountData.getPass());
+	  editAccountStmt.setString(4, Long.toHexString(haszuj(newAccountData.getPass())));
 	  editAccountStmt.setString(5, newAccountData.getRegistrationdate());
 	  editAccountStmt.setString(6, newAccountData.getDescription());
 	  editAccountStmt.setString(7, newAccountData.getFirstName());
@@ -113,7 +113,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 	  editAccountByParamsStmt.setInt(1, role);
 	  editAccountByParamsStmt.setString(2, nickname);
 	  editAccountByParamsStmt.setString(3, email);
-	  editAccountByParamsStmt.setString(4, pass);
+	  editAccountByParamsStmt.setString(4, Long.toHexString(haszuj(pass)));
 	  editAccountByParamsStmt.setString(5, description);
 	  editAccountByParamsStmt.setString(6, firstname);
 	  editAccountByParamsStmt.setString(7, lastname);
