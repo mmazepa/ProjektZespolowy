@@ -1,7 +1,12 @@
-<%@page import="domain.UserInfo"%>
+<%@ page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="service.AccountManager"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ page import="service.AccountManager"%>
+<%@ page import="service.RoleManager"%>
+<%@ page import="domain.Role"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.sql.SQLException"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -26,14 +31,33 @@
 //       int currentRole = am.activeAccountRole;
 //       request.setAttribute("currentNickname", currentNickname);
 //       request.setAttribute("currentRole", currentRole);
+    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+    if (info != null) {
+        currentuser = info;
+    } else {
+      //currentuser = new UserInfo();
+    }
 
-		UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    	currentuser = info;
+        String currentNickname = currentuser.getNickName();
+        int currentRoleId = currentuser.getUserID();
+        String currentRole = new String();
 
-      	String currentNickname = currentuser.getNickName();
-      	int currentRole = currentuser.getRole();
-      	request.setAttribute("currentNickname", currentNickname);
-      	request.setAttribute("currentRole", currentRole);
+        RoleManager db = new RoleManager();
+        List<Role> roles = new ArrayList<Role>();
+        try {
+          roles = db.getAllRoles();
+        } catch (SQLException | NullPointerException e) {
+          e.printStackTrace();
+        }
+
+        for (Role role : roles) {
+          if(role.getID() == currentRoleId) {
+            currentRole = role.getName();
+          }
+        }
+
+        request.setAttribute("currentNickname", currentNickname);
+        request.setAttribute("currentRole", currentRole);
     %>
     <main>
       <!-- IF USER IS LOGGED IN -->
@@ -44,13 +68,7 @@
               <td>
                 <strong>HELLO!</strong>
                 You are logged as <strong><%= currentNickname %></strong>
-                (
-                <c:choose>
-                  <c:when test="${currentRole == 1}">Administrator</c:when>
-                  <c:when test="${currentRole == 2}">Moderator</c:when>
-                  <c:when test="${currentRole == 3}">User</c:when>
-                </c:choose>
-                )
+                ( <%= currentRole %> )
               </td>
               <td>
                 <form name="form" action="/subpages/loggedUserMainMenu.jsp" method="POST">
