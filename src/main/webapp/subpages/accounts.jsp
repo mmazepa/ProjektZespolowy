@@ -77,76 +77,92 @@
               <th>Edit</th>
               <th>Delete</th>
             </tr>
-            <c:set var="count" value="0" />
-            <c:forEach var="account" items="${accounts}">
-        			<tr>
-        				<td>
-                  <%-- <c:out value="${account.getID()}"/> --%>
-                  <c:set var="count" value="${count + 1}" />
-                  <c:out value="${count}" />
-                </td>
-                <td style="font-size: 12px;">
-                  <%-- <c:out value="${account.getRole()}"/> --%>
-                  <c:choose>
-                    <c:when test="${account.getRole() == '1'}">
-                      Administrator
-                    </c:when>
-                    <c:when test="${account.getRole() == '2'}">
-                      Moderator
-                    </c:when>
-                    <c:when test="${account.getRole() == '3'}">
-                      User
-                    </c:when>
-                  </c:choose>
-                </td>
-        				<td><c:out value="${account.getNickname()}"/></td>
-                <td>
-                  <a href="mailto:${account.getEmail()}">
-                    <c:out value="${account.getEmail()}"/>
-                  </a>
-                </td>
-                <%-- <td><c:out value="${account.getPass()}"/></td> --%>
-                <%-- <td>**********</td> --%>
-                <td>
-                  <abbr title="${account.getRegistrationdate().substring(0,16)}">
-                    <c:out value="${account.getRegistrationdate().substring(0,10)}"/>
-                  </abbr>
-                </td>
-                <td><c:out value="${account.getDescription()}"/></td>
-                <td><c:out value="${account.getFirstName()}"/></td>
-                <td><c:out value="${account.getLastName()}"/></td>
-                <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>
-                <td>
-                  <form action="/subpages/obtainEditedAccountData.jsp" style="display:inline">
-        						<input type="hidden" name="id" value="${account.getID()}">
-        						<input type="hidden" name="role" value="${account.getRole()}">
-        						<input type="hidden" name="nickname" value="${account.getNickname()}">
-        						<input type="hidden" name="email" value="${account.getEmail()}">
-        						<input type="hidden" name="registrationdate" value="${account.getRegistrationdate()}">
-        						<input type="hidden" name="description" value="${account.getDescription()}">
-        						<input type="hidden" name="firstName" value="${account.getFirstName()}">
-        						<input type="hidden" name="lastName" value="${account.getLastName()}">
-        						<input type="hidden" name="dateOfBirth" value="${account.getDateOfBirth()}">
-        						<button type="submit" class="btn btn-primary">
-                      <span class="glyphicon glyphicon-pencil"></span>
-        						</button>
-                  </form>
-                </td>
-    			  		<td>
-                  <form action="/subpages/removeAccount.jsp" style="display:inline" method="get">
-        						<input type="hidden" name="id" value="${account.getID()}">
-        						<input type="hidden" name="nickname" value="${account.getNickname()}">
-        						<input type="hidden" name="email" value="${account.getEmail()}">
-        						<input type="hidden" name="firstName" value="${account.getFirstName()}">
-        						<input type="hidden" name="lastName" value="${account.getLastName()}">
-                    <button type="submit" class="btn btn-danger">
-                      <span class="glyphicon glyphicon-remove"></span>
-        						</button>
-  						    </form>
-  					    </td>
-  				    </tr>
+
+						<%-- <%
+							int pageNumber = 1;
+							int modulo = 5;
+							request.setAttribute("pageNumber", pageNumber);
+							request.setAttribute("modulo", modulo);
+						%> --%>
+
+						<c:set var="pageNumber" value="1"></c:set>
+						<c:set var="modulo" value="5"></c:set>
+
+            <c:forEach var="account" items="${accounts}" varStatus="loop">
+							<%-- <c:if test="${(pageNumber*(loop.index)) < modulo*pageNumber }"> --%>
+							<c:if test="${true}">
+	        			<tr>
+	        				<td>
+	                  <%-- <c:out value="${account.getID()}"/> --%>
+										<%-- <strong>${(pageNumber*(loop.index))%modulo + 1}</strong> --%>
+										<strong>${pageNumber*loop.index+1}</strong>
+	                </td>
+	                <td style="font-size: 12px;">
+	                  <%-- <c:out value="${account.getRole()}"/> --%>
+	                  <c:choose>
+	                    <c:when test="${account.getRole() == '1'}">
+	                      Administrator
+	                    </c:when>
+	                    <c:when test="${account.getRole() == '2'}">
+	                      Moderator
+	                    </c:when>
+	                    <c:when test="${account.getRole() == '3'}">
+	                      User
+	                    </c:when>
+	                  </c:choose>
+	                </td>
+	        				<td><c:out value="${account.getNickname()}"/></td>
+	                <td>
+	                  <a href="mailto:${account.getEmail()}">
+	                    <c:out value="${account.getEmail()}"/>
+	                  </a>
+	                </td>
+	                <%-- <td><c:out value="${account.getPass()}"/></td> --%>
+	                <%-- <td>**********</td> --%>
+	                <td>
+	                  <abbr title="${account.getRegistrationdate().substring(0,16)}">
+	                    <c:out value="${account.getRegistrationdate().substring(0,10)}"/>
+	                  </abbr>
+	                </td>
+	                <td><c:out value="${account.getDescription()}"/></td>
+	                <td><c:out value="${account.getFirstName()}"/></td>
+	                <td><c:out value="${account.getLastName()}"/></td>
+	                <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>
+	                <td>
+	                  <form action="/subpages/obtainEditedAccountData.jsp" style="display:inline">
+	        						<input type="hidden" name="id" value="${account.getID()}">
+	        						<input type="hidden" name="role" value="${account.getRole()}">
+	        						<input type="hidden" name="nickname" value="${account.getNickname()}">
+	        						<input type="hidden" name="email" value="${account.getEmail()}">
+	        						<input type="hidden" name="registrationdate" value="${account.getRegistrationdate()}">
+	        						<input type="hidden" name="description" value="${account.getDescription()}">
+	        						<input type="hidden" name="firstName" value="${account.getFirstName()}">
+	        						<input type="hidden" name="lastName" value="${account.getLastName()}">
+	        						<input type="hidden" name="dateOfBirth" value="${account.getDateOfBirth()}">
+	        						<button type="submit" class="btn btn-primary">
+	                      <span class="glyphicon glyphicon-pencil"></span>
+	        						</button>
+	                  </form>
+	                </td>
+	    			  		<td>
+	                  <form action="/subpages/removeAccount.jsp" style="display:inline" method="get">
+	        						<input type="hidden" name="id" value="${account.getID()}">
+	        						<input type="hidden" name="nickname" value="${account.getNickname()}">
+	        						<input type="hidden" name="email" value="${account.getEmail()}">
+	        						<input type="hidden" name="firstName" value="${account.getFirstName()}">
+	        						<input type="hidden" name="lastName" value="${account.getLastName()}">
+	                    <button type="submit" class="btn btn-danger">
+	                      <span class="glyphicon glyphicon-remove"></span>
+	        						</button>
+	  						    </form>
+	  					    </td>
+	  				    </tr>
+							</c:if>
             </c:forEach>
           </table>
+					<%-- <a href="<c:set var='pageNumber' value='${pageNumber-1}'></c:set>"> << </a>
+					${pageNumber}
+    			<a href="<c:set var='pageNumber' value='${pageNumber+1}'></c:set>"> >> </a> --%>
           <br/>
           <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>
