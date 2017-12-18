@@ -36,43 +36,6 @@ function prepareCurrentDate(){
     return datetime;
 }
 
-// ADDING NEW MESSAGE TO CHAT
-function addMessage(username){
-    var message = document.getElementById("message").value;
-    var datetime = prepareCurrentDate();
-
-    if (message){
-        var chat = document.getElementById("messages");
-
-        var div = document.createElement("div");
-        var p = document.createElement("p");
-        var strong = document.createElement("strong");
-
-        var user = document.createTextNode(username + ": ");
-        var text = document.createTextNode(message);
-        var sendtime = document.createTextNode(datetime);
-
-        div.setAttribute("id", "myMessage");
-        p.setAttribute("id", "sendTime");
-
-        strong.appendChild(user);
-        div.appendChild(strong);
-        div.appendChild(text);
-        p.appendChild(sendtime);
-        div.appendChild(p);
-
-        div.style.opacity = "0";
-
-        chat.appendChild(div);
-        document.getElementById("message").value = "";
-        chat.scrollTop = chat.scrollHeight;
-
-        var ex = chat.lastChild;
-        ex.style.transition = "opacity 0.5s";
-        ex.style.opacity = "1";
-    }
-}
-
 // LOAD HEADER AND FOOTER SECTIONS
 function loadHeaderAndFooter(){
     var headerPath = "/subpages/header.jsp";
@@ -94,10 +57,6 @@ function readTextFile(file, path){
                 var allText = rawFile.responseText;
                 if(file == "header" || file == "footer"){
                     document.getElementsByTagName(file)[0].innerHTML = allText;
-                }
-                else if (file == "code"){
-                    document.getElementById(file).value = allText;
-                    alert(allText);
                 }
             }
         }
