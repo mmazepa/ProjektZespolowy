@@ -92,6 +92,9 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#backLink {
+  font-size: 14px;
+}
 .license {
   font-size: 12px;
 }
@@ -104,6 +107,12 @@ footer {
 }
 .editorSpace {
   margin-top: -10px;
+}
+.glyphiconGood {
+  color: green;
+}
+.glyphiconBad {
+  color: red;
 }
 .center {
   margin-left: auto;

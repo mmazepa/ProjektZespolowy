@@ -92,10 +92,10 @@
               <br/>
               Credentials validation:
               <span ng-if="form.$valid">
-                <span class="glyphicon glyphicon-ok" style="color:green;"></span>
+                <span class="glyphicon glyphicon-ok glyphiconGood"></span>
               </span>
               <span ng-if="form.$invalid">
-                <span class="glyphicon glyphicon-remove" style="color:red;"></span>
+                <span class="glyphicon glyphicon-remove glyphiconBad"></span>
               </span>
               <br/>
               <!-- LOG IN BUTTON -->

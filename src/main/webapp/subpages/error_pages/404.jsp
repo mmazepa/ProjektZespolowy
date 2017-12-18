@@ -21,7 +21,9 @@
           You can back to our Home Page now.
         </p>
         <br/>
-        <a href="/index.jsp" style="font-size: 14px;"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a id="backLink" href="/index.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span> Back
+        </a>
       </div>
     </main>
     <footer></footer>
