@@ -55,12 +55,29 @@ function uploadToEditor() {
 // SETTING THE CONTENT FROM FILE
 function setContent() {
     var file = document.getElementById("file");
-    var filePath = file.value;
 
-    var newContent = filePath;
+    var newContent = readTextFromFile(file);
     if (newContent === "" || newContent == null) {
         newContent = "No file selected.";
     }
 
     return newContent;
+}
+
+// READ TEXT FROM FILE - VERSION FOR EDITOR
+function readTextFromFile(file) {
+    var allText = "Cannot read the content from file.";
+
+    var reader = new FileReader();
+    if(file.files[0] != null) {
+        var textFile = file.files[0];
+        reader.readAsText(textFile);
+        alert("Your file: " + file.files[0].name);
+        allText = reader.result;
+    }
+    else {
+        alert('Please upload a file before continuing');
+    }
+
+    return allText;
 }

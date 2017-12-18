@@ -119,7 +119,9 @@
               <tr>
                 <td>
                   <label>Choose file to upload:</label>
-                  <input id="file" name="file" type="file" />
+                  <form enctype="multipart/form-data" method="post">
+                    <input id="file" name="file" type="file" />
+                  </form>
                 </td>
                 <td>
                     <button type="button"

@@ -44,7 +44,7 @@ function loadHeaderAndFooter(){
     readTextFile("footer", footerPath);
 }
 
-// READ TEXT FROM FILE
+// READ TEXT FROM FILE - VERSION FOR HEADER AND FOOTER
 function readTextFile(file, path){
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", path, false);
