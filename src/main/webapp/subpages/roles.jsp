@@ -51,13 +51,13 @@
         }
 
         request.setAttribute("currentNickname", currentNickname);
-        request.setAttribute("currentRole", currentRole);
+        request.setAttribute("currentRoleId", currentRoleId);
     %>
     <main id="indexMain">
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRole == 'Administrator')}">
+        <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
           <h3>Administrator Panel</h3>
           <hr/>
           <h4>List of roles</h4>
@@ -104,7 +104,7 @@
         </c:if>
 
         <!-- IF USER IS LOGGED IN AND IS NOT ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRole != 'Administrator')}">
+        <c:if test="${(currentNickname != '') and (currentRoleId != 1)}">
           <h5 id="helloGuest">
             <strong>SORRY!</strong>
             You don't have permission to see this section.
