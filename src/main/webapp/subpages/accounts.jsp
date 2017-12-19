@@ -33,7 +33,7 @@
     }
 
         String currentNickname = currentuser.getNickName();
-        int currentRoleId = currentuser.getUserID();
+        int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
         RoleManager db = new RoleManager();
@@ -55,8 +55,8 @@
     %>
     <main id="indexMain">
       <div class="centeredText">
-	
-	
+
+
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
         <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
           <h3>Administrator Panel</h3>
@@ -98,17 +98,17 @@
 										<%-- <strong>${(pageNumber*(loop.index))%modulo + 1}</strong> --%>
 										<strong>${pageNumber*loop.index+1}</strong>
 	                </td>
-	                <td style="font-size: 12px;">
+	                <td>
 	                  <%-- <c:out value="${account.getRole()}"/> --%>
 	                  <c:choose>
 	                    <c:when test="${account.getRole() == '1'}">
-	                      Administrator
+	                      <span id="admin">Administrator</span>
 	                    </c:when>
 	                    <c:when test="${account.getRole() == '2'}">
-	                      Moderator
+	                      <span id="mod">Moderator</span>
 	                    </c:when>
 	                    <c:when test="${account.getRole() == '3'}">
-	                      User
+	                      <span id="user">User</span>
 	                    </c:when>
 	                  </c:choose>
 	                </td>

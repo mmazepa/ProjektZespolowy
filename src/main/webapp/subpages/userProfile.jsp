@@ -52,6 +52,8 @@
           }
         }
         Account account = new Account();
+				Role role = new Role();
+
         account = am.getAccount(currentId);
         request.setAttribute("account", account);
 		request.setAttribute("currentId", currentId);
@@ -72,7 +74,8 @@
             </tr>
             <tr>
               <td>Role</td>
-              <td><c:out value="${account.getRole()}"/></td>
+              <%-- <td><c:out value="${account.getRole()}"/></td> --%>
+              <td><c:out value="${currentRole}"/></td>
             </tr>
             <tr>
               <td>Nickname</td>
@@ -84,7 +87,8 @@
             </tr>
             <tr>
               <td>Password</td>
-              <td><c:out value="${account.getPass()}"/></td>
+              <%-- <td><c:out value="${account.getPass()}"/></td> --%>
+              <td>**********</td>
             </tr>
             <tr>
               <td>Registration Date</td>

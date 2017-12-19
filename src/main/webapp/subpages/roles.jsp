@@ -33,7 +33,7 @@
     }
 
         String currentNickname = currentuser.getNickName();
-        int currentRoleId = currentuser.getUserID();
+        int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
         RoleManager db = new RoleManager();
