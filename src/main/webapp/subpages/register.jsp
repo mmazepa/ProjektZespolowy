@@ -33,7 +33,7 @@
                           type="text"
                           name="nickname"
                           maxlength="20"
-                          pattern="[A-Za-z]{3,20}"
+                          pattern="[a-zA-Z0-9_.-]{3,20}"
                           title="All letters allowed, min 3, max 20."
                           required/>
                 </td>
@@ -63,14 +63,15 @@
                 </td>
               </tr>
               <tr>
-                <td>E-mail Address</td>
+                <td>E-mail Address<sup>* required</sup></td>
                 <td>
                   <input  id="email"
                           class="credentials"
                           type="email"
                           name="email"
                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                          title="Regular form of e-mail address."/>
+                          title="Regular form of e-mail address."
+                          required/>
                 </td>
               </tr>
               <tr>
@@ -81,6 +82,7 @@
                           type="text"
                           name="dateOfBirth"
                           pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
+                          value="1970-01-01"
                           title="YYYY-MM-DD, e.g. 1990-01-01."/>
                 </td>
               </tr>

@@ -76,10 +76,10 @@
                       type="text"
                       name="login"
                       maxlength="20"
-                      pattern="[A-Za-z]{3,20}"
+                      pattern="[a-zA-Z0-9_.-]{3,20}"
                       title="All letters allowed, min 3, max 20."
                       ng-model="login"
-                      ng-pattern="[A-Za-z]{3,20}"
+                      ng-pattern="[a-zA-Z0-9_.-]{3,20}"
                       required/>
               <br/>
               Password<br/>
