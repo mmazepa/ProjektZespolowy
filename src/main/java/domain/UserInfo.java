@@ -12,7 +12,7 @@ public class UserInfo {
 		
 	}
 	
-	public UserInfo(int role, int userid, String nickName, String ip,
+	public UserInfo(int userid, int role, String nickName, String ip,
 			boolean signedIn) {
 		super();
 		this.role = role;
