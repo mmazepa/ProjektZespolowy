@@ -4,6 +4,7 @@
 <%@ page import="service.AccountManager"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
+<%@ page import="domain.Account"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.sql.SQLException"%>
@@ -20,7 +21,7 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
+       AccountManager am = new AccountManager();
 //       String currentNickname = am.activeAccountNickname;
 //       int currentRole = am.activeAccountRole;
 //       request.setAttribute("currentNickname", currentNickname);
@@ -33,7 +34,8 @@
     }
 
         String currentNickname = currentuser.getNickName();
-        int currentRoleId = currentuser.getUserID();
+        int currentId = currentuser.getUserID();
+        int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
         RoleManager db = new RoleManager();
@@ -49,7 +51,10 @@
             currentRole = role.getName();
           }
         }
-
+        Account account = new Account();
+        account = am.getAccount(currentId);
+        request.setAttribute("account", account);
+		request.setAttribute("currentId", currentId);
         request.setAttribute("currentNickname", currentNickname);
         request.setAttribute("currentRole", currentRole);
     %>
@@ -67,39 +72,39 @@
             </tr>
             <tr>
               <td>Role</td>
-              <td>tmp_role</td>
+              <td><c:out value="${account.getRole()}"/></td>
             </tr>
             <tr>
               <td>Nickname</td>
-              <td>tmp_nickname</td>
+              <td><c:out value="${account.getNickname()}"/></td>
             </tr>
             <tr>
               <td>E-mail</td>
-              <td>tmp_email</td>
+              <td><c:out value="${account.getEmail()}"/></td>
             </tr>
             <tr>
               <td>Password</td>
-              <td>tmp_password</td>
+              <td><c:out value="${account.getPass()}"/></td>
             </tr>
             <tr>
               <td>Registration Date</td>
-              <td>tmp_registrationdate</td>
+              <td><c:out value="${account.getRegistrationdate()}"/></td>
             </tr>
             <tr>
               <td>Description</td>
-              <td>tmp_description</td>
+              <td><c:out value="${account.getDescription()}"/></td>
             </tr>
             <tr>
               <td>First Name</td>
-              <td>tmp_firstname</td>
+              <td><c:out value="${account.getFirstName()}"/></td>
             </tr>
             <tr>
               <td>Last Name</td>
-              <td>tmp_lastname</td>
+              <td><c:out value="${account.getLastName()}"/></td>
             </tr>
             <tr>
               <td>Date Of Birth</td>
-              <td>tmp_dateofbirth</td>
+              <td><c:out value="${account.getDateOfBirth()}"/></td>
             </tr>
           </table>
           <br/>
