@@ -1,6 +1,7 @@
 <%@ page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="service.AccountManager"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
@@ -16,8 +17,10 @@
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <!-- SCRIPT FOR PAGINATION -->
+    <script src="../static/javascript/pagination.js"></script>
 	</head>
-	<body onload="loadHeaderAndFooter()">
+	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
 //       AccountManager am = new AccountManager();
@@ -84,19 +87,19 @@
 							int modulo = 5;
 							request.setAttribute("pageNumber", pageNumber);
 							request.setAttribute("modulo", modulo);
-						%> --%>
+						%>
 
 						<c:set var="pageNumber" value="1"></c:set>
-						<c:set var="modulo" value="5"></c:set>
+						<c:set var="modulo" value="5"></c:set> --%>
 
             <c:forEach var="account" items="${accounts}" varStatus="loop">
-							<%-- <c:if test="${(pageNumber*(loop.index)) < modulo*pageNumber }"> --%>
+							<%-- <c:if test="${loop.index < modulo*pageNumber }"> --%>
 							<c:if test="${true}">
-	        			<tr>
+	        			<tr class="rowClass">
 	        				<td>
 	                  <%-- <c:out value="${account.getID()}"/> --%>
 										<%-- <strong>${(pageNumber*(loop.index))%modulo + 1}</strong> --%>
-										<strong>${pageNumber*loop.index+1}</strong>
+										<strong>${loop.index+1}</strong>
 	                </td>
 	                <td>
 	                  <%-- <c:out value="${account.getRole()}"/> --%>
@@ -161,9 +164,34 @@
 							</c:if>
             </c:forEach>
           </table>
-					<%-- <a href="<c:set var='pageNumber' value='${pageNumber-1}'></c:set>"> << </a>
-					${pageNumber}
-    			<a href="<c:set var='pageNumber' value='${pageNumber+1}'></c:set>"> >> </a> --%>
+					<br/>
+
+					<!-- PAGINATION MENU -->
+          <!-- PREVIOUS PAGE BUTTON -->
+					<button id="previousPage"
+                  class="btn btn-success"
+                  onclick="changePage('back')">
+						<span class="glyphicon glyphicon-backward"></span>
+					</button>
+					Page
+					<strong>
+            <!-- CURRENT PAGE INFO -->
+						<span id="currentPage">1</span>
+					</strong>
+					of
+					<strong>
+						<%-- <fmt:formatNumber	value="${(accounts.size()/modulo)+(1-((accounts.size()/modulo)%1))%1}"
+															maxFractionDigits="0"/> --%>
+            <!-- ALL AVAILABLE PAGES INFO -->
+						<span id="allPages">...</span>
+					</strong>
+          <!-- NEXT PAGE BUTTON -->
+    			<button id="nextPage"
+                  class="btn btn-success"
+                  onclick="changePage('next')">
+						<span class="glyphicon glyphicon-forward"></span>
+					</button>
+
           <br/>
           <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>
