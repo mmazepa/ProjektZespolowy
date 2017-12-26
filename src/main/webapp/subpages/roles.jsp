@@ -75,7 +75,7 @@
           		<td>
                 <%-- <c:out value="${role.getID()}"/> --%>
                 <c:set var="count" value="${count + 1}" />
-                <c:out value="${count}" />
+                <strong><c:out value="${count}" /></strong>
               </td>
     					<td><c:out value="${role.getName()}"/></td>
                 <td>

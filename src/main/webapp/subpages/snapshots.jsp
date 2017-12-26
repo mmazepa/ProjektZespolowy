@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ page import="service.AccountManager"%>
+<%@ page import="domain.Account"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
 <%@ page import="java.util.List"%>
@@ -73,15 +74,32 @@
               <th>Edit</th>
               <th>Delete</th>
             </tr>
+
+            <%
+              AccountManager am = new AccountManager();
+              List<Account> accounts = new ArrayList();
+              accounts = am.getAllAccounts();
+              request.setAttribute("accounts", accounts);
+            %>
+
   					<c:set var="count" value="0" />
             <c:forEach var="snapshot" items="${snapshots}">
         		<tr>
         			<td>
   							<%-- <c:out value="${snapshot.getID()}"/> --%>
   							<c:set var="count" value="${count + 1}" />
-  							<c:out value="${count}" />
+  							<strong><c:out value="${count}" /></strong>
   						</td>
-  					  <td><c:out value="${snapshot.getAuthor()}"/></td>
+
+  					  <%-- <td><c:out value="${snapshot.getAuthor()}"/></td> --%>
+							<td>
+                <c:forEach var="account" items="${accounts}">
+                  <c:if test="${account.getID() == snapshot.getAuthor()}">
+                    <c:out value="${account.getNickname()}"/>
+                  </c:if>
+                </c:forEach>
+              </td>
+
         			<td><c:out value="${snapshot.getFile()}"/></td>
     					<td><c:out value="${snapshot.getName()}"/></td>
     					<td><c:out value="${snapshot.getCreationDate()}"/></td>

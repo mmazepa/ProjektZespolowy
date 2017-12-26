@@ -78,12 +78,24 @@
           		<td>
                 <%-- <c:out value="${workgroup.getID()}"/> --%>
                 <c:set var="count" value="${count + 1}" />
-                <c:out value="${count}" />
+                <strong><c:out value="${count}" /></strong>
               </td>
     					<td><c:out value="${workgroup.getName()}"/></td>
           		<td><c:out value="${workgroup.getCreationDate()}"/></td>
     					<td><c:out value="${workgroup.getDescription()}"/></td>
-    					<td><c:out value="${workgroup.isPrivate()}"/></td>
+
+    					<%-- <td><c:out value="${workgroup.isPrivate()}"/></td> --%>
+              <td>
+                <c:choose>
+                  <c:when test="${workgroup.isPrivate()}">
+                    <span class="glyphicon glyphicon-ok glyphiconGood"></span>
+                  </c:when>
+                  <c:otherwise>
+                    <span class="glyphicon glyphicon-remove glyphiconBad"></span>
+                  </c:otherwise>
+                </c:choose>
+              </td>
+
                 <td>
                   <form action="/subpages/obtainEditedWorkgroupData.jsp" style="display:inline">
         						<input type="hidden" name="id" value="${workgroup.getID()}">
