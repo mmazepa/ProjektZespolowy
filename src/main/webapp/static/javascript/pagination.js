@@ -52,7 +52,14 @@ function changePage(direction) {
 // LOAD FIRST 'DISPLAYED_ROWS_NUMBER' ROWS
 function loadRows() {
     var allRows = document.getElementsByClassName("rowClass");
-    var pagesNumber = Math.ceil(allRows.length/displayedRowsNumber);
+    var pagesNumber = 0;
+
+    if (allRows.length > displayedRowsNumber) {
+        pagesNumber = Math.ceil(allRows.length/displayedRowsNumber);
+    }
+    else {
+        pagesNumber = 1;
+    }
 
     for(i = 0; i < allRows.length; i++) {
         allRows[i].style.display = "none";
@@ -63,6 +70,9 @@ function loadRows() {
     }
 
     document.getElementById("previousPage").disabled = true;
+    if (pagesNumber == 1) {
+        document.getElementById("nextPage").disabled = true;
+    }
     document.getElementById("currentPage").innerHTML = 1;
     document.getElementById("allPages").innerHTML = pagesNumber;
 }

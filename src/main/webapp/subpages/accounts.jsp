@@ -180,8 +180,6 @@
 					</strong>
 					of
 					<strong>
-						<%-- <fmt:formatNumber	value="${(accounts.size()/modulo)+(1-((accounts.size()/modulo)%1))%1}"
-															maxFractionDigits="0"/> --%>
             <!-- ALL AVAILABLE PAGES INFO -->
 						<span id="allPages">...</span>
 					</strong>

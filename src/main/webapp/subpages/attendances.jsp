@@ -20,8 +20,10 @@
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <!-- SCRIPT FOR PAGINATION -->
+    <script src="../static/javascript/pagination.js"></script>
 	</head>
-	<body onload="loadHeaderAndFooter()">
+	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
 //       AccountManager am = new AccountManager();
@@ -92,72 +94,98 @@
             %>
 
             <c:set var="count" value="0" />
-            <c:forEach var="attendance" items="${attendances}">
-        		<tr>
-          		<td>
-                <%-- <c:out value="${attendance.getID()}"/> --%>
-                <c:set var="count" value="${count + 1}" />
-                <strong><c:out value="${count}" /></strong>
-              </td>
-
-    					<%-- <td><c:out value="${attendance.getGroup()}"/></td> --%>
-              <td>
-                <c:forEach var="workgroup" items="${workgroups}">
-                  <c:if test="${workgroup.getID() == attendance.getGroup()}">
-    					      <c:out value="${workgroup.getName()}"/>
-                  </c:if>
-                </c:forEach>
-              </td>
-
-          		<%-- <td><c:out value="${attendance.getUser()}"/></td> --%>
-              <td>
-                <c:forEach var="account" items="${accounts}">
-                  <c:if test="${account.getID() == attendance.getUser()}">
-                    <c:out value="${account.getNickname()}"/>
-                  </c:if>
-                </c:forEach>
-              </td>
-
-    					<%-- <td><c:out value="${attendance.isAdmin()}"/></td> --%>
-              <td>
-                <c:choose>
-                  <c:when test="${attendance.isAdmin()}">
-                    <span class="glyphicon glyphicon-ok glyphiconGood"></span>
-                  </c:when>
-                  <c:otherwise>
-                    <span class="glyphicon glyphicon-remove glyphiconBad"></span>
-                  </c:otherwise>
-                </c:choose>
-              </td>
-
-    					<td><c:out value="${attendance.getJoinDate()}"/></td>
-    					              <td>
-                  <form action="/subpages/obtainEditedAttendanceData.jsp" style="display:inline">
-        						<input type="hidden" name="id" value="${attendance.getID()}">
-        						<input type="hidden" name="group" value="${attendance.getGroup()}">
-        						<input type="hidden" name="user" value="${attendance.getUser()}">
-        						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
-        						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
-        						<button type="submit" class="btn btn-primary">
-                      <span class="glyphicon glyphicon-pencil"></span>
-        						</button>
-                  </form>
+            <c:forEach var="attendance" items="${attendances}" varStatus="loop">
+          		<tr class="rowClass">
+            		<td>
+                  <%-- <c:out value="${attendance.getID()}"/> --%>
+                  <c:set var="count" value="${count + 1}" />
+                  <strong><c:out value="${count}" /></strong>
                 </td>
-    			  		<td>
-                  <form action="/subpages/removeAttendance.jsp" style="display:inline" method="get">
-        						<input type="hidden" name="id" value="${attendance.getID()}">
-        						<input type="hidden" name="group" value="${attendance.getGroup()}">
-        						<input type="hidden" name="user" value="${attendance.getUser()}">
-        						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
-        						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
-                    <button type="submit" class="btn btn-danger">
-                      <span class="glyphicon glyphicon-remove"></span>
-        						</button>
-  						    </form>
-  					    </td>
-  				  </tr>
+
+      					<%-- <td><c:out value="${attendance.getGroup()}"/></td> --%>
+                <td>
+                  <c:forEach var="workgroup" items="${workgroups}">
+                    <c:if test="${workgroup.getID() == attendance.getGroup()}">
+      					      <c:out value="${workgroup.getName()}"/>
+                    </c:if>
+                  </c:forEach>
+                </td>
+
+            		<%-- <td><c:out value="${attendance.getUser()}"/></td> --%>
+                <td>
+                  <c:forEach var="account" items="${accounts}">
+                    <c:if test="${account.getID() == attendance.getUser()}">
+                      <c:out value="${account.getNickname()}"/>
+                    </c:if>
+                  </c:forEach>
+                </td>
+
+      					<%-- <td><c:out value="${attendance.isAdmin()}"/></td> --%>
+                <td>
+                  <c:choose>
+                    <c:when test="${attendance.isAdmin()}">
+                      <span class="glyphicon glyphicon-ok glyphiconGood"></span>
+                    </c:when>
+                    <c:otherwise>
+                      <span class="glyphicon glyphicon-remove glyphiconBad"></span>
+                    </c:otherwise>
+                  </c:choose>
+                </td>
+
+      					<td><c:out value="${attendance.getJoinDate()}"/></td>
+      					              <td>
+                    <form action="/subpages/obtainEditedAttendanceData.jsp" style="display:inline">
+          						<input type="hidden" name="id" value="${attendance.getID()}">
+          						<input type="hidden" name="group" value="${attendance.getGroup()}">
+          						<input type="hidden" name="user" value="${attendance.getUser()}">
+          						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
+          						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
+          						<button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-pencil"></span>
+          						</button>
+                    </form>
+                  </td>
+      			  		<td>
+                    <form action="/subpages/removeAttendance.jsp" style="display:inline" method="get">
+          						<input type="hidden" name="id" value="${attendance.getID()}">
+          						<input type="hidden" name="group" value="${attendance.getGroup()}">
+          						<input type="hidden" name="user" value="${attendance.getUser()}">
+          						<input type="hidden" name="isAdmin" value="${attendance.isAdmin()}">
+          						<input type="hidden" name="joinDate" value="${attendance.getJoinDate()}">
+                      <button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+          						</button>
+    						    </form>
+    					    </td>
+    				  </tr>
             </c:forEach>
           </table>
+          <br/>
+
+          <!-- PAGINATION MENU -->
+          <!-- PREVIOUS PAGE BUTTON -->
+          <button id="previousPage"
+                  class="btn btn-success"
+                  onclick="changePage('back')">
+            <span class="glyphicon glyphicon-backward"></span>
+          </button>
+          Page
+          <strong>
+            <!-- CURRENT PAGE INFO -->
+            <span id="currentPage">1</span>
+          </strong>
+          of
+          <strong>
+            <!-- ALL AVAILABLE PAGES INFO -->
+            <span id="allPages">...</span>
+          </strong>
+          <!-- NEXT PAGE BUTTON -->
+          <button id="nextPage"
+                  class="btn btn-success"
+                  onclick="changePage('next')">
+            <span class="glyphicon glyphicon-forward"></span>
+          </button>
+
           <br/>
           <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>
