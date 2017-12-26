@@ -66,13 +66,24 @@ function loadRows() {
     }
 
     for(i = 0; i < displayedRowsNumber; i++) {
+        if (allRows.length == 0) {
+            pagesNumber = 0;
+            break;
+        }
         allRows[i].style.display = "table-row";
+        if (allRows.length == i + 1) break;
     }
 
     document.getElementById("previousPage").disabled = true;
-    if (pagesNumber == 1) {
+    if (pagesNumber == 1 || pagesNumber == 0) {
         document.getElementById("nextPage").disabled = true;
     }
-    document.getElementById("currentPage").innerHTML = 1;
+
+    if (pagesNumber > 0) {
+        document.getElementById("currentPage").innerHTML = 1;
+    }
+    else {
+        document.getElementById("currentPage").innerHTML = 0;
+    }
     document.getElementById("allPages").innerHTML = pagesNumber;
 }

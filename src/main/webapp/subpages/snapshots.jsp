@@ -17,8 +17,10 @@
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <!-- SCRIPT FOR PAGINATION -->
+    <script src="../static/javascript/pagination.js"></script>
 	</head>
-	<body onload="loadHeaderAndFooter()">
+	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
 //       AccountManager am = new AccountManager();
@@ -84,53 +86,79 @@
 
   					<c:set var="count" value="0" />
             <c:forEach var="snapshot" items="${snapshots}">
-        		<tr>
-        			<td>
-  							<%-- <c:out value="${snapshot.getID()}"/> --%>
-  							<c:set var="count" value="${count + 1}" />
-  							<strong><c:out value="${count}" /></strong>
-  						</td>
+          		<tr class="rowClass">
+          			<td>
+    							<%-- <c:out value="${snapshot.getID()}"/> --%>
+    							<c:set var="count" value="${count + 1}" />
+    							<strong><c:out value="${count}" /></strong>
+    						</td>
 
-  					  <%-- <td><c:out value="${snapshot.getAuthor()}"/></td> --%>
-							<td>
-                <c:forEach var="account" items="${accounts}">
-                  <c:if test="${account.getID() == snapshot.getAuthor()}">
-                    <c:out value="${account.getNickname()}"/>
-                  </c:if>
-                </c:forEach>
-              </td>
-
-        			<td><c:out value="${snapshot.getFile()}"/></td>
-    					<td><c:out value="${snapshot.getName()}"/></td>
-    					<td><c:out value="${snapshot.getCreationDate()}"/></td>
-    					<td><c:out value="${snapshot.getContent()}"/></td>
-                <td>
-                  <form action="/subpages/obtainEditedSnapshotData.jsp" style="display:inline">
-        						<input type="hidden" name="id" value="${snapshot.getID()}">
-        						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
-        						<input type="hidden" name="file" value="${snapshot.getFile()}">
-        						<input type="hidden" name="name" value="${snapshot.getName()}">
-        						<input type="hidden" name="creationDate" value="${snapshot.getCreationDate()}">
-        						<input type="hidden" name="content" value="${snapshot.getContent()}">
-        						<button type="submit" class="btn btn-primary">
-                      <span class="glyphicon glyphicon-pencil"></span>
-        						</button>
-                  </form>
+    					  <%-- <td><c:out value="${snapshot.getAuthor()}"/></td> --%>
+  							<td>
+                  <c:forEach var="account" items="${accounts}">
+                    <c:if test="${account.getID() == snapshot.getAuthor()}">
+                      <c:out value="${account.getNickname()}"/>
+                    </c:if>
+                  </c:forEach>
                 </td>
-    			  		<td>
-                  <form action="/subpages/removeSnapshot.jsp" style="display:inline" method="get">
-        						<input type="hidden" name="id" value="${snapshot.getID()}">
-        						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
-        						<input type="hidden" name="file" value="${snapshot.getFile()}">
-        						<input type="hidden" name="name" value="${snapshot.getName()}">
-                    <button type="submit" class="btn btn-danger">
-                      <span class="glyphicon glyphicon-remove"></span>
-        						</button>
-  						    </form>
-  					    </td>
-    				</tr>
+
+          			<td><c:out value="${snapshot.getFile()}"/></td>
+      					<td><c:out value="${snapshot.getName()}"/></td>
+      					<td><c:out value="${snapshot.getCreationDate()}"/></td>
+      					<td><c:out value="${snapshot.getContent()}"/></td>
+                  <td>
+                    <form action="/subpages/obtainEditedSnapshotData.jsp" style="display:inline">
+          						<input type="hidden" name="id" value="${snapshot.getID()}">
+          						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
+          						<input type="hidden" name="file" value="${snapshot.getFile()}">
+          						<input type="hidden" name="name" value="${snapshot.getName()}">
+          						<input type="hidden" name="creationDate" value="${snapshot.getCreationDate()}">
+          						<input type="hidden" name="content" value="${snapshot.getContent()}">
+          						<button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-pencil"></span>
+          						</button>
+                    </form>
+                  </td>
+      			  		<td>
+                    <form action="/subpages/removeSnapshot.jsp" style="display:inline" method="get">
+          						<input type="hidden" name="id" value="${snapshot.getID()}">
+          						<input type="hidden" name="author" value="${snapshot.getAuthor()}">
+          						<input type="hidden" name="file" value="${snapshot.getFile()}">
+          						<input type="hidden" name="name" value="${snapshot.getName()}">
+                      <button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+          						</button>
+    						    </form>
+    					    </td>
+      				</tr>
             </c:forEach>
           </table>
+          <br/>
+
+          <!-- PAGINATION MENU -->
+          <!-- PREVIOUS PAGE BUTTON -->
+					<button id="previousPage"
+                  class="btn btn-success"
+                  onclick="changePage('back')">
+						<span class="glyphicon glyphicon-backward"></span>
+					</button>
+					Page
+					<strong>
+            <!-- CURRENT PAGE INFO -->
+						<span id="currentPage">1</span>
+					</strong>
+					of
+					<strong>
+            <!-- ALL AVAILABLE PAGES INFO -->
+						<span id="allPages">...</span>
+					</strong>
+          <!-- NEXT PAGE BUTTON -->
+    			<button id="nextPage"
+                  class="btn btn-success"
+                  onclick="changePage('next')">
+						<span class="glyphicon glyphicon-forward"></span>
+					</button>
+
           <br/>
           <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>
