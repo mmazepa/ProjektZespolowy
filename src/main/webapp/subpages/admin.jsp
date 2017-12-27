@@ -64,7 +64,7 @@
             <span class="glyphicon glyphicon-sunglasses"></span>
           </h3>
           <hr/>
-          <h5 id="helloUser">
+          <h5 id="helloUser" style="width:97%;">
             <strong>HELLO!</strong>
             You are logged as <strong><%= currentNickname %></strong>
             ( <%= currentRole %> )

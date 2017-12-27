@@ -12,9 +12,8 @@
     <header id="header"></header>
     <main id="indexMain" class="license">
       <div class="centeredText">
-        <h1>CodeMirror</h1>
+        <h1>MIT License</h1>
         <hr/>
-        <h3>MIT License</h3>
         <table class="adminTable licenseTable">
           <tr>
             <th>Product Name</th>
