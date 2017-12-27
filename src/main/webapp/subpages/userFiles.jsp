@@ -16,8 +16,10 @@
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <!-- SCRIPT FOR PAGINATION -->
+    <script src="../static/javascript/pagination.js"></script>
 	</head>
-	<body onload="loadHeaderAndFooter()">
+	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
 //       AccountManager am = new AccountManager();
@@ -32,8 +34,9 @@
       //currentuser = new UserInfo();
     }
 
+        int currentId = currentuser.getUserID();
         String currentNickname = currentuser.getNickName();
-        int currentRoleId = currentuser.getUserID();
+        int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
         RoleManager db = new RoleManager();
@@ -51,7 +54,8 @@
         }
 
         request.setAttribute("currentNickname", currentNickname);
-        request.setAttribute("currentRole", currentRole);
+        request.setAttribute("currentRoleId", currentRoleId);
+        request.setAttribute("currentId", currentId);
     %>
     <main id="indexMain">
       <div class="centeredText">
@@ -60,10 +64,15 @@
         <c:if test="${currentNickname != ''}">
           <h3>Logged User Files</h3>
           <hr/>
+          <form action="/subpages/createFile.jsp">
+            <button class="btn btn-success">
+              <span class="glyphicon glyphicon-plus"></span>
+              New File
+            </button>
+          </form>
+          <br/>
 
           <!-- TABLE WITH FILES CREATED BY USER -->
-          <h4>Files created by me</h4>
-          <br/>
           <table class="adminTable textFileTable">
             <tr>
               <th>No.</th>
@@ -77,84 +86,73 @@
               <th>Delete</th>
             </tr>
   					<c:set var="count" value="0" />
-        		<tr>
-        			<td>
-  							<c:set var="count" value="${count + 1}" />
-  							<c:out value="${count}" />
-  						</td>
-  					  <td>tmp_author</td>
-        			<td>tmp_group</td>
-    					<td>tmp_name</td>
-    					<td>tmp_creationdate</td>
-    					<td>tmp_description</td>
-  						<td>tmp_private</td>
-              <td>
-                <form action="/subpages/obtainEditedTextFileData.jsp" style="display:inline">
-        					<input type="hidden" name="id" value="${textFile.getID()}">
-        					<input type="hidden" name="name" value="${textFile.getName()}">
-        					<input type="hidden" name="description" value="${textFile.getDescription()}">
-  						    <input type="hidden" name="private" value="${textFile.isPrivate()}">
-        					<button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-pencil"></span>
-        					</button>
-                </form>
-              </td>
-    			  	<td>
-                <form action="/subpages/removeTextFile.jsp" style="display:inline" method="get">
-  							  <input type="hidden" name="id" value="${textFile.getID()}">
-        					<input type="hidden" name="name" value="${textFile.getName()}">
-        					<input type="hidden" name="description" value="${textFile.getDescription()}">
-  							  <input type="hidden" name="private" value="${textFile.isPrivate()}">
-                  <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove"></span>
-        					</button>
-  						  </form>
-  					  </td>
-    				</tr>
+            <c:forEach var="textFile" items="${textFiles}">
+              <c:if test="${textFile.getAuthor() == currentId}">
+            		<tr class="rowClass">
+            			<td>
+      							<c:set var="count" value="${count + 1}" />
+      							<strong><c:out value="${count}" /></strong>
+      						</td>
+                  <%-- <td><c:out value="${textFile.getAuthor()}"/></td> --%>
+                  <td>${currentNickname}</td>
+
+                  <td><c:out value="${textFile.getGroup()}"/></td>
+                  <td><c:out value="${textFile.getName()}"/></td>
+                  <td><c:out value="${textFile.getCreationDate()}"/></td>
+                  <td><c:out value="${textFile.getDescription()}"/></td>
+                  <td><c:out value="${textFile.isPrivate()}"/></td>
+                  <td>
+                    <form action="/subpages/obtainEditedTextFileData.jsp" style="display:inline">
+            					<input type="hidden" name="id" value="${textFile.getID()}">
+            					<input type="hidden" name="name" value="${textFile.getName()}">
+            					<input type="hidden" name="description" value="${textFile.getDescription()}">
+      						    <input type="hidden" name="private" value="${textFile.isPrivate()}">
+            					<button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-pencil"></span>
+            					</button>
+                    </form>
+                  </td>
+        			  	<td>
+                    <form action="/subpages/removeTextFile.jsp" style="display:inline" method="get">
+      							  <input type="hidden" name="id" value="${textFile.getID()}">
+            					<input type="hidden" name="name" value="${textFile.getName()}">
+            					<input type="hidden" name="description" value="${textFile.getDescription()}">
+      							  <input type="hidden" name="private" value="${textFile.isPrivate()}">
+                      <button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+            					</button>
+      						  </form>
+      					  </td>
+        				</tr>
+              </c:if>
+            </c:forEach>
           </table>
           <br/>
 
-          <!-- TABLE WITH FILES IN WHICH USER COOPERATES -->
-          <h4>Files in which I cooperates</h4>
-          <br/>
-          <table class="adminTable textFileTable">
-            <tr>
-              <th>No.</th>
-              <th>Author</th>
-              <th>Group</th>
-              <th>Name</th>
-              <th>Creation Date</th>
-  			      <th>Description</th>
-  						<th>Private</th>
-              <th>Delete</th>
-            </tr>
-  					<c:set var="count" value="0" />
-        		<tr>
-        			<td>
-  							<c:set var="count" value="${count + 1}" />
-  							<c:out value="${count}" />
-  						</td>
-  					  <td>tmp_author</td>
-        			<td>tmp_group</td>
-    					<td>tmp_name</td>
-    					<td>tmp_create_date</td>
-    					<td>tmp_description</td>
-  						<td>tmp_private</td>
+          <!-- PAGINATION MENU -->
+          <!-- PREVIOUS PAGE BUTTON -->
+					<button id="previousPage"
+                  class="btn btn-success"
+                  onclick="changePage('back')">
+						<span class="glyphicon glyphicon-backward"></span>
+					</button>
+					Page
+					<strong>
+            <!-- CURRENT PAGE INFO -->
+						<span id="currentPage">1</span>
+					</strong>
+					of
+					<strong>
+            <!-- ALL AVAILABLE PAGES INFO -->
+						<span id="allPages">...</span>
+					</strong>
+          <!-- NEXT PAGE BUTTON -->
+    			<button id="nextPage"
+                  class="btn btn-success"
+                  onclick="changePage('next')">
+						<span class="glyphicon glyphicon-forward"></span>
+					</button>
 
-              <!-- zamiast removeTextFile to np. leaveGroup albo coś w ten deseń -->
-    			  	<td>
-                <form action="/subpages/removeTextFile.jsp" style="display:inline" method="get">
-  							  <input type="hidden" name="id" value="${textFile.getID()}">
-        					<input type="hidden" name="name" value="${textFile.getName()}">
-        					<input type="hidden" name="description" value="${textFile.getDescription()}">
-  							  <input type="hidden" name="private" value="${textFile.isPrivate()}">
-                  <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove"></span>
-        					</button>
-  						  </form>
-  					  </td>
-    				</tr>
-          </table>
           <br/>
           <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>

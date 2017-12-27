@@ -81,7 +81,7 @@
           		<tr class="rowClass">
           			<td>
     							<c:set var="count" value="${count + 1}" />
-    							<c:out value="${count}" />
+    							<strong><c:out value="${count}" /></strong>
     						</td>
     					  <td><c:out value="${textFile.getAuthor()}"/></td>
           			<td><c:out value="${textFile.getGroup()}"/></td>

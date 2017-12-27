@@ -129,7 +129,7 @@ public class AccountManager extends SQLHandler implements IAccountManager {
 
 	  editAccountByParamsStmt.executeUpdate();
   }
-  
+
   @Override
   public void editAccountByParams2(int id, int role, String nickname, String email,
 			String description, String firstname, String lastname, String dateofbirth) throws SQLException, NumberFormatException {

@@ -19,7 +19,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 	private PreparedStatement addTextFileByParamsStmt;
 	private PreparedStatement editTextFileStmt;
 	private PreparedStatement editTextFileByParamsStmt;
-	
+
 	public TextFileManager() {
 		super();
 		try {
@@ -46,7 +46,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void addTextFile(TextFile textFile) throws SQLException, NumberFormatException {
 		addTextFileStmt.setInt(1, textFile.getGroup());
@@ -58,11 +58,11 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 
 		addTextFileStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void addTextFileByParams(int author, int group, String name, boolean isPrivate) throws SQLException, NumberFormatException {
-		addTextFileByParamsStmt.setInt(1, group);
-		addTextFileByParamsStmt.setInt(2, author);
+		addTextFileByParamsStmt.setInt(1, author);
+		addTextFileByParamsStmt.setInt(2, group);
 		addTextFileByParamsStmt.setString(3, name);
 		addTextFileByParamsStmt.setInt(4, (isPrivate) ? 1 : 0);
 
@@ -81,7 +81,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 
 		editTextFileStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void editTextFileByParams(int oldTextFileId, String name, String description, boolean is_private) throws SQLException, NumberFormatException {
 		editTextFileByParamsStmt.setString(1, name);
@@ -101,15 +101,15 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 	@Override
 	public TextFile getTextFile(int textFileId) throws SQLException, NullPointerException {
 		TextFile p = new TextFile();
-		  
+
 		getTextFileByIDStmt.setInt(1, textFileId);
 		ResultSet rs = getTextFileByIDStmt.executeQuery();
-				
+
 		rs.next();
 		p.setID(rs.getInt("id"));
 		p.setAuthor(rs.getInt("AttendingAuthor"));
 		p.setGroup(rs.getInt("AttendingGroup"));
-		p.setName(rs.getString("TextFile"));
+		p.setName(rs.getString("FileName"));
 		p.setCreationDate(rs.getString("FileCreationDate"));
 		p.setDescription(rs.getString("Description"));
 		p.setPrivate((rs.getInt("IsPrivate") == 1)? true : false);
@@ -127,7 +127,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 			p.setID(rs.getInt("id"));
 			p.setAuthor(rs.getInt("AttendingAuthor"));
 			p.setGroup(rs.getInt("AttendingGroup"));
-			p.setName(rs.getString("TextFile"));
+			p.setName(rs.getString("FileName"));
 			p.setCreationDate(rs.getString("FileCreationDate"));
 			p.setDescription(rs.getString("Description"));
 			p.setPrivate((rs.getInt("IsPrivate") == 1)? true : false);

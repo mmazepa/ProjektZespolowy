@@ -75,15 +75,15 @@
   transition: 0.2s;
 }
 .textFileTable tr:first-child {
-  background: #ffb79d;
-  background: -webkit-linear-gradient(white, #ffb79d, #f7dac5);
-  background: -o-linear-gradient(white, #ffb79d, #f7dac5);
-  background: -moz-linear-gradient(white, #ffb79d, #f7dac5);
-  background: linear-gradient(white, #ffb79d, #f7dac5);
+  background: #ffefe9;
+  background: -webkit-linear-gradient(white, #ffefe9, #f7dac5);
+  background: -o-linear-gradient(white, #ffefe9, #f7dac5);
+  background: -moz-linear-gradient(white, #ffefe9, #f7dac5);
+  background: linear-gradient(white, #ffefe9, #f7dac5);
   color: chocolate;
 }
 .textFileTable tr:not(:first-child):hover {
-  background-color: coral;
+  background-color: #ffb79d;
   color: chocolate;
   transition: 0.2s;
 }
