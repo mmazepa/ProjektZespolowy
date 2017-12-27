@@ -5,15 +5,15 @@
 	<head>
 		<title>Editor On-Line</title>
 		<meta type="text/html" charset="UTF-8" language="java" />
-		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="../../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="../static/javascript/main.js"></script>
+    <script src="../../static/javascript/main.js"></script>
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <main id="indexMain">
       <div class="centeredText">
-        <h3>Administrator Panel Edit</h3>
+        <h3>User Panel Edit</h3>
         <hr/>
         <h4>Edit text file</h4>
         <br/>
@@ -22,7 +22,7 @@
             <th>Input</th>
             <th>Type</th>
           </tr>
-          <form action="/doEditTextFile" style="margin-left:0.1in" method="post">
+          <form action="/doEditTextFileByUser" style="margin-left:0.1in" method="post">
           	<input type="hidden" name="id" value="<%=request.getParameter("id")%>" />
 
             <tr>
@@ -36,7 +36,7 @@
             <tr>
               <td>Private</td>
               <td>
-                <select name="private">
+                <select name="priv">
                   <option><%=Boolean.parseBoolean(request.getParameter("private"))%></option>
                   <option><%=!Boolean.parseBoolean(request.getParameter("private"))%></option>
                 </select>
@@ -53,7 +53,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/textFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>

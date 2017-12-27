@@ -39,7 +39,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 					+ "FileCreationDate = ?, Description = ?, IsPrivate = ? "
 					+ "WHERE id = ?;");
 			editTextFileByParamsStmt = getConnection().prepareStatement("UPDATE TextFile SET "
-					+ "FileName = ? "
+					+ "FileName = ?, "
 					+ "Description = ?, IsPrivate = ? "
 					+ "WHERE id = ?;");
 		} catch (SQLException e) {

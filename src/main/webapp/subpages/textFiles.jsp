@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ page import="service.AccountManager"%>
+<%@ page import="domain.Account"%>
+<%@ page import="service.WorkgroupManager"%>
+<%@ page import="domain.Workgroup"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
 <%@ page import="java.util.List"%>
@@ -76,6 +79,21 @@
               <th>Edit</th>
               <th>Delete</th>
             </tr>
+
+            <%
+              AccountManager am = new AccountManager();
+              WorkgroupManager wm = new WorkgroupManager();
+
+              List<Account> accounts = new ArrayList();
+              List<Workgroup> workgroups = new ArrayList();
+
+              accounts = am.getAllAccounts();
+              workgroups = wm.getAllWorkgroups();
+
+              request.setAttribute("accounts", accounts);
+              request.setAttribute("workgroups", workgroups);
+            %>
+
   					<c:set var="count" value="0" />
             <c:forEach var="textFile" items="${textFiles}">
           		<tr class="rowClass">
@@ -83,12 +101,40 @@
     							<c:set var="count" value="${count + 1}" />
     							<strong><c:out value="${count}" /></strong>
     						</td>
-    					  <td><c:out value="${textFile.getAuthor()}"/></td>
-          			<td><c:out value="${textFile.getGroup()}"/></td>
+    					  <%-- <td><c:out value="${textFile.getAuthor()}"/></td> --%>
+                <td>
+                  <c:forEach var="account" items="${accounts}">
+                    <c:if test="${account.getID() == textFile.getAuthor()}">
+                      <c:out value="${account.getNickname()}"/>
+                    </c:if>
+                  </c:forEach>
+                </td>
+
+          			<%-- <td><c:out value="${textFile.getGroup()}"/></td> --%>
+                <td>
+                  <c:forEach var="workgroup" items="${workgroups}">
+                    <c:if test="${workgroup.getID() == textFile.getGroup()}">
+      					      <c:out value="${workgroup.getName()}"/>
+                    </c:if>
+                  </c:forEach>
+                </td>
+
       					<td><c:out value="${textFile.getName()}"/></td>
       					<td><c:out value="${textFile.getCreationDate()}"/></td>
       					<td><c:out value="${textFile.getDescription()}"/></td>
-    						<td><c:out value="${textFile.isPrivate()}"/></td>
+
+    						<%-- <td><c:out value="${textFile.isPrivate()}"/></td> --%>
+                <td>
+                  <c:choose>
+                    <c:when test="${textFile.isPrivate()}">
+                      <span class="glyphicon glyphicon-ok glyphiconGood"></span>
+                    </c:when>
+                    <c:otherwise>
+                      <span class="glyphicon glyphicon-remove glyphiconBad"></span>
+                    </c:otherwise>
+                  </c:choose>
+                </td>
+
                   <td>
                     <form action="/subpages/obtainEditedTextFileData.jsp" style="display:inline">
           						<input type="hidden" name="id" value="${textFile.getID()}">

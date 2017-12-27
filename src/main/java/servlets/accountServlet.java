@@ -27,8 +27,22 @@ public class accountServlet extends HttpServlet {
     	} catch (SQLException | NullPointerException e) {
     		e.printStackTrace();
     	}
-      	request.setAttribute("accounts", accounts);
-      	request.getRequestDispatcher("/subpages/accounts.jsp").forward(request, response);
+
+      accounts.sort((acc1, acc2) -> {
+        if (acc1.getRole() == acc2.getRole()) {
+          return 0;
+        }
+        else if (acc1.getRole() > acc2.getRole()) {
+          return 1;
+        }
+        else if (acc1.getRole() < acc2.getRole()) {
+          return -1;
+        }
+        return 0;
+      });
+
+      request.setAttribute("accounts", accounts);
+      request.getRequestDispatcher("/subpages/accounts.jsp").forward(request, response);
 
     }
 }
