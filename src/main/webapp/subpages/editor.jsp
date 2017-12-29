@@ -28,17 +28,12 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         String currentNickname = currentuser.getNickName();
         int currentRoleId = currentuser.getRole();
@@ -64,7 +59,7 @@
     <main>
       <!-- IF USER IS LOGGED IN -->
       <c:if test="${currentNickname != ''}">
-        <h5 id="helloUser">
+        <%-- <h5 id="helloUser">
           <table id="helloUserTable">
             <tr>
               <td>
@@ -93,7 +88,8 @@
               </td>
             </tr>
           </table>
-        </h5>
+        </h5> --%>
+        <br/>
         <div class="row editorSpace">
           <div class="col-sm-8">
             <!-- textarea component to be replaced by CodeMirror -->

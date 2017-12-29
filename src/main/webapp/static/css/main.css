@@ -5,6 +5,7 @@
 @import url("chat.css");
 body {
   width: 100vh;
+  background-image: url("../images/subtlepatterns/notebook_@2X.png");
 }
 #logo {
   color: silver;
@@ -31,6 +32,7 @@ body {
 header,
 footer {
   background-color: black;
+  background-image: url("../images/subtlepatterns/tweed_@2X.png");
   color: white;
   height: 50px;
   line-height: 50px;
@@ -51,25 +53,48 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+h3 {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid darkred;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 #helloUser {
-  background-color: lightgreen;
-  color: darkgreen;
+  background-color: darkgreen;
+  background-image: url("../images/subtlepatterns/pool_table.png");
+  color: lightgreen;
   padding: 5px;
   text-align: center;
+  margin-top: -10px;
 }
 #helloGuest {
-  background-color: tomato;
-  color: darkred;
+  background-color: darkred;
+  background-image: url("../images/subtlepatterns/elastoplast.png");
+  color: red;
   padding: 5px;
   text-align: center;
   margin-top: 25px;
 }
 main {
   position: fixed;
-  top: 50px;
+  top: 65px;
   left: 25px;
   right: 25px;
   bottom: 50px;
+}
+#loggedUserMenu {
+  background-color: rgba(0, 0, 255, 0.25);
+  border: 1px solid darkblue;
+  width: 325px;
+  margin: 0 auto;
+  padding: 10px;
+}
+#loggedUserMenuInfo {
+  background-color: rgba(0, 255, 0, 0.5);
+  border: 1px solid darkgreen;
+  padding: 5px;
 }
 #indexMain {
   overflow-y: scroll;

@@ -5,11 +5,13 @@
   width: 700px;
   margin: 0 auto;
   .tableProperties(darken(darkgray, 25%), silver);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 25px;
 
   th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;;
   }
 }
 
@@ -46,13 +48,17 @@
 }
 
 .tableProperties(@mainColor, @hoverColor){
+  @singleColor: lighten(@hoverColor, 15%);
+  @opacityColor: rgba(255, 255, 255, 0.3);
+  @doubleOpacity: @opacityColor, @opacityColor;
+  @gradientContent: @doubleOpacity, @singleColor, lighten(@mainColor, 40%);
 
   tr:first-child {
-    background: lighten(@hoverColor, 15%);
-    background: -webkit-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
-    background: -o-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
-    background: -moz-linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
-    background: linear-gradient(white, lighten(@hoverColor, 15%), lighten(@mainColor, 40%));
+    background: @singleColor;
+    background: -webkit-linear-gradient(@gradientContent);
+    background: -o-linear-gradient(@gradientContent);
+    background: -moz-linear-gradient(@gradientContent);
+    background: linear-gradient(@gradientContent);
     color: @mainColor;
   }
 

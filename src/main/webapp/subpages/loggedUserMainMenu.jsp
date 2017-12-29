@@ -20,17 +20,12 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         String currentNickname = currentuser.getNickName();
         int currentRoleId = currentuser.getRole();
@@ -60,76 +55,79 @@
 
         <!-- IF USER IS LOGGED IN -->
         <c:if test="${currentNickname != ''}">
-          <h5 id="helloUser">
+          <%-- <h5 id="helloUser">
             <strong>HELLO!</strong>
             You are logged as <strong><%= currentNickname %></strong>
             ( <%= currentRole %> )
-          </h5>
-          <p>
-            Use buttons below to achieve prefered destination.
-          </p>
+          </h5> --%>
 
-          <!-- IF USER IS ADMINISTRATOR -->
-          <c:if test="${currentRole == 'Administrator'}">
-            <form action="/subpages/admin.jsp" method="post">
-              <button id="userButton01" type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-wrench"></span>
-                Administrator Panel
+          <div id="loggedUserMenu">
+            <p id="loggedUserMenuInfo">
+              Use buttons below to achieve prefered destination.
+            </p>
+
+            <!-- IF USER IS ADMINISTRATOR -->
+            <c:if test="${currentRole == 'Administrator'}">
+              <form action="/subpages/admin.jsp" method="post">
+                <button id="userButton01" type="submit" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-wrench"></span>
+                  Administrator Panel
+                </button>
+              </form>
+            </c:if>
+
+            <!-- IF USER IS MODERATOR -->
+            <c:if test="${currentRole == 'Moderator'}"></c:if>
+
+            <!-- IF USER IS USER -->
+            <c:if test="${currentRole == 'User'}"></c:if>
+
+            <!-- CONTENT FOR EVERYONE -->
+            <form action="/subpages/editor.jsp" method="post">
+              <button id="userButton02" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-list-alt"></span>
+                Editor
+              </button>
+            </form>
+            <form action="/userFiles" method="post">
+              <button id="userButton05" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-file"></span>
+                My Files
+              </button>
+            </form>
+            <form action="/subpages/userProfile.jsp" method="post">
+              <button id="userButton06" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-user"></span>
+                My Profile
+              </button>
+            </form>
+            <form action="/index.jsp" method="post">
+              <button id="userButton04" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-th-list"></span>
+                Home Page
+              </button>
+            </form>
+            <form action="/doLogout" method="post">
+              <button id="userButton03" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Log Out
               </button>
             </form>
           </c:if>
 
-          <!-- IF USER IS MODERATOR -->
-          <c:if test="${currentRole == 'Moderator'}"></c:if>
+          <!-- IF USER IS NOT LOGGED IN -->
+          <c:if test="${currentNickname == ''}">
+            <h5 id="helloGuest">
+              <strong>HELLO!</strong>
+              You are not logged in. Please log in to achieve permission do use editor.
+            </h5>
+            <a id="backLink" href="/index.jsp">
+              <span class="glyphicon glyphicon-arrow-left"></span>
+              Back
+            </a>
+          </c:if>
 
-          <!-- IF USER IS USER -->
-          <c:if test="${currentRole == 'User'}"></c:if>
-
-          <!-- CONTENT FOR EVERYONE -->
-          <form action="/subpages/editor.jsp" method="post">
-            <button id="userButton02" type="submit" class="btn btn-primary">
-              <span class="glyphicon glyphicon-list-alt"></span>
-              Editor
-            </button>
-          </form>
-          <form action="/userFiles" method="post">
-            <button id="userButton05" type="submit" class="btn btn-primary">
-              <span class="glyphicon glyphicon-file"></span>
-              My Files
-            </button>
-          </form>
-          <form action="/subpages/userProfile.jsp" method="post">
-            <button id="userButton06" type="submit" class="btn btn-primary">
-              <span class="glyphicon glyphicon-user"></span>
-              My Profile
-            </button>
-          </form>
-          <form action="/index.jsp" method="post">
-            <button id="userButton04" type="submit" class="btn btn-primary">
-              <span class="glyphicon glyphicon-th-list"></span>
-              Home Page
-            </button>
-          </form>
-          <form action="/doLogout" method="post">
-            <button id="userButton03" type="submit" class="btn btn-primary">
-              <span class="glyphicon glyphicon-log-out"></span>
-              Log Out
-            </button>
-          </form>
-        </c:if>
-
-        <!-- IF USER IS NOT LOGGED IN -->
-        <c:if test="${currentNickname == ''}">
-          <h5 id="helloGuest">
-            <strong>HELLO!</strong>
-            You are not logged in. Please log in to achieve permission do use editor.
-          </h5>
-          <a id="backLink" href="/index.jsp">
-            <span class="glyphicon glyphicon-arrow-left"></span>
-            Back
-          </a>
-        </c:if>
-
+        </div>
       </div>
     </main>
     <footer></footer>

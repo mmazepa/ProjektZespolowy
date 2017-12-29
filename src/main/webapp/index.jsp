@@ -55,7 +55,7 @@
       	request.setAttribute("currentNickname", currentNickname);
       	request.setAttribute("currentRole", currentRole);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
         <h3>Welcome to Editor On-Line</h3>
         <hr/>
@@ -143,7 +143,7 @@
         <!-- LICENSE ADNOTATION -->
         <p>
           Some parts of this site is working under
-          <a href="/subpages/license.jsp">MIT License</a>.
+          <a href="/subpages/license.jsp">some license</a>.
         </p>
       </div>
     </main>

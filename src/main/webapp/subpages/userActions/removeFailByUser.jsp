@@ -10,7 +10,7 @@
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
       <h3>Fail!</h3>
         An error occured when removing your own record.<br/>

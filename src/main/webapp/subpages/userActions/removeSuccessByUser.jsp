@@ -10,7 +10,7 @@
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
       <h3>Success!</h3>
         You removed your own record successfully.<br/>

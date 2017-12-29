@@ -57,7 +57,7 @@
         request.setAttribute("currentRoleId", currentRoleId);
         request.setAttribute("currentId", currentId);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN -->

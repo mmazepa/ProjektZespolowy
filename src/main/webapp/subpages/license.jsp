@@ -12,28 +12,48 @@
     <header id="header"></header>
     <main id="indexMain" class="license">
       <div class="centeredText">
-        <h1>MIT License</h1>
-        <hr/>
+        <br/>
         <table class="adminTable licenseTable">
           <tr>
-            <th>Product Name</th>
+            <th>License</th>
+            <th>Product</th>
             <th>Copyright</th>
           </tr>
           <tr>
+            <td rowspan="4">Massachusetts Institute of Technology (MIT) License</td>
+          </tr>
+          <tr>
             <td>CodeMirror</td>
-            <td>Copyright (C) 2017 by Marijn Haverbeke &lt;<a href="mailto:marijnh@gmail.com">marijnh@gmail.com</a>&gt; and others</td>
+            <td>
+              Copyright (C) 2017 by Marijn Haverbeke
+              &lt;<a href="mailto:marijnh@gmail.com">marijnh@gmail.com</a>&gt;
+              and others
+            </td>
           </tr>
           <tr>
             <td>AngularJS</td>
-            <td>Copyright (c) 2010-2017 Google, Inc. <a href="http://angularjs.org">http://angularjs.org</a></td>
+            <td>
+              Copyright (c) 2010-2017 Google, Inc.
+              <a href="http://angularjs.org">angularjs.org</a>
+            </td>
           </tr>
           <tr>
             <td>Bootstrap</td>
             <td>Copyright (c) 2011-2016 Twitter, Inc.</td>
           </tr>
+          <tr>
+            <td>CC BY-SA 3.0 License</td>
+            <td>Used images</td>
+            <td>
+              Toptal, Subbtle Patterns,
+              <a href="https://www.toptal.com/designers/subtlepatterns">
+                www.subtlepatterns.com
+              </a>
+            </td>
+          </tr>
         </table>
-        <br/>
         <nav class="licenseText">
+          <h3>MIT License</h3>
           <p>
             Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
             documentation files (the "Software"), to deal in the Software without restriction, including without limitation

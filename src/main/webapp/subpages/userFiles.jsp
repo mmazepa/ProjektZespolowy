@@ -25,17 +25,12 @@
 	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         int currentId = currentuser.getUserID();
         String currentNickname = currentuser.getNickName();
@@ -60,12 +55,12 @@
         request.setAttribute("currentRoleId", currentRoleId);
         request.setAttribute("currentId", currentId);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN -->
         <c:if test="${currentNickname != ''}">
-          <h3>Logged User Files</h3>
+          <h3>List of ${currentNickname}'s Files</h3>
           <hr/>
           <form action="/subpages/createFile.jsp">
             <button class="btn btn-success">

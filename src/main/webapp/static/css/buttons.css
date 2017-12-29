@@ -239,7 +239,7 @@
 }
 #userButton06 {
   background-color: darkcyan;
-  border: 1px solid pink;
+  border: 1px solid cyan;
 }
 .wrapper {
   width: 135px;
@@ -266,4 +266,9 @@
   background-color: darkgreen;
   border-color: green;
   transition: 1s;
+}
+#previousPage:disabled,
+#nextPage:disabled {
+  background-color: silver;
+  border-color: gray;
 }

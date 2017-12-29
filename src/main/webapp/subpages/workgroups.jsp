@@ -22,17 +22,12 @@
 	<body onload="loadHeaderAndFooter(); loadRows();">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         String currentNickname = currentuser.getNickName();
         int currentRoleId = currentuser.getRole();
@@ -55,14 +50,16 @@
         request.setAttribute("currentNickname", currentNickname);
         request.setAttribute("currentRoleId", currentRoleId);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
         <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
-          <h3>Administrator Panel</h3>
-          <hr/>
-          <h4>List of workgroups</h4>
+          <h3>
+            Administrator Panel
+            <span class="glyphicon glyphicon-menu-right"></span>
+            List of workgroups
+          </h3>
           <br/>
           <table class="adminTable workgroupTable">
             <tr>

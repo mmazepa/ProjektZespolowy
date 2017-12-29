@@ -10,7 +10,7 @@
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
       <h3>Login Failure</h3>
         Something went wrong. Please try again later.<br/>

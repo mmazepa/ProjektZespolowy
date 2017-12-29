@@ -20,17 +20,12 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-//       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         String currentNickname = currentuser.getNickName();
         int currentRoleId = currentuser.getRole();
@@ -53,7 +48,7 @@
         request.setAttribute("currentNickname", currentNickname);
         request.setAttribute("currentRoleId", currentRoleId);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
@@ -64,11 +59,11 @@
             <span class="glyphicon glyphicon-sunglasses"></span>
           </h3>
           <hr/>
-          <h5 id="helloUser" style="width:97%;">
+          <%-- <h5 id="helloUser">
             <strong>HELLO!</strong>
             You are logged as <strong><%= currentNickname %></strong>
             ( <%= currentRole %> )
-          </h5>
+          </h5> --%>
           Welcome to Administrator Panel.<br/>
           Choose what you want to manage by clicking one of buttons below.<br/>
           <br/>
