@@ -21,17 +21,13 @@
 	<body onload="loadHeaderAndFooter()">
     <header></header>
     <%
-       AccountManager am = new AccountManager();
-//       String currentNickname = am.activeAccountNickname;
-//       int currentRole = am.activeAccountRole;
-//       request.setAttribute("currentNickname", currentNickname);
-//       request.setAttribute("currentRole", currentRole);
-    UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
-    if (info != null) {
-        currentuser = info;
-    } else {
-      //currentuser = new UserInfo();
-    }
+        AccountManager am = new AccountManager();
+        UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
+        if (info != null) {
+            currentuser = info;
+        } else {
+          //currentuser = new UserInfo();
+        }
 
         String currentNickname = currentuser.getNickName();
         int currentId = currentuser.getUserID();
@@ -56,61 +52,97 @@
 
         account = am.getAccount(currentId);
         request.setAttribute("account", account);
-		request.setAttribute("currentId", currentId);
+		    request.setAttribute("currentId", currentId);
         request.setAttribute("currentNickname", currentNickname);
         request.setAttribute("currentRole", currentRole);
     %>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED ID -->
         <c:if test="${currentNickname != ''}">
-          <h3>Logged User Profile</h3>
+          <h3>${currentNickname}'s Profile</h3>
           <hr/>
-          <table class="adminTable accountTable">
-            <tr>
-              <th>Property</th>
-              <th>Value</th>
-            </tr>
-            <tr>
-              <td>Role</td>
-              <%-- <td><c:out value="${account.getRole()}"/></td> --%>
-              <td><c:out value="${currentRole}"/></td>
-            </tr>
-            <tr>
-              <td>Nickname</td>
-              <td><c:out value="${account.getNickname()}"/></td>
-            </tr>
-            <tr>
-              <td>E-mail</td>
-              <td><c:out value="${account.getEmail()}"/></td>
-            </tr>
-            <tr>
-              <td>Password</td>
-              <%-- <td><c:out value="${account.getPass()}"/></td> --%>
-              <td>**********</td>
-            </tr>
-            <tr>
-              <td>Registration Date</td>
-              <td><c:out value="${account.getRegistrationdate()}"/></td>
-            </tr>
-            <tr>
-              <td>Description</td>
-              <td><c:out value="${account.getDescription()}"/></td>
-            </tr>
-            <tr>
-              <td>First Name</td>
-              <td><c:out value="${account.getFirstName()}"/></td>
-            </tr>
-            <tr>
-              <td>Last Name</td>
-              <td><c:out value="${account.getLastName()}"/></td>
-            </tr>
-            <tr>
-              <td>Date Of Birth</td>
-              <td><c:out value="${account.getDateOfBirth()}"/></td>
-            </tr>
-          </table>
+          <div id="userProfile">
+            <span id="profilePhoto">
+              <span class="glyphicon glyphicon-user"></span>
+            </span>
+            <span id="nickname">
+              <c:out value="${account.getNickname()}"/>
+            </span>
+            <button id="editProfileButton" class="btn btn-primary">
+              Edit Profile
+            </button>
+            <div id="aboutMe">
+              <h4>About me</h4>
+              <div id="aboutMeInfo">
+                <table id="userProfileTable">
+                  <tr>
+                    <td>First Name</td>
+                    <td>
+                      <c:choose>
+                        <c:when test="${account.getFirstName() != ''}">
+                          <c:out value="${account.getFirstName()}"/>
+                        </c:when>
+                        <c:otherwise>
+                          -
+                        </c:otherwise>
+                      </c:choose>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Last Name</td>
+                    <td>
+                      <c:choose>
+                        <c:when test="${account.getLastName() != ''}">
+                          <c:out value="${account.getLastName()}"/>
+                        </c:when>
+                        <c:otherwise>
+                          -
+                        </c:otherwise>
+                      </c:choose>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Role</td>
+                    <td><c:out value="${currentRole}"/></td>
+                  </tr>
+                  <tr>
+                    <td>E-mail</td>
+                    <td>
+                      <a href="mailto:${account.getEmail()}">
+                        <c:out value="${account.getEmail()}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>**********</td>
+                  </tr>
+                  <tr>
+                    <td>Date Of Birth</td>
+                    <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>
+                  </tr>
+                  <tr>
+                    <td>Registration Date</td>
+                    <td><c:out value="${account.getRegistrationdate().substring(0,16)}"/></td>
+                  </tr>
+                </table>
+              </div>
+              <h4>Description</h4>
+              <div id="description">
+                <c:choose>
+                  <c:when test="${(account.getDescription() != '') and (account.getDescription() != null )}">
+                    <c:out value="${account.getDescription()}"/>
+                  </c:when>
+                  <c:otherwise>
+                    <p class="blank">No description available.<p>
+                  </c:otherwise>
+                </c:choose>
+              </div>
+            </div>
+          </div>
+
           <br/>
           <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         </c:if>

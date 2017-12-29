@@ -61,14 +61,13 @@
         <!-- IF USER IS LOGGED IN -->
         <c:if test="${currentNickname != ''}">
           <h3>List of ${currentNickname}'s Files</h3>
-          <hr/>
-          <form action="/subpages/createFile.jsp">
+
+          <form action="/subpages/createFile.jsp" style="margin-bottom:10px;">
             <button class="btn btn-success">
               <span class="glyphicon glyphicon-plus"></span>
               New File
             </button>
           </form>
-          <br/>
 
           <!-- TABLE WITH FILES CREATED BY USER -->
           <table class="adminTable textFileTable">

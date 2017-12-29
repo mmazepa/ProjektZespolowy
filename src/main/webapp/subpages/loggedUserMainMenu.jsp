@@ -51,7 +51,6 @@
     <main>
       <div class="centeredText">
         <h3>Logged User Main Menu</h3>
-        <hr/>
 
         <!-- IF USER IS LOGGED IN -->
         <c:if test="${currentNickname != ''}">

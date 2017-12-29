@@ -57,6 +57,17 @@ Editor On-Line for programmatic cooperation in real-time
           ( <%= currentRole %> )
         </td>
         <td>
+          <select id="navigate" onchange="changeLocation();">
+            <option disabled="disabled">-- Where do you go? --</option>
+            <option>Administrator Panel</option>
+            <option selected>Stay Here</option>
+            <option>Editor</option>
+            <option>My Files</option>
+            <option>My Profile</option>
+            <option>Home Page</option>
+          </select>
+        </td>
+        <td>
           <form name="form" action="/subpages/loggedUserMainMenu.jsp" method="POST">
             <button id="backToMenuButton"
                     class="btn btn-danger">

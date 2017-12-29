@@ -43,6 +43,31 @@ function loadHeaderAndFooter(){
     readTextFile("header", headerPath);
     readTextFile("footer", footerPath);
 }
+// CHANGING LOCATION - MAIN MENU NAVIGATION
+function changeLocation(){
+    var nav = document.getElementById("navigate");
+    var destination = nav.options[nav.selectedIndex].text;
+
+    if(destination == "Stay Here") {
+        // DO NOTHING...
+    }
+    else if(destination == "Administrator Panel") {
+        location.href = "/subpages/admin.jsp";
+    }
+    else if(destination == "Editor") {
+        location.href = "/subpages/editor.jsp";
+    }
+    else if(destination == "My Files") {
+        location.href = "/userFiles";
+    }
+    else if(destination == "My Profile") {
+        location.href = "/subpages/userProfile.jsp";
+    }
+    else if(destination == "Home Page") {
+        location.href = "/index.jsp";
+    }
+    else alert("Desired destination cannot be found.");
+}
 
 // READ TEXT FROM FILE - VERSION FOR HEADER AND FOOTER
 function readTextFile(file, path){

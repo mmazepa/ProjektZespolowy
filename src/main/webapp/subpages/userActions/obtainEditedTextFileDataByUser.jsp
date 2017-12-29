@@ -53,7 +53,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a href="/userFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>

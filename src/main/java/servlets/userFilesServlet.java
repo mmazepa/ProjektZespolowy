@@ -18,6 +18,20 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = "/userFiles")
 public class userFilesServlet extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    	TextFileManager db = new TextFileManager();
+    	List<TextFile> textFiles = new ArrayList<TextFile>();
+    	try {
+    		textFiles = db.getAllTextFiles();
+    	} catch (SQLException | NullPointerException e) {
+    		e.printStackTrace();
+    	}
+
+    	request.setAttribute("textFiles", textFiles);
+    	request.getRequestDispatcher("/subpages/userFiles.jsp").forward(request, response);
+    }
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     	TextFileManager db = new TextFileManager();
@@ -30,7 +44,5 @@ public class userFilesServlet extends HttpServlet {
 
     	request.setAttribute("textFiles", textFiles);
     	request.getRequestDispatcher("/subpages/userFiles.jsp").forward(request, response);
-
     }
-
 }
