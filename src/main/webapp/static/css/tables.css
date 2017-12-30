@@ -1,22 +1,22 @@
 .adminTable {
   border-collapse: collapse;
-  width: 700px;
+  width: 80%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 25px;
 }
 .adminTable tr:first-child {
   background: #e6e6e6;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #cfcfcf);
   color: #696969;
 }
 .adminTable tr:not(:first-child):hover {
   background-color: silver;
   color: #696969;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .adminTable th,
 .adminTable td {
@@ -24,109 +24,112 @@
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+.adminTable td {
+  word-wrap: break-word;
+}
 .accountTable tr:first-child {
   background: #fffaf9;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #fffaf9, #ff5858);
   color: darkred;
 }
 .accountTable tr:not(:first-child):hover {
   background-color: #ffb9ad;
   color: darkred;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .attendanceTable tr:first-child {
   background: #d2f8d2;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #d2f8d2, #31ff31);
   color: darkgreen;
 }
 .attendanceTable tr:not(:first-child):hover {
   background-color: lightgreen;
   color: darkgreen;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .roleTable tr:first-child {
   background: #e8f4f8;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #e8f4f8, #5858ff);
   color: darkblue;
 }
 .roleTable tr:not(:first-child):hover {
   background-color: lightblue;
   color: darkblue;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .snapshotTable tr:first-child {
   background: #eaade7;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #eaade7, #d6aceb);
   color: #7a28a3;
 }
 .snapshotTable tr:not(:first-child):hover {
   background-color: orchid;
   color: #7a28a3;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .textFileTable tr:first-child {
   background: #ffefe9;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #ffefe9, #f7dac5);
   color: chocolate;
 }
 .textFileTable tr:not(:first-child):hover {
   background-color: #ffb79d;
   color: chocolate;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .workgroupTable tr:first-child {
   background: #d4d9de;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #d4d9de, #8ebcbc);
   color: darkslategray;
 }
 .workgroupTable tr:not(:first-child):hover {
   background-color: #a9b3bd;
   color: darkslategray;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .licenseTable tr:first-child {
   background: #ffedcc;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #ffedcc, #ffc680);
   color: #b36200;
 }
 .licenseTable tr:not(:first-child):hover {
   background-color: #ffd280;
   color: #b36200;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 .formTable tr:first-child {
   background: #e6e6e6;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
-  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), #e6e6e6, #e6e6e6);
   color: gray;
 }
 .formTable tr:not(:first-child):hover {
   background-color: silver;
   color: gray;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 #registerTable {
   width: 300px;

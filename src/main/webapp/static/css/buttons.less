@@ -103,24 +103,25 @@
   line-height: 25px;
 }
 
-#userButton01:hover, #userButton02:hover, #userButton03:hover,
-#userButton04:hover, #userButton05:hover, #userButton06:hover {
-  transform: scale(1.25, 1.0);
-  .buttonColors(darkmagenta, darkviolet);
-  border-radius: 25px;
-  transition: 0.5s;
-}
+#userButton01 { .buttonColors(darkgreen, green, whitesmoke, black); }
+#userButton02 { .buttonColors(darkblue, blue, whitesmoke, black); }
+#userButton03 { .buttonColors(darkred, red, whitesmoke, black); }
+#userButton04 { .buttonColors(darkgoldenrod, goldenrod, whitesmoke, black); }
+#userButton05 { .buttonColors(black, gray, whitesmoke, black); }
+#userButton06 { .buttonColors(darkcyan, cyan, whitesmoke, black); }
 
-#userButton01 { .buttonColors(darkgreen, green); }
-#userButton02 { .buttonColors(darkblue, blue); }
-#userButton03 { .buttonColors(darkred, red); }
-#userButton04 { .buttonColors(darkgoldenrod, goldenrod); }
-#userButton05 { .buttonColors(black, gray); }
-#userButton06 { .buttonColors(darkcyan, cyan); }
+#userButton01:hover { .buttonColors(whitesmoke, darkgreen, darkgreen, green); }
+#userButton02:hover { .buttonColors(whitesmoke, darkblue, darkblue, blue); }
+#userButton03:hover { .buttonColors(whitesmoke, darkred, darkred, red); }
+#userButton04:hover { .buttonColors(whitesmoke, darkgoldenrod, darkgoldenrod, goldenrod); }
+#userButton05:hover { .buttonColors(whitesmoke, black, black, gray); }
+#userButton06:hover { .buttonColors(whitesmoke, darkcyan, darkcyan, cyan); }
 
-.buttonColors(@background, @border) {
+.buttonColors(@background, @border, @font, @shadow) {
   background-color: @background;
   border: 1px solid @border;
+  color: @font;
+  box-shadow: 2.5px 2.5px 10px 1px @shadow;
 }
 
 .wrapper {

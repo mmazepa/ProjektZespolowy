@@ -15,7 +15,7 @@
       <h3>Success!</h3>
         You updated your own record successfully.<br/>
 
-        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+        <a id="backLink" href="/userFiles">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back
         </a>

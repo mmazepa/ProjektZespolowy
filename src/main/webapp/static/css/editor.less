@@ -1,0 +1,27 @@
+// out: editor.css
+
+#currentMode {
+  color: gray;
+}
+
+#currentMode:hover {
+  color: darkgreen;
+}
+
+#mode {
+  background-color: black;
+  color: white;
+  .size(150px, 30px);
+  border-bottom-left-radius: 10px;
+}
+
+.editorSpace {
+  margin-top: -10px;
+  padding-left: 25px;
+  width: 100%;
+}
+
+.size(@width, @height){
+  width: @width;
+  height: @height;
+}

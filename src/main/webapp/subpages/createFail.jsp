@@ -15,7 +15,7 @@
       <h3>Fail!</h3>
         An error occured when creating a file.<br/>
 
-        <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a href="/userFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>
     </main>
     <footer></footer>

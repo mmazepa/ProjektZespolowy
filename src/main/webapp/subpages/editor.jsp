@@ -25,7 +25,7 @@
     <script src="../static/codemirror-5.32.0/mode/meta.js"></script>
     <!-- AT LEAST ONE SCRIPT IS PLACED AT THE BOTTOM -->
 	</head>
-	<body onload="loadHeaderAndFooter()">
+	<body onload="loadHeaderAndFooter(); loadModes();">
     <header></header>
     <%
         UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
@@ -59,36 +59,6 @@
     <main>
       <!-- IF USER IS LOGGED IN -->
       <c:if test="${currentNickname != ''}">
-        <%-- <h5 id="helloUser">
-          <table id="helloUserTable">
-            <tr>
-              <td>
-                <strong>HELLO!</strong>
-                You are logged as <strong><%= currentNickname %></strong>
-                ( <%= currentRole %> )
-              </td>
-              <td>
-                <form name="form" action="/subpages/loggedUserMainMenu.jsp" method="POST">
-  	              <button id="backToMenuButton"
-  	                      class="btn btn-danger">
-  	                <span class="glyphicon glyphicon-arrow-left"></span>
-  	                Back to Main Menu
-  	              </button>
-  							</form>
-              </td>
-              <td>
-  							<form name="form" action="/doLogout" method="POST">
-  	              <button id="logoutButton"
-  	                      class="btn btn-danger"
-  	                      onclick="logout()">
-  	                <span class="glyphicon glyphicon-log-out"></span>
-  	                Log Out
-  	              </button>
-  							</form>
-              </td>
-            </tr>
-          </table>
-        </h5> --%>
         <br/>
         <div class="row editorSpace">
           <div class="col-sm-8">
@@ -102,12 +72,9 @@
               Select desired mode for syntax highlighting:
               <select id="mode" name="language" onchange="change()">
                   <option disabled="disabled">
-                    Choose one...
+                    -- Choose mode --
                   </option>
-                  <option value="1">text/plain</option>
-                  <option value="2">javascript</option>
-                  <option value="3">xml</option>
-                  <option value="4">css</option>
+                  <!-- OPTIONS WILL BE IMPORTED BY JAVASCRIPT -->
               </select>
 
             <!-- FILE UPLOADER TO EDITOR -->

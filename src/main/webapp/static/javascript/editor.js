@@ -10,6 +10,36 @@ var myCodeMirror = CodeMirror(function(elt) {
     lineWrapping: true
 });
 
+// LOAD MODES
+function loadModes() {
+    var modes = [
+        "text/plain",
+        "javascript",
+        "xml",
+        "css",
+        "python",
+        "cobol",
+        "markdown",
+        "pascal",
+        "php",
+        "r",
+        "ruby"
+    ];
+    modes.sort();
+
+    var modePlace = document.getElementById("mode");
+    var count = 1;
+    modes.forEach(function(mode) {
+        var option = document.createElement("option");
+        var text = document.createTextNode(mode);
+        option.value = count;
+        option.appendChild(text);
+        if (mode == "text/plain") option.selected = true;
+        modePlace.appendChild(option);
+        count++;
+    });
+}
+
 // CHANGING MODES/LANGUAGES
 CodeMirror.modeURL = "../static/codemirror-5.32.0/mode/%N/%N.js";
 var selectBox = document.getElementById("mode");
@@ -58,7 +88,7 @@ function setContent() {
 
     var newContent = readTextFromFile(file);
     if (newContent === "" || newContent == null) {
-        newContent = "No file selected.";
+        alert("No file selected.");
     }
 
     return newContent;
@@ -66,7 +96,7 @@ function setContent() {
 
 // READ TEXT FROM FILE - VERSION FOR EDITOR
 function readTextFromFile(file) {
-    var allText = "Cannot read the content from file.";
+    var allText;
 
     var reader = new FileReader();
     if(file.files[0] != null) {
@@ -76,7 +106,7 @@ function readTextFromFile(file) {
         allText = reader.result;
     }
     else {
-        alert('Please upload a file before continuing');
+        //alert('Please upload a file before continuing.');
     }
 
     return allText;

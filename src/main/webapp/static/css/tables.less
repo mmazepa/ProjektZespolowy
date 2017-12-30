@@ -2,7 +2,8 @@
 
 .adminTable {
   border-collapse: collapse;
-  width: 700px;
+  //width: 700px;
+  width: 80%;
   margin: 0 auto;
   .tableProperties(darken(darkgray, 25%), silver);
   background-color: rgba(255, 255, 255, 0.25);
@@ -13,6 +14,17 @@
     text-align: left;
     border-bottom: 1px solid #ddd;;
   }
+
+  td {
+    // min-width: 100px;
+    // max-width: 100px;
+    word-wrap: break-word;
+  }
+  //
+  // td:first-child, td:last-child, td:nth-last-child(2) {
+  //   min-width: 10px;
+  //   max-width: 10px;
+  // }
 }
 
 .accountTable {
@@ -50,8 +62,7 @@
 .tableProperties(@mainColor, @hoverColor){
   @singleColor: lighten(@hoverColor, 15%);
   @opacityColor: rgba(255, 255, 255, 0.3);
-  @doubleOpacity: @opacityColor, @opacityColor;
-  @gradientContent: @doubleOpacity, @singleColor, lighten(@mainColor, 40%);
+  @gradientContent: @opacityColor, @singleColor, lighten(@mainColor, 40%);
 
   tr:first-child {
     background: @singleColor;
@@ -65,7 +76,7 @@
   tr:not(:first-child):hover {
     background-color: @hoverColor;
     color: @mainColor;
-    transition: 0.2s;
+    transition: 0.5s;
   }
 }
 

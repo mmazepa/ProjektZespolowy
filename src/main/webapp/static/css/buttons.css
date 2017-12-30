@@ -206,41 +206,77 @@
   transition: 0.5s;
   line-height: 25px;
 }
-#userButton01:hover,
-#userButton02:hover,
-#userButton03:hover,
-#userButton04:hover,
-#userButton05:hover,
-#userButton06:hover {
-  transform: scale(1.25, 1);
-  background-color: darkmagenta;
-  border: 1px solid darkviolet;
-  border-radius: 25px;
-  transition: 0.5s;
-}
 #userButton01 {
   background-color: darkgreen;
   border: 1px solid green;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
 }
 #userButton02 {
   background-color: darkblue;
   border: 1px solid blue;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
 }
 #userButton03 {
   background-color: darkred;
   border: 1px solid red;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
 }
 #userButton04 {
   background-color: darkgoldenrod;
   border: 1px solid goldenrod;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
 }
 #userButton05 {
   background-color: black;
   border: 1px solid gray;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
 }
 #userButton06 {
   background-color: darkcyan;
   border: 1px solid cyan;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
+}
+#userButton01:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkgreen;
+  color: darkgreen;
+  box-shadow: 2.5px 2.5px 10px 1px green;
+}
+#userButton02:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkblue;
+  color: darkblue;
+  box-shadow: 2.5px 2.5px 10px 1px blue;
+}
+#userButton03:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkred;
+  color: darkred;
+  box-shadow: 2.5px 2.5px 10px 1px red;
+}
+#userButton04:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkgoldenrod;
+  color: darkgoldenrod;
+  box-shadow: 2.5px 2.5px 10px 1px goldenrod;
+}
+#userButton05:hover {
+  background-color: whitesmoke;
+  border: 1px solid black;
+  color: black;
+  box-shadow: 2.5px 2.5px 10px 1px gray;
+}
+#userButton06:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkcyan;
+  color: darkcyan;
+  box-shadow: 2.5px 2.5px 10px 1px cyan;
 }
 .wrapper {
   width: 135px;

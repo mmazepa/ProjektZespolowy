@@ -4,6 +4,7 @@
 @import url("authorization.css");
 @import url("buttons.css");
 @import url("chat.css");
+@import url("editor.css");
 @import url("tables.css");
 @import url("userProfile.css");
 
@@ -65,10 +66,11 @@ header {
 }
 
 #navigate {
-  background-color: lightgreen;
-  color: darkgreen;
+  @color: darkolivegreen;
+  background-color: @color;
+  color: whitesmoke;
   font-weight: bold;
-  border: 2px inset black;
+  border: 2px inset darken(@color, 15%);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -80,6 +82,9 @@ h3 {
   border-bottom-right-radius: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
+  text-shadow: 2px 2px darken(silver, 5%);
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 #helloUser {
@@ -89,6 +94,7 @@ h3 {
   padding: 5px;
   .centeredText;
   margin-top: -10px;
+  line-height: 25px;
 }
 
 #helloGuest {
@@ -102,45 +108,36 @@ h3 {
 
 main {
   position: fixed;
-  top: @headFootLine + 15px;;
-  left: 25px;
-  right: 25px;
+  top: @headFootLine + 25px;
   bottom: @headFootLine;
+  overflow-y: scroll;
+  width: 100%;
+  z-index: -1;
 }
 
 #loggedUserMenu {
-  background-color: rgba(0, 0, 255, 0.25);
-  border: 1px solid darkblue;
-  width: 325px;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 600px;
   margin: 0 auto;
   padding: 10px;
   margin-top: 25px;
+  border-radius: 15px;
 }
 
 #loggedUserMenuInfo {
-  background-color: rgba(0, 255, 0, 0.5);
-  border: 1px solid darkgreen;
+  background-color: rgba(0, 0, 0, 0.25);
   padding: 5px;
+  color: white;
+
+  a {
+    color: lighten(darkblue, 25%);
+    font-weight: bold;
+  }
 }
 
 #indexMain {
   overflow-y: scroll;
   width: 100%;
-}
-
-#currentMode {
-  color: gray;
-}
-
-#currentMode:hover {
-  color: darkgreen;
-}
-
-#mode {
-  background-color: black;
-  color: white;
-  .size(150px, 30px);
-  border-bottom-left-radius: 10px;
 }
 
 footer {
@@ -158,14 +155,10 @@ footer {
 }
 
 .licenseText {
-  width: 700px;
+  width: 80%;
   .center;
   text-align: justify;
   text-indent: 30px;
-}
-
-.editorSpace {
-  margin-top: -10px;
 }
 
 .glyphiconGood {
