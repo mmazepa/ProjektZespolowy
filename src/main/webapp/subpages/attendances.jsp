@@ -129,7 +129,7 @@
                   </c:choose>
                 </td>
 
-      					<td><c:out value="${attendance.getJoinDate()}"/></td>
+      					<td><c:out value="${attendance.getJoinDate().substring(0,19)}"/></td>
       					              <td>
                     <form action="/subpages/obtainEditedAttendanceData.jsp" style="display:inline">
           						<input type="hidden" name="id" value="${attendance.getID()}">

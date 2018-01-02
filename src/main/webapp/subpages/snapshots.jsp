@@ -3,6 +3,8 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ page import="service.AccountManager"%>
 <%@ page import="domain.Account"%>
+<%@ page import="service.TextFileManager"%>
+<%@ page import="domain.TextFile"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
 <%@ page import="java.util.List"%>
@@ -15,6 +17,7 @@
 		<meta type="text/html" charset="UTF-8" language="java" />
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
+	  <jsp:useBean id="storageTextFile" class="service.TextFileManager" scope="application" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
     <!-- SCRIPT FOR PAGINATION -->
@@ -76,9 +79,16 @@
 
             <%
               AccountManager am = new AccountManager();
+              TextFileManager txm = new TextFileManager();
+
               List<Account> accounts = new ArrayList();
+              List<TextFile> textfiles = new ArrayList();
+
               accounts = am.getAllAccounts();
+              textfiles = txm.getAllTextFiles();
+
               request.setAttribute("accounts", accounts);
+              request.setAttribute("textfiles", textfiles);
             %>
 
   					<c:set var="count" value="0" />
@@ -99,9 +109,17 @@
                   </c:forEach>
                 </td>
 
-          			<td><c:out value="${snapshot.getFile()}"/></td>
+          			<%-- <td><c:out value="${snapshot.getFile()}"/></td> --%>
+                <td>
+                  <c:forEach var="textfile" items="${textfiles}">
+                    <c:if test="${textfile.getID() == snapshot.getFile()}">
+                      <c:out value="${textfile.getName()}"/>
+                    </c:if>
+                  </c:forEach>
+                </td>
+
       					<td><c:out value="${snapshot.getName()}"/></td>
-      					<td><c:out value="${snapshot.getCreationDate()}"/></td>
+      					<td><c:out value="${snapshot.getCreationDate().substring(0,19)}"/></td>
       					<td><c:out value="${snapshot.getContent()}"/></td>
                   <td>
                     <form action="/subpages/obtainEditedSnapshotData.jsp" style="display:inline">

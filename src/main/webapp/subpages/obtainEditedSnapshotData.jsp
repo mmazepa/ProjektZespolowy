@@ -12,10 +12,10 @@
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="textFile" class="domain.TextFile" scope="session" />
     <jsp:useBean id="currentTextFile" class="domain.TextFile" scope="session" />
-	<jsp:useBean id="storageTextFile" class="service.TextFileManager" scope="application" />
-	<jsp:useBean id="account" class="domain.Account" scope="session" />
+	  <jsp:useBean id="storageTextFile" class="service.TextFileManager" scope="application" />
+	  <jsp:useBean id="account" class="domain.Account" scope="session" />
     <jsp:useBean id="currentaccount" class="domain.Account" scope="session" />
-	<jsp:useBean id="storageAccount" class="service.AccountManager" scope="application" />
+	  <jsp:useBean id="storageAccount" class="service.AccountManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -23,7 +23,7 @@
       <div class="centeredText">
         <h3>Administrator Panel Edit</h3>
         <hr/>
-        <h4>Edit user</h4>
+        <h4>Edit snapshot</h4>
         <br/>
         <table class="adminTable">
           <tr>
@@ -45,11 +45,11 @@
      			{
 					if (Integer.parseInt(request.getParameter("author")) == i.getID()) {
 						%>
-	          			<option value="<%=i.getID()%>" selected><%=i.getLastName()%></option>
+	          			<option value="<%=i.getID()%>" selected><%=i.getNickname()%></option>
 						<%
 					} else {
 						%>
-	          			<option value="<%=i.getID()%>"><%=i.getLastName()%></option>
+	          			<option value="<%=i.getID()%>"><%=i.getNickname()%></option>
 						<%
 					}
      			}

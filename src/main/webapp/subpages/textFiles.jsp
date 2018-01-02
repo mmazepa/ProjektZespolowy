@@ -117,7 +117,7 @@
                 </td>
 
       					<td><c:out value="${textFile.getName()}"/></td>
-      					<td><c:out value="${textFile.getCreationDate()}"/></td>
+      					<td><c:out value="${textFile.getCreationDate().substring(0,19)}"/></td>
       					<td><c:out value="${textFile.getDescription()}"/></td>
 
     						<%-- <td><c:out value="${textFile.isPrivate()}"/></td> --%>

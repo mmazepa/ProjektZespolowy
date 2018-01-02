@@ -120,9 +120,7 @@
 	                <%-- <td><c:out value="${account.getPass()}"/></td> --%>
 	                <%-- <td>**********</td> --%>
 	                <td>
-	                  <abbr title="${account.getRegistrationdate().substring(0,16)}">
-	                    <c:out value="${account.getRegistrationdate().substring(0,10)}"/>
-	                  </abbr>
+                    <c:out value="${account.getRegistrationdate().substring(0,19)}"/>
 	                </td>
 	                <td><c:out value="${account.getDescription()}"/></td>
 	                <td><c:out value="${account.getFirstName()}"/></td>

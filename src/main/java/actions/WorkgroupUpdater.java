@@ -25,22 +25,22 @@ public class WorkgroupUpdater extends HttpServlet {
 			String description = request.getParameter("description");
 			boolean isPrivate = Boolean.parseBoolean(request.getParameter("private"));
 			db.doTranBegin();
-			db.editWorkgroupByParams(id, name, description,isPrivate);
+			db.editWorkgroupByParams(id, name, description, isPrivate);
 			db.doTranCommit();
-			
+
 			String ipAddress = request.getRemoteAddr();
-	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	        System.out.println("SUCCESS UPDATE   Workgroup       "+ipAddress+"\t"+commitdate+"");
-			
+      String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+      System.out.println("SUCCESS UPDATE   Workgroup       "+ipAddress+"\t"+commitdate+"");
+
 			response.sendRedirect("/subpages/updateSuccess.jsp");
 		} catch (SQLException e) {
 			db.doTranRollback();
-			
+
 			String ipAddress = request.getRemoteAddr();
 	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
 	        System.out.println("FAIL    UPDATE   Workgroup       "+ipAddress+"\t"+commitdate+"");
 			e.printStackTrace();
-			
+
 			response.sendRedirect("/subpages/updateFail.jsp");
 		} finally {
 			db.doTranEnd();

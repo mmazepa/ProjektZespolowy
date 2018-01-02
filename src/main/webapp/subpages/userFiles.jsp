@@ -73,7 +73,7 @@
           <table class="adminTable textFileTable">
             <tr>
               <th>No.</th>
-              <th>Author</th>
+              <%-- <th>Author</th> --%>
               <th>Group</th>
               <th>Name</th>
               <th>Creation Date</th>
@@ -106,13 +106,13 @@
       							<strong><c:out value="${count}" /></strong>
       						</td>
                   <%-- <td><c:out value="${textFile.getAuthor()}"/></td> --%>
-                  <td>
+                  <%-- <td>
                     <c:forEach var="account" items="${accounts}">
                       <c:if test="${account.getID() == textFile.getAuthor()}">
                         <c:out value="${account.getNickname()}"/>
                       </c:if>
                     </c:forEach>
-                  </td>
+                  </td> --%>
 
                   <%-- <td><c:out value="${textFile.getGroup()}"/></td> --%>
                   <td>
@@ -124,7 +124,7 @@
                   </td>
 
                   <td><c:out value="${textFile.getName()}"/></td>
-                  <td><c:out value="${textFile.getCreationDate()}"/></td>
+                  <td><c:out value="${textFile.getCreationDate().substring(0,19)}"/></td>
                   <td><c:out value="${textFile.getDescription()}"/></td>
 
                   <%-- <td><c:out value="${textFile.isPrivate()}"/></td> --%>

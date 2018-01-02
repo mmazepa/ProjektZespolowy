@@ -31,10 +31,10 @@
             <tr>
               <td>Group</td>
             <td>
-            <%
+      <%
 			try
 			{
-				%>
+			%>
 				<select name="group" id="choose1" value="<%=Integer.parseInt(request.getParameter("group"))%>">
 				<%
 				for (Workgroup i : workgroupstorage.getAllWorkgroups())
@@ -64,7 +64,13 @@
             </tr>
             <tr>
               <td>Is Admin</td>
-              <td><input type="text" name="isAdmin" value="<%=request.getParameter("isAdmin")%>"></td>
+              <!-- <td><input type="text" name="isAdmin" value="<%=request.getParameter("isAdmin")%>"></td> -->
+              <td>
+                <select name="isAdmin">
+                  <option><%=Boolean.parseBoolean(request.getParameter("isAdmin"))%></option>
+                  <option><%=!Boolean.parseBoolean(request.getParameter("isAdmin"))%></option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Join Date</td>

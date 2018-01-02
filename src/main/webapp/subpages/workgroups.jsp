@@ -80,7 +80,7 @@
                   <strong><c:out value="${count}" /></strong>
                 </td>
       					<td><c:out value="${workgroup.getName()}"/></td>
-            		<td><c:out value="${workgroup.getCreationDate()}"/></td>
+            		<td><c:out value="${workgroup.getCreationDate().substring(0,19)}"/></td>
       					<td><c:out value="${workgroup.getDescription()}"/></td>
 
       					<%-- <td><c:out value="${workgroup.isPrivate()}"/></td> --%>

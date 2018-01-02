@@ -43,17 +43,40 @@ function loadHeaderAndFooter(){
     readTextFile("header", headerPath);
     readTextFile("footer", footerPath);
 }
+
 // CHANGING LOCATION - MAIN MENU NAVIGATION
 function changeLocation(){
     var nav = document.getElementById("navigate");
     var destination = nav.options[nav.selectedIndex].text;
 
+    // OPTION TO STAY ON CURRENT PAGE
     if(destination == "Stay Here") {
         // DO NOTHING...
     }
+    // ADMINISTRATOR PANEL OPTION
     else if(destination == "Administrator Panel") {
         location.href = "/subpages/admin.jsp";
     }
+    // ADMINISTRATOR TABLES OPTIONS
+    else if(destination == "Accounts") {
+        location.href = "/accounts";
+    }
+    else if(destination == "Attendances") {
+        location.href = "/attendances";
+    }
+    else if(destination == "Roles") {
+        location.href = "/roles";
+    }
+    else if(destination == "Snapshots") {
+        location.href = "/snapshots";
+    }
+    else if(destination == "Text Files") {
+        location.href = "/textFiles";
+    }
+    else if(destination == "Workgroups") {
+        location.href = "/workgroups";
+    }
+    // ALL LOGGED USERS OPTIONS
     else if(destination == "Editor") {
         location.href = "/subpages/editor.jsp";
     }

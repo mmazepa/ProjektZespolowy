@@ -14,14 +14,14 @@ import domain.Workgroup;
 public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 	private String getAllWorkgroupStmt = "SELECT id, GroupName, GroupCreationDate, Description, IsPrivate "
 			+ "FROM Workgroup;";
-	
+
 	private PreparedStatement getWorkgroupByIDStmt;
 	private PreparedStatement deleteWorkgroupStmt;
 	private PreparedStatement addWorkgroupStmt;
 	private PreparedStatement addWorkgroupByParamsStmt;
 	private PreparedStatement editWorkgroupStmt;
 	private PreparedStatement editWorkgroupByParamsStmt;
-	
+
 	public WorkgroupManager() {
 		super();
 		try {
@@ -48,7 +48,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void addWorkgroup(Workgroup workgroup) throws SQLException, NumberFormatException {
 		addWorkgroupStmt.setString(1, workgroup.getName());
@@ -58,7 +58,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 
 		addWorkgroupStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void addWorkgroupByParams(String name, boolean is_private) throws SQLException, NumberFormatException {
 		addWorkgroupByParamsStmt.setString(1, name);
@@ -66,7 +66,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 
 		addWorkgroupByParamsStmt.executeUpdate();
 	}
-    
+
 
 	@Override
 	public void editWorkgroup(int oldWorkgroupId, Workgroup newWorkgroupData) throws SQLException, NumberFormatException {
@@ -78,7 +78,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 
 		editWorkgroupStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void editWorkgroupByParams(int oldWorkgroupId, String name, String description, boolean is_private) throws SQLException, NumberFormatException {
 		editWorkgroupByParamsStmt.setString(1, name);
@@ -98,10 +98,10 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 	@Override
 	public Workgroup getWorkgroup(int workgroupId) throws SQLException, NullPointerException {
 		Workgroup p = new Workgroup();
-		  
+
 		getWorkgroupByIDStmt.setInt(1, workgroupId);
 		ResultSet rs = getWorkgroupByIDStmt.executeQuery();
-				
+
 		rs.next();
 		p.setID(rs.getInt("id"));
 		p.setName(rs.getString("GroupName"));
@@ -122,7 +122,7 @@ public class WorkgroupManager extends SQLHandler implements IWorkgroupManager {
 			p.setID(rs.getInt("id"));
 			p.setName(rs.getString("GroupName"));
 			p.setCreationDate(rs.getString("GroupCreationDate"));
-			p.setDescription("Description");
+			p.setDescription(rs.getString("Description"));
 			p.setPrivate((rs.getInt("IsPrivate") == 1)? true : false);
 			lista.add(p);
 		}

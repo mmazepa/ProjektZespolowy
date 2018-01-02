@@ -58,10 +58,18 @@ Editor On-Line for programmatic cooperation in real-time
         </td>
         <td>
           <select id="navigate" onchange="changeLocation();">
-            <option disabled="disabled">-- Where do you go? --</option>
             <c:if test="${currentRole == 'Administrator'}">
+              <option disabled="disabled">-- Administrator Only --</option>
               <option>Administrator Panel</option>
+              <option disabled="disabled">-- Administrator Tables --</option>
+              <option>Accounts</option>
+              <option>Attendances</option>
+              <option>Roles</option>
+              <option>Snapshots</option>
+              <option>Text Files</option>
+              <option>Workgroups</option>
             </c:if>
+            <option disabled="disabled">-- Where do You Go? --</option>
             <option>Editor</option>
             <option>Home Page</option>
             <option>My Files</option>
