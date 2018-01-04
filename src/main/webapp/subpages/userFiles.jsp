@@ -79,7 +79,8 @@
               <th>Creation Date</th>
   			      <th>Description</th>
   						<th>Private</th>
-              <th>Edit</th>
+              <th>Edit Params</th>
+              <th>Edit Content</th>
               <th>Delete</th>
             </tr>
 
@@ -148,6 +149,13 @@
             					<button type="submit" class="btn btn-primary">
                         <span class="glyphicon glyphicon-pencil"></span>
             					</button>
+                    </form>
+                  </td>
+                  <td>
+                    <form action="/projekt/editor/${textFile.getAuthor()}/${textFile.getName()}" style="display:inline">
+                      <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                      </button>
                     </form>
                   </td>
         			  	<td>
