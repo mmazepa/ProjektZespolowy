@@ -14,7 +14,7 @@
 }
 #messages {
   overflow-y: scroll;
-  height: 285px;
+  height: 265px;
   background-color: wheat;
   border-top: 1px solid #ecc16f;
   border-left: 1px solid #ecc16f;
@@ -55,7 +55,7 @@
   border-bottom-right-radius: 15px;
 }
 #sendMessage {
-  width: 75px;
+  width: 40%;
   height: 28px;
   background-color: brown;
   border-top: 1px solid #7c2020;

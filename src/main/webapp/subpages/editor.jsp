@@ -109,6 +109,7 @@
   						<form onsubmit="addMessage('<%= currentNickname %>'); return false;">
   	            <div id="chatTyping">
   	              <strong><%= currentNickname %>:</strong>
+                  <br/>
   	              <input id="message" type="text" name="message"/>
   	              <button id="sendMessage"
   												type="submit"
