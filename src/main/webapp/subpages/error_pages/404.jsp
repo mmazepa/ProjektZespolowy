@@ -15,11 +15,14 @@
       <div class="centeredText">
         <h3>Welcome to Editor On-Line</h3>
         <hr/>
-        <h4>Nice try!</h4>
-        <p>
-          The page you're looking for isn't here.<br/>
-          You can back to our Home Page now.
-        </p>
+        <div id="loggedUserMenu">
+          <h1>Nice try!</h1>
+          <br/>
+          <p id="loggedUserMenuInfo">
+            The page you're looking for isn't here.<br/>
+            You can back to our Home Page now.
+          </p>
+        </div>
         <br/>
         <a id="backLink" href="/index.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span> Back

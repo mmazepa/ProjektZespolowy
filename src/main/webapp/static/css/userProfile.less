@@ -1,36 +1,30 @@
 // out: userProfile.css
 
+@nicknameLineHeight: 40px;
+
 #userProfile {
   background-color: white;
   border: 1px solid black;
   color: black;
   padding: 15px 10px 10px 10px;
-  width: 500px;
+  width: 550px;
   margin: 0 auto;
 }
 
-#profilePhoto {
-  font-size: 30px;
-  border: 1px solid gray;
-  padding: 5px 0px 0px 5px;
-  background-color: silver;
-  color: dimgray;
-  border-radius: 5px;
-  outline: 1px solid darken(dimgray, 5%);
-  outline-offset: 1px;
-}
-
 #nickname {
-  margin-left: 25px;
   font-size: 24px;
   font-weight: bold;
+  float: left;
+  line-height: @nicknameLineHeight;
 }
 
 #editProfileButton {
-  margin-left: 100px;
+  float: right;
+  line-height: @nicknameLineHeight - 20px;
 }
 
 #aboutMe {
+  margin-top: @nicknameLineHeight;
   background-color: whitesmoke;
 
   h4 {

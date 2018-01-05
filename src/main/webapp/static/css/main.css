@@ -83,6 +83,9 @@ h3 {
   margin-top: -10px;
   line-height: 25px;
 }
+#helloUser a {
+  color: #00cd00;
+}
 #helloGuest {
   background-color: darkred;
   background-image: url("../images/subtlepatterns/elastoplast.png");

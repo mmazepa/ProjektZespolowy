@@ -64,10 +64,8 @@
           <h3>${currentNickname}'s Profile</h3>
           <hr/>
           <div id="userProfile">
-            <span id="profilePhoto">
-              <span class="glyphicon glyphicon-user"></span>
-            </span>
             <span id="nickname">
+              <span class="glyphicon glyphicon-user"></span>
               <c:out value="${account.getNickname()}"/>
             </span>
             <button id="editProfileButton" class="btn btn-primary">

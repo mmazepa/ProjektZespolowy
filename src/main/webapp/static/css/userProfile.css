@@ -3,28 +3,21 @@
   border: 1px solid black;
   color: black;
   padding: 15px 10px 10px 10px;
-  width: 500px;
+  width: 550px;
   margin: 0 auto;
 }
-#profilePhoto {
-  font-size: 30px;
-  border: 1px solid gray;
-  padding: 5px 0px 0px 5px;
-  background-color: silver;
-  color: dimgray;
-  border-radius: 5px;
-  outline: 1px solid #5c5c5c;
-  outline-offset: 1px;
-}
 #nickname {
-  margin-left: 25px;
   font-size: 24px;
   font-weight: bold;
+  float: left;
+  line-height: 40px;
 }
 #editProfileButton {
-  margin-left: 100px;
+  float: right;
+  line-height: 20px;
 }
 #aboutMe {
+  margin-top: 40px;
   background-color: whitesmoke;
 }
 #aboutMe h4 {

@@ -53,7 +53,10 @@ Editor On-Line for programmatic cooperation in real-time
       <tr>
         <td>
           <strong>HELLO!</strong>
-          You are logged as <strong><%= currentNickname %></strong>
+          You are logged as
+          <a href="/subpages/userProfile.jsp">
+            <strong><%= currentNickname %></strong>
+          </a>
           ( <%= currentRole %> )
         </td>
         <td>
