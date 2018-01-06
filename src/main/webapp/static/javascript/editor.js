@@ -78,8 +78,18 @@ function change() {
 
 // UPLOADING TEXT INTO CODE_MIRROR EDITOR
 function uploadToEditor() {
-    var content = setContent();
-    myCodeMirror.setValue(content);
+    var newContent = setContent();
+    var currentContent = myCodeMirror.getValue();
+
+    // CHECKING IF CURRENT_CONTENT IS EMPTY IS NOT WORKING ON CHROME (???)
+    if (currentContent !== "" && currentContent !== null) {
+        if (confirm("Editor not empty, want to replace content?") === true) {
+            myCodeMirror.setValue(newContent);
+        }
+    }
+    else {
+        myCodeMirror.setValue(newContent);
+    }
 }
 
 // SETTING THE CONTENT FROM FILE
@@ -88,7 +98,9 @@ function setContent() {
 
     var newContent = readTextFromFile(file);
     if (newContent === "" || newContent == null) {
-        alert("No file selected.");
+        if (browserInfo.search("Chrome") == -1) {
+            alert("No file selected or your file is empty.");
+        }
     }
 
     return newContent;
@@ -102,11 +114,26 @@ function readTextFromFile(file) {
     if(file.files[0] != null) {
         var textFile = file.files[0];
         reader.readAsText(textFile);
-        alert("Your file: " + file.files[0].name);
-        allText = reader.result;
+
+        var browserInfo = navigator.userAgent;
+
+        if (browserInfo.search("Mozilla") != -1 && browserInfo.search("Chrome") == -1) {
+            alert("[MOZILLA]\nYour file: " + file.files[0].name);
+            allText = reader.result;
+            return allText;
+        }
+        else if (browserInfo.search("Chrome") != -1) {
+            reader.onload = function(data) {
+                alert("[CHROME]\nYour file: " + file.files[0].name);
+                allText = reader.result;
+                myCodeMirror.setValue(allText);
+                return allText;
+            }
+        }
+        else alert("This function is probably not supported in your browser.");
     }
     else {
-        //alert('Please upload a file before continuing.');
+        alert('Please upload a file before continuing.');
     }
 
     return allText;
