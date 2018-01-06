@@ -60,8 +60,8 @@
             ( <%= currentRole %> )
           </h5> --%>
 
-          <div id="loggedUserMenu">
-            <p id="loggedUserMenuInfo">
+          <div id="customPanel">
+            <p id="customPanelInfo">
               Use buttons below to achieve prefered destination.
             </p>
 

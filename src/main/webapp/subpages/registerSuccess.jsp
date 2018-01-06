@@ -12,11 +12,18 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Register Success</h3>
-        You have pass the registration process successfully.<br/>
-        Now you can log in to Editor On-Line and check the functionality.<br/>
+        <h3>Register Success</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            You have pass the registration process successfully.<br/>
+            Now you can log in to Editor On-Line and check the functionality.
+          </p>
+        </div>
         <br/>
-        <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a id="backLink" href="../index.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

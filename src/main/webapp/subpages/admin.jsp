@@ -58,71 +58,70 @@
             Administrator Panel
             <span class="glyphicon glyphicon-sunglasses"></span>
           </h3>
-          <hr/>
-          <%-- <h5 id="helloUser">
-            <strong>HELLO!</strong>
-            You are logged as <strong><%= currentNickname %></strong>
-            ( <%= currentRole %> )
-          </h5> --%>
-          Welcome to Administrator Panel.<br/>
-          Choose what you want to manage by clicking one of buttons below.<br/>
-          <br/>
+          <div id="customPanel">
+            <p id="customPanelInfo">
+              Welcome to Administrator Panel.<br/>
+              Choose what you want to manage by clicking one of buttons below.
+            </p>
 
-          <!-- ADMIN BUTTONS SECTION -->
-          <div class="adminButtonsGroup">
-            <div class="wrapper">
-              <button id="accounts"
-                      class="adminButtons"
-                      onclick="location.assign('/accounts')">
-                  Accounts
-              </button>
-              <p class="text">List of users</p>
+            <!-- ADMIN BUTTONS SECTION -->
+            <div class="adminButtonsGroup">
+              <div class="wrapper">
+                <button id="accounts"
+                        class="adminButtons"
+                        onclick="location.assign('/accounts')">
+                    Accounts
+                </button>
+                <p class="text">List of users</p>
+              </div>
+              <div class="wrapper">
+                <button id="attendances"
+                        class="adminButtons"
+                        onclick="location.assign('/attendances')">
+                    Attendances
+                </button>
+                <p class="text">List of attendances</p>
+              </div>
+              <div class="wrapper">
+                <button id="roles"
+                        class="adminButtons"
+                        onclick="location.assign('/roles')">
+                    Roles
+                </button>
+                <p class="text">List of roles</p>
+              </div>
+              <br/>
+              <div class="wrapper">
+                <button id="snapshots"
+                        class="adminButtons"
+                        onclick="location.assign('/snapshots')">
+                    Snapshots
+                </button>
+                <p class="text">List of snapshots</p>
+              </div>
+              <div class="wrapper">
+                <button id="textFiles"
+                        class="adminButtons"
+                        onclick="location.assign('/textFiles')">
+                    Text Files
+                </button>
+                <p class="text">List of text files</p>
+              </div>
+              <div class="wrapper">
+                <button id="workgroups"
+                        class="adminButtons"
+                        onclick="location.assign('/workgroups')">
+                    Workgroups
+                </button>
+                <p class="text">List of workgroups</p>
+              </div>
             </div>
-            <div class="wrapper">
-              <button id="attendances"
-                      class="adminButtons"
-                      onclick="location.assign('/attendances')">
-                  Attendances
-              </button>
-              <p class="text">List of attendances</p>
-            </div>
-            <div class="wrapper">
-              <button id="roles"
-                      class="adminButtons"
-                      onclick="location.assign('/roles')">
-                  Roles
-              </button>
-              <p class="text">List of roles</p>
-            </div>
-            <div class="wrapper">
-              <button id="snapshots"
-                      class="adminButtons"
-                      onclick="location.assign('/snapshots')">
-                  Snapshots
-              </button>
-              <p class="text">List of snapshots</p>
-            </div>
-            <div class="wrapper">
-              <button id="textFiles"
-                      class="adminButtons"
-                      onclick="location.assign('/textFiles')">
-                  Text Files
-              </button>
-              <p class="text">List of text files</p>
-            </div>
-            <div class="wrapper">
-              <button id="workgroups"
-                      class="adminButtons"
-                      onclick="location.assign('/workgroups')">
-                  Workgroups
-              </button>
-              <p class="text">List of workgroups</p>
-            </div>
+            <br/>
+
+            <p id="customPanelInfo">
+              Administator panel for administrative things.
+            </p>
           </div>
-
-          <br/>
-          <br/>
-          Administator panel for administrative things.<br/>
           <br/>
           <a href="/subpages/loggedUserMainMenu.jsp">
             <span class="glyphicon glyphicon-arrow-left"></span>

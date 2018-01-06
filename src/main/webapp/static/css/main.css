@@ -102,7 +102,7 @@ main {
   width: 100%;
   z-index: -1;
 }
-#loggedUserMenu {
+#customPanel {
   background-color: rgba(0, 0, 0, 0.25);
   width: 600px;
   margin: 0 auto;
@@ -110,12 +110,12 @@ main {
   margin-top: 25px;
   border-radius: 15px;
 }
-#loggedUserMenuInfo {
+#customPanelInfo {
   background-color: rgba(0, 0, 0, 0.25);
   padding: 5px;
   color: white;
 }
-#loggedUserMenuInfo a {
+#customPanelInfo a {
   color: #0b0bff;
   font-weight: bold;
 }
@@ -130,6 +130,17 @@ footer {
 }
 #backLink {
   font-size: 14px;
+  background-color: whitesmoke;
+  padding: 2.5px 25px 2.5px 25px;
+  border: 1px solid black;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+#backLink:hover {
+  background-color: lightgreen;
+  color: darkgreen;
+  border-color: green;
+  transition: 0.5s;
 }
 .license {
   font-size: 12px;

@@ -1,7 +1,7 @@
 // out: buttons.css
 
-@buttonWidth: 135px;
-@buttonHeight: 150px;
+@buttonWidth: 170px;
+@buttonHeight: 75px;
 
 #loginButton {
   .authorizationButtons(150px, darkgreen);
@@ -76,9 +76,10 @@
 
 .adminButtonsGroup {
   background-color: silver;
-  width: @buttonWidth * 6 + 60px;
+  width: @buttonWidth * 3 + 60px;
   margin: 0px auto;
   border: 1px solid gray;
+  border-radius: 15px;
 }
 
 #accounts { .colors(darkred, white); }
@@ -132,7 +133,7 @@
 
 .wrapper .text {
   position: relative;
-  bottom: 50px;
+  bottom: 25px;
   left: 0px;
   .visibility(hidden, 0);
 }

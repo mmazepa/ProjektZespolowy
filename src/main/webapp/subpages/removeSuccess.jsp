@@ -12,10 +12,17 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Success!</h3>
-        You removed a record successfully.<br/>
-
-        <a href="admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <h3>Remove Success!</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            You removed a record successfully.
+          </p>
+        </div>
+        <br/>
+        <a id="backLink" href="admin.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

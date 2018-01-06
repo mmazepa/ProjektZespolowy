@@ -12,9 +12,13 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Success!</h3>
-        You updated your own record successfully.<br/>
-
+        <h3>Update Success!</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            You updated your own record successfully.<br/>
+          </p>
+        </div>
+        <br/>
         <a id="backLink" href="/userFiles">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

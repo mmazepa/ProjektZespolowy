@@ -56,8 +56,8 @@
 
         <!-- IF USER IS NOT LOGGED IN -->
         <c:if test="${currentNickname == ''}">
-          <div id="loggedUserMenu">
-            <p id="loggedUserMenuInfo">
+          <div id="customPanel">
+            <p id="customPanelInfo">
               We're glad to see you visiting our site! We'll be pleased, if you mind check functionality<br/>
               prepared for you. Log in, if you have an account, or register, if you want to have one.
             </p>
@@ -105,7 +105,7 @@
               <br/>
             </div>
 
-            <p id="loggedUserMenuInfo">
+            <p id="customPanelInfo">
               Don't have an account? Want one? Just use our
               <a href="subpages/register.jsp">register</a> form.
             </p>
@@ -114,8 +114,8 @@
 
         <!-- IF USER IS LOGGED IN -->
         <c:if test="${currentNickname != ''}">
-          <div id="loggedUserMenu">
-            <p id="loggedUserMenuInfo">
+          <div id="customPanel">
+            <p id="customPanelInfo">
               You are logged in, so do what you want to.
             </p>
             <form action="/subpages/loggedUserMainMenu.jsp" method="post">

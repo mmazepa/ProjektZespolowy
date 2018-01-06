@@ -12,9 +12,13 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Fail!</h3>
-        An error occured when updating your own record.<br/>
-
+        <h3>Update Fail!</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            An error occured when updating your own record.<br/>
+          </p>
+        </div>
+        <br/>
         <a id="backLink" href="/userFiles">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

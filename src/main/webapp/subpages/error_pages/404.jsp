@@ -15,10 +15,10 @@
       <div class="centeredText">
         <h3>Welcome to Editor On-Line</h3>
         <hr/>
-        <div id="loggedUserMenu">
+        <div id="customPanel">
           <h1>Nice try!</h1>
           <br/>
-          <p id="loggedUserMenuInfo">
+          <p id="customPanelInfo">
             The page you're looking for isn't here.<br/>
             You can back to our Home Page now.
           </p>

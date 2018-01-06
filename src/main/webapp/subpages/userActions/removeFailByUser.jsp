@@ -12,9 +12,13 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Fail!</h3>
-        An error occured when removing your own record.<br/>
-
+        <h3>Remove Fail!</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            An error occured when removing your own record.
+          </p>
+        </div>
+        <br/>
         <a id="backLink" href="/userFiles">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

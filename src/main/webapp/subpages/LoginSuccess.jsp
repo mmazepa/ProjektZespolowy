@@ -13,8 +13,12 @@
     <main>
       <div class="centeredText">
       <h3>Login Success</h3>
-        You have pass the logging in process successfully.<br/>
-        Now you can proceed to Editor On-Line and check the functionality.<br/>
+      <div id="customPanel">
+        <p id="customPanelInfo">
+          You have pass the logging in process successfully.<br/>
+          Now you can proceed to Editor On-Line and check the functionality.
+        </p>
+      </div>
         <br/>
         <form action="/subpages/loggedUserMainMenu.jsp" method="post">
           <button type="submit">

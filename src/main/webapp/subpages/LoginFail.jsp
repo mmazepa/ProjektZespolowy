@@ -12,8 +12,12 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Login Failure</h3>
-        Something went wrong. Please try again later.<br/>
+        <h3>Login Failure</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            Something went wrong. Please try again later.
+          </p>
+        </div>
         <br/>
         <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
       </div>

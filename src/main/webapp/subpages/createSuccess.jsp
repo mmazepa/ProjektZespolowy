@@ -12,10 +12,17 @@
     <header></header>
     <main>
       <div class="centeredText">
-      <h3>Success!</h3>
-        You created a file successfully.<br/>
-
-        <a href="/userFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <h3>Create Success!</h3>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            You created a file successfully.
+          </p>
+        </div>
+        <br/>
+        <a id="backLink" href="/userFiles">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>
