@@ -154,7 +154,7 @@
                   <td>
                     <form action="/projekt/editor/${textFile.getAuthor()}/${textFile.getName()}" style="display:inline">
                       <button type="submit" class="btn btn-success">
-                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="glyphicon glyphicon-edit"></span>
                       </button>
                     </form>
                   </td>

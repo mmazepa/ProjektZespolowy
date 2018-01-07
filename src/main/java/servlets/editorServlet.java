@@ -10,6 +10,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.net.URI;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import domain.Account;
+import service.AccountManager;
+import domain.TextFile;
+import service.TextFileManager;
 
 @Path("/editor")
 public class editorServlet {
@@ -18,27 +28,47 @@ public class editorServlet {
 	@Produces("text/html")
 	public static Response getMsg(@PathParam("author") String author, @PathParam("file") String file) throws IOException, FileNotFoundException {
 
-    //System.out.println("[Working Directory]: " + System.getProperty("user.dir"));
+    Boolean authorInBase = false;
+    Boolean fileInBase = false;
 
-    BufferedReader br = new BufferedReader(new FileReader("src/main/webapp/subpages/editor.jsp"));
-    String everything = new String();
+    AccountManager am = new AccountManager();
+    TextFileManager tfm = new TextFileManager();
+
+    List<Account> accounts = new ArrayList<Account>();
+    List<TextFile> textfiles = new ArrayList<TextFile>();
+
+    String url = new String();
+    String authorName = new String();
+
     try {
-        StringBuilder sb = new StringBuilder();
-        String line = br.readLine();
-
-        while (line != null) {
-            sb.append(line);
-            sb.append(System.lineSeparator());
-            line = br.readLine();
-        }
-        everything = sb.toString();
-    } catch (IOException e) {
+      accounts = am.getAllAccounts();
+      textfiles = tfm.getAllTextFiles();
+    }
+    catch (SQLException e) {
       e.printStackTrace();
-    } finally {
-        br.close();
     }
 
-		return Response.status(200).entity("<h1>Editing file <b>" + file + "</b></h1>" + everything).build();
+    for (Account account : accounts) {
+      if (account.getID() == Integer.parseInt(author)) {
+        authorInBase = true;
+        authorName = account.getNickname();
+      }
+    }
+
+    for (TextFile textfile : textfiles) {
+      if (textfile.getName().equals(file)) {
+        fileInBase = true;
+      }
+    }
+
+    if (authorInBase && fileInBase) {
+      url = "../subpages/editorForFileContent.jsp?author=" + authorName + "&file=" + file;
+    }
+    else {
+      url = "../subpages/fileNotFound.jsp";
+    }
+
+    return Response.temporaryRedirect(URI.create(url)).build();
 
 	}
 }
