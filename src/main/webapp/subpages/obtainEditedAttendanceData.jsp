@@ -1,3 +1,4 @@
+<%@page import="domain.Account"%>
 <%@page import="domain.Workgroup"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
@@ -9,9 +10,11 @@
 		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
+    <jsp:useBean id="account" class="domain.Account" scope="session" />
     <jsp:useBean id="group" class="domain.Workgroup" scope="session" />
     <jsp:useBean id="currentgroup" class="domain.Workgroup" scope="session" />
-	<jsp:useBean id="workgroupstorage" class="service.WorkgroupManager" scope="application" />
+    <jsp:useBean id="accountstorage" class="service.AccountManager" scope="application" />
+	  <jsp:useBean id="workgroupstorage" class="service.WorkgroupManager" scope="application" />
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
@@ -30,37 +33,64 @@
           	<input type="hidden" name="id" value="<%=request.getParameter("id")%>" />
             <tr>
               <td>Group</td>
-            <td>
-      <%
-			try
-			{
-			%>
-				<select name="group" id="choose1" value="<%=Integer.parseInt(request.getParameter("group"))%>">
-				<%
-				for (Workgroup i : workgroupstorage.getAllWorkgroups())
-     			{
-					if (Integer.parseInt(request.getParameter("group")) == i.getID()) {
-						%>
-	          			<option value="<%=i.getID()%>" selected><%=i.getName()%></option>
-						<%
-					} else {
-						%>
-	          			<option value="<%=i.getID()%>"><%=i.getName()%></option>
-						<%
-					}
-     			}
-				%>
-				</select>
-				<%
-			} catch (Exception e) {
+              <td>
+              <%
+        			try
+        			{
+        			%>
+        				<select name="group" id="choose1" value="<%=Integer.parseInt(request.getParameter("group"))%>">
+        				<%
+        				for (Workgroup i : workgroupstorage.getAllWorkgroups())
+             			{
+        					if (Integer.parseInt(request.getParameter("group")) == i.getID()) {
+        						%>
+        	          			<option value="<%=i.getID()%>" selected><%=i.getName()%></option>
+        						<%
+        					} else {
+        						%>
+        	          			<option value="<%=i.getID()%>"><%=i.getName()%></option>
+        						<%
+        					}
+             			}
+        				%>
+        				</select>
+        				<%
+        			} catch (Exception e) {
 
-			}
-			%>
-			</td>
+        			}
+        			%>
+        			</td>
             </tr>
             <tr>
               <td>User</td>
-              <td><input type="text" name="user" value="<%=request.getParameter("user")%>"></td>
+              <!-- <td><input type="text" name="user" value="<%=request.getParameter("user")%>"></td> -->
+              <td>
+              <%
+              try
+              {
+              %>
+                <select name="user" id="choose2" value="<%=Integer.parseInt(request.getParameter("user"))%>">
+                <%
+                for (Account i : accountstorage.getAllAccounts())
+                  {
+                  if (Integer.parseInt(request.getParameter("user")) == i.getID()) {
+                    %>
+                          <option value="<%=i.getID()%>" selected><%=i.getNickname()%></option>
+                    <%
+                  } else {
+                    %>
+                          <option value="<%=i.getID()%>"><%=i.getNickname()%></option>
+                    <%
+                  }
+                  }
+                %>
+                </select>
+                <%
+              } catch (Exception e) {
+
+              }
+              %>
+              </td>
             </tr>
             <tr>
               <td>Is Admin</td>

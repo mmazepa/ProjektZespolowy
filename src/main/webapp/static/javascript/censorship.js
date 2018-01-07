@@ -1,11 +1,17 @@
 // ADDING NEW MESSAGE TO CHAT
 function addMessage(username){
     var message = document.getElementById("message").value;
+    if (message && message !== "" && message !== null) {
+        prepareMessage(username, message);
+    }
+}
 
-    if (message){
-        var datetime = prepareCurrentDate();
-        message = censorship(message);
+// PREPARING NEW MESSAGE
+function prepareMessage(username, message){
+    var datetime = prepareCurrentDate();
+    message = censorship(message);
 
+    if (message.replace(/\s/g, '').length) {
         var chat = document.getElementById("messages");
 
         var div = document.createElement("div");

@@ -35,7 +35,12 @@
             </tr>
             <tr>
               <td>Private</td>
-              <td><input type="text" name="private" value="<%=request.getParameter("private")%>"></td>
+              <td>
+                <select name="private">
+                  <option><%=Boolean.parseBoolean(request.getParameter("private"))%></option>
+                  <option><%=!Boolean.parseBoolean(request.getParameter("private"))%></option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Submit</td>
