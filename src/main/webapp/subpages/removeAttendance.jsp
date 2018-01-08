@@ -27,6 +27,10 @@
         	%>
         	<form action="/doRemoveAttendance" style="margin-left:0.1in; display:inline" method="post">
         		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+        		<!--<p><b>Nickname:</b> <jsp:getProperty name="att" property="grup"></jsp:getProperty></p>
+        		<p><b>Email:</b> <jsp:getProperty name="att" property="user"></jsp:getProperty></p>
+        		<p><b>Name:</b> <jsp:getProperty name="att" property="isAdmin"></jsp:getProperty></p>
+        		<p><b>Surname:</b> <jsp:getProperty name="att" property="joinDate"></jsp:getProperty></p>-->
         		<input class="button" type="submit" value=" Confirm " style="display:inline">
         	</form>
         	<br/>

@@ -15,7 +15,7 @@
         <h3>Create Success!</h3>
         <div id="customPanel">
           <p id="customPanelInfo">
-            You inserted data successfully.
+            You created a file successfully.
           </p>
         </div>
         <br/>

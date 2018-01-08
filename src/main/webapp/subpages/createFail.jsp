@@ -15,7 +15,7 @@
         <h3>Create Fail!</h3>
         <div id="customPanel">
           <p id="customPanelInfo">
-            An error occured when inserting data.
+            An error occured when creating a file.
           </p>
         </div>
         <br/>
