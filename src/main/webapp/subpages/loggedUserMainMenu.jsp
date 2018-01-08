@@ -88,7 +88,7 @@
                 Editor
               </button>
             </form>
-            <form action="/userFiles" method="post">
+            <form action="subpages/userFiles.jsp" method="post">
               <button id="userButton05" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-file"></span>
                 My Files
