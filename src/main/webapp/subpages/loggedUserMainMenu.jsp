@@ -94,7 +94,7 @@
                 My Files
               </button>
             </form>
-            <form action="/userWorkgroups" method="post">
+            <form action="/subpages/userWorkgroups.jsp" method="post">
               <button id="userButton05" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-file"></span>
                 My Workgroups
