@@ -19,16 +19,19 @@
       <div class="centeredText">
         <h3>User Panel Delete</h3>
         <hr/>
-        <h4>Please confirm you want to remove that record.</h4>
-        <br/>
-      	<%
-        	txt = txtstorage.getTextFile(Integer.parseInt(request.getParameter("id")));
-      	%>
-      	<form action="/doRemoveTextFileByUser" style="margin-left:0.1in; display:inline" method="post">
-      		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-      		<p><b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty></p>
-      		<input class="button" type="submit" value=" Confirm " style="display:inline">
-      	</form>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            Please confirm you want to remove that record.
+          </p>
+        	<%
+          	txt = txtstorage.getTextFile(Integer.parseInt(request.getParameter("id")));
+        	%>
+        	<form action="/doRemoveTextFileByUser" style="margin-left:0.1in; display:inline" method="post">
+        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+        		<p><b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty></p>
+        		<input class="button" type="submit" value=" Confirm " style="display:inline">
+        	</form>
+        </div>
       	<br/>
       	<p>
         	<a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>

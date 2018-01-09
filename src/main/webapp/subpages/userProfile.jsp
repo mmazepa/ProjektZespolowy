@@ -8,6 +8,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.sql.SQLException"%>
+<%@ page import="java.util.GregorianCalendar"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -138,7 +139,16 @@
                   </tr>
                   <tr>
                     <td>Date Of Birth</td>
-                    <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>
+                    <td>
+                      <%
+                        GregorianCalendar cal = new GregorianCalendar();
+                        int year = cal.get(GregorianCalendar.YEAR);
+                        request.setAttribute("year", year);
+                      %>
+
+                      <c:out value="${account.getDateOfBirth().substring(0,10)}"/>
+                      (<c:out value="${year - account.getDateOfBirth().substring(0,4)}"/> years old)
+                    </td>
                   </tr>
                   <tr>
                     <td>Registration Date</td>

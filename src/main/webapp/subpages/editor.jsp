@@ -61,7 +61,7 @@
       <c:if test="${currentNickname != ''}">
         <br/>
         <div class="row editorSpace">
-          <div class="col-sm-8">
+          <div class="col-sm-12">
             <!-- textarea component to be replaced by CodeMirror -->
             <textarea id="code"></textarea>
             <p id="currentMode">
@@ -96,30 +96,6 @@
                 </td>
               </tr>
             </table>
-          </div>
-          <div class="col-sm-4">
-            <div class="chat">
-              <div id="messages">
-                <div class="alert alert-info">
-                  <strong>SYSTEM:</strong> Welcome to chat.
-                  Type something and press the paper aeroplan
-                  to send it.
-                </div>
-              </div>
-  						<form onsubmit="addMessage('<%= currentNickname %>'); return false;">
-  	            <div id="chatTyping">
-  	              <strong><%= currentNickname %>:</strong>
-                  <br/>
-  	              <input id="message" type="text" name="message"/>
-  	              <button id="sendMessage"
-  												type="submit"
-  	                      class="btn btn-success">
-  	                  <span class="glyphicon glyphicon-send"></span>
-                      Send
-  	              </button>
-  	            </div>
-  						</form>
-            </div>
           </div>
         </div>
       </c:if>

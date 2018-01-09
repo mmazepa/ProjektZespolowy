@@ -17,7 +17,7 @@
         <hr/>
         <h4>Edit workgroup</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable workgroupTable">
           <tr>
             <th>Input</th>
             <th>Type</th>
@@ -29,7 +29,7 @@
               <td>Name</td>
               <td><input type="text" name="name" value="<%=request.getParameter("name")%>"></td>
             </tr>
-            
+
             <tr>
               <td>Description</td>
               <td><input type="text" name="description" value="<%=request.getParameter("description")%>"></td>
@@ -54,7 +54,7 @@
       		</form>
         </table>
         <br/>
-        <a href="/userWorkgroups"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        <a href="/subpages/userWorkgroups.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
         <br/>
         <br/>
       </div>
