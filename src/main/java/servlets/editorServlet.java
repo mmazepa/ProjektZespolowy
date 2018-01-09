@@ -23,7 +23,7 @@ import service.TextFileManager;
 
 @Path("/editor")
 public class editorServlet {
-  @GET
+	@GET
 	@Path("/{author}/{file}")
 	@Produces("text/html")
 	public static Response getMsg(@PathParam("author") String author, @PathParam("file") String file) throws IOException, FileNotFoundException {
@@ -48,21 +48,25 @@ public class editorServlet {
       e.printStackTrace();
     }
 
+    int authorID = 0;
     for (Account account : accounts) {
       if (account.getID() == Integer.parseInt(author)) {
         authorInBase = true;
-        authorName = account.getNickname();
+        //authorName = account.getName();
+        authorID = account.getID();
       }
     }
 
+    TextFile fifi = new TextFile();
     for (TextFile textfile : textfiles) {
       if (textfile.getName().equals(file)) {
         fileInBase = true;
+        fifi = textfile; 
       }
     }
 
     if (authorInBase && fileInBase) {
-      url = "../subpages/editorForFileContent.jsp?author=" + authorName + "&file=" + file;
+      url = "../subpages/editorForFileContent.jsp?author=" + String.valueOf(authorID) + "&file=" + String.valueOf(fifi.getID()) + "&group=" + String.valueOf(fifi.getGroup());
     }
     else {
       url = "../subpages/fileNotFound.jsp";

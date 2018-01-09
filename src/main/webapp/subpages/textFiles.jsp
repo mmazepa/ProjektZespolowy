@@ -146,6 +146,7 @@
                   </td>
                   <td>
                     <form action="/projekt/editor/${textFile.getAuthor()}/${textFile.getName()}" style="display:inline">
+                    	<input type="hidden" name="filid" value="${textFile.getID()}">
                       <button type="submit" class="btn btn-success">
                         <span class="glyphicon glyphicon-edit"></span>
                       </button>

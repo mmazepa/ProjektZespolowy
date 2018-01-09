@@ -27,7 +27,7 @@ public class SnapshotManager extends SQLHandler implements ISnapshotManager {
 					+ "id, SnapshotAuthor, AttendingFile, SnapshotName, SnapshotDate, Content "
 					+ "FROM Snapshot WHERE "
 					+ "id = ?");
-			deleteSnapshotStmt = getConnection().prepareStatement("DELETE FROM TextFile WHERE id = ?;");
+			deleteSnapshotStmt = getConnection().prepareStatement("DELETE FROM Snapshot WHERE id = ?;");
 			addSnapshotStmt = getConnection().prepareStatement("INSERT INTO "
 					+ "Snapshot (SnapshotAuthor, AttendingFile, SnapshotName, SnapshotDate, Content) "
 					+ "VALUES (?, ?, ?, ?, ?);");

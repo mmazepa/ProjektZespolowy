@@ -1,3 +1,4 @@
+<%@page import="service.TextFileManager"%>
 <%@ page import="domain.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
@@ -54,8 +55,13 @@
           }
         }
 
+        TextFileManager dbt = new TextFileManager();
         request.setAttribute("currentNickname", currentNickname);
         request.setAttribute("currentRole", currentRole);
+        String forMessageAuthor = request.getParameter("author");
+        String forMessageFile = request.getParameter("file");
+        String currentFileName = dbt.getTextFile(Integer.parseInt(forMessageFile)).getName();
+        String forMessageGroup = request.getParameter("group");
     %>
     <main>
       <!-- IF USER IS LOGGED IN -->
@@ -64,10 +70,11 @@
         <div class="row editorSpace">
           <div class="col-sm-8">
             <p id="editorForFileContentInfo">
-              Currenly edited file is made by
+              <!--Currenly edited file is made by
               <span id="authorName">...</span>
               and it's name is
-              <span id="fileName">...</span>.
+              <span id="fileName">...</span>.-->
+              Currently edited file is made by <%= currentNickname %> and its name is <%= currentFileName %>
             </p>
             <!-- textarea component to be replaced by CodeMirror -->
             <textarea id="code"></textarea>
@@ -100,6 +107,7 @@
                       <span class="glyphicon glyphicon-open"></span>
                       Upload to editor
                     </button>
+                    <form>
                 </td>
               </tr>
             </table>
@@ -113,7 +121,10 @@
                   to send it.
                 </div>
               </div>
-  						<form onsubmit="addMessage('<%= currentNickname %>'); return false;">
+  						<form onsubmit="addMessage(<%= forMessageAuthor %>,'<%= currentNickname %>',<%= forMessageGroup %>); return false;">
+  						<input type="hidden" name="author" value="<%= forMessageAuthor %>">
+          				<input type="hidden" name="group" value="<%= forMessageGroup %>">
+          				<input type="hidden" name="file" value="<%= forMessageFile %>">
   	            <div id="chatTyping">
   	              <strong><%= currentNickname %>:</strong>
                   <br/>
