@@ -14,10 +14,10 @@
 	<head>
 		<title>Editor On-Line</title>
 		<meta type="text/html" charset="UTF-8" language="java" />
-		<link type="text/css" rel="stylesheet" href="../static/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="../../static/css/main.css" />
     <jsp:useBean id="currentuser" class="domain.UserInfo" scope="session" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="../static/javascript/main.js"></script>
+    <script src="../../static/javascript/main.js"></script>
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>

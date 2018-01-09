@@ -15,11 +15,11 @@
         <h3>Create Success!</h3>
         <div id="customPanel">
           <p id="customPanelInfo">
-            You created a file successfully.
+            You created what you want to create successfully.
           </p>
         </div>
         <br/>
-        <a id="backLink" href="/userFiles">
+        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back
         </a>

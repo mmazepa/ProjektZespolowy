@@ -67,3 +67,49 @@
 .blank {
   color: darken(silver, 20%);
 }
+
+// SIMPLE TOOLTIP
+
+#tooltip {
+    position: relative;
+    display: inline-block;
+    border: 1px solid darkred;
+    border-radius: 5px;
+}
+
+#tooltip #tooltiptext {
+  visibility: hidden;
+  width: 350px;
+  background-color: darken(darkred, 10%);
+  color: whitesmoke;
+  border: 3px outset darkgreen;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: -125%;
+  right: 100%;
+  margin-right: -475px;
+
+  text-align: justify;
+
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#tooltip #tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent darken(darkred, 10%) transparent transparent;
+}
+
+#tooltip:hover #tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

@@ -88,14 +88,14 @@
                 Editor
               </button>
             </form>
-            <form action="subpages/userFiles.jsp" method="post">
+            <form action="/subpages/userFiles.jsp" method="post">
               <button id="userButton05" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-file"></span>
                 My Files
               </button>
             </form>
             <form action="/subpages/userWorkgroups.jsp" method="post">
-              <button id="userButton05" type="submit" class="btn btn-primary">
+              <button id="userButton07" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-file"></span>
                 My Workgroups
               </button>

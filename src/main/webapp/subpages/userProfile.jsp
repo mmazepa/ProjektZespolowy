@@ -68,9 +68,28 @@
               <span class="glyphicon glyphicon-user"></span>
               <c:out value="${account.getNickname()}"/>
             </span>
-            <button id="editProfileButton" class="btn btn-primary">
+            <%-- <button id="editProfileButton"
+                    class="btn btn-primary"
+                    onclick="location.assign('/subpages/userActions/obtainEditedAccountDataByUser.jsp')">
               Edit Profile
-            </button>
+            </button> --%>
+
+            <form action="/subpages/userActions/obtainEditedAccountDataByUser.jsp">
+              <input type="hidden" name="id" value="${account.getID()}">
+              <input type="hidden" name="role" value="${account.getRole()}">
+              <input type="hidden" name="nickname" value="${account.getNickname()}">
+              <input type="hidden" name="email" value="${account.getEmail()}">
+              <input type="hidden" name="registrationdate" value="${account.getRegistrationdate()}">
+              <input type="hidden" name="description" value="${account.getDescription()}">
+              <input type="hidden" name="firstName" value="${account.getFirstName()}">
+              <input type="hidden" name="lastName" value="${account.getLastName()}">
+              <input type="hidden" name="dateOfBirth" value="${account.getDateOfBirth()}">
+              <button id="editProfileButton" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Edit Profile
+              </button>
+            </form>
+
             <div id="aboutMe">
               <h4>About me</h4>
               <div id="aboutMeInfo">

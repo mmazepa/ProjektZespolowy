@@ -15,13 +15,13 @@
         <h3>Create Fail!</h3>
         <div id="customPanel">
           <p id="customPanelInfo">
-            An error occured when creating a file.
+            An error occured when creating what you want to create.
           </p>
         </div>
         <br/>
-        <a id="backLink" href="/userFiles">
-            <span class="glyphicon glyphicon-arrow-left"></span>
-            Back
+        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
         </a>
       </div>
     </main>

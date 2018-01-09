@@ -19,7 +19,7 @@
           </p>
         </div>
         <br/>
-        <a id="backLink" href="/userFiles">
+        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back
         </a>

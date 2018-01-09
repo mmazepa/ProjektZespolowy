@@ -72,7 +72,7 @@
           </form>
 
           <!-- TABLE WITH WORKGROUPS CREATED BY USER -->
-          <table class="adminTable WorkgroupTable">
+          <table class="adminTable workgroupTable">
             <tr>
               <th>No.</th>
               <th>Name</th>
@@ -88,8 +88,8 @@
               AccountManager am = new AccountManager();
               WorkgroupManager wm = new WorkgroupManager();
               AttendanceManager atm = new AttendanceManager();
-              
-              
+
+
               List<Account> accounts = new ArrayList();
               List<Workgroup> workgroups = new ArrayList();
               List<Attendance> attendances = new ArrayList();
@@ -117,7 +117,7 @@
                         <c:out value="${workgroup.getName()}"/>
                       </td>
                       <td>
-                        <c:out value="${workgroup.getCreationDate()}"/>
+                        <c:out value="${workgroup.getCreationDate().substring(0,19)}"/>
                       </td>
                       <td>
                         <c:out value="${workgroup.getDescription()}"/>
@@ -132,7 +132,7 @@
                      		</c:otherwise>
                    		</c:choose>
                   	</td>
-                      
+
 
                   <td>
                     <form action="/subpages/userActions/obtainEditedWorkgroupDataByUser.jsp" style="display:inline">
@@ -171,7 +171,7 @@
               </c:if>
             </c:forEach>
           </table>
-          <table class="adminTable WorkgroupTable">
+          <table class="adminTable workgroupTable">
             <tr>
               <th>No.</th>
               <th>Name</th>
@@ -195,7 +195,7 @@
                         <c:out value="${workgroup.getName()}"/>
                       </td>
                       <td>
-                        <c:out value="${workgroup.getCreationDate()}"/>
+                        <c:out value="${workgroup.getCreationDate().substring(0,19)}"/>
                       </td>
                       <td>
                         <c:out value="${workgroup.getDescription()}"/>
@@ -210,14 +210,14 @@
                      		</c:otherwise>
                    		</c:choose>
                   	</td>
-                      
+
 
                   <td>
                     <form action="/subpages/userActions/leaveWorkgroupByUser.jsp" style="display:inline">
             					 <input type="hidden" name="group" value="${workgroup.getID()}">
             					 <input type="hidden" name="id" value="${currentId}">
-            					<button type="submit" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-pencil"></span>
+            					<button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-log-out"></span>
             					</button>
                     </form>
                   </td>

@@ -201,7 +201,8 @@
 #userButton03,
 #userButton04,
 #userButton05,
-#userButton06 {
+#userButton06,
+#userButton07 {
   width: 250px;
   margin-bottom: 10px;
   transition: 0.5s;
@@ -243,6 +244,12 @@
   color: whitesmoke;
   box-shadow: 2.5px 2.5px 10px 1px black;
 }
+#userButton07 {
+  background-color: darkmagenta;
+  border: 1px solid magenta;
+  color: whitesmoke;
+  box-shadow: 2.5px 2.5px 10px 1px black;
+}
 #userButton01:hover {
   background-color: whitesmoke;
   border: 1px solid darkgreen;
@@ -278,6 +285,12 @@
   border: 1px solid darkcyan;
   color: darkcyan;
   box-shadow: 2.5px 2.5px 10px 1px cyan;
+}
+#userButton07:hover {
+  background-color: whitesmoke;
+  border: 1px solid darkmagenta;
+  color: darkmagenta;
+  box-shadow: 2.5px 2.5px 10px 1px magenta;
 }
 .wrapper {
   width: 170px;

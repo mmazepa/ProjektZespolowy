@@ -60,7 +60,7 @@ public class SQLHandler {
 		try {
 			Properties props = new Properties();
 			props.setProperty("user","postgres");
-			props.setProperty("password","");
+			props.setProperty("password","HakerBonzo2137");
 			//props.setProperty("ssl","disable");
 			//setConnection(DriverManager.getConnection(url, props));
 			connection = DriverManager.getConnection(url, props);
