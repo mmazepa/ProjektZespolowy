@@ -77,6 +77,7 @@ Editor On-Line for programmatic cooperation in real-time
             <option>Home Page</option>
             <option>My Files</option>
             <option>My Profile</option>
+            <option>My Workgroups</option>
             <option selected>Stay Here</option>
           </select>
         </td>

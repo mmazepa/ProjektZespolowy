@@ -86,6 +86,9 @@ function changeLocation(){
     else if(destination == "My Profile") {
         location.href = "/subpages/userProfile.jsp";
     }
+    else if(destination == "My Workgroups") {
+        location.href = "/subpages/userWorkgroups.jsp";
+    }
     else if(destination == "Home Page") {
         location.href = "/index.jsp";
     }

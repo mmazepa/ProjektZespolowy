@@ -5,6 +5,8 @@
 <%@ page import="domain.Account"%>
 <%@ page import="service.WorkgroupManager"%>
 <%@ page import="domain.Workgroup"%>
+<%@ page import="service.AttendanceManager"%>
+<%@ page import="domain.Attendance"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
 <%@ page import="java.util.List"%>
@@ -87,15 +89,19 @@
             <%
               AccountManager am = new AccountManager();
               WorkgroupManager wm = new WorkgroupManager();
+			  			AttendanceManager atm = new AttendanceManager();
 
               List<Account> accounts = new ArrayList();
               List<Workgroup> workgroups = new ArrayList();
+              List<Attendance> attendances = new ArrayList();
 
               accounts = am.getAllAccounts();
               workgroups = wm.getAllWorkgroups();
+              attendances = atm.getAllAttendances();
 
               request.setAttribute("accounts", accounts);
               request.setAttribute("workgroups", workgroups);
+              request.setAttribute("attendances", attendances);
             %>
 
   					<c:set var="count" value="0" />
@@ -172,6 +178,64 @@
         				</tr>
               </c:if>
             </c:forEach>
+          </table>
+
+          <table class="adminTable textFileTable">
+            <tr>
+              <th>No.</th>
+              <%-- <th>Author</th> --%>
+              <th>Group</th>
+              <th>Name</th>
+              <th>Creation Date</th>
+  			      <th>Description</th>
+  						<th>Private</th>
+              <th>Edit Content</th>
+            </tr>
+
+  					<c:set var="count" value="0" />
+            <c:forEach var="textFile" items="${textFiles}">
+            	<c:forEach var="attendance" items="${attendances}">
+              		<c:if test="${attendance.getGroup() == textFile.getGroup() and attendance.getUser() == currentId and textFile.getAuthor() != currentId}">
+              	   		<tr class="rowClass">
+            			<td>
+      							<c:set var="count" value="${count + 1}" />
+      							<strong><c:out value="${count}" /></strong>
+      						</td>
+                  <td>
+                    <c:forEach var="workgroup" items="${workgroups}">
+                      <c:if test="${workgroup.getID() == textFile.getGroup()}">
+                        <c:out value="${workgroup.getName()}"/>
+                      </c:if>
+                    </c:forEach>
+                  </td>
+
+                  <td><c:out value="${textFile.getName()}"/></td>
+                  <td><c:out value="${textFile.getCreationDate().substring(0,19)}"/></td>
+                  <td><c:out value="${textFile.getDescription()}"/></td>
+
+                  <%-- <td><c:out value="${textFile.isPrivate()}"/></td> --%>
+                  <td>
+                    <c:choose>
+                      <c:when test="${textFile.isPrivate()}">
+                        <span class="glyphicon glyphicon-ok glyphiconGood"></span>
+                      </c:when>
+                      <c:otherwise>
+                        <span class="glyphicon glyphicon-remove glyphiconBad"></span>
+                      </c:otherwise>
+                    </c:choose>
+                  </td>
+                 <td>
+                    <form action="/projekt/editor/${textFile.getAuthor()}/${textFile.getName()}" style="display:inline">
+                      <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-edit"></span>
+                      </button>
+                    </form>
+                  </td>
+        				</tr>
+        		</c:if>
+            </c:forEach>
+            </c:forEach>
+
           </table>
           <br/>
 
