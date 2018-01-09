@@ -27,7 +27,7 @@
           </tr>
           <form action="/doEditAccountByUser" style="margin-left:0.1in" method="post">
           	<input type="hidden" name="id" value="<%=request.getParameter("id")%>" />
-
+			<input type="hidden" name="role" value="<%=request.getParameter("role")%>" />
             <tr>
               <td>Role</td>
             <td>
