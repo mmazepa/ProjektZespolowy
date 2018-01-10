@@ -17,7 +17,7 @@
         <hr/>
         <h4>Edit text file</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable textFileTable">
           <tr>
             <th>Input</th>
             <th>Type</th>
@@ -27,7 +27,13 @@
 
             <tr>
               <td>Name</td>
-              <td><input type="text" name="name" value="<%=request.getParameter("name")%>"></td>
+              <td>
+                <input  type="text"
+                        name="name"
+                        value="<%=request.getParameter("name")%>"
+                        pattern="[^\s]+"
+                        title="Please don't use the white space.">
+              </td>
             </tr>
             <tr>
               <td>Description</td>

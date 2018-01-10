@@ -1,6 +1,6 @@
 # Projekt Zespołowy 2017/2018 #
 
- University of Gdansk © 2017 All Rights Reserved
+ University of Gdansk © 2017/2018 All Rights Reserved
 
 ## Edytor On-Line ##
 

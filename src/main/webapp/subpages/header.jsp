@@ -44,7 +44,7 @@
 <a id="logo" href="/index.jsp">
   <span class="glyphicon glyphicon-globe"></span>
 </a>
-Editor On-Line for programmatic cooperation in real-time
+Editor On-Line for programmatic cooperation <!-- in real-time -->
 
 <!-- IF USER IS LOGGED IN -->
 <c:if test="${currentNickname != ''}">

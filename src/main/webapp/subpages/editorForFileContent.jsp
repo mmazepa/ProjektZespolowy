@@ -5,6 +5,8 @@
 <%@ page import="service.AccountManager"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
+<%@ page import="service.WorkgroupManager"%>
+<%@ page import="domain.Workgroup"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.sql.SQLException"%>
@@ -62,6 +64,23 @@
         String forMessageFile = request.getParameter("file");
         String currentFileName = dbt.getTextFile(Integer.parseInt(forMessageFile)).getName();
         String forMessageGroup = request.getParameter("group");
+
+        String chatHeaderGroupName = new String();
+        int chatHeaderGroupId = Integer.parseInt(request.getParameter("group"));
+
+        WorkgroupManager wm = new WorkgroupManager();
+        List<Workgroup> workgroups = new ArrayList<Workgroup>();
+        try {
+          workgroups = wm.getAllWorkgroups();
+        } catch (SQLException | NullPointerException e) {
+          e.printStackTrace();
+        }
+
+        for (Workgroup workgroup : workgroups) {
+          if(workgroup.getID() == chatHeaderGroupId) {
+            chatHeaderGroupName = workgroup.getName();
+          }
+        }
     %>
     <main>
       <!-- IF USER IS LOGGED IN -->
@@ -74,7 +93,10 @@
               <span id="authorName">...</span>
               and it's name is
               <span id="fileName">...</span>.-->
-              Currently edited file is made by <%= currentNickname %> and its name is <%= currentFileName %>
+              Currently edited file is made by
+              <strong> <%= currentNickname %> </strong>
+              and it's name is
+              <strong> <%= currentFileName %> </strong>
             </p>
             <!-- textarea component to be replaced by CodeMirror -->
             <textarea id="code"></textarea>
@@ -114,6 +136,9 @@
           </div>
           <div class="col-sm-4">
             <div class="chat">
+              <p id="chatHeader">
+                <strong> <%= chatHeaderGroupName %> </strong>
+              </p>
               <div id="messages">
                 <div class="alert alert-info">
                   <strong>SYSTEM:</strong> Welcome to chat.
@@ -122,7 +147,7 @@
                 </div>
               </div>
   						<form onsubmit="addMessage(<%= forMessageAuthor %>,'<%= currentNickname %>',<%= forMessageGroup %>); return false;">
-  						<input type="hidden" name="author" value="<%= forMessageAuthor %>">
+  						    <input type="hidden" name="author" value="<%= forMessageAuthor %>">
           				<input type="hidden" name="group" value="<%= forMessageGroup %>">
           				<input type="hidden" name="file" value="<%= forMessageFile %>">
   	            <div id="chatTyping">

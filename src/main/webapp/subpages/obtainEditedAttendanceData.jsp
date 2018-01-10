@@ -24,7 +24,7 @@
         <hr/>
         <h4>Edit attendance</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable attendanceTable">
           <tr>
             <th>Input</th>
             <th>Type</th>

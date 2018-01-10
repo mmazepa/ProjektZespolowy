@@ -1,6 +1,6 @@
 // out: chat.css
 
-@chatHeight: 350px;
+@chatHeight: 375px;
 
 .chat {
   .gradient(wheat, darkgoldenrod, darkgreen);
@@ -10,6 +10,17 @@
   .size(100%, @chatHeight);
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#chatHeader {
+  text-align: center;
+  margin-bottom: 0px;
+  background-color: darken(wheat, 50%);
+  border: 1px solid darken(wheat, 25%);
+  border-bottom-width: 0px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: white;
 }
 
 #messages {

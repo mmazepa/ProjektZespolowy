@@ -21,7 +21,7 @@
         <hr/>
         <h4>Edit role</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable roleTable">
           <tr>
             <th>Input</th>
             <th>Type</th>

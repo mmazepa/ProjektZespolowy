@@ -25,7 +25,7 @@
         <hr/>
         <h4>Edit snapshot</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable snapshotTable">
           <tr>
             <th>Input</th>
             <th>Type</th>

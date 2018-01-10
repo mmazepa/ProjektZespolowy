@@ -17,7 +17,7 @@
         <hr/>
         <h4>Edit workgroup</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable workgroupTable">
           <tr>
             <th>Input</th>
             <th>Type</th>

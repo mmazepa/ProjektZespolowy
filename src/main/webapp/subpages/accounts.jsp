@@ -122,7 +122,23 @@
 	                <td>
                     <c:out value="${account.getRegistrationdate().substring(0,19)}"/>
 	                </td>
-	                <td><c:out value="${account.getDescription()}"/></td>
+
+
+									<td>
+										<c:choose>
+											<c:when test="${account.getDescription().length() > 50}">
+                        <abbr title="${account.getDescription()}">
+  												<c:out value="${account.getDescription().substring(0,50)}"/>
+  												...
+                        </abbr>
+											</c:when>
+											<c:otherwise>
+												<c:out value="${account.getDescription()}"/>
+											</c:otherwise>
+										</c:choose>
+									</td>
+
+
 	                <td><c:out value="${account.getFirstName()}"/></td>
 	                <td><c:out value="${account.getLastName()}"/></td>
 	                <td><c:out value="${account.getDateOfBirth().substring(0,10)}"/></td>

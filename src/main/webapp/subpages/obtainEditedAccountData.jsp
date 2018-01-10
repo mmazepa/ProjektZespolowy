@@ -21,7 +21,7 @@
         <hr/>
         <h4>Edit user</h4>
         <br/>
-        <table class="adminTable">
+        <table class="adminTable accountTable">
           <tr>
             <th>Input</th>
             <th>Type</th>
