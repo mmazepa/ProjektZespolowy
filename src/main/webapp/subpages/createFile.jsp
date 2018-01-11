@@ -5,6 +5,8 @@
 <%@ page import="service.RoleManager"%>
 <%@ page import="service.WorkgroupManager"%>
 <%@ page import="domain.Workgroup"%>
+<%@ page import="service.AttendanceManager"%>
+<%@ page import="domain.Attendance"%>
 <%@ page import="domain.Role"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
@@ -79,14 +81,17 @@
                 <td>
                   <%
                   WorkgroupManager workgroupstorage = new WorkgroupManager();
+                  AttendanceManager attstorage = new AttendanceManager();
                   %>
                   <select name="workgroup">
                     <%
                     for (Workgroup i : workgroupstorage.getAllWorkgroups()) {
+                    	for (Attendance j : attstorage.getAllAttendances()) {
+                    		if (i.getID() == j.getGroup() && currentId == j.getUser()) {
                     %>
                       <option value="<%=i.getID()%>"><%=i.getName()%>
                     <%
-                    }
+                    		}}}
                     %>
                   </select>
                 </td>

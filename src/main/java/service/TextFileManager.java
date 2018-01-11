@@ -19,6 +19,7 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 	private PreparedStatement addTextFileByParamsStmt;
 	private PreparedStatement editTextFileStmt;
 	private PreparedStatement editTextFileByParamsStmt;
+	private PreparedStatement getNewestContentStmt;
 
 	public TextFileManager() {
 		super();
@@ -42,6 +43,13 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 					+ "FileName = ?, "
 					+ "Description = ?, IsPrivate = ? "
 					+ "WHERE id = ?;");
+			getNewestContentStmt = getConnection().prepareStatement(
+					"SELECT s.Content AS Output, s.SnapshotDate FROM Snapshot s "
+					+ "JOIN TextFile t ON t.id = s.AttendingFile "
+					+ "WHERE s.AttendingFile = ? "
+					+ "ORDER BY s.SnapshotDate DESC "
+					+ "LIMIT 1 "
+					+ ";");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -134,5 +142,12 @@ public class TextFileManager extends SQLHandler implements ITextFileManager {
 			lista.add(p);
 		}
 		return lista;
+	}
+	
+	public String getNewestContent(TextFile fifi) throws SQLException, NullPointerException {
+		getNewestContentStmt.setInt(1, fifi.getID());
+		ResultSet rs = getNewestContentStmt.executeQuery();
+		rs.next();
+		return rs.getString("Output");
 	}
 }

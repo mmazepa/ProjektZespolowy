@@ -1,5 +1,7 @@
 package mypackage;
 
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -12,11 +14,11 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.net.URI;
-
 import java.util.List;
 import java.util.ArrayList;
 
 import domain.Account;
+import domain.UserInfo;
 import service.AccountManager;
 import domain.TextFile;
 import service.TextFileManager;
@@ -64,9 +66,10 @@ public class editorServlet {
         fifi = textfile; 
       }
     }
-
+    
+    
     if (authorInBase && fileInBase) {
-      url = "../subpages/editorForFileContent.jsp?author=" + String.valueOf(authorID) + "&file=" + String.valueOf(fifi.getID()) + "&group=" + String.valueOf(fifi.getGroup());
+      url = "../subpages/editorForFileContent.jsp?author=" + String.valueOf(authorID) + "&file=" + String.valueOf(fifi.getID()) + "&group=" + String.valueOf(fifi.getGroup())+ "";
     }
     else {
       url = "../subpages/fileNotFound.jsp";

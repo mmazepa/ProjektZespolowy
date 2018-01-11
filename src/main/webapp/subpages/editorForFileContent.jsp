@@ -5,6 +5,7 @@
 <%@ page import="service.AccountManager"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
+<%@ page import="domain.TextFile"%>
 <%@ page import="service.WorkgroupManager"%>
 <%@ page import="domain.Workgroup"%>
 <%@ page import="java.util.List"%>
@@ -62,6 +63,7 @@
         request.setAttribute("currentRole", currentRole);
         String forMessageAuthor = request.getParameter("author");
         String forMessageFile = request.getParameter("file");
+        TextFile fifi = dbt.getTextFile(Integer.parseInt(forMessageFile));
         String currentFileName = dbt.getTextFile(Integer.parseInt(forMessageFile)).getName();
         String forMessageGroup = request.getParameter("group");
 
@@ -81,6 +83,13 @@
             chatHeaderGroupName = workgroup.getName();
           }
         }
+        
+        String dacontent;
+        try {
+        	dacontent = dbt.getNewestContent(fifi);
+        } catch (SQLException e) {
+        	dacontent = "";
+        }
     %>
     <main>
       <!-- IF USER IS LOGGED IN -->
@@ -99,7 +108,7 @@
               <strong> <%= currentFileName %> </strong>
             </p>
             <!-- textarea component to be replaced by CodeMirror -->
-            <textarea id="code"></textarea>
+            <textarea id="code"><%= dacontent %></textarea>
             <p id="currentMode">
               Current mode: <span id="modeinfo">text/plain</span>
             </p>
@@ -130,6 +139,22 @@
                       Upload to editor
                     </button>
                     <form>
+                </td>
+                <td>
+                    <form name="form" action="/doSaveFile" method="POST">
+                    <input type="hidden" name="author" value="<%= forMessageAuthor %>">
+          			<input type="hidden" name="group" value="<%= forMessageGroup %>">
+          			<input type="hidden" name="file" value="<%= forMessageFile %>">
+          			<!--<input type="hidden" name="content" value="%= forMessageContent %">-->
+                	<!-- SAVE BUTTON -->
+                	<button  id="loginButton"
+                        type="submit"
+                        class="btn btn-success"
+                        value="">
+                    <span class="glyphicon glyphicon-save"></span>
+                    	Save to Your Files
+                	</button>
+              		</form>
                 </td>
               </tr>
             </table>

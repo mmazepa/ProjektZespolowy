@@ -3,12 +3,12 @@ function addMessage(user, username, group){
     var message = document.getElementById("message").value;
     if (message && message !== "" && message !== null) {
         prepareMessage(username, message);
-        var pg = require("pg");
-        var connectionString = "postgres://postgres:HakerBonzo2137/94.177.245.154:5432/cigarbase";
-        var pgClient = new pg.Client(connectionString);
-        pgClient.connect();
-        pgClient.query("INSERT INTO Message (MessageAuthor, AttendingGroup, Content) VALUES ("+user+","+group+","+message+")");
-        pgClient.end();
+//        var pg = require("pg");
+//        var connectionString = "postgres://postgres:HakerBonzo2137/94.177.245.154:5432/cigarbase";
+//        var pgClient = new pg.Client(connectionString);
+//        pgClient.connect();
+//        pgClient.query("INSERT INTO Message (MessageAuthor, AttendingGroup, Content) VALUES ("+user+","+group+","+message+")");
+//        pgClient.end();
     }
 }
 
