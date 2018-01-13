@@ -13,53 +13,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.AccountManager;
+import service.SnapshotManager;
 
-@WebServlet("/doSaveFile")
+@WebServlet("/ajx/doSaveFile")
 public class TextFileSaver extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {   
+        doPost(request, response);
+    }
+	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		AccountManager db = new AccountManager();
-		try {
-			String nickname = request.getParameter("nickname");
-			String email = request.getParameter("email");
-			String pass = request.getParameter("pass");
-			String firstname = request.getParameter("firstName");
-			String lastname = request.getParameter("lastName");
-			String dateofbirth = request.getParameter("dateOfBirth");
-
-			if (dateofbirth == "" || !Pattern.matches("((19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])", dateofbirth)) {
-				dateofbirth = "1970-01-01 00:00:00";
-				//dateofbirth = "1970-01-01";
-				System.out.println(dateofbirth);
-			} else {
-				dateofbirth += " 00:00:00";
-				System.out.println("check");
-				System.out.println(dateofbirth);
-			}
-
-			db.doTranBegin();
-			db.addAccountByParams(3, nickname, email, pass, firstname, lastname, dateofbirth);
-			db.doTranCommit();
-			
-			String ipAddress = request.getRemoteAddr();
-	        //String hostname = request.getRemoteHost();
-	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	        System.out.println("SUCCESS CREATE   Account         "+ipAddress+"\t"+commitdate+"");
-	        
-	        response.sendRedirect("/subpages/registerSuccess.jsp");
-		} catch (SQLException e) {
-			db.doTranRollback();
-			
-			String ipAddress = request.getRemoteAddr();
-	        String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-	        System.out.println("FAIL    CREATE   Account         "+ipAddress+"\t"+commitdate+"");
-	        e.printStackTrace();
-	        
-			response.sendRedirect("/subpages/registerFail.jsp");
-		} finally {
-
-			db.doTranEnd();
-		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    String text = "File saved.";
+	    
+	    SnapshotManager db = new SnapshotManager();
+	    int author = Integer.parseInt(request.getParameter("author"));
+	    int group = Integer.parseInt(request.getParameter("group"));
+	    int file = Integer.parseInt(request.getParameter("file"));
+	    String name = request.getParameter("name");
+	    String content = request.getParameter("content");
+	    
+	    
+	    try {
+	    	db.addSnapshotByParams(author, file, name, content);
+	    } catch (SQLException e) {
+	    	text = "Error when saving a file to workgroup's database.";
+	    } catch (NullPointerException e) {
+	    	text = "Error. No data provided";
+	    }
+//	    response.setContentType("text/plain");  
+//	    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
+	    //response.getWriter().write(text); 
+	    response.sendRedirect("/subpages/editorForFileContent.jsp?author="+author+"&file="+file+"&group="+group+"");
 	}
 }

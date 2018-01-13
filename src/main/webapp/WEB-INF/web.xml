@@ -23,6 +23,15 @@
 		<servlet-name>Web Application</servlet-name>
 		<url-pattern>projekt/*</url-pattern>
 	</servlet-mapping>
+	
+	<!--  <servlet>
+    	<servlet-name>formSave</servlet-name>
+    	<servlet-class>actions.TextFileSaver</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>formSave</servlet-name>
+    	<url-pattern>/ajxsave/doSaveFile</url-pattern>
+	</servlet-mapping>-->
 
   <!-- CUSTOM ERROR PAGES -->
   <error-page>

@@ -22,13 +22,61 @@
     <script src="../static/javascript/main.js"></script>
     <script src="../static/javascript/censorship.js"></script>
     <script src="../static/javascript/editorForFileContent.js"></script>
+    
     <!-- CODE MIRROR FOR SYNTAX HIGHLIGHTING -->
     <script src="../static/codemirror-5.32.0/lib/codemirror.js"></script>
     <link rel="stylesheet" href="../static/codemirror-5.32.0/lib/codemirror.css">
     <script src="../static/codemirror-5.32.0/addon/selection/active-line.js"></script>
     <script src="../static/codemirror-5.32.0/addon/mode/loadmode.js"></script>
     <script src="../static/codemirror-5.32.0/mode/meta.js"></script>
+    
+    <!-- AJAX STUFF -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+    	$(document).on("click", "#saveButton", function() { 
+          	//var texte = $(".codemirror-textarea")[0];
+           	
+
+			$(document).ready(function(){
+				var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    		        lineNumbers: true,
+    		        matchBrackets: true,
+    		        mode: "text/x-csrc"
+    		      });
+				setTimeout(function(){
+    				editor.getDoc().val('var msg = "Hi";');
+     			},10); // milliseconds
+     			setTimeout(function(){
+     				editor.refresh();
+     			},20);
+			});
+
+    		$(document).on("submit", "#formSave", function(event) {
+    		    var $form = $(this);
+    		    
+    		    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    		        lineNumbers: true,
+    		        matchBrackets: true,
+    		        mode: "text/x-csrc"
+    		      });
+    		    editor.save();
+    		    var texte = editor.doc.getValue("\n");
+    		    alert(texte);
+    		    
+    		    $('<input />').attr('type', 'hidden').attr('name', 'content').attr('value', texte).appendTo('#formSave');
+    		    $.get($form.attr("action"), function() {
+    		    	 $("#saveresponse").text($(".codemirror-textarea")[0]);
+    		    });
+
+    		    event.preventDefault(); // Important! Prevents submitting the form.
+    		});
+        });
+            
+    </script>
+    
+    
     <!-- AT LEAST ONE SCRIPT IS PLACED AT THE BOTTOM -->
+       
 	</head>
 	<body onload="loadHeaderAndFooter(); loadModes(); manageUrlParams();">
     <header></header>
@@ -108,7 +156,7 @@
               <strong> <%= currentFileName %> </strong>
             </p>
             <!-- textarea component to be replaced by CodeMirror -->
-            <textarea id="code"><%= dacontent %></textarea>
+            <textarea id="code" class="codemirror-textarea"><%= dacontent %></textarea>
             <p id="currentMode">
               Current mode: <span id="modeinfo">text/plain</span>
             </p>
@@ -138,23 +186,28 @@
                       <span class="glyphicon glyphicon-open"></span>
                       Upload to editor
                     </button>
-                    <form>
                 </td>
+               </tr>
+               <tr>
+               <td></td>
                 <td>
-                    <form name="form" action="/doSaveFile" method="POST">
+                    <form id="formSave" action="/ajx/doSaveFile" method="GET">
                     <input type="hidden" name="author" value="<%= forMessageAuthor %>">
           			<input type="hidden" name="group" value="<%= forMessageGroup %>">
           			<input type="hidden" name="file" value="<%= forMessageFile %>">
-          			<!--<input type="hidden" name="content" value="%= forMessageContent %">-->
+          			<input type="hidden" name="name" value="<%= currentNickname %>">
                 	<!-- SAVE BUTTON -->
-                	<button  id="loginButton"
-                        type="submit"
+                	<button  id="saveButton"
+                		type="submit"
                         class="btn btn-success"
                         value="">
                     <span class="glyphicon glyphicon-save"></span>
-                    	Save to Your Files
+                    	Save to Your Workgroup Storage
                 	</button>
               		</form>
+                </td>
+                <td>
+                	<div id="saveresponse"></div>
                 </td>
               </tr>
             </table>
@@ -207,6 +260,11 @@
       </c:if>
     </main>
     <footer></footer>
+    
+    <!-- AJAX STUFF VOL2 -->
+    
+    
+    
     <!-- SCRIPT FOR CODE_MIRROR, MUST BE AT THE BOTTOM -->
     <script src="../static/javascript/editor.js"></script>
 	</body>
