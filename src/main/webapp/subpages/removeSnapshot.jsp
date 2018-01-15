@@ -16,12 +16,14 @@
 	</head>
 <body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
         <h3>Administrator Panel Delete</h3>
-        <hr/>
-        <h4>Please confirm you want to remove that record.</h4>
-        <br/>
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            Please confirm you want to remove that record.
+          </p>
+        </div>
 	<%
   	snp = snpstorage.getSnapshot(Integer.parseInt(request.getParameter("id")));
 	%>
@@ -31,8 +33,14 @@
 		<input class="button" type="submit" value=" Confirm " style="display:inline">
 	</form>
 	<br/>
+  <br/>
 	<p>
-  		<a href="/snapshots"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+  	<a id="backLink" href="/snapshots">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+      Back
+    </a>
 	</p>
+  </main>
+  <footer></footer>
 </body>
 </html>

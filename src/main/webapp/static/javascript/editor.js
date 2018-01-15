@@ -138,3 +138,50 @@ function readTextFromFile(file) {
 
     return allText;
 }
+
+// REAL-TIME LOCADING CONTENT
+function realTime() {
+    var content = myCodeMirror.getValue();
+    document.getElementById("content").value = content;
+    return false;
+}
+
+// // AJAX STUFF
+// $(document).on("click", "#saveButton", function() {
+//     //var texte = $(".codemirror-textarea")[0];
+//
+//
+//     $(document).ready(function(){
+//         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+//             lineNumbers: true,
+//             matchBrackets: true,
+//             mode: "text/x-csrc"
+//           });
+//         setTimeout(function(){
+//             editor.getDoc().val('var msg = "Hi";');
+//         },10); // milliseconds
+//         setTimeout(function(){
+//             editor.refresh();
+//         },20);
+//     });
+//
+//     $(document).on("submit", "#formSave", function(event) {
+//         var $form = $(this);
+//
+//         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+//             lineNumbers: true,
+//             matchBrackets: true,
+//             mode: "text/x-csrc"
+//           });
+//         editor.save();
+//         var texte = editor.doc.getValue("\n");
+//         alert(texte);
+//
+//         $('<input />').attr('type', 'hidden').attr('name', 'content').attr('value', texte).appendTo('#formSave');
+//         $.get($form.attr("action"), function() {
+//              $("#saveresponse").text($(".codemirror-textarea")[0]);
+//         });
+//
+//         event.preventDefault(); // Important! Prevents submitting the form.
+//     });
+// });
