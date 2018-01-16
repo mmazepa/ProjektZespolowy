@@ -63,7 +63,7 @@ public class Login extends HttpServlet {
         String commitdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
         System.out.println("SUCCESS CHECK    Account         "+ipAddress+"\t"+commitdate+"");
 
-        response.sendRedirect("/subpages/LoginSuccess.jsp");
+        response.sendRedirect("/subpages/loggedUserMainMenu.jsp");
       }
       else {
       	String ipAddress = request.getRemoteAddr();

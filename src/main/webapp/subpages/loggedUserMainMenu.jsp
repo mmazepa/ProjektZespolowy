@@ -89,12 +89,12 @@
             <c:if test="${currentRole == 'User'}"></c:if>
 
             <!-- CONTENT FOR EVERYONE -->
-            <form action="/subpages/editor.jsp" method="post">
+            <!--  <form action="/subpages/editor.jsp" method="post">
               <button id="userButton02" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-list-alt"></span>
                 Editor
               </button>
-            </form>
+            </form>-->
             <form action="/userFiles" method="post">
               <button id="userButton05" type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-file"></span>

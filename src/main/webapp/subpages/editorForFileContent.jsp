@@ -151,7 +151,7 @@
                     </button>
                 </td>
                 <td>
-                  <form id="formSave" onclick="realTime();" action="/ajx/doSaveFile" method="GET">
+                  <form id="formSave" onclick="realTime();" action="/ajx/doSaveFile" method="POST">
                     <input type="hidden" name="author" value="<%= forMessageAuthor %>">
               			<input type="hidden" name="group" value="<%= forMessageGroup %>">
               			<input type="hidden" name="file" value="<%= forMessageFile %>">
