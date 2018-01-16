@@ -12,18 +12,22 @@ import domain.Snapshot;
 
 
 public class MessageManager extends SQLHandler implements IMessageManager {
-	private String getAllMessageStmt = "SELECT id, MessageAuthor, AttendingGroup, SnapshotDate, Content FROM Snapshot;";
-	
+
+  private PreparedStatement getAllMessagesStmt;
 	private PreparedStatement getMessageByIDStmt;
 	private PreparedStatement deleteMessageStmt;
 	private PreparedStatement addMessageStmt;
 	private PreparedStatement addMessageByParamsStmt;
 	private PreparedStatement editMessageStmt;
 	private PreparedStatement editMessageByParamsStmt;
-	
+  private PreparedStatement getMessageByGroupStmt;
+
 	public MessageManager() {
 		super();
 		try {
+      getAllMessagesStmt = getConnection().prepareStatement("SELECT "
+          + "id, MessageAuthor, AttendingGroup, SnapshotDate, Content "
+          + "FROM Message;");
 			getMessageByIDStmt = getConnection().prepareStatement("SELECT "
 					+ "id, MessageAuthor, AttendingGroup, SnapshotDate, Content "
 					+ "FROM Message WHERE "
@@ -42,11 +46,15 @@ public class MessageManager extends SQLHandler implements IMessageManager {
 			editMessageByParamsStmt = getConnection().prepareStatement("UPDATE Message SET "
 					+ "Content = ? "
 					+ "WHERE id = ?;");
+      getMessageByGroupStmt = getConnection().prepareStatement("SELECT "
+      		+ "id, MessageAuthor, AttendingGroup, SnapshotDate, Content "
+      		+ "FROM Message WHERE "
+      		+ "AttendingGroup = ?");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void addMessage(Message message) throws SQLException, NumberFormatException {
 		addMessageStmt.setInt(1, message.getAuthor());
@@ -56,12 +64,12 @@ public class MessageManager extends SQLHandler implements IMessageManager {
 
 		addMessageStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void addMessageByParams(int author, int group, String content) throws SQLException, NumberFormatException {
-		addMessageStmt.setInt(1, author);
-		addMessageStmt.setInt(2, group);
-		addMessageStmt.setString(3, content);
+		addMessageByParamsStmt.setInt(1, author);
+		addMessageByParamsStmt.setInt(2, group);
+		addMessageByParamsStmt.setString(3, content);
 
 		addMessageByParamsStmt.executeUpdate();
 	}
@@ -84,7 +92,7 @@ public class MessageManager extends SQLHandler implements IMessageManager {
 
 		editMessageByParamsStmt.executeUpdate();
 	}
-	
+
 	@Override
 	public void deleteMessage(int messageId) throws SQLException {
 		deleteMessageStmt.setInt(1, messageId);
@@ -94,10 +102,10 @@ public class MessageManager extends SQLHandler implements IMessageManager {
 	@Override
 	public Message getMessage(int messageId) throws SQLException, NullPointerException {
 		Message p = new Message();
-		  
+
 		getMessageByIDStmt.setInt(1, messageId);
 		ResultSet rs = getMessageByIDStmt.executeQuery();
-				
+
 		rs.next();
 		p.setID(rs.getInt("id"));
 		p.setAuthor(rs.getInt("MessageAuthor"));
@@ -112,11 +120,11 @@ public class MessageManager extends SQLHandler implements IMessageManager {
 	public List<Message> getAllMessages() throws SQLException, NullPointerException {
 		List<Message> lista = Collections.synchronizedList(new ArrayList<Message>());
 
-		ResultSet rs = statement.executeQuery(getAllMessageStmt);
+    ResultSet rs = getAllMessagesStmt.executeQuery();
 		while (rs.next()) {
 			Message p = new Message();
 			p.setID(rs.getInt("id"));
-			p.setAuthor(rs.getInt("SnapshotAuthor"));
+			p.setAuthor(rs.getInt("MessageAuthor"));
 			p.setGroup(rs.getInt("AttendingGroup"));
 			p.setCreationDate(rs.getString("SnapshotDate"));
 			p.setContent(rs.getString("Content"));

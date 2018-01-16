@@ -3,9 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ page import="service.AccountManager"%>
+<%@ page import="domain.Account"%>
 <%@ page import="service.RoleManager"%>
 <%@ page import="domain.Role"%>
 <%@ page import="domain.TextFile"%>
+<%@ page import="domain.Message"%>
+<%@ page import="service.MessageManager"%>
 <%@ page import="service.WorkgroupManager"%>
 <%@ page import="domain.Workgroup"%>
 <%@ page import="java.util.List"%>
@@ -47,6 +50,7 @@
         }
 
         String currentNickname = currentuser.getNickName();
+        int currentID = currentuser.getUserID();
         int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
@@ -105,7 +109,11 @@
           <div class="col-sm-8">
             <p id="editorForFileContentInfo">
               Currently edited file is made by
-              <strong> <%= currentNickname %> </strong>
+              <%
+                AccountManager accman = new AccountManager();
+                request.setAttribute("accman", accman);
+              %>
+              <strong> <%= accman.getAccount(Integer.parseInt(forMessageAuthor)).getNickname() %> </strong>
               and it's name is
               <strong> <%= currentFileName %> </strong>
             </p>
@@ -141,11 +149,7 @@
                       Upload to editor
                     </button>
                 </td>
-               </tr>
-               <tr>
-               <td></td>
                 <td>
-                  <%-- <form id="formSave" action="/ajx/doSaveFile" method="GET"> --%>
                   <form id="formSave" onclick="realTime();" action="/ajx/doSaveFile" method="GET">
                     <input type="hidden" name="author" value="<%= forMessageAuthor %>">
               			<input type="hidden" name="group" value="<%= forMessageGroup %>">
@@ -154,10 +158,11 @@
                     <input id="content" type="hidden" name="content" value="">
                 	<!-- SAVE BUTTON -->
                 	<button  id="saveButton"
-                		type="submit"
-                        class="btn btn-success"
-                        value="">
-                    <span class="glyphicon glyphicon-save"></span>
+                		       type="submit"
+                           class="btn btn-success"
+                           value=""
+                           style="margin-left:25px;">
+                      <span class="glyphicon glyphicon-save"></span>
                     	Save to Your Workgroup Storage
                 	</button>
               		</form>
@@ -179,15 +184,56 @@
                   Type something and press the paper aeroplan
                   to send it.
                 </div>
+                <%
+                  AccountManager am = new AccountManager();
+                  request.setAttribute("am", am);
+
+                  MessageManager mm = new MessageManager();
+                  List<Message> messages = mm.getAllMessages();
+                  request.setAttribute("messages", messages);
+                %>
+                <!-- DISPLAY ALL MESSAGES -->
+                <c:forEach var="message" items="${messages}" varStatus="loop">
+                  <%
+                    int chattingGroup = Integer.parseInt(request.getParameter("group"));
+                    request.setAttribute("chattingGroup", chattingGroup);
+                  %>
+                  <%-- <c:out value="${chattingGroup}"></c:out> --%>
+                  <c:if test="${message.getGroup() == chattingGroup}">
+                    <!-- MESSAGE -->
+                    <div id="myMessage" style="opacity:1; transition:opacity 0.5s ease 0s;">
+                      <strong>
+                        <c:out value="${am.getAccount(message.getAuthor()).getNickname()}"></c:out>:
+                      </strong>
+                      <c:out value="${message.getContent()}"></c:out>
+                      <p id="sendTime">
+                        <c:out value="${message.getCreationDate().substring(0,19)}"></c:out>
+
+                        <!-- TYMCZASOWE WYŚWIETLANIE GRUPY -->
+                        <span style="color:darkred;">
+                          <br/>
+                          Group: <c:out value="${message.getGroup()}"></c:out>
+                        </span>
+                      </p>
+                    </div>
+                  </c:if>
+                </c:forEach>
               </div>
-  						<form onsubmit="addMessage(<%= forMessageAuthor %>,'<%= currentNickname %>',<%= forMessageGroup %>); return false;">
-  						    <input type="hidden" name="author" value="<%= forMessageAuthor %>">
-          				<input type="hidden" name="group" value="<%= forMessageGroup %>">
-          				<input type="hidden" name="file" value="<%= forMessageFile %>">
+  						<%-- <form action="/doSaveMessage" onsubmit="addMessage(<%= forMessageAuthor %>,'<%= currentNickname %>',<%= forMessageGroup %>); return false;" method="GET"> --%>
+              <form action="/doSaveMessage" method="GET">
+                  <input type="hidden" name="author" value="<%= forMessageAuthor %>">
+                  <input type="hidden" name="group" value="<%= forMessageGroup %>">
+                  <input type="hidden" name="file" value="<%= forMessageFile %>">
+                  <%
+
+                  %>
+  						    <input type="hidden" name="messageAuthor" value="<%= currentID %>">
+          				<input type="hidden" name="messageGroup" value="<%= forMessageGroup %>">
+          				<%-- <input id="messageContent" type="hidden" name="messageContent" value=""> --%>
   	            <div id="chatTyping">
   	              <strong><%= currentNickname %>:</strong>
                   <br/>
-  	              <input id="message" type="text" name="message"/>
+  	              <input id="message" type="text" name="messageContent"/>
   	              <button id="sendMessage"
   												type="submit"
   	                      class="btn btn-success">

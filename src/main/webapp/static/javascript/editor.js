@@ -139,7 +139,7 @@ function readTextFromFile(file) {
     return allText;
 }
 
-// REAL-TIME LOCADING CONTENT
+// REAL-TIME LOADING CONTENT
 function realTime() {
     var content = myCodeMirror.getValue();
     document.getElementById("content").value = content;

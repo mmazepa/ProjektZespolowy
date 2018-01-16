@@ -2,7 +2,7 @@
 function addMessage(user, username, group){
     var message = document.getElementById("message").value;
     if (message && message !== "" && message !== null) {
-        prepareMessage(username, message);
+        prepareMessage(username, message, group);
 //        var pg = require("pg");
 //        var connectionString = "postgres://postgres:HakerBonzo2137/94.177.245.154:5432/cigarbase";
 //        var pgClient = new pg.Client(connectionString);
@@ -13,11 +13,13 @@ function addMessage(user, username, group){
 }
 
 // PREPARING NEW MESSAGE
-function prepareMessage(username, message){
+function prepareMessage(username, message, group){
     var datetime = prepareCurrentDate();
     message = censorship(message);
 
     if (message.replace(/\s/g, '').length) {
+        document.getElementById("message").value = message;
+
         var chat = document.getElementById("messages");
 
         var div = document.createElement("div");
@@ -30,6 +32,7 @@ function prepareMessage(username, message){
 
         div.setAttribute("id", "myMessage");
         p.setAttribute("id", "sendTime");
+        //strong.setAttribute("id", "mess_" + username + "_" + group + "_" + message)
 
         strong.appendChild(user);
         div.appendChild(strong);
