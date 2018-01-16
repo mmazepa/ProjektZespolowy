@@ -54,9 +54,14 @@
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
+        <c:if test="${(currentNickname != '') and ((currentRoleId == 1) or (currentRoleId == 2))}">
           <h3>
-            Administrator Panel
+            <c:if test="${currentRoleId == 1}">
+              Administrator panel
+            </c:if>
+            <c:if test="${currentRoleId == 2}">
+              Moderator panel
+            </c:if>
             <span class="glyphicon glyphicon-menu-right"></span>
             List of workgroups
           </h3>
@@ -151,7 +156,7 @@
         </c:if>
 
         <!-- IF USER IS LOGGED IN AND IS NOT ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRoleId != 1)}">
+        <c:if test="${(currentNickname != '') and ((currentRoleId != 1) and (currentRoleId != 2))}">
           <h5 id="helloGuest">
             <strong>SORRY!</strong>
             You don't have permission to see this section.

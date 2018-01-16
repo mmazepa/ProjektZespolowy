@@ -39,6 +39,7 @@
 
     request.setAttribute("currentNickname", currentNickname);
     request.setAttribute("currentRole", currentRole);
+    request.setAttribute("currentRoleId", currentRoleId);
 %>
 
 <a id="logo" href="/index.jsp">
@@ -61,13 +62,24 @@ Editor On-Line for programmatic cooperation <!-- in real-time -->
         </td>
         <td>
           <select id="navigate" onchange="changeLocation();">
-            <c:if test="${currentRole == 'Administrator'}">
-              <option disabled="disabled">-- Administrator Only --</option>
-              <option>Administrator Panel</option>
-              <option disabled="disabled">-- Administrator Tables --</option>
-              <option>Accounts</option>
+            <c:if test="${(currentRoleId == 1) or (currentRoleId == 2)}">
+              <c:if test="${currentRoleId == 1}">
+                <option disabled="disabled">-- Administrator Only --</option>
+                <option>Administrator Panel</option>
+                <option disabled="disabled">-- Administrator Tables --</option>
+              </c:if>
+              <c:if test="${currentRoleId == 2}">
+                <option disabled="disabled">-- Moderator Only --</option>
+                <option>Moderator Panel</option>
+                <option disabled="disabled">-- Moderator Tables --</option>
+              </c:if>
+              <c:if test="${currentRoleId == 1}">
+                <option>Accounts</option>
+              </c:if>
               <option>Attendances</option>
-              <option>Roles</option>
+              <c:if test="${currentRoleId == 1}">
+                <option>Roles</option>
+              </c:if>
               <option>Snapshots</option>
               <option>Text Files</option>
               <option>Workgroups</option>

@@ -35,10 +35,7 @@
   width: 50%;
 }
 
-#myMessage {
-  background-color: whitesmoke;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid silver;
+#myMessage, #notMyMessage {
   border-radius: 15px;
   padding: 5px;
   width: 95%;
@@ -47,7 +44,23 @@
   margin-left: 10px;
 }
 
+#myMessage {
+  background-color: lighten(lightgreen, 10%);
+  border-top: 1px solid green;
+  border-bottom: 1px solid darkgreen;
+}
+
+#notMyMessage {
+  background-color: whitesmoke;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid silver;
+}
+
 #myMessage:hover {
+  background-color: darken(lighten(lightgreen, 10%), 5%);
+}
+
+#notMyMessage:hover {
   background-color: darken(whitesmoke, 5%);
 }
 

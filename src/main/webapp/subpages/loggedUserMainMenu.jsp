@@ -76,7 +76,14 @@
             </c:if>
 
             <!-- IF USER IS MODERATOR -->
-            <c:if test="${currentRole == 'Moderator'}"></c:if>
+            <c:if test="${currentRole == 'Moderator'}">
+              <form action="/subpages/admin.jsp" method="post">
+                <button id="userButton01" type="submit" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-wrench"></span>
+                  Moderator Panel
+                </button>
+              </form>
+            </c:if>
 
             <!-- IF USER IS USER -->
             <c:if test="${currentRole == 'User'}"></c:if>

@@ -57,7 +57,11 @@ function changeLocation(){
     else if(destination == "Administrator Panel") {
         location.href = "/subpages/admin.jsp";
     }
-    // ADMINISTRATOR TABLES OPTIONS
+    // MODERATOR PANEL OPTION
+    else if(destination == "Moderator Panel") {
+        location.href = "/subpages/admin.jsp";
+    }
+    // ADMINISTRATOR/MODERATOR TABLES OPTIONS
     else if(destination == "Accounts") {
         location.href = "/accounts";
     }

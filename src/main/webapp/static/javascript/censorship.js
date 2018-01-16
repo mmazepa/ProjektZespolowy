@@ -95,3 +95,9 @@ function replaceAllVulgarity(item, textToCensore){
 
     return textToCensore;
 }
+
+// SCROLLING DOWN IN CHAT
+function scrollDown() {
+    var chat = document.getElementById("messages");
+    chat.scrollTop = chat.scrollHeight;
+}

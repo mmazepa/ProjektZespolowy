@@ -58,9 +58,14 @@
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
+        <c:if test="${(currentNickname != '') and ((currentRoleId == 1) or (currentRoleId == 2))}">
           <h3>
-            Administrator Panel
+            <c:if test="${currentRoleId == 1}">
+              Administrator Panel
+            </c:if>
+            <c:if test="${currentRoleId == 2}">
+              Moderator Panel
+            </c:if>
             <span class="glyphicon glyphicon-menu-right"></span>
             List of snapshots
           </h3>
@@ -120,7 +125,22 @@
 
       					<td><c:out value="${snapshot.getName()}"/></td>
       					<td><c:out value="${snapshot.getCreationDate().substring(0,19)}"/></td>
-      					<td><c:out value="${snapshot.getContent()}"/></td>
+
+      					<%-- <td><c:out value="${snapshot.getContent()}"/></td> --%>
+								<td>
+									<c:choose>
+										<c:when test="${snapshot.getContent().length() > 50}">
+											<abbr title="${snapshot.getContent()}">
+												<c:out value="${snapshot.getContent().substring(0,50)}"/>
+												...
+											</abbr>
+										</c:when>
+										<c:otherwise>
+											<c:out value="${snapshot.getContent()}"/>
+										</c:otherwise>
+									</c:choose>
+								</td>
+
                   <td>
                     <form action="/subpages/obtainEditedSnapshotData.jsp" style="display:inline">
           						<input type="hidden" name="id" value="${snapshot.getID()}">
@@ -179,7 +199,7 @@
         </c:if>
 
         <!-- IF USER IS LOGGED IN AND IS NOT ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRoleId != 1)}">
+        <c:if test="${(currentNickname != '') and ((currentRoleId != 1) and (currentRoleId != 2))}">
           <h5 id="helloGuest">
             <strong>SORRY!</strong>
             You don't have permission to see this section.

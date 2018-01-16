@@ -39,7 +39,7 @@
 
     <!-- AT LEAST ONE SCRIPT IS PLACED AT THE BOTTOM -->
 	</head>
-	<body onload="loadHeaderAndFooter(); loadModes(); manageUrlParams();">
+	<body onload="loadHeaderAndFooter(); loadModes(); scrollDown(); manageUrlParams();">
     <header></header>
     <%
         UserInfo info = (UserInfo) request.getSession().getAttribute("usersessioninfo");
@@ -51,6 +51,7 @@
 
         String currentNickname = currentuser.getNickName();
         int currentID = currentuser.getUserID();
+        request.setAttribute("currentID", currentID);
         int currentRoleId = currentuser.getRole();
         String currentRole = new String();
 
@@ -201,21 +202,28 @@
                   <%-- <c:out value="${chattingGroup}"></c:out> --%>
                   <c:if test="${message.getGroup() == chattingGroup}">
                     <!-- MESSAGE -->
-                    <div id="myMessage" style="opacity:1; transition:opacity 0.5s ease 0s;">
-                      <strong>
-                        <c:out value="${am.getAccount(message.getAuthor()).getNickname()}"></c:out>:
-                      </strong>
-                      <c:out value="${message.getContent()}"></c:out>
-                      <p id="sendTime">
-                        <c:out value="${message.getCreationDate().substring(0,19)}"></c:out>
-
-                        <!-- TYMCZASOWE WYŚWIETLANIE GRUPY -->
-                        <span style="color:darkred;">
-                          <br/>
-                          Group: <c:out value="${message.getGroup()}"></c:out>
-                        </span>
-                      </p>
-                    </div>
+                    <c:if test="${message.getAuthor() == currentID}">
+                      <div id="myMessage" style="opacity:1; transition:opacity 0.5s ease 0s;">
+                        <strong>
+                          <c:out value="${am.getAccount(message.getAuthor()).getNickname()}"></c:out>:
+                        </strong>
+                        <c:out value="${message.getContent()}"></c:out>
+                        <p id="sendTime">
+                          <c:out value="${message.getCreationDate().substring(0,19)}"></c:out>
+                        </p>
+                      </div>
+                    </c:if>
+                    <c:if test="${message.getAuthor() != currentID}">
+                      <div id="notMyMessage" style="opacity:1; transition:opacity 0.5s ease 0s;">
+                        <strong>
+                          <c:out value="${am.getAccount(message.getAuthor()).getNickname()}"></c:out>:
+                        </strong>
+                        <c:out value="${message.getContent()}"></c:out>
+                        <p id="sendTime">
+                          <c:out value="${message.getCreationDate().substring(0,19)}"></c:out>
+                        </p>
+                      </div>
+                    </c:if>
                   </c:if>
                 </c:forEach>
               </div>

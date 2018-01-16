@@ -52,28 +52,42 @@
       <div class="centeredText">
 
         <!-- IF USER IS LOGGED IN AND IS ADMIN -->
-        <c:if test="${(currentNickname != '') and (currentRoleId == 1)}">
+        <c:if test="${(currentNickname != '') and ((currentRoleId == 1) or (currentRoleId == 2))}">
           <h3>
             <span class="glyphicon glyphicon-sunglasses"></span>
-            Administrator Panel
+            <c:if test="${currentRoleId == 1}">
+              Administrator Panel
+            </c:if>
+            <c:if test="${currentRoleId == 2}">
+              Moderator Panel
+            </c:if>
             <span class="glyphicon glyphicon-sunglasses"></span>
           </h3>
           <div id="customPanel">
             <p id="customPanelInfo">
-              Welcome to Administrator Panel.<br/>
+              Welcome to
+              <c:if test="${currentRoleId == 1}">
+                Administrator Panel
+              </c:if>
+              <c:if test="${currentRoleId == 2}">
+                Moderator Panel
+              </c:if>
+              .<br/>
               Choose what you want to manage by clicking one of buttons below.
             </p>
 
             <!-- ADMIN BUTTONS SECTION -->
             <div class="adminButtonsGroup">
-              <div class="wrapper">
-                <button id="accounts"
-                        class="adminButtons"
-                        onclick="location.assign('/accounts')">
-                    Accounts
-                </button>
-                <p class="text">List of users</p>
-              </div>
+              <c:if test="${currentRoleId == 1}">
+                <div class="wrapper">
+                  <button id="accounts"
+                          class="adminButtons"
+                          onclick="location.assign('/accounts')">
+                      Accounts
+                  </button>
+                  <p class="text">List of users</p>
+                </div>
+              </c:if>
               <div class="wrapper">
                 <button id="attendances"
                         class="adminButtons"
@@ -82,15 +96,19 @@
                 </button>
                 <p class="text">List of attendances</p>
               </div>
-              <div class="wrapper">
-                <button id="roles"
-                        class="adminButtons"
-                        onclick="location.assign('/roles')">
-                    Roles
-                </button>
-                <p class="text">List of roles</p>
-              </div>
-              <br/>
+              <c:if test="${currentRoleId == 1}">
+                <div class="wrapper">
+                  <button id="roles"
+                          class="adminButtons"
+                          onclick="location.assign('/roles')">
+                      Roles
+                  </button>
+                  <p class="text">List of roles</p>
+                </div>
+              </c:if>
+              <c:if test="${currentRoleId == 1}">
+                <br/>
+              </c:if>
               <div class="wrapper">
                 <button id="snapshots"
                         class="adminButtons"
@@ -99,6 +117,9 @@
                 </button>
                 <p class="text">List of snapshots</p>
               </div>
+              <c:if test="${currentRoleId == 2}">
+                <br/>
+              </c:if>
               <div class="wrapper">
                 <button id="textFiles"
                         class="adminButtons"
@@ -119,7 +140,19 @@
             <br/>
 
             <p id="customPanelInfo">
-              Administator panel for administrative things.
+              <c:if test="${currentRoleId == 1}">
+                Administrator panel
+              </c:if>
+              <c:if test="${currentRoleId == 2}">
+                Moderator panel
+              </c:if>
+              for
+              <c:if test="${currentRoleId == 1}">
+                administrative things.
+              </c:if>
+              <c:if test="${currentRoleId == 2}">
+                moderative things.
+              </c:if>
             </p>
           </div>
           <br/>
