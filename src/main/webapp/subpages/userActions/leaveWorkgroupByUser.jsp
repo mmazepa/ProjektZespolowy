@@ -31,7 +31,7 @@
         	</form>
         </div>
 
-        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+        <a id="backLink" href="/subpages/userWorkgroups.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back
         </a>

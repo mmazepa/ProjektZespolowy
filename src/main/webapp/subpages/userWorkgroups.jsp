@@ -119,8 +119,19 @@
                       <td>
                         <c:out value="${workgroup.getCreationDate().substring(0,19)}"/>
                       </td>
+                      <%-- <td><c:out value="${workgroup.getDescription()}"/></td> --%>
                       <td>
-                        <c:out value="${workgroup.getDescription()}"/>
+                        <c:choose>
+                          <c:when test="${workgroup.getDescription().length() > 50}">
+                            <abbr title="${workgroup.getDescription()}">
+                              <c:out value="${workgroup.getDescription().substring(0,50)}"/>
+                              ...
+                            </abbr>
+                          </c:when>
+                          <c:otherwise>
+                            <c:out value="${workgroup.getDescription()}"/>
+                          </c:otherwise>
+                        </c:choose>
                       </td>
                       <td>
                     	<c:choose>
@@ -197,8 +208,19 @@
                       <td>
                         <c:out value="${workgroup.getCreationDate().substring(0,19)}"/>
                       </td>
+                      <%-- <td><c:out value="${workgroup.getDescription()}"/></td> --%>
                       <td>
-                        <c:out value="${workgroup.getDescription()}"/>
+                        <c:choose>
+                          <c:when test="${workgroup.getDescription().length() > 50}">
+                            <abbr title="${workgroup.getDescription()}">
+                              <c:out value="${workgroup.getDescription().substring(0,50)}"/>
+                              ...
+                            </abbr>
+                          </c:when>
+                          <c:otherwise>
+                            <c:out value="${workgroup.getDescription()}"/>
+                          </c:otherwise>
+                        </c:choose>
                       </td>
                       <td>
                     	<c:choose>

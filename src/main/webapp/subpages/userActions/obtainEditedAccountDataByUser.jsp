@@ -103,7 +103,7 @@
       		</form>
         </table>
 
-        <a id="backLink" href="/accounts">
+        <a id="backLink" href="/subpages/userProfile.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back
         </a>

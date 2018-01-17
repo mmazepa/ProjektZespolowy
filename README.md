@@ -9,11 +9,11 @@ programistycznej w czasie rzeczywistym.
 
 ## Skład zespołu ##
 
-| L.P. | Imię i nazwisko   | Pełnione funkcje           | Zakres obowiązków               |
-|------|-------------------|----------------------------|---------------------------------|
-| 1    | Lipkowski Paweł   | Administrator bazy danych  | Baza danych, wsparcie back-endu |
-| 2    | Mazepa Mariusz    | Lider, webmaster, grafik   | Front-end, wsparcie back-endu   |
-| 3    | Zakrzewski Michał | Webdeveloper (programista) | Back-end                        |
+| L.P. | Imię i nazwisko   | Pełnione funkcje                                  | Zakres obowiązków                       |
+|------|-------------------|---------------------------------------------------|-----------------------------------------|
+| 1    | Lipkowski Paweł   | Administrator bazy danych, administrator serwera  | Baza danych, serwer, wsparcie back-endu |
+| 2    | Mazepa Mariusz    | Lider, webmaster, grafik                          | Front-end, wsparcie back-endu           |
+| 3    | Zakrzewski Michał | Webdeveloper (programista)                        | Back-end                                |
 
 ## Moduły, frameworki i inne ##
 
