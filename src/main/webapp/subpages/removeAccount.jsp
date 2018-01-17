@@ -16,16 +16,21 @@
 	</head>
   <body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
         <h3>Administrator Panel Delete</h3>
-        <hr/>
-        <h4>Please confirm you want to remove that record.</h4>
+
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            Please confirm you want to remove that record.
+          </p>
+        </div>
+
         <br/>
       	<%
         	acc = accstorage.getAccount(Integer.parseInt(request.getParameter("id")));
       	%>
-        <table class="adminTable formTable">
+        <table class="adminTable accountTable">
           <tr>
             <th>Property</th>
             <th>Value</th>
@@ -71,10 +76,11 @@
             </tr>
         	</form>
         </table>
-  	    <br/>
-        <p>
-        	<a href="/accounts"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        </p>
+
+        <a id="backLink" href="/accounts">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

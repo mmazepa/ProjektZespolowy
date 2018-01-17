@@ -19,7 +19,7 @@
             Now you can log in to Editor On-Line and check the functionality.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="../index.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

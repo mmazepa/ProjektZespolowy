@@ -102,10 +102,11 @@
             </tr>
       		</form>
         </table>
-        <br/>
-        <a href="/subpages/userProfile.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        <br/>
-        <br/>
+
+        <a id="backLink" href="/accounts">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

@@ -67,12 +67,12 @@
             <p id="customPanelInfo">
               Welcome to
               <c:if test="${currentRoleId == 1}">
-                Administrator Panel
+                <strong>Administrator Panel</strong>.
               </c:if>
               <c:if test="${currentRoleId == 2}">
-                Moderator Panel
+                <strong>Moderator Panel</strong>.
               </c:if>
-              .<br/>
+              <br/>
               Choose what you want to manage by clicking one of buttons below.
             </p>
 
@@ -155,8 +155,8 @@
               </c:if>
             </p>
           </div>
-          <br/>
-          <a href="/subpages/loggedUserMainMenu.jsp">
+
+          <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
             <span class="glyphicon glyphicon-arrow-left"></span>
             Back
           </a>

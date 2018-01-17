@@ -201,7 +201,10 @@
 					</button>
 
           <br/>
-          <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <a id="backLink" href="/subpages/admin.jsp">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </c:if>
 
         <!-- IF USER IS LOGGED IN AND IS NOT ADMIN -->

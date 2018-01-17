@@ -52,10 +52,11 @@
             </tr>
       		</form>
         </table>
-        <br/>
-        <a href="/workgroups"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        <br/>
-        <br/>
+
+        <a id="backLink" href="/workgroups">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

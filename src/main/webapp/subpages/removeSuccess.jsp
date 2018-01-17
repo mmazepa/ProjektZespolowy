@@ -18,7 +18,7 @@
             You removed a record successfully.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="admin.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

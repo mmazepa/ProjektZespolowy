@@ -28,14 +28,17 @@
         	%>
         	<form action="/doRemoveTextFileByUser" style="margin-left:0.1in; display:inline" method="post">
         		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-        		<p><b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty></p>
-        		<input class="button" type="submit" value=" Confirm " style="display:inline">
+        		<b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty>
+            <br/>
+            <br/>
+        		<input class="btn btn-danger" type="submit" value="Confirm" style="display:inline">
         	</form>
         </div>
-      	<br/>
-      	<p>
-        	<a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-      	</p>
+
+        <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

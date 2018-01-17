@@ -264,7 +264,10 @@
 					</button>
 
           <br/>
-          <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </c:if>
 
         <!-- IF USER IS NOT LOGGED IN -->

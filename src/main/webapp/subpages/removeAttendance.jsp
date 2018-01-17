@@ -20,23 +20,23 @@
         <div class="centeredText">
           <h3>Administrator Panel Delete</h3>
           <hr/>
-          <h4>Please confirm you want to remove that record.</h4>
-          <br/>
-        	<%
-          	att = attstorage.getAttendance(Integer.parseInt(request.getParameter("id")));
-        	%>
-        	<form action="/doRemoveAttendance" style="margin-left:0.1in; display:inline" method="post">
-        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-        		<!--<p><b>Nickname:</b> <jsp:getProperty name="att" property="grup"></jsp:getProperty></p>
-        		<p><b>Email:</b> <jsp:getProperty name="att" property="user"></jsp:getProperty></p>
-        		<p><b>Name:</b> <jsp:getProperty name="att" property="isAdmin"></jsp:getProperty></p>
-        		<p><b>Surname:</b> <jsp:getProperty name="att" property="joinDate"></jsp:getProperty></p>-->
-        		<input class="button" type="submit" value=" Confirm " style="display:inline">
-        	</form>
-        	<br/>
-        	<p>
-          		<a href="/accounts"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        	</p>
+          <div id="customPanel">
+            <p id="customPanelInfo">
+              Please confirm you want to remove that record.
+            </p>
+          	<%
+            	att = attstorage.getAttendance(Integer.parseInt(request.getParameter("id")));
+          	%>
+          	<form action="/doRemoveAttendance" style="margin-left:0.1in; display:inline" method="post">
+          		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+          		<input class="btn btn-danger" type="submit" value=" Confirm " style="display:inline">
+          	</form>
+          </div>
+
+          <a id="backLink" href="/attendances">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </div>
       </main>
       <footer></footer>

@@ -18,7 +18,7 @@
             An error occured when creating what you want to create.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

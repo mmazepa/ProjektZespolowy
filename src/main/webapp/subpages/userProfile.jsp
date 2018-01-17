@@ -63,7 +63,7 @@
         <!-- IF USER IS LOGGED ID -->
         <c:if test="${currentNickname != ''}">
           <h3>${currentNickname}'s Profile</h3>
-          <hr/>
+
           <div id="userProfile">
             <span id="nickname">
               <span class="glyphicon glyphicon-user"></span>
@@ -170,8 +170,10 @@
             </div>
           </div>
 
-          <br/>
-          <a href="/subpages/loggedUserMainMenu.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </c:if>
 
         <!-- IF USER IS NOT LOGGED IN -->

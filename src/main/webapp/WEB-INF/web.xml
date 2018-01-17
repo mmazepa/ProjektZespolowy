@@ -23,7 +23,7 @@
 		<servlet-name>Web Application</servlet-name>
 		<url-pattern>projekt/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!--  <servlet>
     	<servlet-name>formSave</servlet-name>
     	<servlet-class>actions.TextFileSaver</servlet-class>
@@ -41,6 +41,10 @@
   <error-page>
     <error-code>404</error-code>
     <location>/subpages/error_pages/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/subpages/error_pages/500.jsp</location>
   </error-page>
 
   <!-- TO NOT ALLOW BROWSE DIRECTORIES -->

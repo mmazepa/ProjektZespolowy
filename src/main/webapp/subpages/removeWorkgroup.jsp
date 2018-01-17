@@ -10,28 +10,37 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../static/javascript/main.js"></script>
     <jsp:useBean id="group" class="domain.Workgroup" scope="session" />
-	<jsp:setProperty name="group" property="*" />
-	<jsp:useBean id="groupstorage" class="service.WorkgroupManager" scope="application" />
+	  <jsp:setProperty name="group" property="*" />
+	  <jsp:useBean id="groupstorage" class="service.WorkgroupManager" scope="application" />
 	</head>
-<body onload="loadHeaderAndFooter()">
+  <body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
         <h3>Administrator Panel Delete</h3>
-        <hr/>
-        <h4>Please confirm you want to remove that record.</h4>
-        <br/>
-	<%
-  	group = groupstorage.getWorkgroup(Integer.parseInt(request.getParameter("id")));
-	%>
-	<form action="/doRemoveWorkgroup" style="margin-left:0.1in; display:inline" method="post">
-		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-		<p><b>Name:</b> <jsp:getProperty name="group" property="name"></jsp:getProperty></p>
-		<input class="button" type="submit" value=" Confirm " style="display:inline">
-	</form>
-	<br/>
-	<p>
-  		<a href="/workgroups"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-	</p>
+
+        <div id="customPanel">
+          <p id="customPanelInfo">
+            Please confirm you want to remove that record.
+          </p>
+
+        	<%
+          	group = groupstorage.getWorkgroup(Integer.parseInt(request.getParameter("id")));
+        	%>
+        	<form action="/doRemoveWorkgroup" style="margin-left:0.1in; display:inline" method="post">
+        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+        		<b>Name:</b> <jsp:getProperty name="group" property="name"></jsp:getProperty>
+            <br/>
+            <br/>
+        		<input class="btn btn-danger" type="submit" value=" Confirm " style="display:inline">
+        	</form>
+      	</div>
+        <a id="backLink" href="/workgroups">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
+      </div>
+    </main>
+    <footer></footer>
 </body>
 </html>

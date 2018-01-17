@@ -128,17 +128,19 @@
 
       					<%-- <td><c:out value="${snapshot.getContent()}"/></td> --%>
 								<td>
-									<c:choose>
-										<c:when test="${snapshot.getContent().length() > 50}">
-											<abbr title="${snapshot.getContent()}">
-												<c:out value="${snapshot.getContent().substring(0,50)}"/>
-												...
-											</abbr>
-										</c:when>
-										<c:otherwise>
-											<c:out value="${snapshot.getContent()}"/>
-										</c:otherwise>
-									</c:choose>
+                  <code>
+  									<c:choose>
+  										<c:when test="${snapshot.getContent().length() > 50}">
+  											<abbr title="${snapshot.getContent()}">
+  												<c:out value="${snapshot.getContent().substring(0,50)}"/>
+  												...
+  											</abbr>
+  										</c:when>
+  										<c:otherwise>
+  											<c:out value="${snapshot.getContent()}"/>
+  										</c:otherwise>
+  									</c:choose>
+                  </code>
 								</td>
 
                   <td>
@@ -195,7 +197,10 @@
 					</button>
 
           <br/>
-          <a href="/subpages/admin.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+          <a id="backLink" href="/subpages/admin.jsp">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </c:if>
 
         <!-- IF USER IS LOGGED IN AND IS NOT ADMIN -->

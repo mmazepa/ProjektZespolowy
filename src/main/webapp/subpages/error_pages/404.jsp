@@ -11,10 +11,10 @@
 	</head>
 	<body onload="loadHeaderAndFooter()">
     <header></header>
-    <main id="indexMain">
+    <main>
       <div class="centeredText">
         <h3>Welcome to Editor On-Line</h3>
-        <hr/>
+
         <div id="customPanel">
           <h1>Nice try!</h1>
           <br/>
@@ -23,9 +23,10 @@
             You can back to our Home Page now.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="/index.jsp">
-          <span class="glyphicon glyphicon-arrow-left"></span> Back
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
         </a>
       </div>
     </main>

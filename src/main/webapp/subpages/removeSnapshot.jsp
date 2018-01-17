@@ -23,24 +23,24 @@
           <p id="customPanelInfo">
             Please confirm you want to remove that record.
           </p>
+        	<%
+          	snp = snpstorage.getSnapshot(Integer.parseInt(request.getParameter("id")));
+        	%>
+        	<form action="/doRemoveSnapshot" style="margin-left:0.1in; display:inline" method="post">
+        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+        		<b>Name:</b> <jsp:getProperty name="snp" property="name"></jsp:getProperty>
+            <br/>
+            <br/>
+        		<input class="btn btn-danger" type="submit" value=" Confirm " style="display:inline">
+        	</form>
         </div>
-	<%
-  	snp = snpstorage.getSnapshot(Integer.parseInt(request.getParameter("id")));
-	%>
-	<form action="/doRemoveSnapshot" style="margin-left:0.1in; display:inline" method="post">
-		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-		<p><b>Name:</b> <jsp:getProperty name="snp" property="name"></jsp:getProperty></p>
-		<input class="button" type="submit" value=" Confirm " style="display:inline">
-	</form>
-	<br/>
-  <br/>
-	<p>
-  	<a id="backLink" href="/snapshots">
-      <span class="glyphicon glyphicon-arrow-left"></span>
-      Back
-    </a>
-	</p>
-  </main>
+
+        <a id="backLink" href="/snapshots">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
+      </div>
+    </main>
   <footer></footer>
 </body>
 </html>

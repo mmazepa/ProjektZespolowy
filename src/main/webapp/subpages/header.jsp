@@ -85,7 +85,7 @@ Editor On-Line for programmatic cooperation <!-- in real-time -->
               <option>Workgroups</option>
             </c:if>
             <option disabled="disabled">-- Where do You Go? --</option>
-            <option>Editor</option>
+            <%-- <option>Editor</option> --%>
             <option>Home Page</option>
             <option>My Files</option>
             <option>My Profile</option>

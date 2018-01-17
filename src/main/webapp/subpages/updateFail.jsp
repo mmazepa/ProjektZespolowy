@@ -18,7 +18,7 @@
             An error occured when updating a record.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="admin.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

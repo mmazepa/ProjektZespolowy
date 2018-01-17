@@ -58,10 +58,11 @@
             </tr>
       		</form>
         </table>
-        <br/>
-        <a href="/textFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        <br/>
-        <br/>
+
+        <a id="backLink" href="/textFiles">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

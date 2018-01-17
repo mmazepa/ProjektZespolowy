@@ -81,9 +81,9 @@ function changeLocation(){
         location.href = "/workgroups";
     }
     // ALL LOGGED USERS OPTIONS
-    else if(destination == "Editor") {
-        location.href = "/subpages/editor.jsp";
-    }
+    // else if(destination == "Editor") {
+    //     location.href = "/subpages/editor.jsp";
+    // }
     else if(destination == "My Files") {
         location.href = "/userFiles";
     }

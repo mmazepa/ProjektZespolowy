@@ -18,8 +18,11 @@
             Something went wrong with registration process. Please try again later.
           </p>
         </div>
-        <br/>
-        <a href="../index.jsp"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+
+        <a id="backLink" href="../index.jsp">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          Back
+        </a>
       </div>
     </main>
     <footer></footer>

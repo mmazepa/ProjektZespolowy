@@ -18,7 +18,7 @@
             An error occured when updating your own record.<br/>
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

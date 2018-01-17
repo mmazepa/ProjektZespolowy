@@ -18,7 +18,7 @@
             You removed your own record successfully.
           </p>
         </div>
-        <br/>
+
         <a id="backLink" href="/subpages/loggedUserMainMenu.jsp">
           <span class="glyphicon glyphicon-arrow-left"></span>
           Back

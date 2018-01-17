@@ -18,21 +18,28 @@
       <main id="indexMain">
         <div class="centeredText">
           <h3>Administrator Panel Delete</h3>
-          <hr/>
-          <h4>Please confirm you want to remove that record.</h4>
-          <br/>
-        	<%
-          	txt = txtstorage.getTextFile(Integer.parseInt(request.getParameter("id")));
-        	%>
-        	<form action="/doRemoveTextFile" style="margin-left:0.1in; display:inline" method="post">
-        		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
-        		<p><b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty></p>
-        		<input class="button" type="submit" value=" Confirm " style="display:inline">
-        	</form>
-        	<br/>
-        	<p>
-          		<a href="/textFiles"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-        	</p>
+
+          <div id="customPanel">
+            <p id="customPanelInfo">
+              Please confirm you want to remove that record.
+
+            	<%
+              	txt = txtstorage.getTextFile(Integer.parseInt(request.getParameter("id")));
+            	%>
+            	<form action="/doRemoveTextFile" style="margin-left:0.1in; display:inline" method="post">
+            		<input type="hidden" name="id" value="<%= request.getParameter("id") %>" />
+            		<b>Name:</b> <jsp:getProperty name="txt" property="name"></jsp:getProperty>
+                <br/>
+                <br/>
+                <input class="btn btn-danger" type="submit" value=" Confirm " style="display:inline">
+            	</form>
+            </p>
+          </div>
+
+          <a id="backLink" href="/textFiles">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            Back
+          </a>
         </div>
       </main>
     <footer></footer>
